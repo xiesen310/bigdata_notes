@@ -44,5 +44,7 @@ grammar_cjkRuby: true
 - 每一个块可以在集群中存放多个副本,解决高可用的问题,并且多台机器可以同时并发的进行读取操作,提高效率
 - 对于客户端只需知道文件的虚拟路径,而虚拟路径和真实存放的位置需要有映射关系,Namenode就是实现这个功能的,通过Namenode找到对应的Datanode进行读写操作
 
+## 数据运算解决方案
+
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556677357.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556727724.jpg
