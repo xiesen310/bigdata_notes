@@ -26,3 +26,5 @@ grammar_cjkRuby: true
 
 # 大量数据的存储和运算
 ## 数据存储的解决方案
+
+### NFS存储结构
