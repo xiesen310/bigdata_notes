@@ -223,6 +223,7 @@ start-yarn.sh
 > 查看hadoop集群信息,默认端口是 50070 ,可以修改windows中的hosts文件便于查看
 
 
+
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556677357.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556727724.jpg
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556959317.jpg
