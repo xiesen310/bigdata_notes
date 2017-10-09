@@ -51,6 +51,8 @@ grammar_cjkRuby: true
 - 方法1:用一台强悍的计算机,一个一个的去计算,并且还要经过网络进行数据的读取,效率很低
 - 方法2:将计算的逻辑分发到所有的数据节点中,每个节点统计自己本地的block数据,此过程就是Mapreduce中map阶段,再通过网络将map阶段运行的中间结果取出,放在一个节点中,在通过我们写的这个程序进行求和的过程,这个过程就是Mapreduce的reduce阶段,叫做reduce的全局统计并发计算,同样reduce也可以进行分组并发操作
 
+# 集群搭建
+
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556677357.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556727724.jpg
