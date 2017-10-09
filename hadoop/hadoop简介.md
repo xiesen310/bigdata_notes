@@ -112,6 +112,10 @@ export PATH=$PATH:$JAVA_HOME/bin
 ```
 - 执行 `source /etc/profile`
 
+## 安装Hadoop
+
+- 下载地址 [https://archive.apache.org/dist/hadoop/common/][10]
+
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556677357.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556727724.jpg
@@ -122,3 +126,4 @@ export PATH=$PATH:$JAVA_HOME/bin
   [7]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507557208536.jpg
   [8]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507557413846.jpg
   [9]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507557486037.jpg
+  [10]: https://archive.apache.org/dist/hadoop/common/
