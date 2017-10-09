@@ -30,3 +30,9 @@ grammar_cjkRuby: true
 ### NFS存储结构
 > NFS（Network File System）即网络文件系统，是FreeBSD支持的文件系统中的一种，它允许网络中的计算机之间通过TCP/IP网络共享资源。
 
+![enter description here][1]
+
+
+
+
+  [1]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1507556677357]]]"
