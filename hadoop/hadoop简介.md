@@ -123,6 +123,10 @@ export PATH=$PATH:$JAVA_HOME/bin
 
 - 在 `share/hadoop` 是hadoop工程中的所需要的jar
 
+![enter description here][12]
+
+## 配置Hadoop
+
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556677357.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556727724.jpg
@@ -135,3 +139,4 @@ export PATH=$PATH:$JAVA_HOME/bin
   [9]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507557486037.jpg
   [10]: https://archive.apache.org/dist/hadoop/common/
   [11]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507557668946.jpg
+  [12]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507557699798.jpg
