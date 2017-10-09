@@ -177,7 +177,7 @@ export PATH=$PATH:$JAVA_HOME/bin
 ```
 ### 配置yarn-site.xml
 
-1．	配置resourcemanager的主机地址
+1．配置resourcemanager的主机地址
 2.	配置mapreduce程序以什么机制进行运行
 
 
