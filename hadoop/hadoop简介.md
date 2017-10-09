@@ -220,6 +220,8 @@ start-yarn.sh
 
 ![enter description here][14]
 
+> 查看hadoop集群信息,默认端口是 50070 ,可以修改windows中的hosts文件便于查看
+
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556677357.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556727724.jpg
@@ -234,4 +236,4 @@ start-yarn.sh
   [11]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507557668946.jpg
   [12]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507557699798.jpg
   [13]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507557915835.jpg
-  [14]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1507558437267]]]"
+  [14]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507558437267.jpg
