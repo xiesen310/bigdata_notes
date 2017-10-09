@@ -255,7 +255,13 @@ scp id_rsa.pub b:/root/ # b指的是ip地址
 cat /root/id_rsa.pub >> ./authorized_keys
 ```
 
+## 内部实现机制
 
+1.a进行登录的时候会携带用户名和主机名称格式为 root@hadoop 发送给b电脑
+2.b电脑会查看授权列表是否有密钥,如果有会用a的公钥加密一个随机字符串发送给a
+3.a电脑收到这个随机字符串,会用私钥进行解密操作
+4.a电脑将解密后的密文发送给b电脑
+5.b电脑拿到密文进行比对之前发送的密文,如果通过验证就会告诉a电脑登录成功
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556677357.jpg
