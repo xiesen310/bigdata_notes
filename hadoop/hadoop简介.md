@@ -174,7 +174,6 @@ export PATH=$PATH:$JAVA_HOME/bin
 		<value>yarn</value>
 	</property>
 </configuration>
-
 ```
 
 
