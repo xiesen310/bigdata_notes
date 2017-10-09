@@ -205,7 +205,7 @@ chkconfig iptables off #开机不启动
 export HADOOP_HOME=/opt/software/hadoop/hadoop-2.7.3
 export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
 ```
-
+### 格式化
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556677357.jpg
