@@ -164,6 +164,18 @@ export PATH=$PATH:$JAVA_HOME/bin
 </configuration>
 ```
 ### 配置mapped-site.xml
+1.	修改名字mv mapred-site.xml.template mapred-site.xml
+2.	配置yarn
+
+``` xml
+<configuration>
+	<property>
+		<name>mapreduce.framework.name</name>
+		<value>yarn</value>
+	</property>
+</configuration>
+
+```
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556677357.jpg
