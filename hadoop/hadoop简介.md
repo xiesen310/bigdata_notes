@@ -175,7 +175,7 @@ export PATH=$PATH:$JAVA_HOME/bin
 	</property>
 </configuration>
 ```
-
+### 配置yarn-site.xml
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556677357.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556727724.jpg
