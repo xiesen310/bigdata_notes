@@ -103,6 +103,15 @@ grammar_cjkRuby: true
 
 ## 安装jdk
 
+- 安装到/opt/Software/Java下
+- 配置环境变量 vi /etc/profile
+
+``` xml
+export JAVA_HOME=/opt/Software/Java/jdk1.8.0_141
+export PATH=$PATH:$JAVA_HOME/bin
+```
+
+
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556677357.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556727724.jpg
