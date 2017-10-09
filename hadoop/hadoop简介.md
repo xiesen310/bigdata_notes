@@ -70,6 +70,10 @@ grammar_cjkRuby: true
 - 修改系统配置文件 `vi /etc/inittab` ,5表示图形界面,3表示命令行界面,将 id:5 改为 id:3
 
 ## 普通用户执行sudo基本设置
+
+- 输入命令 vi /etc/sudoers
+- 添加当前用户
+
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556677357.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556727724.jpg
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556959317.jpg
