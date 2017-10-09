@@ -39,12 +39,9 @@ grammar_cjkRuby: true
 
 ![HDFS Architecture][2]
 
-存放数据的节点称为Datanode
-一个文件进行存储的时候会被分成很多的块(block)分
-散到集群中的各个节点中
-每一个块可以在集群中存放多个副本,解决高可用的问
-题,并且多台机器可以同时并发的进行读取操作,提高效
-率
+- 存放数据的节点称为Datanode
+- 一个文件进行存储的时候会被分成很多的块(block)分散到集群中的各个节点中
+- 每一个块可以在集群中存放多个副本,解决高可用的问题,并且多台机器可以同时并发的进行读取操作,提高效率
 - 对于客户端只需知道文件的虚拟路径,而虚拟路径和真实存放的位置需要有映射关系,Namenode就是实现这个功能的,通过Namenode找到对应的Datanode进行读写操作
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556677357.jpg
