@@ -180,6 +180,20 @@ export PATH=$PATH:$JAVA_HOME/bin
 1. 配置resourcemanager的主机地址
 2. 配置mapreduce程序以什么机制进行运行
 
+``` xml
+<configuration>
+	<property>
+		<name>yarn.resourcemanager.hostname</name>
+		<value>hadoop01</value>
+	</property>
+	<property>
+		<name>yarn.nodemanager.aux-services</name>
+		<value>mapreduce_shuffle</value>
+	</property>
+</configuration>
+```
+
+
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556677357.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556727724.jpg
