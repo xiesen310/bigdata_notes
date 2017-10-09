@@ -9,5 +9,4 @@ grammar_cjkRuby: true
 2.海量数据的分析
 3.资源管理调度 
 
-> 作者是Doug Cutting,其创作的起因也是受到google的三篇论文的启发所开发的这三篇论文分别为GFS(分布式存储系统),MapReduce(分布式运算模型),BigTable(大型的数据库),受到启发开发出对应的HDFS(文件存储系统),MapReduce(分布式计算系
-统),HBase(分布式的NO-SQL数据库)
+> 作者是Doug Cutting,其创作的起因也是受到google的三篇论文的启发所开发的这三篇论文分别为GFS(分布式存储系统),MapReduce(分布式运算模型),BigTable(大型的数据库),受到启发开发出对应的HDFS(文件存储系统),MapReduce(分布式计算系统),HBase(分布式的NO-SQL数据库)
