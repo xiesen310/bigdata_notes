@@ -198,6 +198,8 @@ export PATH=$PATH:$JAVA_HOME/bin
 service iptables stop #关闭防火墙
 chkconfig iptables off #开机不启动
 ```
+### 配置环境变量
+
 
 
 
