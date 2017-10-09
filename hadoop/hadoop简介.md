@@ -143,11 +143,17 @@ export PATH=$PATH:$JAVA_HOME/bin
     <name>fs.defaultFS</name>
     <value>hdfs://hadoop01:9000</value>
 </property
-
 ```
 
-
 2.	配置hadoop的工作目录
+
+``` xml
+<property>
+     <name>hadoop.tmp.dir</name>
+     <value>/opt/software/hadoop/hadoop-2.7.3/tmp</value>
+</property>
+
+```
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556677357.jpg
