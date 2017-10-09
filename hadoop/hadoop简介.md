@@ -28,3 +28,5 @@ grammar_cjkRuby: true
 ## 数据存储的解决方案
 
 ### NFS存储结构
+> NFS（Network File System）即网络文件系统，是FreeBSD支持的文件系统中的一种，它允许网络中的计算机之间通过TCP/IP网络共享资源。
+> 
