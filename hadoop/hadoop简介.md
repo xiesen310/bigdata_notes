@@ -216,7 +216,7 @@ hadoop namenode -format
 start-dfs.sh
 start-yarn.sh
 ```
-
+> 通过jps命令可以查看到hadoop的进程
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556677357.jpg
