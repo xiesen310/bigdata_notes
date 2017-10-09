@@ -19,3 +19,5 @@ grammar_cjkRuby: true
 # MapReduce
 
 > 是Hadoop生态圈中的一个分布式数据分析框架,主要作用就是将我们的编写的计算的任务分发到集群中的节点上
+
+# YARN
