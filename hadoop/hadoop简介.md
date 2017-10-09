@@ -75,7 +75,6 @@ grammar_cjkRuby: true
 - 添加当前用户
 - wq! 进行退出
 
-
 ![enter description here][6]
 
 
@@ -84,4 +83,4 @@ grammar_cjkRuby: true
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556959317.jpg
   [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556975197.jpg
   [5]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556999256.jpg
-  [6]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1507557208536]]]"
+  [6]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507557208536.jpg
