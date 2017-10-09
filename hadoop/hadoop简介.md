@@ -119,6 +119,10 @@ export PATH=$PATH:$JAVA_HOME/bin
 - 解压Hadoop
 - 目录结构
 
+![enter description here][11]
+
+- 在 `share/hadoop` 是hadoop工程中的所需要的jar
+
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556677357.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556727724.jpg
@@ -130,3 +134,4 @@ export PATH=$PATH:$JAVA_HOME/bin
   [8]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507557413846.jpg
   [9]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507557486037.jpg
   [10]: https://archive.apache.org/dist/hadoop/common/
+  [11]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507557668946.jpg
