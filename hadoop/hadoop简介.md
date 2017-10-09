@@ -32,7 +32,8 @@ grammar_cjkRuby: true
 
 ![enter description here][1]
 
+- 缺点1:在某个节点上上共享的数据并发量过高
+- 缺点2:单一一个节点损坏,节点进行写操作的时候如何同步
 
 
-
-  [1]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1507556677357]]]"
+  [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556677357.jpg
