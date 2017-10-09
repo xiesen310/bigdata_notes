@@ -21,3 +21,5 @@ grammar_cjkRuby: true
 > 是Hadoop生态圈中的一个分布式数据分析框架,主要作用就是将我们的编写的计算的任务分发到集群中的节点上
 
 # YARN
+
+> 从Hadoop的版本1.x到版本2.x变化最大的就是YARN,在1.x版本中YARN框架是在在MapReduce中,为了是给我们写的MapReduce程序,分配cpu资源,内存资源和容器资源,在2.x中将YARN抽离出来,单独的负责资源的调度,而MapReduce只管理我们程序的运行机制(将数据任务分成map任务和Reduce任务),这样被抽离出来后,YARN就不仅仅能管理MapReduce任务,还能管理我们的spark(迭代内存计算)和storm(实时流式计算),这样就扩大了Hapoop的应用范围,使这个生态系统给其他框架提供了更多的支持
