@@ -135,7 +135,7 @@ export PATH=$PATH:$JAVA_HOME/bin
 
 ![enter description here][13]
 
-
+### 编辑 core-site.xml
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556677357.jpg
@@ -150,4 +150,4 @@ export PATH=$PATH:$JAVA_HOME/bin
   [10]: https://archive.apache.org/dist/hadoop/common/
   [11]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507557668946.jpg
   [12]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507557699798.jpg
-  [13]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1507557915835]]]"
+  [13]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507557915835.jpg
