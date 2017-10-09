@@ -68,6 +68,10 @@ grammar_cjkRuby: true
 
 - `vi /etc/sysconfig/network-scripts/ifcfg-eth0` 编辑对应的配置文件
 
+![enter description here][6]
+
+- 重启生效 `reboot` 或者 `service network restart`
+
 ## 关闭linux的图形界面
 
 - 一次关闭输入命令 `init 3`
@@ -79,7 +83,7 @@ grammar_cjkRuby: true
 - 添加当前用户
 - wq! 进行退出
 
-![enter description here][6]
+![enter description here][7]
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556677357.jpg
@@ -87,4 +91,5 @@ grammar_cjkRuby: true
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556959317.jpg
   [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556975197.jpg
   [5]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556999256.jpg
-  [6]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507557208536.jpg
+  [6]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507557307816.jpg
+  [7]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507557208536.jpg
