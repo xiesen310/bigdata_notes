@@ -94,10 +94,15 @@ grammar_cjkRuby: true
 - 输入命令  hostname bigdata 进行生效
 - xshell中重新连接后,就能看到生效的主机名称
 
-# 修改host文件
+## 修改host文件
 
-- vi /etc/hosts
+- `vi /etc/hosts`
 - 添加域名和ip的映射关系
+
+![enter description here][9]
+
+## 安装jdk
+
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556677357.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556727724.jpg
@@ -107,3 +112,4 @@ grammar_cjkRuby: true
   [6]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507557307816.jpg
   [7]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507557208536.jpg
   [8]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507557413846.jpg
+  [9]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507557486037.jpg
