@@ -64,6 +64,10 @@ grammar_cjkRuby: true
 
 ![enter description here][5]
 
+## 命令行界面修改ip地址
+
+
+
 ## 关闭linux的图形界面
 
 - 一次关闭输入命令 `init 3`
