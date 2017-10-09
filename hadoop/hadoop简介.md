@@ -250,7 +250,7 @@ scp id_rsa.pub b:/root/ # b指的是ip地址
 
 3. b电脑将a的公钥放入到授权列表中
 
-``` linux
+``` xml
 创建文件authorized_keys,修改权限为 600 
 cat /root/id_rsa.pub >> ./authorized_keys
 ```
