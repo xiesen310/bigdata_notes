@@ -227,6 +227,34 @@ start-yarn.sh
 ``` xml
 stop-all.sh 
 ```
+# ssh免密登录
+
+- 查看ssh的状态
+
+``` xml
+service sshd status
+```
+
+1. 在a电脑生成密钥对(公钥和私钥)
+
+``` linux
+ssh-keygen -t rsa
+```
+
+
+2. 通过远程拷贝的方式将a的公钥拷贝到b的电脑中
+
+``` xml
+scp id_rsa.pub b:/root/ # b指的是ip地址
+```
+
+3. b电脑将a的公钥放入到授权列表中
+
+``` linux
+创建文件authorized_keys,修改权限为 600 
+cat /root/id_rsa.pub >> ./authorized_keys
+```
+
 
 
 
