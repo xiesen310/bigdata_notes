@@ -15,3 +15,6 @@ grammar_cjkRuby: true
 # HDFS
 
 > 是Hadoop生态圈的一个分布式的文件存储,将海量的数据分布集群中的很多个数据节点上
+
+# MapReduce
+
