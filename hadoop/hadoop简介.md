@@ -153,6 +153,16 @@ export PATH=$PATH:$JAVA_HOME/bin
      <value>/opt/software/hadoop/hadoop-2.7.3/tmp</value>
 </property>
 ```
+### 配置 hdfs-site.xml，指定副本数量
+
+``` xml
+<configuration>
+    <property>
+         <name>dfs.replication</name>
+         <value>1</value>
+    </property>
+</configuration>
+```
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556677357.jpg
