@@ -85,6 +85,7 @@ grammar_cjkRuby: true
 
 ![enter description here][7]
 
+## 修改主机名
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556677357.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556727724.jpg
