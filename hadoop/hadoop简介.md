@@ -46,5 +46,7 @@ grammar_cjkRuby: true
 
 ## 数据运算解决方案
 
+> 如果有10个文件,每个文件有100G,按照512M进行切割,每个文件被分成200个块,分散到节点中,如何计算count *
+
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556677357.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556727724.jpg
