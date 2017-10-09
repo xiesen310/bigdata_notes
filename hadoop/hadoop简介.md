@@ -66,7 +66,7 @@ grammar_cjkRuby: true
 
 ## 命令行界面修改ip地址
 
-
+- `vi /etc/sysconfig/network-scripts/ifcfg-eth0` 编辑对应的配置文件
 
 ## 关闭linux的图形界面
 
