@@ -37,6 +37,8 @@ grammar_cjkRuby: true
 
 ### HDFS存储结构
 
+![HDFS Architecture][2]
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556677357.jpg
+  [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556727724.jpg
