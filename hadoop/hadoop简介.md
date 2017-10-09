@@ -64,9 +64,11 @@ grammar_cjkRuby: true
 
 ![enter description here][5]
 
+## 关闭linux的图形界面
+
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556677357.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556727724.jpg
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556959317.jpg
   [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556975197.jpg
-  [5]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1507556999256]]]"
+  [5]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556999256.jpg
