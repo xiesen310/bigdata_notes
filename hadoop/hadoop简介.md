@@ -127,6 +127,13 @@ export PATH=$PATH:$JAVA_HOME/bin
 
 ## 配置Hadoop
 
+> hadoop的配置文件在`etc/hadoop`下
+### 配置hadoop JAVA_HOME路径
+
+
+
+
+
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556677357.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556727724.jpg
