@@ -152,7 +152,6 @@ export PATH=$PATH:$JAVA_HOME/bin
      <name>hadoop.tmp.dir</name>
      <value>/opt/software/hadoop/hadoop-2.7.3/tmp</value>
 </property>
-
 ```
 
 
