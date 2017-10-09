@@ -192,6 +192,12 @@ export PATH=$PATH:$JAVA_HOME/bin
 	</property>
 </configuration>
 ```
+### 关闭防火墙
+
+``` xml
+service iptables stop #关闭防火墙
+chkconfig iptables off #开机不启动
+```
 
 
 
