@@ -200,6 +200,11 @@ chkconfig iptables off #开机不启动
 ```
 ### 配置环境变量
 
+``` xml
+# set hadoop environment
+export HADOOP_HOME=/opt/software/hadoop/hadoop-2.7.3
+export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
+```
 
 
 
