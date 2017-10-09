@@ -115,6 +115,9 @@ export PATH=$PATH:$JAVA_HOME/bin
 ## 安装Hadoop
 
 - 下载地址 [https://archive.apache.org/dist/hadoop/common/][10]
+- 创建/opt/Software/Hadoop文件夹
+- 解压Hadoop
+- 目录结构
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556677357.jpg
