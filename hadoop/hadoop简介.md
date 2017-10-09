@@ -58,7 +58,15 @@ grammar_cjkRuby: true
 - 安装CentOS6.5,注意虚拟机上的网络模式设置为NAT
 - 设置ip地址为静态ip
 
+![enter description here][3]
+
+![enter description here][4]
+
+![enter description here][5]
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556677357.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556727724.jpg
+  [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556959317.jpg
+  [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556975197.jpg
+  [5]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1507556999256]]]"
