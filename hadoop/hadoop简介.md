@@ -131,7 +131,9 @@ export PATH=$PATH:$JAVA_HOME/bin
 
 ### 配置hadoop JAVA_HOME路径
 
+- `vim hadoop-env.sh`
 
+![enter description here][13]
 
 
 
@@ -148,3 +150,4 @@ export PATH=$PATH:$JAVA_HOME/bin
   [10]: https://archive.apache.org/dist/hadoop/common/
   [11]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507557668946.jpg
   [12]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507557699798.jpg
+  [13]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1507557915835]]]"
