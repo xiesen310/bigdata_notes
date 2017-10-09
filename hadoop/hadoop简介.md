@@ -87,6 +87,10 @@ grammar_cjkRuby: true
 
 ## 修改主机名
 
+- 输入命令 `vi /etc/sysconfig/network`
+- 输入命令  hostname bigdata 进行生效
+- xshell中重新连接后,就能看到生效的主机名称
+
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556677357.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556727724.jpg
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556959317.jpg
