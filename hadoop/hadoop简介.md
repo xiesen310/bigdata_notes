@@ -163,6 +163,7 @@ export PATH=$PATH:$JAVA_HOME/bin
     </property>
 </configuration>
 ```
+### 配置mapped-site.xml
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556677357.jpg
