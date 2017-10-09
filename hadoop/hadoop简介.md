@@ -136,6 +136,18 @@ export PATH=$PATH:$JAVA_HOME/bin
 ![enter description here][13]
 
 ### 编辑 core-site.xml
+1.	配置hadoop的文件系统为HDFS文件系统
+
+``` xml
+<property>
+    <name>fs.defaultFS</name>
+    <value>hdfs://hadoop01:9000</value>
+</property
+
+```
+
+
+2.	配置hadoop的工作目录
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556677357.jpg
