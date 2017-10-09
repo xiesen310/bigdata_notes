@@ -212,6 +212,10 @@ hadoop namenode -format
 ```
 ### 启动hadoop
 
+``` xml
+start-dfs.sh
+start-yarn.sh
+```
 
 
 
