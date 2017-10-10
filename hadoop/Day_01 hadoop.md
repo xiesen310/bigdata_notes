@@ -95,7 +95,6 @@ grammar_cjkRuby: true
 
   ![enter description here][10]
   
- 
 
  6. 在`hdfs-site.xml`中配置
   
