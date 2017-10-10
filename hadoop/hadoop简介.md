@@ -265,6 +265,11 @@ cat /root/id_rsa.pub >> ./authorized_keys
 
 
 # hdfs基本操作
+下载文件
+
+``` xml
+hadoop fs -get hdfs://master:9000/hadoop-2.7.4.tar.gz
+```
 
 
 
