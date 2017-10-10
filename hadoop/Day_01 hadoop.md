@@ -138,6 +138,15 @@ grammar_cjkRuby: true
   `DataNode`
  ` NodeManager`
   如果这样表示`hadoop`集群配置成功
+  
+  13. 要想在浏览器中进行访问，必须开放端口，这里我们直接将防火墙进行关闭
+
+``` xml
+service iptables stop 关闭防火墙
+chkconfig ipdatables off 开机不启动
+```
+
+
  
  ## 异常信息
  
