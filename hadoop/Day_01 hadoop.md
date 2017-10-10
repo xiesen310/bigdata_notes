@@ -146,6 +146,11 @@ chkconfig ipdatables off 开机不启动
 ```
 
 
+``` stylus
+enter code here
+```
+
+
  
  ## 异常信息
  
@@ -173,8 +178,8 @@ chkconfig ipdatables off 开机不启动
 </property>
 ```
 
-![enter description here][17]
- 
+ ![enter description here][17]
+
 
   [1]: https://www.github.com/wxdsunny/images/raw/master/1507618366514.jpg "1507618366514.jpg"
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507646284206.jpg
@@ -192,4 +197,4 @@ chkconfig ipdatables off 开机不启动
   [14]: https://www.github.com/wxdsunny/images/raw/master/1507638835376.jpg "1507638835376.jpg"
   [15]: https://www.github.com/wxdsunny/images/raw/master/1507639140091.jpg "1507639140091.jpg"
   [16]: http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/ClusterSetup.html
-  [17]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1507648366954]]]"
+  [17]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507650686280.jpg
