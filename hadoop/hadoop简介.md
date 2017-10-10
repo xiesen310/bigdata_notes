@@ -264,6 +264,10 @@ cat /root/id_rsa.pub >> ./authorized_keys
 5.b电脑拿到密文进行比对之前发送的密文,如果通过验证就会告诉a电脑登录成功
 
 
+# hdfs基本操作
+
+
+
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556677357.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556727724.jpg
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507556959317.jpg
