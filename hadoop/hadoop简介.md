@@ -270,6 +270,11 @@ cat /root/id_rsa.pub >> ./authorized_keys
 ``` xml
 hadoop fs -get hdfs://master:9000/hadoop-2.7.4.tar.gz
 ```
+上传文件
+
+``` xml
+hadoop fs -put hadoop-2.7.4.tar.gz hdfs://master:9000/
+```
 
 
 
