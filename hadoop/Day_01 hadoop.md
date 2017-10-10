@@ -177,13 +177,6 @@ chkconfig ipdatables off 开机不启动
 ![enter description here][17]
  
 
- 
- 
-
-
-   
-
-
   [1]: https://www.github.com/wxdsunny/images/raw/master/1507618366514.jpg "1507618366514.jpg"
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507646284206.jpg
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507646294761.jpg
