@@ -16,7 +16,7 @@ grammar_cjkRuby: true
 
 >  主节点 resourceManager ， yarn主节点端口号是8088
 
-**resourceManager** :
+**resourceManager** :在YARN中，ResourceManager负责集群中所有资源的统一管理和分配，它接收来自各个节点（NodeManager）的资源汇报信息，并把这些信息按照一定的策略分配给各个应用程序
 **nodeManager** ： 
 
 # 元数据
