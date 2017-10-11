@@ -38,8 +38,8 @@ grammar_cjkRuby: true
 
 ![enter description here][2]
 
-
+# HDFS的启动过程
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722260643.jpg
-  [2]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1507722403519]]]"
+  [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722403519.jpg
