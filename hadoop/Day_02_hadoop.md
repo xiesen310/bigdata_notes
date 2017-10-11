@@ -162,6 +162,24 @@ HDFS的权限目的是将控制权交出去，本身只判断用户和权限，�
 
 # HDFS中常用到的命令
 
+hdfs dfs -ls / ：列举出根目录下的内容
+hdfs dfs -mkdir /test ：创建文件夹
+hdfs dfs -put htfstest.txt /test/ ： 上传文件
+hdfs dfs -cat /test/htfstest.txt ： 读取文件
+hdfs dfs -get /test/htfstest.txt /root/a.txt ：下载文件
+hdfs dfs –help ：查看htfs文档
+hdfs dfs -chmod 777 /test/htfstest.txt ：修改文件权限
+hdfs dfs -checksum /test/htfstest.txt ：查看MD5信息
+hdfs dfs –df ：查看磁盘利用率
+
+ ![enter description here][12]
+
+hdfs dfsadmin -safemode enter : 进入安全模式，安全模式只能读，不能写
+hdfs dfsadmin -safemode leave ： 退出安全模式
+hdfs fsck / ： 查看目录基本信息
+
+start-balancer.sh : 负载均衡,可以使DataNode节点上选择策略重新平衡DataNode上的数据块的分布
+
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722260643.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722403519.jpg
@@ -174,3 +192,4 @@ HDFS的权限目的是将控制权交出去，本身只判断用户和权限，�
   [9]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507724999865.jpg
   [10]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507725696306.jpg
   [11]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507725772309.jpg
+  [12]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507725912851.jpg
