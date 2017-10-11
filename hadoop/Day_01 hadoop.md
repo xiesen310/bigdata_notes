@@ -145,14 +145,10 @@ grammar_cjkRuby: true
 service iptables stop 关闭防火墙
 chkconfig ipdatables off 开机不启动
 ```
-
-
 ``` stylus
 enter code here
 ```
 
-
- 
  ## 异常信息
  
 1. 如果出现  ==doesn't satisfy minimum== 异常信息，需要指定内存信息，在yarn-site.xml中配置如下配置文件
