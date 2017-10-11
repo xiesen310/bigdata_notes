@@ -122,6 +122,10 @@ d. client向DataNode发送block1；发送过程是以流式写入。
 
 ## 写操作
 
+![enter description here][8]
+
+![enter description here][9]
+
 
 
 
@@ -132,3 +136,5 @@ d. client向DataNode发送block1；发送过程是以流式写入。
   [5]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722918519.jpg
   [6]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507724673557.jpg
   [7]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507724693853.jpg
+  [8]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507724992792.jpg
+  [9]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507724999865.jpg
