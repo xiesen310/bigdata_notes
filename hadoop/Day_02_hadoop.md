@@ -4,4 +4,4 @@ tags: java,bigdata,linux.hadoop
 grammar_cjkRuby: true
 ---
 
-# hadoop集群中扮演的角色
+# 集群中扮演的角色
