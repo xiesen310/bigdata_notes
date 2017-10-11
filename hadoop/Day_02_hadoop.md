@@ -10,7 +10,7 @@ grammar_cjkRuby: true
 
 **namenode**： 处理请求，分配处理任务；负责心跳连接；负责均衡；副本
 **datanote** : 数据的读写请求执行和数据的保存操作
-**secondarynamenode** ： 备份NameNode上的数据，合成fsimage和fsedits文件
+**secondarynamenode** ： 备份NameNode上的数据，合成fsimage和fsedits文件，是namenode的助手
 
 ## yarn
 
