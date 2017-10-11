@@ -32,9 +32,9 @@ grammar_cjkRuby: true
 
 在data目录下元数据存放在两个文件中，分别是fsimage和fsedits文件中
 
-fsimage文件存放元数据的具体内容包含以下信息：文件名称、文件大小、路径、创建者、时间、文件的分块信息
+==fsimage==文件存放元数据的具体内容包含以下信息：文件名称、文件大小、路径、创建者、时间、文件的分块信息
 
-edits文件存放元数据的操作日志：创建一个文件、删除、修改，一操作记录的形式保存早edits里面
+==edits==文件存放元数据的操作日志：创建一个文件、删除、修改，一操作记录的形式保存早edits里面
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722260643.jpg
