@@ -185,7 +185,13 @@ start-balancer.sh : 负载均衡,可以使DataNode节点上选择策略重新平
 
 1. 下载eclipse连接htfs所需要的jar包，下载地址 [https://github.com/winghc/hadoop2x-eclipse-plugin/blob/master/release/hadoop-eclipse-plugin-2.6.0.jar][13]
 2. 将下载好的jar包放在eclipse安装路径下的plugins文件下，启动eclipse
-3. 
+3. [window-->Show View --> Other]
+
+![enter description here][14]
+
+![enter description here][15]
+
+
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722260643.jpg
@@ -201,3 +207,5 @@ start-balancer.sh : 负载均衡,可以使DataNode节点上选择策略重新平
   [11]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507725772309.jpg
   [12]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507725912851.jpg
   [13]: https://github.com/winghc/hadoop2x-eclipse-plugin/blob/master/release/hadoop-eclipse-plugin-2.6.0.jar
+  [14]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507727376865.jpg
+  [15]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507727449089.jpg
