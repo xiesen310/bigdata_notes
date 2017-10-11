@@ -58,6 +58,10 @@ SecondaryNameNode负责定时默认1小时，从namenode上，获取fsimage和ed
 
 ## Secondary NameNode工作流程
 
+![Secondary NameNode工作流程图][4]
+
+
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722260643.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722403519.jpg
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722766859.jpg
+  [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722918519.jpg
