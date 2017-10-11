@@ -98,23 +98,23 @@ c. NameNode节点，记录block信息。并返回可用的DataNode，如粉色�
    >  Block1: host2,host1,host3
    > Block2: host7,host8,host4
 	
-    原理：
+ **原理**：
         NameNode具有RackAware机架感知功能，这个可以配置。
         若client为DataNode节点，那存储block时，规则为：副本1，同client的节点上；副本2，不同机架节点上；副本3，同第二个副本机架的另一个节点上；其他副本随机挑选。
         若client不为DataNode节点，那存储block时，规则为：副本1，随机选择一个节点上；副本2，不同副本1，机架上；副本3，同副本2相同的另一个节点上；其他副本随机挑选。
 d. client向DataNode发送block1；发送过程是以流式写入。
   
-  流式写入过程，
-        1>将64M的block1按64k的package划分;
-        2>然后将第一个package发送给host2;
-        3>host2接收完后，将第一个package发送给host1，同时client向host2发送第二个package；
-        4>host1接收完第一个package后，发送给host3，同时接收host2发来的第二个package。
-        5>以此类推，如图红线实线所示，直到将block1发送完毕。
-        6>host2,host1,host3向NameNode，host2向Client发送通知，说“消息发送完了”。如图粉红颜色实线所示。
-        7>client收到host2发来的消息后，向namenode发送消息，说我写完了。这样就真完成了。如图黄色粗实线
-        8>发送完block1后，再向host7，host8，host4发送block2，如图蓝色实线所示。
-        9>发送完block2后，host7,host8,host4向NameNode，host7向Client发送通知，如图浅绿色实线所示。
-        10>client向NameNode发送消息，说我写完了，如图黄色粗实线。。。这样就完毕了。
+**流式写入过程**
+        1. 将64M的block1按64k的package划分;
+        2. 然后将第一个package发送给host2;
+        3. host2接收完后，将第一个package发送给host1，同时client向host2发送第二个package；
+        4. host1接收完第一个package后，发送给host3，同时接收host2发来的第二个package。
+        5. 以此类推，如图红线实线所示，直到将block1发送完毕。
+        6. host2,host1,host3向NameNode，host2向Client发送通知，说“消息发送完了”。如图粉红颜色实线所示。
+        7. client收到host2发来的消息后，向namenode发送消息，说我写完了。这样就真完成了。如图黄色粗实线
+        8. 发送完block1后，再向host7，host8，host4发送block2，如图蓝色实线所示。
+        9. 发送完block2后，host7,host8,host4向NameNode，host7向Client发送通知，如图浅绿色实线所示。
+        10client向NameNode发送消息，说我写完了，如图黄色粗实线。。。这样就完毕了。
 分析，通过写过程，我们可以了解到：
     ①写1T文件，我们需要3T的存储，3T的网络流量带宽。
     ②在执行读或写的过程中，NameNode和DataNode通过HeartBeat进行保存通信，确定DataNode活着。如果发现DataNode死掉了，就将死掉的DataNode上的数据，放到其他节点去。读取时，要读其他节点去。
