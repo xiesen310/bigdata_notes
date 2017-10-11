@@ -18,3 +18,7 @@ grammar_cjkRuby: true
 
 **resourceManager** :
 **nodeManager** ： 
+
+# 元数据
+
+元数据就是描述数据的数据
