@@ -65,6 +65,9 @@ SecondaryNameNode负责定时默认1小时，从namenode上，获取fsimage和ed
 - 加载namenode
 	- 首先加载fsimage文件
 	- 加载fsedits文件
+	- 当向hdfs中写数据时，fsedits文件会记录操作的过程，时间久了，就会产生大量的文件，当下次重新启动hdfs，hdfs会读取fsimage文件和fsedits文件，因为文件过大，需要读取很长时间。当然，这种现象不是我们想要看到的。因此，hdfs会将这些任务交给secondarynamenode进行监控，可以通过设置一段时间(默认是一个小时)内进行合并，也可以设置当文件达到默认值128M时，进行合并。secondarynamenode的工作原理见下文。
+
+- 加载datanode信息，将datanode上存储的信息返回给namenode
 
 
 
