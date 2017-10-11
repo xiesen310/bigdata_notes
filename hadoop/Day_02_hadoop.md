@@ -69,8 +69,6 @@ SecondaryNameNode负责定时默认1小时，从namenode上，获取fsimage和ed
 
 - 加载datanode信息，将datanode上存储的信息返回给namenode，其中包含当前节点上存储的数据块的信息
 
-
-
 ## Secondary NameNode工作流程
 
 ![Secondary NameNode工作流程图][5]
