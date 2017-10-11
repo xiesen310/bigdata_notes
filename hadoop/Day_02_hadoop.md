@@ -181,6 +181,10 @@ hdfs fsck / ： 查看目录基本信息
 start-balancer.sh : 负载均衡,可以使DataNode节点上选择策略重新平衡DataNode上的数据块的分布
 
 
+# eclipse 连接hdfs
+
+1. 下载eclipse连接htfs所需要的jar包
+
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722260643.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722403519.jpg
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722766859.jpg
