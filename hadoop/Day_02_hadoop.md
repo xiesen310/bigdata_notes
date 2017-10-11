@@ -152,6 +152,11 @@ HDFS文件权限与Linux文件权限类似
 HDFS的权限目的是将控制权交出去，本身只判断用户和权限，至于用户是不是真的，不管。
 
 
+# HDFS安全模式
+
+> NameNode是运行在安全模式的。即对外（客户端）只读，所以此段时间内对hdfs的写入、删除、重命名都会失败
+
+
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722260643.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722403519.jpg
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722766859.jpg
