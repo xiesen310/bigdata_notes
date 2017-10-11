@@ -8,9 +8,9 @@ grammar_cjkRuby: true
 ## hdfs
 > 主节点 namenode ，hdfs的端口号是50070
 
-namenode
-datanote
-secondarynamenode
+**namenode**： 处理请求，分配处理任务；负责心跳连接；负责均衡；副本
+**datanote** : 数据的读写请求执行和数据的保存操作
+**secondarynamenode** ： 备份NameNode上的数据，合成fsimage和fsedits文件
 
 ## yarn
 
