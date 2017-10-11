@@ -82,7 +82,7 @@ SecondaryNameNode负责定时默认1小时，从namenode上，获取fsimage和ed
 
 # HDFS读写操作原理
 
-
+## 写操作
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722260643.jpg
