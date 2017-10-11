@@ -79,7 +79,6 @@ SecondaryNameNode负责定时默认1小时，从namenode上，获取fsimage和ed
 4. Secondary namenode 将新的 fsimage 推送给 Namenode 
 5. Namenode 用新的 fsimage 取代旧的 fsimage ， 在 fstime 文件中记下检查 点发生的时间
 
-
 # HDFS读写操作原理
 
 ## 写操作
