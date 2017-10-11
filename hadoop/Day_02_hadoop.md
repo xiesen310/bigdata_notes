@@ -155,6 +155,11 @@ HDFS的权限目的是将控制权交出去，本身只判断用户和权限，�
 # HDFS安全模式
 
 > NameNode是运行在安全模式的。即对外（客户端）只读，所以此段时间内对hdfs的写入、删除、重命名都会失败
+> 可以通过命令进出安全模式 `hdfs dfadmin -safemode enter` and  `hdfs dfsadmin -safemode leave`
+
+![enter description here][10]
+
+![enter description here][11]
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722260643.jpg
@@ -166,3 +171,5 @@ HDFS的权限目的是将控制权交出去，本身只判断用户和权限，�
   [7]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507724693853.jpg
   [8]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507724992792.jpg
   [9]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507724999865.jpg
+  [10]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507725696306.jpg
+  [11]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507725772309.jpg
