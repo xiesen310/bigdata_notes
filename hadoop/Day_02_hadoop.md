@@ -69,7 +69,7 @@ SecondaryNameNode负责定时默认1小时，从namenode上，获取fsimage和ed
 
 - 加载datanode信息，将datanode上存储的信息返回给namenode，其中包含当前节点上存储的数据块的信息
 
-## Secondary NameNode工作流程
+## SecondaryNameNode工作流程
 
 ![Secondary NameNode工作流程图][5]
 
@@ -78,6 +78,8 @@ SecondaryNameNode负责定时默认1小时，从namenode上，获取fsimage和ed
 3. Secondary namenode 将 fsimage 加载到内存，应用 edit log ， 并生成一 个新的 fsimage 文件
 4. Secondary namenode 将新的 fsimage 推送给 Namenode 
 5. Namenode 用新的 fsimage 取代旧的 fsimage ， 在 fstime 文件中记下检查 点发生的时间
+
+
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722260643.jpg
