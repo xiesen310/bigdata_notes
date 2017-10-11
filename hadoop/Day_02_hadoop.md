@@ -144,6 +144,14 @@ d. client向DataNode发送block1；发送过程是以流式写入。
 > 所有的 HDFS 通讯协议都是构建在 TCP/IP 协议上。客户端通过一个可 配置的端口连接到 Namenode，通过 ClientProtocol 与 Namenode 交互。而 Datanode 是使用 DatanodeProtocol 与 Namenode 交互。再设计上， DataNode 通过周期性的向 NameNode 发送心跳和数据块来保持和 NameNode 的通信，数据块报告的信息包括数据块的属性，即数据块属于哪 个文件，数据块 ID ，修改时间等， NameNode 的 DataNode 和数据块的映射 关系就是通过系统启动时 DataNode 的数据块报告建立的。从 ClientProtocol 和 Datanodeprotocol 抽象出一个远程调用 ( RPC ）， 在设计上， Namenode 不会主动发起 RPC ， 而是是响应来自客户端和 Datanode 的 RPC 请求。 
 
 
+#  HDFS文件权限
+
+HDFS文件权限与Linux文件权限类似
+r:read；w:write；x：execute
+如果Linux系统用用户xxx使用hadoop命令创建一个文件，那么，在hdfs中这个文件的owner就是xxx
+HDFS的权限目的是将控制权交出去，本身只判断用户和权限，至于用户是不是真的，不管。
+
+
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722260643.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722403519.jpg
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722766859.jpg
