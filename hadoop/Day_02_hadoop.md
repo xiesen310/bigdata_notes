@@ -120,6 +120,9 @@ d. client向DataNode发送block1；发送过程是以流式写入。
   >  ② 在执行读或写的过程中，NameNode和DataNode通过HeartBeat进行保存通信，确定DataNode活着。如果发现DataNode死掉了，就将死掉的DataNode上的数据，放到其他节点去。读取时，要读其他节点去。
   > ③ 挂掉一个节点，没关系，还有其他节点可以备份；甚至，挂掉某一个机架，也没关系；其他机架上，也有备份。
 
+## 写操作
+
+
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722260643.jpg
