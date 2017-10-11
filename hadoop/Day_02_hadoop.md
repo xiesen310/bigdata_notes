@@ -88,21 +88,23 @@ SecondaryNameNode负责定时默认1小时，从namenode上，获取fsimage和ed
 
 ![enter description here][7]
 
-有一个文件FileA，100M大小。Client将FileA写入到HDFS上。
+> 有一个文件FileA，100M大小。Client将FileA写入到HDFS上。
 HDFS按默认配置。
 HDFS分布在三个机架上Rack1，Rack2，Rack3。
  
 a. Client将FileA按64M分块。分成两块，block1和Block2;
 b. Client向nameNode发送写数据请求，如图蓝色虚线①------>。
 c. NameNode节点，记录block信息。并返回可用的DataNode，如粉色虚线②--------->。
-    Block1: host2,host1,host3
-    Block2: host7,host8,host4
+   >  Block1: host2,host1,host3
+   > Block2: host7,host8,host4
+	
     原理：
         NameNode具有RackAware机架感知功能，这个可以配置。
         若client为DataNode节点，那存储block时，规则为：副本1，同client的节点上；副本2，不同机架节点上；副本3，同第二个副本机架的另一个节点上；其他副本随机挑选。
         若client不为DataNode节点，那存储block时，规则为：副本1，随机选择一个节点上；副本2，不同副本1，机架上；副本3，同副本2相同的另一个节点上；其他副本随机挑选。
 d. client向DataNode发送block1；发送过程是以流式写入。
-    流式写入过程，
+  
+  流式写入过程，
         1>将64M的block1按64k的package划分;
         2>然后将第一个package发送给host2;
         3>host2接收完后，将第一个package发送给host1，同时client向host2发送第二个package；
