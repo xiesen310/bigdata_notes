@@ -28,3 +28,9 @@ grammar_cjkRuby: true
 
 在hadoop生态圈中，对于hdfs中元数据是我们自己指定存储位置的，具体配置在hdfs-site.xml文件中
 
+![enter description here][1]
+
+在data目录下元数据存放在两个文件中，分别是fsimage和fsedits文件中
+
+
+  [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722260643.jpg
