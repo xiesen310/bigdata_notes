@@ -116,9 +116,9 @@ d. client向DataNode发送block1；发送过程是以流式写入。
         9. 发送完block2后，host7,host8,host4向NameNode，host7向Client发送通知，如图浅绿色实线所示。
         10client向NameNode发送消息，说我写完了，如图黄色粗实线。。。这样就完毕了。
 分析，通过写过程，我们可以了解到：
-    ①写1T文件，我们需要3T的存储，3T的网络流量带宽。
-    ②在执行读或写的过程中，NameNode和DataNode通过HeartBeat进行保存通信，确定DataNode活着。如果发现DataNode死掉了，就将死掉的DataNode上的数据，放到其他节点去。读取时，要读其他节点去。
-    ③挂掉一个节点，没关系，还有其他节点可以备份；甚至，挂掉某一个机架，也没关系；其他机架上，也有备份。
+  > ① 写1T文件，我们需要3T的存储，3T的网络流量带宽。
+  >  ② 在执行读或写的过程中，NameNode和DataNode通过HeartBeat进行保存通信，确定DataNode活着。如果发现DataNode死掉了，就将死掉的DataNode上的数据，放到其他节点去。读取时，要读其他节点去。
+  > ③ 挂掉一个节点，没关系，还有其他节点可以备份；甚至，挂掉某一个机架，也没关系；其他机架上，也有备份。
 
 
 
