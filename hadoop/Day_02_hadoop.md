@@ -56,9 +56,21 @@ grammar_cjkRuby: true
 
 SecondaryNameNode负责定时默认1小时，从namenode上，获取fsimage和edits来进行合并，然后再发送给namenode。减少namenode的工作量。
 
+## HDFS启动
+
+![enter description here][4]
+
+> 当启动hdfs时加载加载namenode和datanode.
+
+- 加载namenode
+	- 首先加载fsimage文件
+	- 加载fsedits文件
+
+
+
 ## Secondary NameNode工作流程
 
-![Secondary NameNode工作流程图][4]
+![Secondary NameNode工作流程图][5]
 
 1. namenode 响应 Secondary namenode 请求，将 edit log 推送给 Secondary namenode ， 开始重新写一个新的 edit log 
 2. Secondary namenode 收到来自 namenode 的 fsimage 文件和 edit log 
@@ -67,9 +79,8 @@ SecondaryNameNode负责定时默认1小时，从namenode上，获取fsimage和ed
 5. Namenode 用新的 fsimage 取代旧的 fsimage ， 在 fstime 文件中记下检查 点发生的时间
 
 
-
-
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722260643.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722403519.jpg
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722766859.jpg
-  [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722918519.jpg
+  [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507723844586.jpg
+  [5]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722918519.jpg
