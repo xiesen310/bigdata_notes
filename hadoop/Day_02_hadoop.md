@@ -36,6 +36,10 @@ grammar_cjkRuby: true
 
 ==edits== 文件存放元数据的操作日志：创建一个文件、删除、修改，一操作记录的形式保存早edits里面
 
+![enter description here][2]
+
+
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722260643.jpg
+  [2]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1507722403519]]]"
