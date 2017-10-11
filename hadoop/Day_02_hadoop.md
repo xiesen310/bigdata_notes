@@ -6,6 +6,7 @@ grammar_cjkRuby: true
 
 # 集群中扮演的角色
 ## hdfs
+
 namenode
 datanote
 secondarynamenode
