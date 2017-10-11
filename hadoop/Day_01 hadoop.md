@@ -68,9 +68,9 @@ grammar_cjkRuby: true
  ### hadoop
    
 
- 1. 先把`hadoop`的压缩包放虚拟机中,然后解压,
+ 1. 先把`hadoop-2.7.4`的压缩包放虚拟机中,然后解压,
  2. 配置环境变量:
-   先配置`/etc/profile`文件中的环境变量,把`hadoop`配置到环境变量中
+   先配置`/etc/profile`文件中的环境变量,把`hadoop-2.7.4`配置到环境变量中
 
   ![enter description here][7]
 
