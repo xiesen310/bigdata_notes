@@ -191,7 +191,9 @@ start-balancer.sh : 负载均衡,可以使DataNode节点上选择策略重新平
 
 ![enter description here][15]
 
+4. 点击右上角的图标
 
+![enter description here][16]
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722260643.jpg
@@ -209,3 +211,4 @@ start-balancer.sh : 负载均衡,可以使DataNode节点上选择策略重新平
   [13]: https://github.com/winghc/hadoop2x-eclipse-plugin/blob/master/release/hadoop-eclipse-plugin-2.6.0.jar
   [14]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507727376865.jpg
   [15]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507727449089.jpg
+  [16]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507727512779.jpg
