@@ -126,9 +126,10 @@ d. client向DataNode发送block1；发送过程是以流式写入。
 
 ![enter description here][9]
 
-读操作就简单一些了，如上图所示，client要从datanode上，读取FileA。而FileA由block1和block2组成。 
+> 读操作就简单一些了，如上图所示，client要从datanode上，读取FileA。而FileA由block1和block2组成。 
  
-那么，读操作流程为：
+**读操作流程为**：
+
 a. client向namenode发送读请求。
 b. namenode查看Metadata信息，返回fileA的block的位置。
     block1:host2,host1,host3
