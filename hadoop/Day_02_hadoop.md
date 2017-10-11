@@ -13,3 +13,5 @@ secondarynamenode
 
 ## yarn
 
+resourceManager
+nodeManager
