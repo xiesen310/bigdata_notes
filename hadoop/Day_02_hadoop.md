@@ -162,6 +162,8 @@ HDFS的权限目的是将控制权交出去，本身只判断用户和权限，�
 ![enter description here][11]
 
 
+
+
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722260643.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722403519.jpg
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722766859.jpg
