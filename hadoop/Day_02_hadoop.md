@@ -147,8 +147,8 @@ d. client向DataNode发送block1；发送过程是以流式写入。
 #  HDFS文件权限
 
 HDFS文件权限与Linux文件权限类似
-r:read；w:write；x：execute
-如果Linux系统用用户xxx使用hadoop命令创建一个文件，那么，在hdfs中这个文件的owner就是xxx
+**r:read；w:write；x：execute**
+> 如果Linux系统用用户xxx使用hadoop命令创建一个文件，那么，在hdfs中这个文件的owner就是xxx
 HDFS的权限目的是将控制权交出去，本身只判断用户和权限，至于用户是不是真的，不管。
 
 
