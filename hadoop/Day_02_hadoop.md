@@ -16,5 +16,5 @@ grammar_cjkRuby: true
 
 >  主节点 resourceManager ， yarn主节点端口号是8088
 
-resourceManager
-nodeManager
+**resourceManager** :
+**nodeManager** ： 
