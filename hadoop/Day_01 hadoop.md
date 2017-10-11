@@ -40,7 +40,7 @@ grammar_cjkRuby: true
 ![enter description here][5]
 
 
- 2. 更改ip
+ 2. 更改网卡地址以及IP
 
 > vi /etc/sysconfig/network-scripts/ifcfg-eth0 编辑对应的配置文件，注意修改一下 ip地址以及网卡地址(网卡地址可以通过ifconfig命令查看)
 
