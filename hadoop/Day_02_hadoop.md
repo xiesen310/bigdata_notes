@@ -137,7 +137,7 @@ d. client向DataNode发送block1；发送过程是以流式写入。
 
 3. block的位置是有先后顺序的，先读block1，再读block2。而且block1去host2上读取；然后block2，去host7上读取；
  
-上面例子中，client位于机架外，那么如果client位于机架内某个DataNode上，例如,client是host6。那么读取的时候，遵循的规律是：
+上面例子中，client位于机架外，那么如果client位于机架内某个DataNode上，例如,client是host6。那么读取的时候，遵循的规律是：**优选读取本机架上的数据**
 
 
 
