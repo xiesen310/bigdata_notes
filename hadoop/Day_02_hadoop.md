@@ -60,6 +60,12 @@ SecondaryNameNode负责定时默认1小时，从namenode上，获取fsimage和ed
 
 ![Secondary NameNode工作流程图][4]
 
+1. namenode 响应 Secondary namenode 请求，将 edit log 推送给 Secondary namenode ， 开始重新写一个新的 edit log 
+2. Secondary namenode 收到来自 namenode 的 fsimage 文件和 edit log 
+3. Secondary namenode 将 fsimage 加载到内存，应用 edit log ， 并生成一 个新的 fsimage 文件
+4. Secondary namenode 将新的 fsimage 推送给 Namenode 
+5. Namenode 用新的 fsimage 取代旧的 fsimage ， 在 fstime 文件中记下检查 点发生的时 
+
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722260643.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722403519.jpg
