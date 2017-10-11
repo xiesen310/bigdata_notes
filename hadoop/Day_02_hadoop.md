@@ -95,8 +95,8 @@ HDFS分布在三个机架上Rack1，Rack2，Rack3。
 a. Client将FileA按64M分块。分成两块，block1和Block2;
 b. Client向nameNode发送写数据请求，如图蓝色虚线①------>。
 c. NameNode节点，记录block信息。并返回可用的DataNode，如粉色虚线②--------->。
-   >  Block1: host2,host1,host3
-   > Block2: host7,host8,host4
+  >  Block1: host2,host1,host3
+  > Block2: host7,host8,host4
 	
  **原理**：
         NameNode具有RackAware机架感知功能，这个可以配置。
