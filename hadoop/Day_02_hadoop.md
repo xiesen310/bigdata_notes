@@ -195,6 +195,14 @@ start-balancer.sh : 负载均衡,可以使DataNode节点上选择策略重新平
 
 ![enter description here][16]
 
+5.填写如下图所示信息
+
+![enter description here][17]
+
+6.出现下图所示信息，说明连接成功
+
+![enter description here][18]
+
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722260643.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507722403519.jpg
@@ -212,3 +220,5 @@ start-balancer.sh : 负载均衡,可以使DataNode节点上选择策略重新平
   [14]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507727376865.jpg
   [15]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507727449089.jpg
   [16]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507727512779.jpg
+  [17]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507727715068.jpg
+  [18]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507727789310.jpg
