@@ -118,6 +118,22 @@ public static void upload(Path src,Path dst) throws Exception{
 	}
 ```
 
+## 下载文件
+
+``` xml
+public static void download() throws Exception{
+		// 方式一
+		/*InputStream in = hdfs.open(new Path("/aa/a.txt"));
+		FileOutputStream out = new FileOutputStream("d:/a.txt");
+		IOUtils.copyBytes(in, out, 4096,true);*/
+		// 方式二
+		Path src = new Path("/aa/a.txt");
+		Path dst = new Path("d:/aa.txt");
+		hdfs.copyToLocalFile(src, dst);
+	}
+
+```
+
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507808911254.jpg
