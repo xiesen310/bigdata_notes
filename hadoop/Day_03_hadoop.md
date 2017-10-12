@@ -43,6 +43,29 @@ hadoop开发之前需要对Eclipse进行基础的设置，否则会出现各种�
 
 # Java代码操作hdfs
 
+- 创建文件系统的配置文件`CONF = new Configuration();`
+	- 默认加载`classpath`下`core-site.xml`文件,所以需要将hadoop的配置文件拷贝下来
+	- 也可以通过`CONF`的`set`方法进行设置如:`conf.set("fs.defaultFS", "hdfs://hadoop:9000");`
+- 创建文件系统`hdfs = FileSystem.get(CONF);`
+	- `FileSystem`是抽象类,返回值为具体的子类,如果是`HDFS`返回值的类型是`DistributedFileSystem`
+- 创建路径`Path path = new Path(fileName);`
+- 判断路径是否存在`boolean orExist = hdfs.exists(path);`
+- 判断是否是文件夹`hdfs.isDirectory(path)`
+- 判断是否是文件`hdfs.isFile(path)`
+- 创建输入流`FSDataInputStream input = hdfs.open(path);`
+- 创建输出流`FSDataOutputStream output = hdfs.create(path);`
+- 上传文件`hdfs.copyFromLocalFile(srcPath, desPath);`
+- 下载文件`hdfs.copyToLocalFile(srcPath, desPath);`
+- 递归删除文件`hdfs.delete(path, true);`
+- 创建文件夹`boolean orSuccess = hdfs.mkdirs(path)`
+- 获取目录下所有FileSatus`RemoteIterator<LocatedFileStatus> listFiles = hdfs.listFiles(path, true);`或者`FileStatus[] status = hdfs.listStatus(path);`
+- Path相关
+	- 通过Path获取路径`path.toString()`
+	- 通过Path获取文件名`path.getName()`
+- FileStatus相关
+	- 通过Path生成FileStatus`hdfs.getFileStatus(path)`
+	- 通过FileSatus获取Path`fileStatus.getPath()`
+
 ## 编写hdfsUtils
 
 ``` java
@@ -183,28 +206,7 @@ public static void getFileStatus(String fileName) throws Exception {
 
 ![enter description here][12]
 
-- 创建文件系统的配置文件`CONF = new Configuration();`
-	- 默认加载`classpath`下`core-site.xml`文件,所以需要将hadoop的配置文件拷贝下来
-	- 也可以通过`CONF`的`set`方法进行设置如:`conf.set("fs.defaultFS", "hdfs://hadoop:9000");`
-- 创建文件系统`hdfs = FileSystem.get(CONF);`
-	- `FileSystem`是抽象类,返回值为具体的子类,如果是`HDFS`返回值的类型是`DistributedFileSystem`
-- 创建路径`Path path = new Path(fileName);`
-- 判断路径是否存在`boolean orExist = hdfs.exists(path);`
-- 判断是否是文件夹`hdfs.isDirectory(path)`
-- 判断是否是文件`hdfs.isFile(path)`
-- 创建输入流`FSDataInputStream input = hdfs.open(path);`
-- 创建输出流`FSDataOutputStream output = hdfs.create(path);`
-- 上传文件`hdfs.copyFromLocalFile(srcPath, desPath);`
-- 下载文件`hdfs.copyToLocalFile(srcPath, desPath);`
-- 递归删除文件`hdfs.delete(path, true);`
-- 创建文件夹`boolean orSuccess = hdfs.mkdirs(path)`
-- 获取目录下所有FileSatus`RemoteIterator<LocatedFileStatus> listFiles = hdfs.listFiles(path, true);`或者`FileStatus[] status = hdfs.listStatus(path);`
-- Path相关
-	- 通过Path获取路径`path.toString()`
-	- 通过Path获取文件名`path.getName()`
-- FileStatus相关
-	- 通过Path生成FileStatus`hdfs.getFileStatus(path)`
-	- 通过FileSatus获取Path`fileStatus.getPath()`
+
 
 
 
