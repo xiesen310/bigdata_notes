@@ -62,7 +62,7 @@ public class HdfsUtils {
 
 ## 在hdfs上创建文件，并写入数据
 
-``` xml
+``` java
 // 创建一个新的文件，将数据写入到hdfs文件中
 	public static void createFile(String fileName, String content) throws Exception {
 		Path path = new Path(fileName);
@@ -79,7 +79,7 @@ public class HdfsUtils {
 ```
 ## 读取hdfs上已有的文件
 
-``` xml
+``` java
 public static void readFile(String fileName) throws Exception {
 		Path path = new Path(fileName);
 		if (!hdfs.exists(path) || hdfs.isDirectory(path)) {
@@ -94,7 +94,7 @@ public static void readFile(String fileName) throws Exception {
 
 ## 删除hdfs上已经有的文件或文件夹
 
-``` xml
+``` java
 public static void deleteFile(String fileName) throws Exception {
 		Path path = new Path(fileName);
 		if (!hdfs.exists(path)) {
@@ -120,7 +120,7 @@ public static void upload(Path src,Path dst) throws Exception{
 
 ## 下载文件
 
-``` xml
+``` java
 public static void download() throws Exception{
 		// 方式一
 		/*InputStream in = hdfs.open(new Path("/aa/a.txt"));
