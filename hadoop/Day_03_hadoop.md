@@ -19,6 +19,9 @@ hadoop开发之前需要对Eclipse进行基础的设置，否则会出现各种�
 
 3. eclipse添加额外的maven设置
 
+![enter description here][3]
+
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507808911254.jpg
-  [2]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1507808921928]]]"
+  [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507808921928.jpg
+  [3]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1507808931985]]]"
