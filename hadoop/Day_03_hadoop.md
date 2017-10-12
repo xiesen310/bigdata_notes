@@ -145,7 +145,18 @@ public static void getAllFileStatus(Path path) throws Exception {
 			}
 		}
 	}
+```
 
+## 查看文件状态
+
+``` java
+public static void getFileStatus(String fileName) throws Exception {
+		Path path = new Path(fileName);
+		FileStatus[] fileStatus = hdfs.listStatus(path);
+		for (FileStatus fs : fileStatus) {
+			System.out.println(fs);
+		}
+	}
 ```
 
 
