@@ -60,7 +60,7 @@ SecondaryNameNode负责定时默认1小时，从namenode上，获取fsimage和ed
 
 ![enter description here][4]
 
-> 当启动hdfs时加载加载namenode和datanode.
+> 当启动hdfs时加载namenode和datanode.
 
 - 加载namenode
 	- 首先加载fsimage文件
