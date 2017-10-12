@@ -41,6 +41,25 @@ hadoop开发之前需要对Eclipse进行基础的设置，否则会出现各种�
 
 ![enter description here][7]
 
+# Java代码操作hdfs
+
+## 编写hdfsUtils
+
+``` java
+public class HdfsUtils {
+	public static final Configuration CONF = new Configuration();
+	public static FileSystem hdfs;
+	static {
+		try {
+			hdfs = FileSystem.get(CONF);
+		} catch (IOException e) {
+			System.out.println("无法连接hdfs,请检查配置...");
+			e.printStackTrace();
+		}
+	}
+}
+
+```
 
 
 
