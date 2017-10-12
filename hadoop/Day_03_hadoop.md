@@ -77,6 +77,20 @@ public class HdfsUtils {
 		}
 	}
 ```
+## 读取hdfs上已有的文件
+
+``` xml
+public static void readFile(String fileName) throws Exception {
+		Path path = new Path(fileName);
+		if (!hdfs.exists(path) || hdfs.isDirectory(path)) {
+			System.out.println("给定路径 " + fileName + "不存在,或者不是一个");
+		} else {
+			FSDataInputStream inputStream = hdfs.open(path);
+			String content = inputStream.readUTF();
+			System.out.println(content);
+		}
+	}
+```
 
 
 
