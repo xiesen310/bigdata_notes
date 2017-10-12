@@ -106,6 +106,18 @@ public static void deleteFile(String fileName) throws Exception {
 	}
 ```
 
+## 上传文件
+
+``` xml
+public static void upload(Path src,Path dst) throws Exception{
+		if(hdfs.exists(dst)){
+			System.out.println("文件已经存在");
+		}else {
+			hdfs.copyFromLocalFile(false,src, dst);
+		}
+	}
+```
+
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507808911254.jpg
