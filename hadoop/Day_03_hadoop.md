@@ -31,10 +31,10 @@ hadoop开发之前需要对Eclipse进行基础的设置，否则会出现各种�
 # 创建maven项目注意事项
 1. 创建项目
 2. 修改jdk的版本
-3. 添加依赖，添加依赖的网址
-
+3. 添加依赖，添加依赖的网址 [https://mvnrepository.com][4]
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507808911254.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507808921928.jpg
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507808931985.jpg
+  [4]: https://mvnrepository.com
