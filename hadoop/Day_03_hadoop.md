@@ -164,11 +164,22 @@ public static void getFileStatus(String fileName) throws Exception {
 > 对于hadoop的开发，最好是直接在原生的linux上进行开发，但是考虑到linux操作不方便，在windows上进行开发，但是存在一些问题，必须营造一个hadoop的开发环境，对于linux开发有一定经验的大牛们，编译了linux的环境放到网络上了，我们只需要站在巨人的肩膀上就可以了，在百度上输入 ==hadoop common bin==就能找到对应的压缩包，下面是安装的过程
 
 1. 将hadoop.dll文件复制到 `C:\Windows\System32` 文件夹下面
-2. 在任意目录下解压下载的 `hadoop-common-2.6.0-bin-master` 文件
 
 ![enter description here][8]
 
-3. 将
+2. 在任意目录下解压下载的 `hadoop-common-2.6.0-bin-master` 文件
+
+![enter description here][9]
+
+3. 新建系统变量
+
+![enter description here][10]
+
+5. 添加到path
+
+![enter description here][11]
+
+
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507808911254.jpg
@@ -178,4 +189,7 @@ public static void getFileStatus(String fileName) throws Exception {
   [5]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507809848174.jpg
   [6]: https://mvnrepository.com
   [7]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507809858528.jpg
-  [8]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1507810769672]]]"
+  [8]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507810842258.jpg
+  [9]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507810769672.jpg
+  [10]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507810944794.jpg
+  [11]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1507811060807]]]"
