@@ -163,6 +163,8 @@ public static void getFileStatus(String fileName) throws Exception {
 
 > 对于hadoop的开发，最好是直接在原生的linux上进行开发，但是考虑到linux操作不方便，在windows上进行开发，但是存在一些问题，必须营造一个hadoop的开发环境，对于linux开发有一定经验的大牛们，编译了linux的环境放到网络上了，我们只需要站在巨人的肩膀上就可以了，在百度上输入 ==hadoop common bin==就能找到对应的压缩包，下面是安装的过程
 
+1. 将hadoop.dll文件复制到 `C:\Windows\System32` 文件夹下面
+
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507808911254.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507808921928.jpg
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507808931985.jpg
