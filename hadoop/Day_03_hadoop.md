@@ -179,7 +179,9 @@ public static void getFileStatus(String fileName) throws Exception {
 
 ![enter description here][11]
 
+> 注意如果不安装hadoop环境执行hadoop程序的时候可能会出现如下图所示的错误信息。
 
+![enter description here][12]
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507808911254.jpg
@@ -192,4 +194,5 @@ public static void getFileStatus(String fileName) throws Exception {
   [8]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507810842258.jpg
   [9]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507810769672.jpg
   [10]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507810944794.jpg
-  [11]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1507811060807]]]"
+  [11]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507811060807.jpg
+  [12]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1507811177418]]]"
