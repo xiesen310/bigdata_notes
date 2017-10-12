@@ -132,6 +132,21 @@ public static void download() throws Exception{
 		hdfs.copyToLocalFile(src, dst);
 }
 ```
+## 迭代文件
+
+``` java
+public static void getAllFileStatus(Path path) throws Exception {
+		FileStatus[] fileStatus = hdfs.listStatus(path);
+		if(hdfs.isDirectory(path)){
+			for (FileStatus fs : fileStatus) {
+				 path = fs.getPath();
+				 getAllFileStatus(path);
+				 System.out.println(fs);
+			}
+		}
+	}
+
+```
 
 
 
