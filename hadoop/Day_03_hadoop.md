@@ -159,7 +159,9 @@ public static void getFileStatus(String fileName) throws Exception {
 	}
 ```
 
+# 异常
 
+> 对于hadoop的开发
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507808911254.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507808921928.jpg
