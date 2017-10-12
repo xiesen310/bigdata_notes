@@ -166,6 +166,11 @@ public static void getFileStatus(String fileName) throws Exception {
 1. 将hadoop.dll文件复制到 `C:\Windows\System32` 文件夹下面
 2. 在任意目录下解压下载的 `hadoop-common-2.6.0-bin-master` 文件
 
+![enter description here][8]
+
+3. 将
+
+
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507808911254.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507808921928.jpg
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507808931985.jpg
@@ -173,3 +178,4 @@ public static void getFileStatus(String fileName) throws Exception {
   [5]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507809848174.jpg
   [6]: https://mvnrepository.com
   [7]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507809858528.jpg
+  [8]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1507810769672]]]"
