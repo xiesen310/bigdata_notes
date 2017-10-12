@@ -130,8 +130,7 @@ public static void download() throws Exception{
 		Path src = new Path("/aa/a.txt");
 		Path dst = new Path("d:/aa.txt");
 		hdfs.copyToLocalFile(src, dst);
-	}
-
+}
 ```
 
 
