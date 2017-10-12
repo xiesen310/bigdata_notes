@@ -92,6 +92,21 @@ public static void readFile(String fileName) throws Exception {
 	}
 ```
 
+## 删除hdfs上已经有的文件或文件夹
+
+``` xml
+public static void deleteFile(String fileName) throws Exception {
+		Path path = new Path(fileName);
+		if (!hdfs.exists(path)) {
+			System.out.println("文件不存在");
+		} else {
+			hdfs.delete(path, true);
+			System.out.println("删除成功");
+		}
+	}
+
+```
+
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507808911254.jpg
