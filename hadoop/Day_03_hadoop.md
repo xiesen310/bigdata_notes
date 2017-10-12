@@ -187,7 +187,7 @@ public static void getFileStatus(String fileName) throws Exception {
 	- 默认加载`classpath`下`core-site.xml`文件,所以需要将hadoop的配置文件拷贝下来
 	- 也可以通过`CONF`的`set`方法进行设置如:`conf.set("fs.defaultFS", "hdfs://hadoop:9000");`
 - 创建文件系统`hdfs = FileSystem.get(CONF);`
-	- `FileSystem`是抽象类,返回值为具体的子类,如果是`HDFS`返回值的类型是`DistributedFileSystem`![Alt text](./1507819690505.png)
+	- `FileSystem`是抽象类,返回值为具体的子类,如果是`HDFS`返回值的类型是`DistributedFileSystem`
 - 创建路径`Path path = new Path(fileName);`
 - 判断路径是否存在`boolean orExist = hdfs.exists(path);`
 - 判断是否是文件夹`hdfs.isDirectory(path)`
