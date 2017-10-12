@@ -38,6 +38,32 @@ grammar_cjkRuby: true
 
 ![enter description here][2]
 
+
+## 元数据的管理
+>元数据存储在namenode中,用于记录数据的block存储到哪个datanode中
+
+- 因为客户端程序在对集群中的文件进行读取和存储的过程中都需要访问元数据,所以对元数据的实时性要求比较高,所以元数据信息是存放到内存中的
+- 1.客户端上传文件的时候,首先请求`namenode`,获取块和`datanode`的信息
+- 2.`namenode`还会将这些信息存储到`edits log`日志文件(永远是64M大小)中进行记录
+- 3.当客户端将对应的`block`写入`datanode`中,会告知`namenode`写入完成
+- 4.`namenode`会将记录在`edits log`日志文件中的元数据信息放入内存中
+	- 当客户端要去下载文件就可以直接读取内存中的元数据信息
+- 5.每当`edits log`中的元数据满的时候,将`edits log`中的数据和`fsimage`中的数据进行合并,然后生成新的`edits log`,是一个空的文件
+	- 因为`edits log`和`fsimage`中的数据格式不同,当合并元数据信息的时候,需要计算相关内容,这个计算的过程是在`secondarynamenode`中进行
+	- 当`edits log`满的时候,`namenode`会通知`secondarynamenode`进行`checkpoint`的操作,`secondarynamenode`会通知`namenode`进行停止操作,`namenode`会生成一个新的文件`edits.new`将此过程中产生的新的数据写入此文件中
+	- `secondarynamenode`会将`namenode`中的`edits log`和`fsimage`进行下载,然后进行合并生成`fsimage.checkpoint`文件,将新的镜像上传给`namenode`
+	- `namenode`会将`fsimage`进行替换,并将`edits.new`重命名为`edits log`
+### 元数据的格式
+- 元数据的数据格式为`NameNode(FileName, replicas, block-ids,id2host...)`如虚拟目录下`/dir/abc.txt`文件被分成两个块id为`blk_1`和`blk_2`,每个块的分为3个备份,`blk_1`存在`h0,h1,h3`三个节点中,`blk_2`存在`h0,h2,h4`三个节点中
+- 具体格式为:`/dir/abc.txt, 3 ,{blk_1,blk_2}, [{blk_1:[h0,h1,h3]},{blk_2:[h0,h2,h4]}]`
+### checkpoint触发机制
+>对于secondarynamenode触发checkpoint有两种机制,可以在hdfs-site.xml中进行设置
+
+- 1.fs.checkpoint.period 指定两次checkpoint的最大时间间隔，默认3600秒。 
+- 2.fs.checkpoint.size    规定edits文件的最大值，一旦超过这个值则强制checkpoint，不管是否到达最大时间间隔。默认大小是64M。
+- 以上两种机制哪种先达到按照哪种执行
+
+
 # HDFS的启动过程
 
 ![HDFS架构图][3]
@@ -64,7 +90,7 @@ SecondaryNameNode负责定时默认1小时，从namenode上，获取fsimage和ed
 
 - 加载namenode
 	- 首先加载fsimage文件
-	- 加载fsedits文件
+	- 加载edits文件
 	- 当向hdfs中写数据时，fsedits文件会记录操作的过程，时间久了，就会产生大量的文件，当下次重新启动hdfs，hdfs会读取fsimage文件和fsedits文件，因为文件过大，需要读取很长时间。当然，这种现象不是我们想要看到的。因此，hdfs会将这些任务交给secondarynamenode进行监控，可以通过设置一段时间(默认是一个小时)内进行合并，也可以设置当文件达到默认值128M时，进行合并。secondarynamenode的工作原理见下文。
 
 - 加载datanode信息，将datanode上存储的信息返回给namenode，其中包含当前节点上存储的数据块的信息
