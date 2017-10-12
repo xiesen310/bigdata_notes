@@ -9,4 +9,5 @@ hadoop开发之前需要对Eclipse进行基础的设置，否则会出现各种�
 # Eclipse基本设置
 
 1. 设置编码格式
-2. 
+2. 设置eclipse中jdk
+3. eclipse添加额外的maven设置
