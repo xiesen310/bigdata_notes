@@ -21,7 +21,11 @@ hadoop开发之前需要对Eclipse进行基础的设置，否则会出现各种�
 
 ![enter description here][3]
 
+# 阅读文档的基本步骤
 
+1. read class description
+2. read Constructor
+3. read static method or Builder and factory
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507808911254.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507808921928.jpg
