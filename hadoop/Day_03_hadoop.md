@@ -58,6 +58,24 @@ public class HdfsUtils {
 		}
 	}
 }
+```
+
+## 在hdfs上创建文件，并写入数据
+
+``` xml
+// 创建一个新的文件，将数据写入到hdfs文件中
+	public static void createFile(String fileName, String content) throws Exception {
+		Path path = new Path(fileName);
+		if (hdfs.exists(path)) {
+			System.out.println("文件 " + fileName + " 已存在");
+		} else {
+			FSDataOutputStream outputStream = hdfs.create(path);
+			outputStream.writeUTF(content); // 会添加一些特殊的字符
+			// outputStream.write(content.getBytes()); //可以解决特殊的字符
+			outputStream.close();
+			outputStream.flush();
+		}
+	}
 
 ```
 
