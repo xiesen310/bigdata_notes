@@ -202,7 +202,12 @@ public static class WordCountReducer extends Reducer<Text, IntWritable, Text, In
 	}
 ```
 
-### 
+### 编写job
+
+``` java
+enter code here
+```
+
 
 
 
