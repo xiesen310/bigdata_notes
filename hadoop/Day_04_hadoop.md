@@ -123,6 +123,9 @@ yarn:
 >   - 传到map程序中,对每一个**kv**对都会调用map方法
 >   - 输出kv对,先保存到map端的本地文件系统中(写入时会进行排序)
 
+
+![][6]
+
 reduce节点:(reduce端)
 
 > -  map执行完就会启动reduce
@@ -134,7 +137,7 @@ reduce节点:(reduce端)
 
 shuffel:洗牌,混洗(整个mr中效率最低的过程)
 
-![][6]
+![][7]
 
 > map上的:
 > -  两次磁盘IO和一次网络IO为shuffe
@@ -255,4 +258,5 @@ public static class WordCountReducer extends Reducer<Text, IntWritable, Text, In
   [3]: https://www.github.com/wxdsunny/images/raw/master/1507858380078.jpg
   [4]: https://www.github.com/wxdsunny/images/raw/master/1507896385839.jpg
   [5]: https://www.github.com/wxdsunny/images/raw/master/1507906725866.jpg
-  [6]: https://www.github.com/wxdsunny/images/raw/master/1507907985917.jpg
+  [6]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1507909722721]]]"
+  [7]: https://www.github.com/wxdsunny/images/raw/master/1507907985917.jpg
