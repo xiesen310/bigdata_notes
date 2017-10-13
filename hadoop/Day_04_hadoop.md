@@ -171,7 +171,27 @@ shuffel:洗牌,混洗(整个mr中效率最低的过程)
 ### 创建reducer
 
 ``` java
+public static class WordCountReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
+		private IntWritable oValue = new IntWritable();
 
+		/**
+		 * Text key eg:hadoop(1,1),key是hadoop Iterable<IntWritable> values
+		 * eg:hadoop(1,1),values是(1,1)
+		 * 
+		 */
+		@Override
+		protected void reduce(Text key, Iterable<IntWritable> values,
+				Reducer<Text, IntWritable, Text, IntWritable>.Context context)
+				throws IOException, InterruptedException {
+			int sum = 0;
+			for (IntWritable value : values) {
+				sum += value.get();
+			}
+			// 输出kv(单词，单词计数)
+			oValue.set(sum);
+			context.write(key, oValue);
+		}
+	}
 ```
 
 
