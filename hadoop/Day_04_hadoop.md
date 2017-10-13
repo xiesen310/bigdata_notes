@@ -4,9 +4,9 @@ tags: bigdata,hadoop,Java
 grammar_cjkRuby: true
 ---
 
-## FileSystem补充
+# FileSystem补充
 
-### 获取FileSystem
+## 获取FileSystem
 
 ``` java 
 用URI的形式连接
@@ -39,17 +39,17 @@ newInstance和get方法取得FileSystem的区别:
 - GetHomeDirectory() :获取家目录
 
 
-### 获取用户的家目录
+## 获取用户的家目录
 
-#### HDFS和Linux的区别:
+### HDFS和Linux的区别:
 
 ![][1]
 
 HDFS优势为廉价
 
-## 导入项目
+# 导入项目
 
-### 导入数据库
+## 导入数据库
 
 1.mysql备份数据库
 
@@ -64,10 +64,10 @@ HDFS优势为廉价
 
 ![][4]
 
-## MapReduce
+# MapReduce
 
-### 原理
-#### map和reduce的运行原理
+## 原理
+### map和reduce的运行原理
 map :
 
 > 1.加载数据源和解析数据源(抽取,转换)
@@ -82,7 +82,7 @@ reduce:聚合计算
 > 4.reduce处理key,则只要key相同的都会到同一个reduce节点
 
 
-#### wordCount的运行过程
+### wordCount的运行过程
 
 wordCount:
 
@@ -96,7 +96,7 @@ wordCount:
 > 8.再聚合:聚合由程序定义(根据key聚合)
 > 9.保存到HDFS上
 
-#### job配置
+### job配置
 yarn:
 
 > -  可以并行的运行多个mr作业job
@@ -112,7 +112,7 @@ yarn:
 ![][5]
 
 
-#### map,reduce和shuffel
+### map,reduce和shuffel
 
  map节点:(map端)
 >   - 默认有几个block就有几个map
@@ -148,9 +148,9 @@ shuffel:洗牌,混洗(整个mr中效率最低的过程)
 > reduce上的:
 > -  reduce抓取数据,根据key进行合并
 
-### 数据处理分析:
+## 数据处理分析:
 
-#### 创建map类
+### 创建map类
 
 
 ``` java
