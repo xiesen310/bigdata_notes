@@ -205,7 +205,43 @@ public static class WordCountReducer extends Reducer<Text, IntWritable, Text, In
 ### 编写job
 
 ``` java
-enter code here
+// 组装一个job到mr引擎上执行
+	public static void main(String[] args) throws Exception {
+		// 构建一个Configuration,用啦配置hdfs的位置和mr的各项参数
+		Configuration conf = new Configuration();
+		// 构建job对象
+		Job job = Job.getInstance(conf);
+		job.setJarByClass(WordCount.class);
+		job.setJobName("第一个mr作业: wordcount");
+
+		// 配置mr执行类
+		job.setMapperClass(WordCountMap.class);
+		job.setReducerClass(WordCountReducer.class);
+
+		// 设置输出kv类型
+		// Map
+		// job.setMapOutputKeyClass(Text.class);
+		// job.setMapOutputValueClass(IntWritable.class);
+
+		// reducer
+		job.setOutputKeyClass(Text.class);
+		job.setOutputValueClass(IntWritable.class);
+
+		// 设置数据源(待处理)
+		Path inputPath = new Path("/README.txt");
+		FileInputFormat.addInputPath(job, inputPath);
+
+		// 设置目标数据的存放位置
+		Path outputPath = new Path("/bd14/output/wordcount");
+		// 删除存在的文件
+		outputPath.getFileSystem(conf).delete(outputPath, true);
+		FileOutputFormat.setOutputPath(job, outputPath);
+
+		// 启动作业，分布式计算交给mr引擎
+		// 参数true代表打印日志
+		boolean result = job.waitForCompletion(true);
+		System.exit(result ? 0 : 1);
+	}
 ```
 
 
