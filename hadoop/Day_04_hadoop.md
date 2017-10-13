@@ -154,16 +154,24 @@ shuffel:洗牌,混洗(整个mr中效率最低的过程)
 
 
 ``` java
-	public static class DesDumplicateMap extends Mapper<LongWritable, Text, Text, NullWritable>{
-		private String [] infos;
-		private NullWritable oValue = NullWritable.get();
-		private Text oKey = new Text();
+	public static class WordCountMap extends Mapper<LongWritable, Text, Text, IntWritable> {
+		private String[] infos;
+		private Text okey = new Text();
+		private final IntWritable oValue = new IntWritable(1);
+
+		// 加载，转换，解析，抽取
+		// context 传递mr执行过程的参数数据,通过writer方法可以将数据传给reduce
+		// LongWritable key, Text value
 		@Override
-		protected void map(LongWritable key, Text value, Mapper<LongWritable, Text, Text, NullWritable>.Context context)
+		protected void map(LongWritable key, Text value, Mapper<LongWritable, Text, Text, IntWritable>.Context context)
 				throws IOException, InterruptedException {
+			// 解析一行数据，转换成一个单词组成的数组
 			infos = value.toString().split("\\s");
-			oKey.set(infos[0]);
-			context.write(oKey, oValue);
+			for (String i : infos) {
+				// 把单词形成一个kv对发送给reduce
+				okey.set(i);
+				context.write(okey, oValue);
+			}
 		}
 	}
 ```
