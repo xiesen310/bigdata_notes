@@ -261,5 +261,5 @@ public static class WordCountReducer extends Reducer<Text, IntWritable, Text, In
   [4]: https://www.github.com/wxdsunny/images/raw/master/1507896385839.jpg
   [5]: https://www.github.com/wxdsunny/images/raw/master/1507906725866.jpg
   [6]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507909722721.jpg
-  [7]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1507909741348]]]"
+  [7]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1507909741348.jpg
   [8]: https://www.github.com/wxdsunny/images/raw/master/1507907985917.jpg
