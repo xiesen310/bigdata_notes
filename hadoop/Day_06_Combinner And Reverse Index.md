@@ -66,13 +66,30 @@ Job.setCombinnerClass(SomeCombinnerClass.class);
 > 如果一个文件被两个或两个以上的mapwork进行分隔，就会出现同一个文件被分配到不同的mapwork上，这样就会出现错误，我们可以通过两种方式进行修改，避免这种问题的发生
 
 1. 在reduce上将解析的文件名和次数相同的进行累加，所有文件名和次数解析之后再输出
-
-![方式一分析流程图][3]
-
 2.在map上自定义InputFormat来将同一个文件分到一个split中，这样就解决了上述问题
 自定义inputFormat上重写isSplitable方法即可
+
+``` java
+/**
+	* 项目名称：mapreeduce
+	* 类名称：ReversedIndexInputFormat
+	* 类描述：为了解决一个文件可能有两个分片，自定义一个inputformat，来设置一个文件只能有一个分片，前提是文件不宜过大，否则另想办法
+	* 创建人：Allen
+	* @version
+	*/
+	public static class ReversedIndexInputFormat extends TextInputFormat{
+		@Override
+		protected boolean isSplitable(JobContext context, Path file) {
+			return false;
+		}
+	}
+
+```
+
+
+![enter description here][3]
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508153602457.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508153725503.jpg
-  [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508153959495.jpg
+  [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508154050534.jpg
