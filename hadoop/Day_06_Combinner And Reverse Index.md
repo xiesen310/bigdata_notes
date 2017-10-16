@@ -9,3 +9,6 @@ grammar_cjkRuby: true
 TextInputFormat(LongWritable,Text)：文件偏移量 ：整行数据(默认状态)
 KeyValueTextInputFormat(Text,Text)：第一个"\t"前的数据 ： 后面的整行数据
 SequenceFileInputFormat：因为这是二进制文件，所以Key-Value都是由用户指定
+
+# 书写MapReducer为什么要使用静态内部类？
+
