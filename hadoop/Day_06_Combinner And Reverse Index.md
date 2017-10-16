@@ -91,7 +91,20 @@ Job.setCombinnerClass(SomeCombinnerClass.class);
 
 # TopN问题
 
+> 对于topN问题，我们以WordCount来展开叙述，对于这个问题，有两种可行的方案
+**方案一**
+
+编写连个mr程序，第一个mr程序进行计数，两一个mr程序获取topN的值，但是这种方式需要书写连个mr程序，过程比较繁琐，不推荐使用
+
+![方案一处理流程示意图][4]
+
+**方案二**
+当然，方案二必须是要书写一个mr了，要不多浪费感情啊。MapReduce分为两个阶段，Map阶段和Reduce阶段
+
+**Map**
+map阶段主要做的事情是加载数据，解析数据，将数据分隔成单词，然后以kv(单词,1)的形式将数据发送给reduce
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508153602457.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508153725503.jpg
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508154050534.jpg
+  [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508154487106.jpg
