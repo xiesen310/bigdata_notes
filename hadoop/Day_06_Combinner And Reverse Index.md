@@ -108,7 +108,8 @@ map阶段主要做的事情是加载数据，解析数据，将数据分隔成�
 
 reduce阶段，接收数据，按照key进行统计，计算出词频，然后获取topN，输出结果
 
-
+计算出词频之后，怎么将结果输出呢？
+我们采用的思路是将计算的词频数据放入到map中，但是当数据量过大时，在内存中的数据会写入到磁盘，但是我们不能将数据写入到磁盘，因为这些数据并不是我们想要的，因此我们需要控制map的大小，当数据量小时，这种现象根本不会出现，但是我们是做大数据的，自然要解决这种问题
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508153602457.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508153725503.jpg
