@@ -30,5 +30,6 @@ IpLoginNewTweetMap map = new ilnt.IpLoginNewTweetMap();
 
 Mr运行过程中，每个map节点，只实例化一个map对象,但是每行记录都会调用一次map方法，定义在成员变量位置,减少对象在堆中创建资源，减少了垃圾回收机制回收资源,提高了代码的质量 
 
-＃设置分隔符的两种方式
+# 设置分隔符的两种方式
+
 
