@@ -63,6 +63,13 @@ Job.setCombinnerClass(SomeCombinnerClass.class);
 
 # MR倒排索引
 
+> 如果一个文件被两个或两个以上的mapwork进行分隔，就会出现同一个文件被分配到不同的mapwork上，这样就会出现错误，我们可以通过两种方式进行修改，避免这种问题的发生
+
+1. 在reduce上将解析的文件名和次数相同的进行累加，所有文件名和次数解析之后再输出
+2.在map上自定义InputFormat来将同一个文件分到一个split中，这样就解决了上述问题
+自定义inputFormat上重写isSplitable方法即可
+
+
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508153602457.jpg
