@@ -233,10 +233,6 @@ public class ReversedIndex {
 
 ```
 
-
-
-
-
 # TopN问题
 
 > 对于topN问题，我们以WordCount来展开叙述，对于这个问题，有两种可行的方案
