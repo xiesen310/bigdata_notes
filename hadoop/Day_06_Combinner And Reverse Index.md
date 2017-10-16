@@ -57,7 +57,10 @@ Job.setCombinnerClass(SomeCombinnerClass.class);
 1.	计算平均值，期望，方差等计算过程不能使用
 2.	Combinner的输入kv类型必须和输出类型保持一致，否则不适用
 
+![combinner原理分析][2]
 
+## 如何在代码中使用combinner
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508153602457.jpg
+  [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508153725503.jpg
