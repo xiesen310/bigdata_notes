@@ -263,7 +263,6 @@ package top.xiesen.topn;
 import java.io.IOException;
 import java.util.Set;
 import java.util.TreeMap;
-
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
