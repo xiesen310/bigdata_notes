@@ -224,9 +224,6 @@ public static void main(String[] args) throws Exception {
 	}
 ```
 
-
-
-
 抽样,求中值,根据中值定义partition
 
 
