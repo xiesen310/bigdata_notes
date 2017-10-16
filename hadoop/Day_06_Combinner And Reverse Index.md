@@ -35,6 +35,11 @@ Mr运行过程中，每个map节点，只实例化一个map对象,但是每行�
 ![][1]
 
 # 程序优化原理分析—combinner
+Shuffle过程是从map读取kv结束后到传递给reducerwork调用reducer方法的过程
+Shuffle过程是mr中最耗时间的过程，减少shuffle的数据量，能提高mr的运行速度
+如果在map上将数据进行聚合，聚合后的结果在发送到reduce上再次聚合，这样
+1.	减少shuffle的数据量
+2.	把reducer上的计算的压力在每一个reducer上进行分担
 
 
 
