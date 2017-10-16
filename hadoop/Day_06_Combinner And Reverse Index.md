@@ -113,6 +113,121 @@ reduce阶段，接收数据，按照key进行统计，计算出词频，然后�
 
 ![topN问题解决方案][5]
 
+``` java
+package top.xiesen.topn;
+
+import java.io.IOException;
+import java.util.Set;
+import java.util.TreeMap;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+
+public class WordCountTopN {
+
+	public static class WordCountTopNMap extends Mapper<LongWritable, Text, Text, IntWritable>{
+		
+		private final IntWritable ONE = new IntWritable(1);
+		private Text outKey = new Text();
+		private String[] infos;
+		@Override
+		protected void map(LongWritable key, Text value, Mapper<LongWritable, Text, Text, IntWritable>.Context context)
+				throws IOException, InterruptedException {
+			infos = value.toString().split("[\\s\\(\\)\\.,]");
+			for (String word : infos) {
+				outKey.set(word);
+				context.write(outKey, ONE);
+			}
+		}
+	}
+	
+	public static class WordCountTopNReduce extends Reducer<Text, IntWritable,Text, IntWritable>{
+		private int sum;
+		private Text outKey = new Text();
+		private IntWritable outValue = new IntWritable();
+		// 开辟内存空间保存topN,TreeMap是一个排序的map
+		private TreeMap<Integer, String> topN = new TreeMap<>();
+		@Override
+		protected void reduce(Text key, Iterable<IntWritable> values,
+				Reducer<Text, IntWritable, Text, IntWritable>.Context context) throws IOException, InterruptedException {
+			sum = 0;
+			for (IntWritable value : values) {
+				sum += value.get();
+			}
+			// 把计算结果放入到topN
+			// 先看看topN中有没有相同的key，如果有把topN中相同key对应的value和单词串在一起，如果没有，直接放进去
+			// 放进去treeMap会自动排序，这个时候把最后一个再删除，保证topN中只要N个kv对
+
+			if(topN.size() < 3){
+				if(topN.get(sum) != null){
+					// 如果存在，在后面进行追加
+					topN.put(sum, topN.get(sum) + "--" + key.toString());
+				}else{
+					topN.put(sum, key.toString());
+				}
+			}else {
+				// 大于等于N的话放进去一个删除一个，始终保证topN中有N个元素
+				if(topN.get(sum) != null){
+					topN.put(sum, topN.get(sum) + "--" + key.toString());
+				}else {
+					topN.put(sum, key.toString());
+//					topN.remove(topN.lastKey()); // 求topN最小
+					topN.remove(topN.firstKey()); // 求最大topN
+				}
+			}
+		}
+		
+		@Override
+		protected void cleanup(Reducer<Text, IntWritable, Text, IntWritable>.Context context)
+				throws IOException, InterruptedException {
+			if(topN != null && !topN.isEmpty()){
+				Set<Integer> keys = topN.descendingKeySet(); // // 求最大topN
+//				Set<Integer> keys = topN.keySet(); // // 求topN最小
+				for (Integer key : keys) {
+					outKey.set(topN.get(key));
+					outValue.set(key);
+					context.write(outKey, outValue);
+				}
+			} 
+		}
+	}
+	
+	public static void main(String[] args) throws Exception {
+		Configuration configuration = new Configuration();
+		Job job = Job.getInstance(configuration);
+		
+		job.setJarByClass(WordCountTopN.class);
+		job.setJobName("词频topN");
+		
+		job.setMapperClass(WordCountTopNMap.class);
+		job.setReducerClass(WordCountTopNReduce.class);
+		job.setCombinerClass(WordCountTopNReduce.class);
+		
+		job.setOutputKeyClass(Text.class);
+		job.setOutputValueClass(IntWritable.class);
+		
+		Path inputPath = new Path("/reversetext/reverse1.txt");
+		Path outputPath = new Path("/bd14/topN");
+		outputPath.getFileSystem(configuration).delete(outputPath,true);
+		
+		FileInputFormat.addInputPath(job, inputPath);
+		FileOutputFormat.setOutputPath(job, outputPath);
+		
+		System.exit(job.waitForCompletion(true) ? 0 : 1);
+	}
+}
+
+```
+
+
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508153602457.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508153725503.jpg
