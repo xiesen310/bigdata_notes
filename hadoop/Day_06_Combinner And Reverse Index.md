@@ -12,3 +12,16 @@ SequenceFileInputFormat：因为这是二进制文件，所以Key-Value都是由
 
 # 书写MapReducer为什么要使用静态内部类？
 
+添加static的话属于静态内部类，它和普通的类型没有什么区别，在使用上直接new类型来实例化对象
+
+``` java
+IpLoginNewTweetMap map = new IpLoginNewTweetMap();
+```
+如果不加static的话,内部类的实例化之前要先实例化外部类
+
+``` java
+IpLoginNewTweet ilnt = new IpLoginNewTweet();
+IpLoginNewTweetMap map = new ilnt.IpLoginNewTweetMap();
+```
+
+
