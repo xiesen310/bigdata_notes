@@ -176,7 +176,6 @@ public static class SecondarySortPartition extends Partitioner<SecondarySortComp
 			int reduceNo = (key.getFirstFiled().hashCode()&Integer.MAX_VALUE) % numpartition;
 			return reduceNo;
 		}
-		
 	}
 ```
 
