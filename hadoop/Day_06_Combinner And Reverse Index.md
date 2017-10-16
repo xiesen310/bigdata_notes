@@ -104,6 +104,12 @@ Job.setCombinnerClass(SomeCombinnerClass.class);
 **Map**
 map阶段主要做的事情是加载数据，解析数据，将数据分隔成单词，然后以kv(单词,1)的形式将数据发送给reduce
 
+**Reduce**
+
+reduce阶段，接收数据，按照key进行统计，计算出词频，然后获取topN，输出结果
+
+
+
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508153602457.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508153725503.jpg
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508154050534.jpg
