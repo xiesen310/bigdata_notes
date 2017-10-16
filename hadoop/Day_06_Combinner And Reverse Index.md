@@ -48,6 +48,10 @@ Combinner的reducer方法定义就是map端聚合的方式
 Combinner其实就是reducer，只不过这个reducer是在map节点上完成的，它只是计算map端上的数据
 真正的reducer在独立的reducer节点上计算的，它从各个map上找去数据过来一同计算
 
+``` java
+Job.setCombinnerClass(SomeCombinnerClass.class);
+```
+
 
 
 
