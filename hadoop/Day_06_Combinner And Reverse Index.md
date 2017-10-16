@@ -61,7 +61,7 @@ Job.setCombinnerClass(SomeCombinnerClass.class);
 
 > 注意 ：如果combinner与reducer一样并且满足combinner的使用场景，可以将combinner和reducer进行合并
 
-
+# MR倒排索引
 
 
 
