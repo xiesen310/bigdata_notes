@@ -52,6 +52,11 @@ Combinner其实就是reducer，只不过这个reducer是在map节点上完成的
 Job.setCombinnerClass(SomeCombinnerClass.class);
 ```
 
+在mr中只要能使用Combinner就最好使用Combinner,因为它减少了Map端向reducer端传送的数据量
+**不能使用combinner的场景**
+1.	计算平均值，期望，方差等计算过程不能使用
+2.	Combinner的输入kv类型必须和输出类型保持一致，否则不适用
+
 
 
 
