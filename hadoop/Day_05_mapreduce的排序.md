@@ -223,7 +223,6 @@ public static void main(String[] args) throws Exception {
 		System.exit(job.waitForCompletion(true) ? 0 : 1);
 	}
 ```
-
 抽样,求中值,根据中值定义partition
 
 
