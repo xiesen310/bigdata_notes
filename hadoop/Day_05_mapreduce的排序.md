@@ -181,7 +181,6 @@ public static class SecondarySortPartition extends Partitioner<SecondarySortComp
 ```
 
 3 .  自定义分组比较器:
-
 ``` java
 public static class SecondarySortGroupComparator extends WritableComparator {
 		//构造方法里面向父类传递比较器要比较的数据类型
