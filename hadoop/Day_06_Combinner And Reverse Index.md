@@ -69,6 +69,8 @@ Job.setCombinnerClass(SomeCombinnerClass.class);
 2.在map上自定义InputFormat来将同一个文件分到一个split中，这样就解决了上述问题
 自定义inputFormat上重写isSplitable方法即可
 
+![mr倒排索引分析流程示意图][3]
+
 ``` java
 /**
 	* 项目名称：mapreeduce
@@ -86,7 +88,7 @@ Job.setCombinnerClass(SomeCombinnerClass.class);
 ```
 
 
-![enter description here][3]
+![enter description here][4]
 
 
 # TopN问题
@@ -96,7 +98,7 @@ Job.setCombinnerClass(SomeCombinnerClass.class);
 
 编写连个mr程序，第一个mr程序进行计数，两一个mr程序获取topN的值，但是这种方式需要书写连个mr程序，过程比较繁琐，不推荐使用
 
-![方案一处理流程示意图][4]
+![方案一处理流程示意图][5]
 
 **方案二**
 当然，方案二必须是要书写一个mr了，要不多浪费感情啊。MapReduce分为两个阶段，Map阶段和Reduce阶段
@@ -111,7 +113,7 @@ reduce阶段，接收数据，按照key进行统计，计算出词频，然后�
 计算出词频之后，怎么将结果输出呢？
 我们采用的思路是将计算的词频数据放入到map中，但是当数据量过大时，在内存中的数据会写入到磁盘，但是我们不能将数据写入到磁盘，因为这些数据并不是我们想要的，因此我们需要控制map的大小，当数据量小时，这种现象根本不会出现，但是我们是做大数据的，自然要解决这种问题，我们可以控制放入map的数据量，我们只将N对数据放入到map中，这样就解决了我们的问题。但是感觉还是不完美，如果放进map中的数据自己能够排序，那就更方便了。上天总是眷顾那些有思想的人，我们可以使用treeMap，treeMap和map是一样的，但放入treemap中的数据可以帮我们自动排序。现实总是很残酷的，如果有很多的mapwork，我们该怎么办呢，我们怎么能够保证数据在同一个reduce上执行呢，其实也很简单，我们可以使用combinner进行整合
 
-![topN问题解决方案][5]
+![topN问题解决方案][6]
 
 ``` java
 package top.xiesen.topn;
@@ -227,9 +229,9 @@ public class WordCountTopN {
 ```
 
 
-
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508153602457.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508153725503.jpg
-  [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508154050534.jpg
-  [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508154487106.jpg
-  [5]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508156868449.jpg
+  [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508163901571.jpg
+  [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508154050534.jpg
+  [5]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508154487106.jpg
+  [6]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508156868449.jpg
