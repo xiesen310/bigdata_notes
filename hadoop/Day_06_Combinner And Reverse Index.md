@@ -59,7 +59,9 @@ Job.setCombinnerClass(SomeCombinnerClass.class);
 
 ![combinner原理分析][2]
 
-## 如何在代码中使用combinner
+## 代码中使用combinner
+
+
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508153602457.jpg
