@@ -72,7 +72,26 @@ Job.setCombinnerClass(SomeCombinnerClass.class);
 ![mr倒排索引分析流程示意图][3]
 
 ``` java
-/**
+package top.xiesen.index;
+
+import java.io.IOException;
+
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.JobContext;
+import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.input.FileSplit;
+import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+
+public class ReversedIndex {
+	/**
 	* 项目名称：mapreeduce
 	* 类名称：ReversedIndexInputFormat
 	* 类描述：为了解决一个文件可能有两个分片，自定义一个inputformat，来设置一个文件只能有一个分片，前提是文件不宜过大，否则另想办法
@@ -85,10 +104,137 @@ Job.setCombinnerClass(SomeCombinnerClass.class);
 			return false;
 		}
 	}
+
+	/**
+	* 项目名称：mapreeduce
+	* 类名称：ReversedIndexMap
+	* 类描述：加载源文件，解析单词，把单词作为key，文件名作为value输出 ,输出：key(单词),value(文件名)
+	* 创建人：Allen
+	* @version
+	*/
+	public static class ReversedIndexMap extends Mapper<LongWritable, Text, Text, Text> {
+
+		private String[] infos;
+		private String filePath;
+		private Text outputKey = new Text();
+		private Text outputValue = new Text();
+		private FileSplit fileSplit;
+
+		// 执行map任务时执行一次，和测试类中的before类似
+		@Override
+		protected void setup(Mapper<LongWritable, Text, Text, Text>.Context context)
+				throws IOException, InterruptedException {
+			// 设置文件路径，文件是指该map正在执行处理的数据文件
+			fileSplit = (FileSplit) context.getInputSplit();
+			filePath = fileSplit.getPath().toString();
+		}
+
+		// map方法每行调用一次
+		@Override
+		protected void map(LongWritable key, Text value, Mapper<LongWritable, Text, Text, Text>.Context context)
+				throws IOException, InterruptedException {
+			infos = value.toString().split("[\\s\"\\(\\)\\:\\;\\.\\,\\*\\/\\#\\!\\[\\]\\{\\}\\-\\<\\>]");
+			if (infos != null || infos.length > 0) {
+				for (String word : infos) {
+					outputKey.set(word.toLowerCase());
+					outputValue.set(filePath);
+					context.write(outputKey, outputValue);
+				}
+			}
+		}
+	}
+
+	/**
+	* 项目名称：mapreeduce
+	* 类名称：ReversedIndexCombinner
+	* 类描述：接受map的输出，然后统计出key(单词)出现的次数，输出key(单词)，value(文件名称[单词在文件中出现的次数])
+	* 创建人：Allen
+	* @version
+	*/
+	public static class ReversedIndexCombinner extends Reducer<Text, Text, Text, Text> {
+		private int wordCount;
+		private Text outputValue = new Text();
+		private String filePath;
+		private boolean isGetFilePath;
+		@Override
+		protected void reduce(Text key, Iterable<Text> values, Reducer<Text, Text, Text, Text>.Context context)
+				throws IOException, InterruptedException {
+			isGetFilePath = false;
+			wordCount = 0;
+			for (Text path : values) {
+				wordCount += 1;
+				if(!isGetFilePath){
+					filePath = path.toString();
+					isGetFilePath = true;
+				}
+			}
+			outputValue.set(filePath + "[" + wordCount + "]");
+			context.write(key, outputValue);
+		}
+
+	}
+
+	/**
+	* 项目名称：mapreeduce
+	* 类名称：ReversedIndexReducer
+	* 类描述：接受Combinner的输入，并把相同key(单词)下不同的values(文件名称[单词在文件中出现的次数])，
+	* 输出key(单词)，value(文件名[词频]----文件名[词频]---...)
+	* 创建人：Allen
+	* @version
+	*/
+	public static class ReversedIndexReducer extends Reducer<Text, Text, Text, Text> {
+		private StringBuffer valueStr;
+		private Text outputValue = new Text();
+		private boolean isInitlized;
+		@Override
+		protected void reduce(Text key, Iterable<Text> values, Reducer<Text, Text, Text, Text>.Context context)
+				throws IOException, InterruptedException {
+			valueStr = new StringBuffer();
+			isInitlized = false;
+			for (Text value : values) {
+				if(isInitlized){
+					valueStr.append("---" + value.toString());
+				}else {
+					// 第一次往valueStr里面放内容
+					valueStr.append(value.toString());
+					isInitlized = true;
+				}
+			}
+			outputValue.set(valueStr.toString());
+			context.write(key, outputValue);
+		}
+		
+	}
+	
+	public static void main(String[] args) throws Exception {
+		Configuration configuration = new Configuration();
+		Job job =  Job.getInstance(configuration);
+		job.setJarByClass(ReversedIndex.class);
+		job.setJobName("倒序索引");
+		
+		job.setMapperClass(ReversedIndexMap.class);
+		job.setCombinerClass(ReversedIndexCombinner.class);
+		job.setReducerClass(ReversedIndexReducer.class);
+		
+		job.setOutputKeyClass(Text.class);
+		job.setOutputValueClass(Text.class);
+		
+		Path inputPath = new Path("/reversetext");
+		Path outputPath = new Path("/bd14/reverseindex");
+		outputPath.getFileSystem(configuration).delete(outputPath,true);
+		FileInputFormat.addInputPath(job, inputPath);
+		FileOutputFormat.setOutputPath(job, outputPath);
+		
+		job.setNumReduceTasks(2);
+		job.setInputFormatClass(ReversedIndexInputFormat.class);
+		System.exit(job.waitForCompletion(true) ? 0 : 1);
+	}
+}
+
 ```
 
 
-![enter description here][4]
+
 
 
 # TopN问题
