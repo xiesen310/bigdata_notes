@@ -4,7 +4,6 @@ tags: hadoop,bigdata,Java,MapReduce
 grammar_cjkRuby: true
 ---
 
-
 # Mr文件读取的几种方式 的区别
 TextInputFormat(LongWritable,Text)：文件偏移量 ：整行数据(默认状态)
 KeyValueTextInputFormat(Text,Text)：第一个" "前的数据 ： 后面的整行数据
@@ -39,7 +38,7 @@ Shuffle过程是从map读取kv结束后到传递给reducerwork调用reducer方�
 Shuffle过程是mr中最耗时间的过程，减少shuffle的数据量，能提高mr的运行速度
 如果在map上将数据进行聚合，聚合后的结果在发送到reduce上再次聚合，这样
 1.	减少shuffle的数据量
-2.	把reducer上的计算的压力在每一个reducer上进行分担
+2.	把reducer上的计算的压力在每一个reducer上进行分担(分担了reduce的压力)
 
 ## 如何在map端进行聚合
 通过在mr中添加Combinner的方式给mr配置map端聚合
