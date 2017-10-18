@@ -26,6 +26,14 @@ Avro是hadoop的创始人开发出的，avro能够将每个字段的数据类型
 Arvo：序列化反序列化，序列化过程中提供复杂的数据结构(多个字段，多个字段类型)，类似数据库中的表，也就是模式
 Avro使用json的形式定义schema，json在数据交互时，扮演的角色是数据存储格式，在webservice和rpc一般希望使用json来作为数据的传输格式
 
+## Avro的代码实现
+
+1. 编写schema
+
+> 定义schema，文件名必须是以.avsc结尾的，并且目录位置设置需要与maven项目中pom文件的`<sourceDirectory>${project.basedir}/src/main/avro/</sourceDirectory>`对应，json中表示的具体参数类型 ，请参考 [http://avro.apache.org/docs/1.8.2/gettingstartedjava.html][2]中defining schema部分
+
+2. 编写操作类
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508325985802.jpg
+  [2]: http://avro.apache.org/docs/1.8.2/gettingstartedjava.html
