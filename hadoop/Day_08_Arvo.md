@@ -21,5 +21,8 @@ Avro 提供的基本服务
 
 ![大数据逻辑分工示意图][1]
 
+SequenceFile：二进制文件格式,能够保存数据类型，是hadoop自带的数据类型
+Avro是hadoop的创始人开发出的，avro能够将每个字段的数据类型进行存储
+
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508325985802.jpg
