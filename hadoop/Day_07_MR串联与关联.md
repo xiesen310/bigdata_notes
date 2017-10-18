@@ -643,6 +643,189 @@ public class ReduceJoin {
 
 
 
+``` java
+// 代码二 半连接
+package top.xiesen.join;
+
+import java.io.BufferedReader;
+import java.io.DataInput;
+import java.io.DataOutput;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FSDataInputStream;
+import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.io.Writable;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.input.FileSplit;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+
+public class SeniTest {
+	public static class ValueWithFlag implements Writable {
+		private String value;
+		private String flag;
+
+		public String getValue() {
+			return value;
+		}
+
+		public void setValue(String value) {
+			this.value = value;
+		}
+
+		public String getFlag() {
+			return flag;
+		}
+
+		public void setFlag(String flag) {
+			this.flag = flag;
+		}
+
+		@Override
+		public void write(DataOutput out) throws IOException {
+			out.writeUTF(value);
+			out.writeUTF(flag);
+		}
+
+		@Override
+		public void readFields(DataInput in) throws IOException {
+			this.value = in.readUTF();
+			this.flag = in.readUTF();
+		}
+	}
+
+	public static class SeniTestMap extends Mapper<LongWritable, Text, Text, ValueWithFlag> {
+		private String[] infos;
+		private HashMap<String, String> userInfos = new HashMap<>();
+		private Text outkey = new Text();
+		private FileSplit inputSplit;
+		private String fileName;
+		private ValueWithFlag outValue = new ValueWithFlag();
+
+		@Override
+		protected void setup(Mapper<LongWritable, Text, Text, ValueWithFlag>.Context context)
+				throws IOException, InterruptedException {
+			// 获取分布式缓存文件路径
+			URI[] cacheFiles = context.getCacheFiles();
+			FileSystem fileSystem = FileSystem.get(context.getConfiguration());
+			for (URI uri : cacheFiles) {
+				if (uri.toString().contains("/bd14/ExtractData/part-r-00000")) {
+					FSDataInputStream inputStream = fileSystem.open(new Path(uri));
+					InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "UTF-8");
+					BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+					String line = bufferedReader.readLine();
+					while (line != null) {
+						infos = line.split("\\s");
+						userInfos.put(infos[0], infos[1]);
+						line = bufferedReader.readLine();
+					}
+				}
+			}
+
+			inputSplit = (FileSplit) context.getInputSplit();
+			if (inputSplit.getPath().toString().contains("user-logs-large.txt")) {
+				fileName = "userLogsLarge";
+			} else if (inputSplit.getPath().toString().contains("user_info.txt")) {
+				fileName = "userInfo";
+			}
+
+		}
+
+		@Override
+		protected void map(LongWritable key, Text value,
+				Mapper<LongWritable, Text, Text, ValueWithFlag>.Context context)
+				throws IOException, InterruptedException {
+			infos = value.toString().split("\\s");
+			
+			if (userInfos.containsKey(infos[0])) {
+				outValue.setFlag(fileName);
+				infos = value.toString().split("\\s");
+				if (fileName.equals("userLogsLarge")) {
+					// 解析user-logs-large.txt的过程(用户名，行为类型，IP地址)
+					outkey.set(infos[0]);
+					outValue.setValue(infos[1] + "\t" + infos[2]);
+				} else if (fileName.equals("userInfo")) {
+					// 解析user_info.txt的过程(用户名，性别，省份)
+					outkey.set(infos[0]);
+					outValue.setValue(infos[1] + "\t" + infos[2]);
+				}
+				context.write(outkey, outValue);
+
+			}
+		}
+
+	}
+
+	public static class SeniTestReducer extends Reducer<Text, ValueWithFlag, Text, Text> {
+
+		private List<String> userLogsLargeList;
+		private List<String> userInfoList;
+		private Text outValue = new Text();
+
+		@Override
+		protected void reduce(Text key, Iterable<ValueWithFlag> values,
+				Reducer<Text, ValueWithFlag, Text, Text>.Context context) throws IOException, InterruptedException {
+			userLogsLargeList = new ArrayList<>();
+			userInfoList = new ArrayList<>();
+			for (ValueWithFlag value : values) {
+				if (value.getFlag().equals("userLogsLarge")) {
+					userLogsLargeList.add(value.getValue());
+				} else if (value.getFlag().equals("userInfo")) {
+					userInfoList.add(value.getValue());
+				}
+			}
+			// 对两组中的数据进行笛卡尔乘积
+			for (String userLogsLarge : userLogsLargeList) {
+				for (String userInfo : userInfoList) {
+					outValue.set(userLogsLarge + "\t" + userInfo);
+					context.write(key, outValue);
+				}
+			}
+		}
+
+	}
+
+	public static void main(String[] args) throws Exception {
+		Configuration configuration = new Configuration();
+		Job job = Job.getInstance(configuration);
+		job.setJarByClass(SeniTest.class);
+		job.setJobName("Reduce端关联SeniTest");
+
+		job.setMapperClass(SeniTestMap.class);
+		job.setReducerClass(SeniTestReducer.class);
+
+		job.setMapOutputKeyClass(Text.class);
+		job.setMapOutputValueClass(ValueWithFlag.class);
+		job.setOutputKeyClass(Text.class);
+		job.setOutputValueClass(Text.class);
+
+		// 设置分布式缓存文件(小表)
+		Path cacheFilePath = new Path("/bd14/ExtractData/part-r-00000");
+		job.addCacheFile(cacheFilePath.toUri());
+
+		FileInputFormat.addInputPath(job, new Path("/user-logs-large.txt"));
+		FileInputFormat.addInputPath(job, new Path("/user_info.txt"));
+		Path outputDir = new Path("/bd14/SeniTest");
+		outputDir.getFileSystem(configuration).delete(outputDir, true);
+		FileOutputFormat.setOutputPath(job, outputDir);
+
+		System.exit(job.waitForCompletion(true) ? 0 : 1);
+	}
+}
+
+```
 
 
 
