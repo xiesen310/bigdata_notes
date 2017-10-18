@@ -9,6 +9,8 @@ grammar_cjkRuby: true
 ![topN分维度示意图][1]
 
 
+
+
 # Mr串联
 hadoop的mr作业支持链式处理流程,就好比我们linux中的管道一样,将上次的输出作为下次的输入继续执行操作.
 为了解决这类问题,提出了ChainMapper和ChainReduce,这个过程和我们一个map一个reducer的状态是一样的,,下面是具体的实现代码
@@ -151,6 +153,8 @@ public class MRChain {
 ```
 
 # mr关联
+
+> mr关联有三种形式: map端关联,reduce端关联,半关联
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508329686314.jpg
