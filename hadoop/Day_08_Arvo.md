@@ -90,7 +90,9 @@ Arvo在大数据中扮演两个角色，一是读写文件效果比较好，二�
 ```
 配置完成之后我们只需要执行`mvn generate-sources`即可，也可以通过eclipse进行执行，道理是一样的，具体操作如图所示
 
-![][3]
+![enter description here][3]
+
+![][4]
 
 
 2. 编写操作类
@@ -165,9 +167,74 @@ public class ReadFromAvro {
 ```
 ### 无模式读取
 
+``` java
+package top.xiesen.avro.seder.nogen;
+
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.avro.Schema;
+import org.apache.avro.file.DataFileWriter;
+import org.apache.avro.generic.GenericData;
+import org.apache.avro.generic.GenericDatumWriter;
+import org.apache.avro.generic.GenericRecord;
+import org.apache.avro.io.DatumWriter;
+
+/**
+* 项目名称：avrotest
+* 类名称：AvroWriter
+* 类描述：不使用插件生成模式对象,写操作
+* 创建人：Allen
+* @version
+*/
+public class AvroWriter {
+	private Schema schema;
+	// parser是专门用来把字符串或者asvc文件转换成Schema对象的一个工具
+	private Schema.Parser parser = new Schema.Parser();
+
+	// 初始化schema，根据要序列化的数据而定
+	public AvroWriter(String schemaFile) throws Exception {
+		this.schema = parser.parse(new File(schemaFile));
+	}
+	
+	/**
+	* writeData 写数据到文件中
+	* @param @param record
+	* @param @throws Exception 参数
+	* @return void 返回类型
+	* @Exception 异常对象
+	*/
+	public void writeData(GenericRecord record) throws Exception {
+		DatumWriter<GenericRecord> writer = new GenericDatumWriter<GenericRecord>();
+		DataFileWriter<GenericRecord> fileWriter = new DataFileWriter<GenericRecord>(writer);
+		fileWriter.create(schema, new File("noobjectuseraction.avro"));
+		fileWriter.append(record);
+		fileWriter.flush();
+	}
+
+	public static void main(String[] args) throws Exception {
+		// 用模式文件位置作为参数初始化writer序列化类
+		AvroWriter avroWriter = new AvroWriter("src/main/avro/user_action_log.avsc");
+		
+		// 创建GenericRecord对象
+		GenericRecord record = new GenericData.Record(avroWriter.schema);
+		record.put("userName", "zhangsan");
+		record.put("actionType", "new_tweet");
+		record.put("ipAddress", "192.168.6.76");
+		record.put("gender", 0);
+		record.put("provience", "bj");
+		
+		avroWriter.writeData(record);
+	}
+}
+
+```
+
+
 ### 写操作
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508325985802.jpg
   [2]: http://avro.apache.org/docs/1.8.2/gettingstartedjava.html
-  [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508327215381.jpg
+  [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508327286640.jpg
+  [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508327215381.jpg
