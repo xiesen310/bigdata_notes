@@ -265,6 +265,26 @@ public class AvroRead {
 
 ![文件合并流程示意图][5]
 
+1. 定义schema
+
+``` json
+{
+"type":"record",
+"name":"SmallFile",
+"namespace":"top.xiesen.avro.schema",
+"fields":[
+	{"name":"fileName","type":"string"},
+	{"name":"content","type":"bytes"}
+]
+}
+```
+
+
+
+2. 编写程序
+
+
+
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508325985802.jpg
   [2]: http://avro.apache.org/docs/1.8.2/gettingstartedjava.html
