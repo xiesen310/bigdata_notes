@@ -164,6 +164,12 @@ public class ReadFromAvro {
 }
 
 ```
+### 无模式读取
+
+### 写操作
+
+
+
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508325985802.jpg
