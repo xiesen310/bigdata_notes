@@ -6,7 +6,7 @@ grammar_cjkRuby: true
 
 # 分维度topN问题
 
-> 对于topN问题，单个唯独的我们可以通过
+> 对于topN问题，
 
 
 # Mr串联
@@ -33,7 +33,6 @@ import org.apache.hadoop.mapreduce.lib.chain.ChainMapper;
 import org.apache.hadoop.mapreduce.lib.chain.ChainReducer;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-
 
 /**
 * 项目名称：mapreeduce
