@@ -150,8 +150,8 @@ public class MRChain {
 		System.exit(job.waitForCompletion(true) ? 0 : 1);
 	}
 }
-
 ```
+
 # mr关联
 
 
