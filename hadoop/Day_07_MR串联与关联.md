@@ -10,7 +10,7 @@ grammar_cjkRuby: true
 
 
 # Mr串联
-
+hadoop的mr作业支持链式处理流程,就好比我们linux中的管道一样,将上次的输出作为下次的输入继续执行操作
 
 
 # mr关联
