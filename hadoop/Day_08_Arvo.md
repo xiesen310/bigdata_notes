@@ -99,7 +99,7 @@ public class WriterAsAvro {
 	}
 }
 ```
-
+#### 写=读操作
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508325985802.jpg
   [2]: http://avro.apache.org/docs/1.8.2/gettingstartedjava.html
