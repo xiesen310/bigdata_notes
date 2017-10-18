@@ -281,7 +281,80 @@ public class AvroRead {
 2. 编写程序
 
 ``` java
-enter code here
+package top.xiesen.avro.mr;
+
+import java.io.File;
+import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.avro.Schema;
+import org.apache.avro.file.DataFileWriter;
+import org.apache.avro.io.DatumWriter;
+import org.apache.avro.specific.SpecificDatumWriter;
+import org.apache.commons.io.FileUtils;
+import org.apache.hadoop.fs.FileUtil;
+
+
+import top.xiesen.avro.schema.SmallFile;
+
+/**
+* 项目名称：avromr
+* 类名称：AvroMergeSmallFile
+* 类描述：avro把一个文件下的小文件合并成大文件
+* 创建人：Allen
+* @version
+*/
+public class AvroMergeSmallFile {
+
+	private Schema.Parser parser = new Schema.Parser();
+	private Schema schema;
+	// 用来设置添加被合并的文件的名称
+	private List<String> inputFilePaths = new ArrayList<String>();
+
+	// 在构造方法中初始化schema
+	public AvroMergeSmallFile() {
+		schema = SmallFile.getClassSchema();
+	}
+
+	// 添加要合并的文件夹
+	public void addInputFileDir(String inputDir) throws Exception {
+		// 获取文件下的所有文件
+		File[] files = FileUtil.listFiles(new File(inputDir));
+		// 把文件路径添加到inputFilePaths中
+		for (File file : files) {
+  			inputFilePaths.add(file.getPath());
+		}
+	}
+
+	// 把inputFilePaths中的所有文件合并到一个avro文件中
+	public void mergeFiles(String outputPath) throws Exception {
+		DatumWriter<SmallFile> writer = new SpecificDatumWriter<SmallFile>();
+		DataFileWriter<SmallFile> fileWriter = new DataFileWriter<SmallFile>(writer);
+		// 创建avro文件
+		fileWriter.create(SmallFile.getClassSchema(), new File(outputPath));
+		// 把inputFilePaths的文件一个一个读取出来根据模式放入到avro文件中
+		for (String filePath : inputFilePaths) {
+			File inputFile = new File(filePath);
+			// 把文件读取成字节数组，放入content
+			byte[] content = FileUtils.readFileToByteArray(inputFile);
+			// ByteBuffer调用wrap方法把字节数组封装成一个ByteBuffer对象，作为参数设置到oneSmallFile的content属性中
+			SmallFile oneSmallFile = SmallFile.newBuilder().setFileName(inputFile.getAbsolutePath())
+					.setContent(ByteBuffer.wrap(content)).build();
+			fileWriter.append(oneSmallFile);
+			System.out.println("写入" + inputFile.getAbsolutePath() + "成功");
+		}
+		fileWriter.flush();
+		fileWriter.close();
+	}
+	
+	public static void main(String[] args) throws Exception {
+		AvroMergeSmallFile avroMergeSmallFile = new AvroMergeSmallFile();
+		avroMergeSmallFile.addInputFileDir("D:\\inputpath");
+		avroMergeSmallFile.mergeFiles("C:\\Users\\Administrator\\Desktop\\bigfile.avro");
+	}
+}
+
 ```
 
 
