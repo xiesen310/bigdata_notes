@@ -27,7 +27,7 @@ Arvo：序列化反序列化，序列化过程中提供复杂的数据结构(多
 Avro使用json的形式定义schema，json在数据交互时，扮演的角色是数据存储格式，在webservice和rpc一般希望使用json来作为数据的传输格式
 
 # Avro序列化后文件详解
-> Arvo对象的文件格式是有header和data block两个
+> Arvo对象的文件格式是有header和data block两部分组成
 
 
 # Avro的代码实现
