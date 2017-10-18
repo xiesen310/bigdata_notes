@@ -40,7 +40,7 @@ Arvo在大数据中扮演两个角色，一是读写文件效果比较好，二�
 
 > 定义schema，文件名必须是以.avsc结尾的，并且目录位置设置需要与maven项目中pom文件的`<sourceDirectory>${project.basedir}/src/main/avro/</sourceDirectory>`对应，json中表示的具体参数类型 ，请参考 [http://avro.apache.org/docs/1.8.2/gettingstartedjava.html][2]中defining schema部分
 
-``` xml
+``` json
 {
 "type":"record",
 "name":"UserActionLog",
