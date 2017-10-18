@@ -230,7 +230,6 @@ public class AvroWriter {
 
 ```
 
-
 ### 写操作
 
 ``` java
