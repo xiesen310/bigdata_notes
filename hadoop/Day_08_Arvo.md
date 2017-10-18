@@ -54,6 +54,40 @@ Arvo在大数据中扮演两个角色，一是读写文件效果比较好，二�
 ]
 }
 ```
+编写完成schema约束文件之后，我们需要生成对应的模式，arvo提供了自动生成模式的代码，我们只需要在maven中配置相对应的插件即可
+
+``` xml
+<plugin>
+	<groupId>org.apache.avro</groupId>
+	<artifactId>avro-maven-plugin</artifactId>
+	<version>1.8.2</version>
+	<executions>
+		<execution>
+		<!-- generate-sources maven指令，生成代码 ，使用mvn generate-sources指令生成代码-->
+			<phase>generate-sources</phase>
+			<goals>
+			<!-- 执行生成schema -->
+				<goal>schema</goal>
+			</goals>
+			<configuration>
+				<!-- 生成代码的依据(定义schema文件) -->
+				<sourceDirectory>${project.basedir}/src/main/avro/</sourceDirectory>
+				<!-- 生成代码的输出位置 -->
+				<outputDirectory>${project.basedir}/src/main/java/</outputDirectory>
+			</configuration>
+		</execution>
+	</executions>
+</plugin>
+<plugin>
+	<!-- mvn  compiler 指令-->
+	<groupId>org.apache.maven.plugins</groupId>
+	<artifactId>maven-compiler-plugin</artifactId>
+	<configuration>
+		<source>1.6</source>
+		<target>1.6</target>
+	</configuration>
+</plugin>
+```
 
 
 2. 编写操作类
