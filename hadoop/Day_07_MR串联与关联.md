@@ -154,7 +154,7 @@ public class MRChain {
 
 # mr关联
 
-> mr关联有三种形式: map端关联,reduce端关联,半关联
+> mr关联有三种形式: map端关联,reduce端关联,semijoin关联.map端关联时效率最高的,因为map端关联,关联在一起的数据小于或者等于没有关联的数据,减少了数据的传输过程和shuffle过程,shuffle过程是最消耗资源的.在reduce端进行关联是最消耗资源的,增大了shuffle过程,但是对于大文件我们只能在reduce端进行关联,另外一个是semijoin
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508329686314.jpg
