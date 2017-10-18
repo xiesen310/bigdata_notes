@@ -259,9 +259,15 @@ public class AvroRead {
 
 ```
 
+## 小文件的合并操作
+
+小文件的合并是将某个目录下的文件,以记录的形式存读取到avro文件中,下面是分析流程示意图
+
+![文件合并流程示意图][5]
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508325985802.jpg
   [2]: http://avro.apache.org/docs/1.8.2/gettingstartedjava.html
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508327286640.jpg
   [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508327215381.jpg
+  [5]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508327515650.jpg
