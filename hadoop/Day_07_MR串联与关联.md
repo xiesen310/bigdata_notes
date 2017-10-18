@@ -294,6 +294,173 @@ public class MapJoin {
 > reduce端关联的特点是大文件与大文件之间的关联，这个过程是非常消耗资源的，但是不这么做，也没有其他的什么办法。对于reduce端进行关联的原理是这样的：首先map端读取文件，并且将读取的kv打上标记，目的就是为了确定文件的出处，可以是文件名，也可以是表名，以及其他的区分标记都是可以的，然后将数据发送到reduce端，在reduce端，reduce接收到数据之后，按照标记将数据分成两个部分，然后将这俩部分做笛卡尔乘积，得到的结果就是关联后的结果
 
 ``` java
+package top.xiesen.join;
+
+import java.io.DataInput;
+import java.io.DataOutput;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.io.Writable;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.input.FileSplit;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+
+
+/**
+* 项目名称：mapreeduce
+* 类名称：ReduceJoin
+* 类描述：计算每个省份的用户对系统的访问次数
+* 创建人：Allen
+* @version
+*/
+public class ReduceJoin {
+	/**
+	* 项目名称：mapreeduce
+	* 类名称：ValueWithFlag
+	* 类描述：定义表示类型,为了序列化
+	* 创建人：Allen
+	* @version
+	*/
+	public static class ValueWithFlag implements Writable{
+		private String value;
+		private String flag;
+		public String getValue() {
+			return value;
+		}
+		public void setValue(String value) {
+			this.value = value;
+		}
+		public String getFlag() {
+			return flag;
+		}
+		public void setFlag(String flag) {
+			this.flag = flag;
+		}
+		@Override
+		public void write(DataOutput out) throws IOException {
+			out.writeUTF(value);
+			out.writeUTF(flag);
+		}
+		@Override
+		public void readFields(DataInput in) throws IOException {
+			this.value = in.readUTF();
+			this.flag = in.readUTF();
+		}
+	}
+	
+	/**
+	* 项目名称：mapreeduce
+	* 类名称：ReduceJoinMap
+	* 类描述：读取两个文件，根据来源把每一个kv打上标签输出给reduce，key必须是关联字段
+	* 创建人：Allen
+	* @version
+	*/
+	public static class ReduceJoinMap extends Mapper<LongWritable, Text, Text, ValueWithFlag>{
+		private String[] infos;
+		private Text outkey = new Text();
+		private ValueWithFlag outValue = new ValueWithFlag();
+		private FileSplit inputSplit;
+		private String fileName;
+		
+		// 获取文件名，给文件添加自定义文件名标记,setup方法在执行map工作时执行
+		@Override
+		protected void setup(Mapper<LongWritable, Text, Text, ValueWithFlag>.Context context)
+				throws IOException, InterruptedException {
+			inputSplit = (FileSplit) context.getInputSplit();
+			if(inputSplit.getPath().toString().contains("user-logs-large.txt")){
+				fileName = "userLogsLarge";
+			}else if(inputSplit.getPath().toString().contains("user_info.txt")){
+				fileName = "userInfo";
+			}
+		}
+
+		@Override
+		protected void map(LongWritable key, Text value,
+				Mapper<LongWritable, Text, Text, ValueWithFlag>.Context context)
+				throws IOException, InterruptedException {
+			
+			outValue.setFlag(fileName);
+			infos = value.toString().split("\\s");
+			if(fileName.equals("userLogsLarge")){
+				// 解析user-logs-large.txt的过程(用户名，行为类型，IP地址)
+				outkey.set(infos[0]);
+				outValue.setValue(infos[1] + "\t" + infos[2]);
+			}else if(fileName.equals("userInfo")){
+				// 解析user_info.txt的过程(用户名，性别，省份)
+				outkey.set(infos[0]);
+				outValue.setValue(infos[1] + "\t" + infos[2]);
+			}
+			context.write(outkey, outValue);
+		}
+	}
+	
+	/**
+	* 项目名称：mapreeduce
+	* 类名称：ReduceJoinReducer
+	* 类描述：接收map发送过来的数据，根据value中的flag来把相同key对应的value分成两组
+	* 那么两组中的数据就是来自两张表中的数据，对这两组数据做笛卡尔乘积即完成关联
+	* 创建人：Allen
+	* @version
+	*/
+	public static class ReduceJoinReducer extends Reducer<Text, ValueWithFlag, Text,Text>{
+		private List<String> userLogsLargeList;
+		private List<String> userInfoList;
+		private Text outValue = new Text();
+		
+		@Override
+		protected void reduce(Text key, Iterable<ValueWithFlag> values,
+				Reducer<Text, ValueWithFlag, Text, Text>.Context context) throws IOException, InterruptedException {
+			userLogsLargeList = new ArrayList<>();
+			userInfoList = new ArrayList<>();
+			for(ValueWithFlag value : values){
+				if(value.getFlag().equals("userLogsLarge")){
+					userLogsLargeList.add(value.getValue());
+				}else if (value.getFlag().equals("userInfo")) {
+					userInfoList.add(value.getValue());
+				}
+			}
+			// 对两组中的数据进行笛卡尔乘积
+			for(String userLogsLarge : userLogsLargeList){
+				for (String userInfo : userInfoList) {
+					outValue.set(userLogsLarge + "\t" + userInfo);
+					context.write(key, outValue);
+				}
+			}
+		}
+	}
+	
+	public static void main(String[] args) throws Exception {
+		Configuration configuration = new Configuration();
+		Job job = Job.getInstance(configuration);
+		job.setJarByClass(ReduceJoin.class);
+		job.setJobName("Reduce端关联");
+		
+		job.setMapperClass(ReduceJoinMap.class);
+		job.setReducerClass(ReduceJoinReducer.class);
+		
+		job.setMapOutputKeyClass(Text.class);
+		job.setMapOutputValueClass(ValueWithFlag.class);
+		job.setOutputKeyClass(Text.class);
+		job.setOutputValueClass(Text.class);
+		
+		FileInputFormat.addInputPath(job, new Path("/user-logs-large.txt"));
+		FileInputFormat.addInputPath(job, new Path("/user_info.txt"));
+		Path outputDir = new Path("/bd14/ReduceJoin");
+		outputDir.getFileSystem(configuration).delete(outputDir,true);
+		FileOutputFormat.setOutputPath(job, outputDir);
+		
+		System.exit(job.waitForCompletion(true) ? 0 : 1);
+	}
+}
 
 ```
 
