@@ -158,6 +158,139 @@ public class MRChain {
 
 ## map端关联
 
+> map端关联的特点是一个小文件和一个大文件之间的关联，将小文件读取到内存中，然后读取大文件，看大文件中的关联项是否在内存中存在，如果存在，则可以关联，不存在，不能关联
+
+``` java
+package top.xiesen.join;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URI;
+import java.util.HashMap;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FSDataInputStream;
+import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+
+/**
+* 项目名称：mapreeduce
+* 类名称：MapJoin
+* 类描述：Map端关联，计算每个省份的用户对系统的访问次数
+* 创建人：Allen
+* @version
+*/
+public class MapJoin {
+	/**
+	* 项目名称：mapreeduce
+	* 类名称：MapJoinMap
+	* 类描述：map端读取分布式缓存文件，把它加载到一个hashmap中关联字段作为key，计算相关字段值作为value
+	* 创建人：Allen
+	* @version
+	*/
+	public static class MapJoinMap extends Mapper<LongWritable, Text, Text, IntWritable> {
+		private String[] infos;
+		private HashMap<String, String> userInfos = new HashMap<>();
+		private Text okey = new Text();
+		private IntWritable ONE = new IntWritable(1);
+
+		// 读取分布式缓存文件，将数据放入hashmap中
+		@Override
+		protected void setup(Mapper<LongWritable, Text, Text, IntWritable>.Context context)
+				throws IOException, InterruptedException {
+			// 获取分布式缓存文件路径
+			URI[] cacheFiles = context.getCacheFiles();
+			FileSystem fileSystem = FileSystem.get(context.getConfiguration());
+			for (URI uri : cacheFiles) {
+				if (uri.toString().contains("user_info.txt")) {
+					FSDataInputStream inputStream = fileSystem.open(new Path(uri));
+					InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "UTF-8");
+					BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+					String line = bufferedReader.readLine();
+					while (line != null) {
+						infos = line.split("\\s");
+						userInfos.put(infos[0], infos[2]);
+						line = bufferedReader.readLine();
+					}
+				}
+			}
+		}
+
+		// map方法中处理大表数据，每处理一条就取出关联字段，看hashmap中是否存在，存在代表关联，不存在代表关联不上。输出(shangdong,1)
+		@Override
+		protected void map(LongWritable key, Text value, Mapper<LongWritable, Text, Text, IntWritable>.Context context)
+				throws IOException, InterruptedException {
+			infos = value.toString().split("\\s");
+			if (userInfos.containsKey(infos[0])) {
+				okey.set(userInfos.get(infos[0]));
+				context.write(okey, ONE);
+			}
+		}
+	}
+
+	/**
+	* 项目名称：mapreeduce
+	* 类名称：MapJoinReducer
+	* 类描述：聚合求值
+	* 创建人：Allen
+	* @version
+	*/
+	public static class MapJoinReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
+		private IntWritable oValue = new IntWritable();
+		private int sum;
+
+		@Override
+		protected void reduce(Text key, Iterable<IntWritable> values,
+				Reducer<Text, IntWritable, Text, IntWritable>.Context context)
+				throws IOException, InterruptedException {
+			sum = 0;
+			for (IntWritable value : values) {
+				sum += value.get();
+			}
+			oValue.set(sum);
+			context.write(key, oValue);
+		}
+	}
+
+	public static void main(String[] args) throws Exception {
+		Configuration configuration = new Configuration();
+		Job job = Job.getInstance(configuration);
+		job.setJarByClass(MapJoin.class);
+		job.setJobName("map端聚合");
+
+		job.setMapperClass(MapJoinMap.class);
+		job.setReducerClass(MapJoinReducer.class);
+
+		job.setOutputKeyClass(Text.class);
+		job.setOutputValueClass(IntWritable.class);
+
+		// 设置分布式缓存文件(小表)
+		Path cacheFilePath = new Path("/user_info.txt");
+		job.addCacheFile(cacheFilePath.toUri());
+
+		// 大表
+		Path inputPath = new Path("/user-logs-large.txt");
+		Path outputDir = new Path("/bd14/MapJoin");
+		outputDir.getFileSystem(configuration).delete(outputDir, true);
+		FileInputFormat.addInputPath(job, inputPath);
+		FileOutputFormat.setOutputPath(job, outputDir);
+
+		System.exit(job.waitForCompletion(true) ? 0 : 1);
+	}
+}
+
+```
+
+
 
 
 
