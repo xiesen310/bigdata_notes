@@ -101,6 +101,33 @@ public class WriterAsAvro {
 ```
 #### 读操作
 
+``` java
+/**
+* 项目名称：avrotest
+* 类名称：ReadFromAvro
+* 类描述：使用arvo模式创建对象，读操作
+* 创建人：Allen
+* @version
+*/
+public class ReadFromAvro {
+
+	public static void main(String[] args) throws Exception {
+		File file = new File("userlogaction.avro");
+		DatumReader<UserActionLog> reader = new SpecificDatumReader<UserActionLog>();
+		DataFileReader<UserActionLog> fileReader = new DataFileReader<UserActionLog>(file, reader);
+		
+		UserActionLog readUserActionLog = null;
+		while(fileReader.hasNext()){
+			readUserActionLog = fileReader.next();
+			System.out.println(readUserActionLog);
+		}
+		fileReader.close();
+	}
+}
+
+```
+
+
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508325985802.jpg
   [2]: http://avro.apache.org/docs/1.8.2/gettingstartedjava.html
