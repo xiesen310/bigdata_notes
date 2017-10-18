@@ -93,7 +93,6 @@ Arvo在大数据中扮演两个角色，一是读写文件效果比较好，二�
 ![][3]
 
 
-
 2. 编写操作类
 
 ``` java
@@ -169,9 +168,6 @@ public class ReadFromAvro {
 ### 写操作
 
 
-
-
-
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508325985802.jpg
   [2]: http://avro.apache.org/docs/1.8.2/gettingstartedjava.html
-  [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508327071308.jpg
+  [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508327215381.jpg
