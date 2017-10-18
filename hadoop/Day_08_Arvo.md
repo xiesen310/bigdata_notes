@@ -88,6 +88,10 @@ Arvo在大数据中扮演两个角色，一是读写文件效果比较好，二�
 	</configuration>
 </plugin>
 ```
+配置完成之后我们只需要执行`mvn generate-sources`即可，也可以通过eclipse进行执行，道理是一样的，具体操作如图所示
+
+![][3]
+
 
 
 2. 编写操作类
@@ -162,6 +166,6 @@ public class ReadFromAvro {
 ```
 
 
-
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508325985802.jpg
   [2]: http://avro.apache.org/docs/1.8.2/gettingstartedjava.html
+  [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508327071308.jpg
