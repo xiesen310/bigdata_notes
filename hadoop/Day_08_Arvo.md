@@ -58,6 +58,48 @@ Arvo在大数据中扮演两个角色，一是读写文件效果比较好，二�
 
 2. 编写操作类
 
+``` java
+import java.io.File;
+import org.apache.avro.file.DataFileWriter;
+import org.apache.avro.io.DatumWriter;
+import org.apache.avro.specific.SpecificDatumWriter;
+import top.xiesen.avro.schema.UserActionLog;
+
+/**
+* 项目名称：avrotest
+* 类名称：WriterAsAvro
+* 类描述：使用arvo模式创建对象，写操作
+* 创建人：Allen
+* @version
+*/
+public class WriterAsAvro {
+
+	public static void main(String[] args) throws Exception {
+		UserActionLog userActionLog = new UserActionLog();
+		userActionLog.setActionType("login");
+		userActionLog.setGender(1);
+		userActionLog.setIpAddress("192.168.1.1");
+		userActionLog.setProvience("henan");
+		userActionLog.setUserName("lisi");
+		
+		UserActionLog userActionLog2 = UserActionLog.newBuilder().setActionType("logout")
+				.setGender(0).setIpAddress("192.168.6.110").setProvience("hunan").setUserName("allen").build();
+		// 把两条记录写入到文件(序列化)
+		DatumWriter<UserActionLog> writer = new SpecificDatumWriter<UserActionLog>();
+		DataFileWriter<UserActionLog> fileWriter = new DataFileWriter<UserActionLog>(writer);
+		
+		// 创建序列化
+		fileWriter.create(UserActionLog.getClassSchema(), new File("userlogaction.avro"));
+		// 写入内容
+		fileWriter.append(userActionLog);
+		fileWriter.append(userActionLog2);
+		
+		fileWriter.flush();
+		fileWriter.close();
+	}
+}
+```
+
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508325985802.jpg
   [2]: http://avro.apache.org/docs/1.8.2/gettingstartedjava.html
