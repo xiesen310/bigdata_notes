@@ -6,8 +6,181 @@ grammar_cjkRuby: true
 
 # 分维度topN问题
 
-> 分维度求topN是将数据按照某种需求进行分割之后，求出分割之后的topN的数量
+> 分维度求topN是将数据按照某种需求进行分割之后，求出分割之后的topN的数量。例如计算用户常用最常用的三个ip，这个需求就是讲数据按照用户名进行分类，然后求出每一个用户最常用的三个ip地址。满足这个需求只需要将数据按照用户名进行分类，然后将用后面相同的发送到同一个reduce上即可
+
 ![topN分维度示意图][2]
+
+``` java
+package top.xiesen.topn;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.io.WritableComparable;
+import org.apache.hadoop.io.WritableComparator;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.Partitioner;
+import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+
+/**
+* 项目名称：mapreeduce
+* 类名称：GroupTopN
+* 类描述：求个用户最常登录的ip前三
+* 创建人：Allen
+* @version
+*/
+public class GroupTopN {
+	/**
+	* 项目名称：mapreeduce
+	* 类名称：GroupTopNMap
+	* 类描述：输出(jim_192.168.6.212,1)
+	* 创建人：Allen
+	* @version
+	*/
+	public static class GroupTopNMap extends Mapper<LongWritable, Text, Text, IntWritable>{
+		private String[] infos;
+		private Text oKey = new Text();
+		private IntWritable ONE = new IntWritable(1);
+		@Override
+		protected void map(LongWritable key, Text value, Mapper<LongWritable, Text, Text, IntWritable>.Context context)
+				throws IOException, InterruptedException {
+			infos = value.toString().split("\\s");
+			if(infos != null && infos.length > 0 && infos[1].equals("login")){
+				oKey.set(infos[0] + "_" +infos[2]);
+				context.write(oKey, ONE);
+			}
+		}
+	}
+	
+	/**
+	* 项目名称：mapreeduce
+	* 类名称：GroupTopNPartitioner
+	* 类描述：将名字相同的，ip地址不同的分到同一个reduce上
+	* 创建人：Allen
+	* @version
+	*/
+	public static class GroupTopNPartitioner extends Partitioner<Text, IntWritable>{
+		private String[] infos;
+		@Override
+		public int getPartition(Text key, IntWritable value, int numPartitions) {
+			infos = key.toString().split("_");
+			return (infos[0].hashCode() & Integer.MAX_VALUE) % numPartitions;
+		}
+	}
+
+	/**
+	* 项目名称：mapreeduce
+	* 类名称：GroupTopNReducer
+	* 类描述：计算用户在每一个ip上登录的次数，同时也求topN
+	* 创建人：Allen
+	* @version
+	*/
+	public static class GroupTopNReducer extends Reducer<Text, IntWritable,Text, IntWritable>{
+		private TreeMap<Integer, String> topN;
+		private Map<String, Integer> ipLoginTimes;
+		private Text oKey = new Text();
+		private IntWritable oValue = new IntWritable();
+		@Override
+		protected void reduce(Text key, Iterable<IntWritable> values,
+				Reducer<Text, IntWritable, Text, IntWritable>.Context context) throws IOException, InterruptedException {
+			topN = new TreeMap<Integer,String>();
+			ipLoginTimes = new HashMap<String,Integer>();
+			for (IntWritable value : values) {
+				if(ipLoginTimes.containsKey(key.toString())){
+					ipLoginTimes.put(key.toString(), ipLoginTimes.get(key.toString()) + value.get());
+				}else {
+					ipLoginTimes.put(key.toString(), value.get());
+				}
+			}
+			
+			// 放入topN
+			for (String userIp : ipLoginTimes.keySet()) {
+				if(topN.size() < 3){
+					topN.put(ipLoginTimes.get(userIp), userIp);
+				}else{
+					topN.put(ipLoginTimes.get(userIp), userIp);
+					topN.remove(topN.firstKey());
+				}
+			}
+			
+			// 输出topN
+			for(int times : topN.descendingKeySet()){
+				oKey.set(topN.get(times));
+				oValue.set(times);
+				context.write(oKey, oValue);
+			}
+		}
+	}
+	
+	/**
+	* 项目名称：mapreeduce
+	* 类名称：GroupTopNComparetor
+	* 类描述：设置分组，保证用户名相同的，ip不同的进入同一个reduce中
+	* 创建人：Allen
+	* @version
+	*/
+	// 方式一
+	public static class GroupTopNComparetor extends WritableComparator{
+		public GroupTopNComparetor() {
+			super(Text.class,true);
+		}
+		@Override
+		public int compare(WritableComparable a, WritableComparable b) {
+			Text ca = (Text)a;
+			Text cb = (Text)b;
+			return ca.toString().split("_")[0].compareTo(cb.toString().split("_")[0]);
+		}
+	}
+	// 方式二
+/*	public static class GroupTopNComparetor extends Text.Comparator{
+		@Override
+		public int compare(byte[] b1, int s1, int l1, byte[] b2, int s2, int l2) {
+			byte[] cb1 = Arrays.copyOfRange(b1, 2, b1.length);
+			byte[] cb2 = Arrays.copyOfRange(b2, 2, b2.length);
+			String str1 = new String(cb1);
+			String str2 = new String(cb2);
+			return str1.split("_")[0].compareTo(str2.split("_")[0]);
+		}
+	}
+*/	
+	public static void main(String[] args) throws Exception {
+		Configuration configuration = new Configuration();
+		Job job = Job.getInstance(configuration);
+		job.setJarByClass(GroupTopN.class);
+		job.setJobName("求个用户最常登录的ip前三");
+		
+		job.setMapperClass(GroupTopNMap.class);
+		job.setPartitionerClass(GroupTopNPartitioner.class);
+		job.setReducerClass(GroupTopNReducer.class);
+		
+		job.setOutputKeyClass(Text.class);
+		job.setOutputValueClass(IntWritable.class);
+		
+		Path inputPath = new Path("/user-logs-large.txt");
+		Path outputDir = new Path("/bd14/GroupTopN");
+		outputDir.getFileSystem(configuration).delete(outputDir,true);
+		
+		FileInputFormat.addInputPath(job, inputPath);
+		FileOutputFormat.setOutputPath(job, outputDir);
+		
+		job.setGroupingComparatorClass(GroupTopNComparetor.class);
+//		job.setNumReduceTasks(2);
+		
+		System.exit(job.waitForCompletion(true) ? 0 : 1);
+	}
+}
+
+```
 
 
 
