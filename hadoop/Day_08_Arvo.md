@@ -23,6 +23,9 @@ Avro 提供的基本服务
 
 SequenceFile：二进制文件格式,能够保存数据类型，是hadoop自带的数据类型
 Avro是hadoop的创始人开发出的，avro能够将每个字段的数据类型进行存储
+Arvo：序列化反序列化，序列化过程中提供复杂的数据结构(多个字段，多个字段类型)，类似数据库中的表，也就是模式
+Avro使用json的形式定义schema，json在数据交互时，扮演的角色是数据存储格式，在webservice和rpc一般希望使用json来作为数据的传输格式
+
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508325985802.jpg
