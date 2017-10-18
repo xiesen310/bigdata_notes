@@ -108,7 +108,6 @@ public class MRChain {
 		}
 	}
 	
-	
 	/**
 	* 项目名称：mapreeduce
 	* 类名称：MRChainMap3
