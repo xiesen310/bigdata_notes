@@ -30,6 +30,8 @@ Avro使用json的形式定义schema，json在数据交互时，扮演的角色�
 > Arvo对象的文件格式是有header和data block两部分组成。header中包含Magic、File metadata、Sync marker。Data block 中包含Count、Size、Objects、Sync marker
 
 
+
+
 # Avro的代码实现
 Arvo在大数据中扮演两个角色，一是读写文件效果比较好，二是arvo是一个容器，能够将小文件合并成大文件，起到优化程序的角色
 
