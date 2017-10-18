@@ -6,7 +6,7 @@ grammar_cjkRuby: true
 
 # 分维度topN问题
 
-> 对于topN问题，
+![topN分维度示意图][1]
 
 
 # Mr串联
@@ -14,7 +14,7 @@ hadoop的mr作业支持链式处理流程,就好比我们linux中的管道一样
 为了解决这类问题,提出了ChainMapper和ChainReduce,这个过程和我们一个map一个reducer的状态是一样的,,下面是具体的实现代码
 
 
-![MR原理分析示意图][1]
+![MR原理分析示意图][2]
 
 ``` java
 package top.xiesen.chain;
@@ -153,4 +153,5 @@ public class MRChain {
 # mr关联
 
 
-  [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508328590698.jpg
+  [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508329686314.jpg
+  [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508328590698.jpg
