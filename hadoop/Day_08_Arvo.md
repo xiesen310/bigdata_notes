@@ -26,13 +26,34 @@ Avro是hadoop的创始人开发出的，avro能够将每个字段的数据类型
 Arvo：序列化反序列化，序列化过程中提供复杂的数据结构(多个字段，多个字段类型)，类似数据库中的表，也就是模式
 Avro使用json的形式定义schema，json在数据交互时，扮演的角色是数据存储格式，在webservice和rpc一般希望使用json来作为数据的传输格式
 
-## Avro的代码实现
+# Avro的代码实现
 Arvo在大数据中扮演两个角色，一是读写文件效果比较好，二是arvo是一个容器，能够将小文件合并成大文件，起到优化程序的角色
+
+## 读写操作
+> arvo读取文件时，有两种不同的方式，一是通过模式读取，一个不需要模式的读取，下面一一进行阐述
+
+### 模式读取
+
+#### 读操作
 
 1. 编写schema
 
 > 定义schema，文件名必须是以.avsc结尾的，并且目录位置设置需要与maven项目中pom文件的`<sourceDirectory>${project.basedir}/src/main/avro/</sourceDirectory>`对应，json中表示的具体参数类型 ，请参考 [http://avro.apache.org/docs/1.8.2/gettingstartedjava.html][2]中defining schema部分
 
+``` xml
+{
+"type":"record",
+"name":"UserActionLog",
+"namespace":"top.xiesen.avro.schema",
+"fields":[
+	{"name":"userName","type":"string"},
+	{"name":"actionType","type":"string"},
+	{"name":"ipAddress","type":"string"},
+	{"name":"gender","type":"int"},
+	{"name":"provience","type":"string"}
+]
+}
+```
 
 
 2. 编写操作类
