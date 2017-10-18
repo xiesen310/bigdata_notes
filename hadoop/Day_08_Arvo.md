@@ -233,6 +233,33 @@ public class AvroWriter {
 
 ### 写操作
 
+``` java
+package top.xiesen.avro.seder.nogen;
+
+import java.io.File;
+
+import org.apache.avro.file.DataFileReader;
+import org.apache.avro.generic.GenericDatumReader;
+import org.apache.avro.generic.GenericRecord;
+import org.apache.avro.io.DatumReader;
+
+public class AvroRead {
+
+	public static void main(String[] args) throws Exception {
+		DatumReader<GenericRecord> reader = new GenericDatumReader<GenericRecord>();
+		DataFileReader<GenericRecord> fileReader = new DataFileReader<GenericRecord>(new File("noobjectuseraction.avro"), reader);
+		GenericRecord record = null;
+		while(fileReader.hasNext()){
+			record = fileReader.next();
+			System.out.println(record);
+		}
+		fileReader.close();
+	}
+}
+
+```
+
+
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508325985802.jpg
   [2]: http://avro.apache.org/docs/1.8.2/gettingstartedjava.html
