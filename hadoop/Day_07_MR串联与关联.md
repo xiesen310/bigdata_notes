@@ -13,6 +13,9 @@ grammar_cjkRuby: true
 hadoop的mr作业支持链式处理流程,就好比我们linux中的管道一样,将上次的输出作为下次的输入继续执行操作.
 为了解决这类问题,提出了ChainMapper和ChainReduce,这个过程和我们一个map一个reducer的状态是一样的,,下面是具体的实现代码
 
+
+![MR原理分析示意图][1]
+
 ``` java
 package top.xiesen.chain;
 
@@ -150,3 +153,6 @@ public class MRChain {
 
 ```
 # mr关联
+
+
+  [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508328590698.jpg
