@@ -6,8 +6,7 @@ grammar_cjkRuby: true
 
 # 分维度topN问题
 
-![topN分维度示意图][1]
-
+![topN分维度示意图][2]
 
 
 
@@ -16,7 +15,7 @@ hadoop的mr作业支持链式处理流程,就好比我们linux中的管道一样
 为了解决这类问题,提出了ChainMapper和ChainReduce,这个过程和我们一个map一个reducer的状态是一样的,,下面是具体的实现代码
 
 
-![MR原理分析示意图][2]
+![MR原理分析示意图][3]
 
 ``` java
 package top.xiesen.chain;
@@ -160,6 +159,9 @@ public class MRChain {
 
 > map端关联的特点是一个小文件和一个大文件之间的关联，将小文件读取到内存中，然后读取大文件，看大文件中的关联项是否在内存中存在，如果存在，则可以关联，不存在，不能关联
 
+![enter description here][4]
+
+
 ``` java
 package top.xiesen.join;
 
@@ -292,6 +294,9 @@ public class MapJoin {
 ## reduce端关联
 
 > reduce端关联的特点是大文件与大文件之间的关联，这个过程是非常消耗资源的，但是不这么做，也没有其他的什么办法。对于reduce端进行关联的原理是这样的：首先map端读取文件，并且将读取的kv打上标记，目的就是为了确定文件的出处，可以是文件名，也可以是表名，以及其他的区分标记都是可以的，然后将数据发送到reduce端，在reduce端，reduce接收到数据之后，按照标记将数据分成两个部分，然后将这俩部分做笛卡尔乘积，得到的结果就是关联后的结果
+
+![enter description here][5]
+
 
 ``` java
 package top.xiesen.join;
@@ -466,6 +471,8 @@ public class ReduceJoin {
 ## 半关联(semijoin)
 
 > 半关联是对reduce的一种优化。它的基本原理是这样的，它先从一张相对比较小的文件中，把关联字段提取出来，存放在数据文件中，Map将关联字段读取到内存中，加载另外一个文件时，如果内存中存在，则可以关联，如果不存在，则不可以进行关联，并且将这两个表kv打上标记，将数据发送到reduce端，reduce接收数据，根据标识将数据分成两个部分，然后做笛卡尔乘积，关联的结果就是做完笛卡尔乘积的结果
+
+![enter description here][6]
 
 ``` java
 // 代码一，抽取关联字段
@@ -828,6 +835,9 @@ public class SeniTest {
 ```
 
 
-
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508329686314.jpg
-  [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508328590698.jpg
+  [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508332953131.jpg
+  [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508328590698.jpg
+  [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508332508759.jpg
+  [5]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508332702759.jpg
+  [6]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508332553480.jpg
