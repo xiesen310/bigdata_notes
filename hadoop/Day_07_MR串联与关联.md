@@ -465,6 +465,8 @@ public class ReduceJoin {
 
 ## 半关联(semijoin)
 
+> 半关联是对reduce的一种优化
+
 
 
 
