@@ -6,6 +6,7 @@ grammar_cjkRuby: true
 
 # 分维度topN问题
 
+> 分维度求topN是将数据按照某种需求进行分割之后，求出分割之后的topN的数量
 ![topN分维度示意图][2]
 
 
