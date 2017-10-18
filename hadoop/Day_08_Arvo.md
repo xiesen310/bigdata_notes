@@ -29,6 +29,8 @@ Avro使用json的形式定义schema，json在数据交互时，扮演的角色�
 # Avro序列化后文件详解
 > Arvo对象的文件格式是有header和data block两部分组成。header中包含Magic、File metadata、Sync marker。Data block 中包含Count、Size、Objects、Sync marker
 
+![enter description here][2]
+
 
 
 
@@ -44,7 +46,7 @@ Arvo在大数据中扮演两个角色，一是读写文件效果比较好，二�
 
 1. 编写schema
 
-> 定义schema，文件名必须是以.avsc结尾的，并且目录位置设置需要与maven项目中pom文件的`<sourceDirectory>${project.basedir}/src/main/avro/</sourceDirectory>`对应，json中表示的具体参数类型 ，请参考 [http://avro.apache.org/docs/1.8.2/gettingstartedjava.html][2]中defining schema部分
+> 定义schema，文件名必须是以.avsc结尾的，并且目录位置设置需要与maven项目中pom文件的`<sourceDirectory>${project.basedir}/src/main/avro/</sourceDirectory>`对应，json中表示的具体参数类型 ，请参考 [http://avro.apache.org/docs/1.8.2/gettingstartedjava.html][3]中defining schema部分
 
 ``` json
 {
@@ -96,9 +98,9 @@ Arvo在大数据中扮演两个角色，一是读写文件效果比较好，二�
 ```
 配置完成之后我们只需要执行`mvn generate-sources`即可，也可以通过eclipse进行执行，道理是一样的，具体操作如图所示
 
-![enter description here][3]
+![enter description here][4]
 
-![][4]
+![][5]
 
 
 2. 编写操作类
@@ -268,7 +270,7 @@ public class AvroRead {
 
 小文件的合并是将某个目录下的文件,以记录的形式存读取到avro文件中,下面是分析流程示意图
 
-![文件合并流程示意图][5]
+![文件合并流程示意图][6]
 
 1. 定义schema
 
@@ -363,9 +365,9 @@ public class AvroMergeSmallFile {
 ```
 
 
-
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508325985802.jpg
-  [2]: http://avro.apache.org/docs/1.8.2/gettingstartedjava.html
-  [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508327286640.jpg
-  [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508327215381.jpg
-  [5]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508327515650.jpg
+  [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508339155446.jpg
+  [3]: http://avro.apache.org/docs/1.8.2/gettingstartedjava.html
+  [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508327286640.jpg
+  [5]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508327215381.jpg
+  [6]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508327515650.jpg
