@@ -365,6 +365,137 @@ public class AvroMergeSmallFile {
 
 ## 对于小文件合并后的大文件进行词频统计
 
+``` java
+package top.xiesen.avro.mr;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.ByteBuffer;
+
+import org.apache.avro.Schema;
+import org.apache.avro.Schema.Parser;
+import org.apache.avro.generic.GenericData;
+import org.apache.avro.generic.GenericRecord;
+import org.apache.avro.mapred.AvroKey;
+import org.apache.avro.mapreduce.AvroJob;
+import org.apache.avro.mapreduce.AvroKeyInputFormat;
+import org.apache.avro.mapreduce.AvroKeyOutputFormat;
+import org.apache.avro.mapreduce.AvroKeyValueInputFormat;
+import org.apache.avro.mapreduce.AvroKeyValueOutputFormat;
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.NullWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+
+import top.xiesen.avro.schema.SmallFile;
+
+// 计算合并后的大的avro文件的词频
+public class AvroFilemr {
+
+	/**
+	* 项目名称：avromr
+	* 类名称：AvroFilemrMap
+	* 类描述：读取avro文件，每读取一条记录，其实是一个小文件，对齐wordcount解析，并以(单词,1)的形式发送到reduce上
+	* 创建人：Allen
+	* @version
+	*/
+	public static class AvroFilemrMap extends Mapper<AvroKey<SmallFile>, NullWritable, Text, IntWritable> {
+		private IntWritable ONE = new IntWritable(1);
+		private Text outKey = new Text();
+		private String[] infos;
+		private ByteBuffer content;
+
+		@Override
+		protected void map(AvroKey<SmallFile> key, NullWritable value,
+				Mapper<AvroKey<SmallFile>, NullWritable, Text, IntWritable>.Context context)
+				throws IOException, InterruptedException {
+			content = key.datum().getContent();
+			infos = new String(content.array()).split("\\s");
+			for (String word : infos) {
+				outKey.set(word);
+				context.write(outKey, ONE);
+			}
+		}
+	}
+	/**
+	* 项目名称：avromr
+	* 类名称：AvroFilemrReducer
+	* 类描述：把wordcount的计算结果，以word_count.avsc的模式输出成avro文件
+	* 创建人：Allen
+	* @version
+	*/
+	public static class AvroFilemrReducer extends Reducer<Text, IntWritable, AvroKey<GenericRecord>, NullWritable> {
+		private int sum;
+		private Schema writeSchema;
+		private GenericRecord record;
+		private AvroKey<GenericRecord> outKey = new AvroKey<GenericRecord>();
+		private NullWritable outValue = NullWritable.get();
+		
+		// 初始化writeSchema和record
+		@Override
+		protected void setup(Reducer<Text, IntWritable, AvroKey<GenericRecord>, NullWritable>.Context context)
+				throws IOException, InterruptedException {
+			Parser parser = new Parser();
+			writeSchema = parser.parse(new File("src/main/avro/word_count.avsc"));
+			record = new GenericData.Record(writeSchema);
+		}
+
+		@Override
+		protected void reduce(Text key, Iterable<IntWritable> values,
+				Reducer<Text, IntWritable, AvroKey<GenericRecord>, NullWritable>.Context context)
+				throws IOException, InterruptedException {
+			sum = 0;
+			for (IntWritable value : values) {
+				sum += value.get();
+			}
+			record.put("word", key.toString());
+			record.put("count", sum);
+			outKey.datum(record);
+			context.write(outKey, outValue);
+		}
+	}
+	
+	public static void main(String[] args) throws Exception {
+		Configuration configuration = new Configuration();
+		Job job = Job.getInstance(configuration);
+		job.setJarByClass(AvroFilemr.class);
+		job.setJobName("计算合并后的大的avro文件的词频");
+		
+		job.setMapperClass(AvroFilemrMap.class);
+		job.setReducerClass(AvroFilemrReducer.class);
+		
+		job.setMapOutputKeyClass(Text.class);
+		job.setMapOutputValueClass(IntWritable.class);
+		job.setOutputKeyClass(AvroKey.class);
+		job.setOutputValueClass(NullWritable.class);
+		
+		// 设置上输入输出的inputformat
+		job.setInputFormatClass(AvroKeyInputFormat.class);
+		job.setOutputFormatClass(AvroKeyOutputFormat.class);
+		
+		// 设置输入输出的schema
+		AvroJob.setInputKeySchema(job, SmallFile.getClassSchema());
+		Parser parser = new Parser();
+		AvroJob.setOutputKeySchema(job, parser.parse(new File("src/main/avro/word_count.avsc")));
+		
+		FileInputFormat.addInputPath(job, new Path("/bigfile.avro"));
+		Path outputDir = new Path("/bd14/AvroFilemr");
+		outputDir.getFileSystem(configuration).delete(outputDir,true);
+		FileOutputFormat.setOutputPath(job, outputDir);
+		
+		System.exit(job.waitForCompletion(true) ? 0 : 1);
+	}
+}
+
+```
+
+
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508325985802.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508339155446.jpg
   [3]: http://avro.apache.org/docs/1.8.2/gettingstartedjava.html
