@@ -15,7 +15,8 @@ grammar_cjkRuby: true
 # 设置mysql远程调用
 
 ``` mysql
-enter code here
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%'IDENTIFIED BY 'root' WITH GRANT OPTION;
+Flush PRIVILEGES;
 ```
 
 
