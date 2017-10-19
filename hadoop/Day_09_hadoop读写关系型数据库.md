@@ -14,6 +14,9 @@ grammar_cjkRuby: true
 
 # 设置mysql远程调用
 
+``` mysql
+enter code here
+```
 
 
 # Hadoop读写关系型数据库
