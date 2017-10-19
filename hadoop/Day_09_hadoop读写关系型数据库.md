@@ -174,6 +174,39 @@ public static class ReadDBMap extends Mapper<LongWritable, WordCountDBWritable, 
 	}
 ```
 
+> 定义reduce
+> 我们是读取数据库中的数据，并不需要我们做什么处理，所以reducer就显的多与了，因为我们就不使用。mr中提供了`job.setNumReduceTasks(0);`来设置不使用reducer进行数据分析
+
+> 定义job,执行程序
+
+``` java
+	public static void main(String[] args) throws Exception {
+		Configuration configuration = new Configuration();
+		DBConfiguration.configureDB(configuration, "com.mysql.jdbc.Driver", "jdbc:mysql://192.168.6.170:3306/xs", "root",
+				"root");
+		
+		Job job = Job.getInstance(configuration);
+		job.setJarByClass(ReadDB.class);
+		job.setJobName("读数据库");
+
+		job.setMapperClass(ReadDBMap.class);
+		// 因为我们不使用reduce，将reduce设置为0
+		job.setNumReduceTasks(0);
+
+//		job.addFileToClassPath(new Path("/mysql-connector-java-5.1.39.jar"));
+		job.setOutputKeyClass(Text.class);
+		job.setOutputValueClass(IntWritable.class);
+
+		DBInputFormat.setInput(job, WordCountDBWritable.class, "select * from word_count", "SELECT COUNT(*) FROM word_count");
+//		DBInputFormat.setInput(job, WordCountDBWritable.class, "word_count", "", "wc_count", "wc_word", "wc_count");
+		Path outputDir = new Path("/bd14/ReadDB");
+		outputDir.getFileSystem(configuration).delete(outputDir, true);
+		FileOutputFormat.setOutputPath(job, outputDir);
+		System.exit(job.waitForCompletion(true) ? 0 : 1);
+	}
+```
+
+
 
 
 
