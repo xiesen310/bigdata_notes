@@ -361,7 +361,6 @@ public class AvroMergeSmallFile {
 		avroMergeSmallFile.mergeFiles("C:\\Users\\Administrator\\Desktop\\bigfile.avro");
 	}
 }
-
 ```
 
 
