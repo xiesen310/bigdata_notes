@@ -73,6 +73,25 @@ grammar_cjkRuby: true
 	}
 
 ```
+> 定义mapper
+
+``` java
+public static class WriteToDBMap extends Mapper<LongWritable, Text, Text, IntWritable> {
+		private final IntWritable ONE = new IntWritable(1);
+		private String[] infos;
+		private Text outKey = new Text();
+
+		@Override
+		protected void map(LongWritable key, Text value, Mapper<LongWritable, Text, Text, IntWritable>.Context context)
+				throws IOException, InterruptedException {
+			infos = value.toString().split("\\s");
+			for (String word : infos) {
+				outKey.set(word);
+				context.write(outKey, ONE);
+			}
+		}
+	}
+```
 
 
 ## 将数据写入到数据库
