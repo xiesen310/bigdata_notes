@@ -116,6 +116,37 @@ public static class WriteToDBReducer extends Reducer<Text, IntWritable, WordCoun
 	}
 ```
 
+> 定义job，执行程序
+
+``` java
+	public static void main(String[] args) throws Exception {
+		Configuration configuration = new Configuration();
+		// 设置数据库连接
+		DBConfiguration.configureDB(configuration, "com.mysql.jdbc.Driver","jdbc:mysql://192.168.6.170:3306/xs","root","root");
+		
+		Job job = Job.getInstance(configuration);
+		job.setJarByClass(WriteToDB.class);
+		job.setJobName("将数据写入到mysql数据库");
+		job.addFileToClassPath(new Path("/mysql-connector-java-5.1.39.jar"));
+		
+		
+		job.setMapperClass(WriteToDBMap.class);
+		job.setReducerClass(WriteToDBReducer.class);
+		
+		job.setMapOutputKeyClass(Text.class);
+		job.setMapOutputValueClass(IntWritable.class);
+		job.setOutputKeyClass(WordCountDBWritable.class);
+		job.setOutputValueClass(NullWritable.class);
+		
+		// 设置输入
+		FileInputFormat.addInputPath(job, new Path("/README.txt"));
+		// 设置输出
+		DBOutputFormat.setOutput(job, "word_count", 2);
+		System.exit(job.waitForCompletion(true) ? 0 : 1);
+		
+	}
+```
+
 
 ## 将数据写入到数据库
 
