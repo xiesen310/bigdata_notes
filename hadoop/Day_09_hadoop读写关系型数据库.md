@@ -93,6 +93,7 @@ public static class WriteToDBMap extends Mapper<LongWritable, Text, Text, IntWri
 	}
 ```
 
+> 定义
 
 ## 将数据写入到数据库
 
