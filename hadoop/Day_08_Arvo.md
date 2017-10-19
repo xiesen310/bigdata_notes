@@ -363,6 +363,7 @@ public class AvroMergeSmallFile {
 }
 ```
 
+## 对于小文件合并后的大文件进行词频统计
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508325985802.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508339155446.jpg
