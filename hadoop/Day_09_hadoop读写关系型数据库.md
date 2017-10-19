@@ -155,6 +155,25 @@ public static void main(String[] args) throws Exception {
 3.	DBOutputFormat.setOutPut(),设置把数据写入到数据库的那张表
 4.	DBConfiguration.configureDB(),设置输出数据库的连接
 
+不管是读还是写，都是需要定义数据类型的，上面已经定义过了，在这里就不在啰嗦了
+
+> 定义mapper
+
+``` java
+public static class ReadDBMap extends Mapper<LongWritable, WordCountDBWritable, Text, NullWritable> {
+		private Text outKey = new Text();
+		private NullWritable outValue = NullWritable.get();
+
+		@Override
+		protected void map(LongWritable key, WordCountDBWritable value,
+				Mapper<LongWritable, WordCountDBWritable, Text, NullWritable>.Context context)
+				throws IOException, InterruptedException {
+			outKey.set(value.toString());
+			context.write(outKey, outValue);
+		}
+	}
+```
+
 
 
 
