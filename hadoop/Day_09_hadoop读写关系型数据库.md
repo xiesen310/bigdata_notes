@@ -93,7 +93,29 @@ public static class WriteToDBMap extends Mapper<LongWritable, Text, Text, IntWri
 	}
 ```
 
-> 定义
+> 定义reducer 
+
+``` java
+public static class WriteToDBReducer extends Reducer<Text, IntWritable, WordCountDBWritable, NullWritable> {
+		private WordCountDBWritable outKey = new WordCountDBWritable();
+		private NullWritable outValue = NullWritable.get();
+		private int sum;
+		@Override
+		protected void reduce(Text key, Iterable<IntWritable> valuess,
+				Reducer<Text, IntWritable, WordCountDBWritable, NullWritable>.Context context)
+				throws IOException, InterruptedException {
+			sum = 0;
+			for (IntWritable value : valuess) {
+				sum += value.get();
+			}
+			// 设置输出数据到数据库
+			outKey.setWord(key.toString());
+			outKey.setCount(sum);
+			context.write(outKey, outValue);
+		}
+	}
+```
+
 
 ## 将数据写入到数据库
 
