@@ -12,12 +12,22 @@ grammar_cjkRuby: true
 
 ![enter description here][1]
 
+# 设置mysql远程调用
+
+
+
 # Hadoop读写关系型数据库
 
 ## 读数据库
 
 1. 连接数据库
+
+![enter description here][2]
+
 2. 获取表信息
+
+![enter description here][3]
+
 3. 设置inputFormat为 DBinputWritable
 4. Map的输入类型key：longWritable，value：DBWritable
 
@@ -155,6 +165,8 @@ public static void main(String[] args) throws Exception {
 3.	DBOutputFormat.setOutPut(),设置把数据写入到数据库的那张表
 4.	DBConfiguration.configureDB(),设置输出数据库的连接
 
+![enter description here][4]
+
 不管是读还是写，都是需要定义数据类型的，上面已经定义过了，在这里就不在啰嗦了
 
 > 定义mapper
@@ -207,7 +219,7 @@ public static class ReadDBMap extends Mapper<LongWritable, WordCountDBWritable, 
 ```
 
 
-
-
-
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508413515484.jpg
+  [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508415337932.jpg
+  [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508415345551.jpg
+  [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508415362655.jpg
