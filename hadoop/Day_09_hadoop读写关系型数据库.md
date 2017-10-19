@@ -210,5 +210,4 @@ public static class ReadDBMap extends Mapper<LongWritable, WordCountDBWritable, 
 
 
 
-
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508413515484.jpg
