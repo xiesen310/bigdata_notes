@@ -119,7 +119,7 @@ public static class WriteToDBReducer extends Reducer<Text, IntWritable, WordCoun
 > 定义job，执行程序
 
 ``` java
-	public static void main(String[] args) throws Exception {
+public static void main(String[] args) throws Exception {
 		Configuration configuration = new Configuration();
 		// 设置数据库连接
 		DBConfiguration.configureDB(configuration, "com.mysql.jdbc.Driver","jdbc:mysql://192.168.6.170:3306/xs","root","root");
