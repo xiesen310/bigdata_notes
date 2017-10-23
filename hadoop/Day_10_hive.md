@@ -45,6 +45,10 @@ Beeline的命令行操作流程如下
 
 详细信息参考官方文档 [https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients][4]
 
+## Beeline基础命令
+
+
+
  
 
 
