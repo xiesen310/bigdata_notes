@@ -47,6 +47,18 @@ Beeline的命令行操作流程如下
 
 ## Beeline基础命令
 
+- 创建数据库 `create database bd14;`
+- 使用数据库 `use bd14;`
+- 显示当前数据库中的表 `show tables;`
+- 创建表 `create table docs(line string);`
+- 加载数据到表中 `load data inpath ‘/README.txt’ overwrite into table docs;`
+- 将内容进行展平操作 `select explode(split(line,’\\s+’)) from docs;`
+- Word Count 查询：`select word,count(*) from (select explode(split(line,’\\s’)) as word from docs) a group by word;`
+- 将Word Count结果存放在表中
+
+``` sql
+Create table wc_result as slect word,count(*) as wcount from(select explode(split(line,‘\\s+’))as word from docs) a group by word
+```
 
 
  
