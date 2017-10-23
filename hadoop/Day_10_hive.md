@@ -15,3 +15,8 @@ grammar_cjkRuby: true
 
 ## Hive架构
 
+![hive架构示意图][1]
+
+
+
+  [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508760689186.jpg
