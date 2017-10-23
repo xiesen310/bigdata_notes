@@ -41,10 +41,11 @@ Beeline的命令行操作流程如下
 4.	输入用户名，我们使用root用户名
 5.	输入密码，因为我们没有设置密码，直接回车即可
 
-
+![beeline数据类型][3]
 
  
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508760689186.jpg
   [2]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Types
+  [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508760834917.jpg
