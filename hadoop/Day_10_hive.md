@@ -43,9 +43,12 @@ Beeline的命令行操作流程如下
 
 ![beeline数据类型][3]
 
+详细信息参考官方文档 [https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients][4]
+
  
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508760689186.jpg
   [2]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Types
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508760834917.jpg
+  [4]: https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients
