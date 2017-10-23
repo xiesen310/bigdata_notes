@@ -32,5 +32,6 @@ grammar_cjkRuby: true
 Hive支持的数据类型很多，有数字类型、日期时间类型、字符串类型、复杂类型等等，具体详细类型参考[https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Types][2]
 
 
+
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508760689186.jpg
   [2]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Types
