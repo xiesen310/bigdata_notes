@@ -30,7 +30,9 @@ grammar_cjkRuby: true
 ## 数据类型
 
 Hive支持的数据类型很多，有数字类型、日期时间类型、字符串类型、复杂类型等等，具体详细类型参考[https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Types][2]
+ 
  # Beeline
+
  
 
 
