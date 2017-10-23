@@ -82,6 +82,8 @@ Create table wc_result as slect word,count(*) as wcount from(select explode(spli
 ![][9]
 
 ## 数据库语言的几种变现形式
+
+
  
 
 
