@@ -76,6 +76,8 @@ Create table wc_result as slect word,count(*) as wcount from(select explode(spli
 4.	添加Driver
 
 ![][8]
+
+
  
 
 
