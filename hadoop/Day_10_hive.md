@@ -30,4 +30,6 @@ grammar_cjkRuby: true
 ## 数据类型
 
 
+
+
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508760689186.jpg
