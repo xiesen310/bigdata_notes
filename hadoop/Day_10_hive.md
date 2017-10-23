@@ -17,6 +17,15 @@ grammar_cjkRuby: true
 
 ![hive架构示意图][1]
 
+用户接口主要有三个CLI(commoned line interface)命令行、Client和web UI
+metaStrore : Hive 的元数据是一般是存储在MySQL 这种关系型数据库上的，Hive 和MySQL 之间通过MetaStore服务交互。
+Driver: 解释器、编译器、优化器完成HQL查询语句从词法分析、语法分析、编译、优化以及查询计划的生成。生成的查询计划存储在HDFS中，并在随后由MapReduce调用执行
+解释器：解释器的作用是将HiveSQL 语句转换为语法树（AST）
+编译器：编译器是将语法树编译为逻辑执行计划。
+优化器：优化器是对逻辑执行计划进行优化。
+执行器：执行器是调用底层的运行框架执行逻辑执行计划。
+Hive 的数据是存储在HDFS 上的。Hive 中的库和表可以看做是对HDFS 上数据做的一个映射。所以Hive 必须是运行在一个Hadoop 集群上的。
+Hive 中的执行器，是将最终要执行的MapReduce 程序放到YARN 上以一系列Job 的方式去执行。
 
 
 
