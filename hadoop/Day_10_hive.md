@@ -27,7 +27,7 @@ grammar_cjkRuby: true
 - Hive 的数据是存储在HDFS 上的。Hive 中的库和表可以看做是对HDFS 上数据做的一个映射。所以Hive 必须是运行在一个Hadoop 集群上的。
 - Hive 中的执行器，是将最终要执行的MapReduce 程序放到YARN 上以一系列Job 的方式去执行。
 
-
+## 数据类型
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508760689186.jpg
