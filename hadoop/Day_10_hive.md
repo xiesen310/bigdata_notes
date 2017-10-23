@@ -60,6 +60,8 @@ Beeline的命令行操作流程如下
 Create table wc_result as slect word,count(*) as wcount from(select explode(split(line,‘\\s+’))as word from docs) a group by word
 ```
 
+# SQLuirrel SQL 连接hive
+
 
  
 
