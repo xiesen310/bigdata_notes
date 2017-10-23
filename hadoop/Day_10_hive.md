@@ -75,7 +75,7 @@ Create table wc_result as slect word,count(*) as wcount from(select explode(spli
 
 4.	添加Driver
 
-![enter description here][8]
+![][8]
  
 
 
@@ -86,4 +86,4 @@ Create table wc_result as slect word,count(*) as wcount from(select explode(spli
   [5]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508761018464.jpg
   [6]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1508761040825]]]"
   [7]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508761049585.jpg
-  [8]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1508761069428]]]"
+  [8]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508761069428.jpg
