@@ -14,3 +14,4 @@ grammar_cjkRuby: true
 5.	数据处理方面：不适合用于实时计算，适合用于离线查询
 
 ## Hive架构
+
