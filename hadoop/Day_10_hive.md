@@ -32,6 +32,14 @@ grammar_cjkRuby: true
 Hive支持的数据类型很多，有数字类型、日期时间类型、字符串类型、复杂类型等等，具体详细类型参考[https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Types][2]
  
  # Beeline
+> HiveServer2提供了一个新的命令行工具beeline，它是基于SQLLine CLI的JDBC客户端
+Beeline的命令行操作流程如下
+进入hiveserver2
+1.	打开hive服务，执行命令hiveserver2命令
+2.	打开Beeline客户端，执行beeline
+3.	连接hiveserver2，执行命令 ！connect jdbc：hive2：//localhost:10000
+4.	输入用户名，我们使用root用户名
+5.	输入密码，因为我们没有设置密码，直接回车即可
 
  
 
