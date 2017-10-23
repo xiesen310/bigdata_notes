@@ -84,10 +84,10 @@ Create table wc_result as slect word,count(*) as wcount from(select explode(spli
 ## 数据库语言的几种变现形式
 
 
- DDL：数据定义语言，创建删除数据库，更改表结构
-DML：数据操作语言，对表的增删改查 inset into，delete from update，load data
-DQL：数据查询语言，select…
-DCL: 数据库控制语言，grant privilages on *，* create user…
+- DDL：数据定义语言，创建删除数据库，更改表结构
+- DML：数据操作语言，对表的增删改查 inset into，delete from update，load data
+- DQL：数据查询语言，select…
+- DCL: 数据库控制语言，grant privilages on *，* create user…
 
 
 
