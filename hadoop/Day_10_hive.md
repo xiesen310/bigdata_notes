@@ -77,6 +77,8 @@ Create table wc_result as slect word,count(*) as wcount from(select explode(spli
 
 ![][8]
 
+5.	添加Aliases
+
 
  
 
