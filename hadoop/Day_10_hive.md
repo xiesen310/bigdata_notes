@@ -72,6 +72,8 @@ Create table wc_result as slect word,count(*) as wcount from(select explode(spli
 ![][6]
 
 ![][7]
+
+4.	添加Driver
  
 
 
@@ -81,4 +83,4 @@ Create table wc_result as slect word,count(*) as wcount from(select explode(spli
   [4]: https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients
   [5]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508761018464.jpg
   [6]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1508761040825]]]"
-  [7]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1508761049585]]]"
+  [7]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508761049585.jpg
