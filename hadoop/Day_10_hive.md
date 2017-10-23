@@ -79,7 +79,9 @@ Create table wc_result as slect word,count(*) as wcount from(select explode(spli
 
 5.	添加Aliases
 
-![enter description here][9]
+![][9]
+
+
  
 
 
@@ -91,4 +93,4 @@ Create table wc_result as slect word,count(*) as wcount from(select explode(spli
   [6]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1508761040825]]]"
   [7]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508761049585.jpg
   [8]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508761069428.jpg
-  [9]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1508761086061]]]"
+  [9]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508761086061.jpg
