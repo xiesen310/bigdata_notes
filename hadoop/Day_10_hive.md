@@ -64,6 +64,8 @@ Create table wc_result as slect word,count(*) as wcount from(select explode(spli
 
 使用命令行连接hive进行操作过程比较繁琐，所以我们使用客户端进行hive的基本操作，下面是SQLuirrel SQL客户端连接hive的具体步骤：
 1.	下载安装SQLuirrel SQL客户端 http://squirrel-sql.sourceforge.net/#installation
+![][5]
+
 
  
 
@@ -72,3 +74,4 @@ Create table wc_result as slect word,count(*) as wcount from(select explode(spli
   [2]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Types
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508760834917.jpg
   [4]: https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients
+  [5]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508761018464.jpg
