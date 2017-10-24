@@ -391,6 +391,21 @@ having count(1)>2
 ```
 ## 查询出最高薪水的人的信息
 
+``` sql
+-- 查询出最高薪水的人的信息
+select * 
+from dw_employee
+where salary in (select max(salary) from dw_employee)
+
+--In在后面添加子查询结果作为判断条件时，如果子查询中有索引的话，in是用不到索引的，因此in对于子查询效率低
+select *
+from dw_employee a
+where exists(
+	select maxsalary from (select max(salary) maxsalary from dw_employee) b
+	where b.maxsalary = a.salary
+)
+
+```
 
 
 
