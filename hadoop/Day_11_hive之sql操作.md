@@ -463,5 +463,30 @@ and a.emp_name<>'妖姬'
 ```
 ## 每个部门最高薪水的人是谁
 
+``` sql
+-- 每个部门最高薪水的人是谁
+select dep_id
+	,max(salary)
+from dw_employee
+group by dep_id
+
+
+select * 
+from dw_employee a
+where exists(
+	select b.dep_id
+		,b.max_salary
+	from(
+		select dep_id
+			,max(salary) max_salary
+		from dw_employee
+		group by dep_id
+	) b
+	where a.dep_id = b.dep_id and a.salary = b.max_salary
+)
+
+```
+
+
 
 
