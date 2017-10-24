@@ -557,7 +557,17 @@ from dep
 where dep_address like '%北京%'
 
 ```
+> Union是纵向扩展，join上横向扩展
+没有关联条件的join就是笛卡尔乘积
+合集
+	union不重复
+	union all 重复
+交集
+	instersect
+差集
+	minus
 
+	
 
 
 
