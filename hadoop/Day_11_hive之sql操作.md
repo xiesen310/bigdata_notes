@@ -113,5 +113,16 @@ select * from dw_employee
 ```
 ## 机构中有多少种职位（distinct）
 
+``` sql
+-- 机构中有多少种职位（distinct）
+select distinct status
+from dw_employee
+-- 通过group by进行排重
+select status 
+from dw_employee 
+group by status
+
+```
+
 
 
