@@ -131,5 +131,13 @@ select distinct dep_id
 	,status
 from dw_employee
 ```
+## 薪水高于6000的员工
+
+``` sql
+-- 薪水高于6000的员工
+select *
+from dw_employee
+where salary>6000
+```
 
 
