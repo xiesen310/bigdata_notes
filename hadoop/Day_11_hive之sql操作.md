@@ -588,7 +588,18 @@ select a.emp_name,b.emp_name
 from dw_employee a
 join dw_employee b
 on a.emp_id = b.leader_id
+```
+> 内连接是两张表根据关联条件相互过滤，能够关联上的数据才会出现在结果集中
 
+## 列出员工的姓名和他所在的部门，把没有部门的员工也列举出来
+
+``` sql
+-- 列出员工的姓名和他所在的部门，把没有部门的员工也列举出来
+select e.emp_name
+	,d.*
+from dw_employee e
+left join dep d
+on e.dep_id=cast(d.dep_id as int)
 ```
 
 
