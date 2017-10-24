@@ -511,7 +511,17 @@ where a.p_num > c.sp_num
 ```
 ## 哪些人是其他人的上级
 
-
+``` sql
+-- 哪些人是其他人的上级
+select *
+from dw_employee a
+where exists(
+	select emp_id 
+	from dw_employee
+	where leader_id = a.emp_id
+)
+```
+## 
 
 
 
