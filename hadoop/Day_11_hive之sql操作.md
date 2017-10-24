@@ -344,6 +344,8 @@ select count(*)
 from dw_employee
 where emp_name like '%张%'
 ```
+## 计算员工的总薪水是多少
+
 
 
 
