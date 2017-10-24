@@ -532,6 +532,16 @@ where not exists(
 	from dw_employee
 	where leader_id = a.emp_id
 )
+```
+## 薪水大于8000或者小于2000或者等于5000的员工
+
+``` sql
+-- 薪水大于8000或者小于2000或者等于5000的员工
+select * from dw_employee where salary > 8000
+union all
+select* from dw_employee where salary < 2000
+union all 
+select * from dw_employee where salary = 5000
 
 ```
 
