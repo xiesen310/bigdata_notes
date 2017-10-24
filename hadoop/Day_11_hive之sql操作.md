@@ -509,7 +509,7 @@ from (select dep_id
      ) c
 where a.p_num > c.sp_num
 ```
-
+## 哪些人是其他人的上级
 
 
 
