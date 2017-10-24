@@ -31,5 +31,6 @@ select cast(emp_id as int)
 	,cast(dep_id as int)
 from employee
 select * from dw_employee
-
 ```
+## 表克隆
+> 表克隆只克隆表的样式，不克隆数据
