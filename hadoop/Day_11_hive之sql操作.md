@@ -521,7 +521,20 @@ where exists(
 	where leader_id = a.emp_id
 )
 ```
-## 
+## 哪些人不是其他人的上级
+
+``` sql
+--哪些人不是其他人的上级
+select *
+from dw_employee a
+where not exists(
+	select 1 
+	from dw_employee
+	where leader_id = a.emp_id
+)
+
+```
+
 
 
 
