@@ -412,9 +412,8 @@ where exists(
 select * 
 from dw_employee
 where salary in (select min(salary) from dw_employee)
-
 ```
-
+## 
 
 
 
