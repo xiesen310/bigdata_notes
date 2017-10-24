@@ -34,3 +34,11 @@ select * from dw_employee
 ```
 ## 表克隆
 > 表克隆只克隆表的样式，不克隆数据
+
+``` sql
+-- 表克隆
+create table employee_clone like employee
+select * from employee_clone
+```
+## 查看表结构
+
