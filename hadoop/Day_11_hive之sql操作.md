@@ -461,7 +461,7 @@ from dw_employee a
 where dep_id in(select dep_id from dw_employee where emp_name='妖姬')
 and a.emp_name<>'妖姬'
 ```
-
+## 每个部门最高薪水的人是谁
 
 
 
