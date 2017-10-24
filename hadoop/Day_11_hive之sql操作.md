@@ -49,6 +49,19 @@ describe formatted employee_clone
 describe extended employee_clone
 ```
 # SQL练习
+## 计算员工的月薪、季度薪、年薪
+
+``` sql
+-- 计算员工的月薪、季度薪、年薪
+select emp_id
+	,emp_name
+	,salary
+	,salary*3 as month_salary
+	,salary*12 as year_salary
+from dw_employee
+
+```
+
 
 
 
