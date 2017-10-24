@@ -604,6 +604,15 @@ on e.dep_id=cast(d.dep_id as int)
 
 ## 全外连接
 	
+``` sql
+-- full outer join 两张表相互补充
+-- 列举员工以及部门信息，没有部门的员工也列举出来，没有员工的部门也列举出来
+select a.emp_name
+	,b.*
+from dw_employee a
+full outer join dep b
+on a.dep_id = cast(b.dep_id as int)
+```
 
 
 
