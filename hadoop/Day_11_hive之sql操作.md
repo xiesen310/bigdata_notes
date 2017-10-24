@@ -343,7 +343,6 @@ group by dep_id
 select count(*)
 from dw_employee
 where emp_name like '%张%'
-
 ```
 
 
