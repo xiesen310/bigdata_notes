@@ -4,3 +4,4 @@ tags: bigdata,hive,hadoop
 grammar_cjkRuby: true
 ---
 
+# 内部表与外部表的区别与联系
