@@ -404,6 +404,14 @@ where exists(
 	select maxsalary from (select max(salary) maxsalary from dw_employee) b
 	where b.maxsalary = a.salary
 )
+```
+## 最低薪水的人
+
+``` sql
+-- 最低薪水的人
+select * 
+from dw_employee
+where salary in (select min(salary) from dw_employee)
 
 ```
 
