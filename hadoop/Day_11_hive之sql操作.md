@@ -542,9 +542,8 @@ union all
 select* from dw_employee where salary < 2000
 union all 
 select * from dw_employee where salary = 5000
-
 ```
-
+## 提取平均薪水大于5000或者地址在北京的部门的dep_id
 
 
 
