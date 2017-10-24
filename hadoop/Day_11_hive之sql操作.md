@@ -350,7 +350,12 @@ where emp_name like '%张%'
 select sum(salary)
 from dw_employee
 ```
-## 
+## 计算员工的人数总和、薪水综合、平均薪水，最高薪水、最低薪水
+
+``` sql
+
+```
+
 
 
 
