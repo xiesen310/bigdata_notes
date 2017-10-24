@@ -180,7 +180,6 @@ where salary between 5000 and 8000
 select * 
 from dw_employee
 where year(in_word_date)=2014
-
 ```
 
 
