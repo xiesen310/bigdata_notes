@@ -281,5 +281,18 @@ from dw_employee
 where leader_id is null
 
 ```
+# 排序
+> 降序desc，升序asc
+> Hive的 order by全排序是通过只设置一个reduce节点的方式来实现的
+
+``` sql
+select *
+from dw_employee
+order by salary desc
+
+```
+
+
+
 
 
