@@ -59,7 +59,6 @@ select emp_id
 	,salary*3 as month_salary
 	,salary*12 as year_salary
 from dw_employee
-
 ```
 
 
