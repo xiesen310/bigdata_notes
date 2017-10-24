@@ -373,7 +373,6 @@ select dep_id
 	,count(1)
 from dw_employee
 group by dep_id
-
 ```
 
 
