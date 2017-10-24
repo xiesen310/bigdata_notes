@@ -190,5 +190,7 @@ select *
 from dw_employee
 where salary not between 5000 and 8000
 ```
+## 查询出职位是Manager或者analyst的员工
+
 
 
