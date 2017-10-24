@@ -346,6 +346,10 @@ where emp_name like '%张%'
 ```
 ## 计算员工的总薪水是多少
 
+``` sql
+select sum(salary)
+from dw_employee
+```
 
 
 
