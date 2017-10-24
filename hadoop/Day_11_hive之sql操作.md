@@ -339,6 +339,13 @@ group by dep_id
 
 ## 查询有多少个员工姓张
 
+``` sql
+select count(*)
+from dw_employee
+where emp_name like '%张%'
+
+```
+
 
 
 
