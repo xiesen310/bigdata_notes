@@ -508,8 +508,8 @@ from (select dep_id
 	group by dep_id
      ) c
 where a.p_num > c.sp_num
-
 ```
+
 
 
 
