@@ -203,5 +203,15 @@ from dw_employee
 where status in('Manager','Anaylst')
 ```
 
+## 查询出薪水大于7000并且职位是Coder或者Anaylst的员工信息
+
+``` sql
+ -- 查询出薪水大于7000并且职位是Coder或者Anaylst的员工信息
+select *
+from dw_employee
+where salary > 7000
+	and ( status = 'Manager'
+	or status = 'Anaylst')
+```
 
 
