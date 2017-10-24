@@ -567,6 +567,12 @@ where dep_address like '%北京%'
 差集
 	minus
 
+## 列出员工的姓名和所在的部门的名称和地址
+
+``` sql
+
+```
+
 	
 
 
