@@ -47,7 +47,7 @@ select * from employee_clone
 describe employee_clone
 describe formatted employee_clone
 describe extended employee_clone
-
 ```
+
 
 
