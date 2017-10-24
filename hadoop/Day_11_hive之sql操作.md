@@ -268,6 +268,10 @@ select * from dw_employee_leader
 ## 先把表中的数据清空，然后将数据插入到表中
 
 ``` sql
+insert overwrite table dw_employee_leader 
+select * 
+from dw_employee
+where leader_id is null
 
 ```
 
