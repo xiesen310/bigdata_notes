@@ -42,4 +42,12 @@ select * from employee_clone
 ```
 ## 查看表结构
 
+``` sql
+-- 查看表结构
+describe employee_clone
+describe formatted employee_clone
+describe extended employee_clone
+
+```
+
 
