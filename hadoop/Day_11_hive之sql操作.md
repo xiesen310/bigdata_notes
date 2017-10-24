@@ -227,3 +227,11 @@ where status_salary is not null
 ```
 
 ## 模糊查询like % _
+
+``` sql
+select * 
+from dw_employee
+where emp_name like'%妖%'
+```
+
+
