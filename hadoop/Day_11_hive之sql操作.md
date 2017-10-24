@@ -121,8 +121,15 @@ from dw_employee
 select status 
 from dw_employee 
 group by status
-
 ```
 
+## 从employee查询出每个部门中不重复的职位（distinct）
+
+``` sql
+-- 从employee查询出每个部门中不重复的职位（distinct）
+select distinct dep_id
+	,status
+from dw_employee
+```
 
 
