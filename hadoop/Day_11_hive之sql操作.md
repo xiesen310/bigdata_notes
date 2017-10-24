@@ -82,6 +82,18 @@ from dw_employee
 
 ```
 
+## 插入一条数据id为1111，姓名为aaa的数据，其余字段空
+
+``` sql
+-- hive 几乎不会使用insert values 的写法
+insert into employee_clone (emp_id,emp_name) values('ss','fff')
+select * from employee_clone
+-- hive 支持delete和update，但是数据分析几乎不使用这两种方式来更新表
+-- hive对这两个语法的支持需要特殊配置
+delete from employee_clone
+update employee set emp_id='sss'
+
+```
 
 
 
