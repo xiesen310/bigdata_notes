@@ -361,6 +361,8 @@ select count(*)
 	,min(salary)
 from dw_employee
 ```
+## 求出每个部门的最高薪水、最低薪水、平均薪水、总薪水、总人数
+
 
 
 
