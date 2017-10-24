@@ -335,7 +335,6 @@ select dep_id
 	,count(*)
 from dw_employee
 group by dep_id
-
 ```
 
 
