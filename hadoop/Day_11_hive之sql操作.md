@@ -388,7 +388,6 @@ select dep_id
 from dw_employee
 group by dep_id
 having count(1)>2
-
 ```
 
 
