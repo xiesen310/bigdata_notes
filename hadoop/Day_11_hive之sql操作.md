@@ -243,3 +243,8 @@ truncate 清空表数据，表级别的操作，删除后数据不可恢复
 truncate和delete之间的区别
 truncate是表级别的操作，delete是行级别的操作；truncate删除数据不能通过日志进行恢复，delete删除之后可以通过日志进行恢复
 
+# DML数据操纵语言
+DML(Data Manipulation Language)
+insert 插入操作
+update 更新操作
+delete 删除操作
