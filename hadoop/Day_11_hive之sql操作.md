@@ -488,5 +488,29 @@ where exists(
 
 ## 那个部门的人数比销售部的人数多
 
+``` sql
+-- 那个部门的人数比销售部的人数多,有问题
+select a.dep_id
+	,a.p_num
+	,c.sp_num
+from (select dep_id
+		,count(1) p_num
+	from dw_employee
+	group by dep_id
+	) a
+	,(
+	select dep_id
+		,count(1) sp_num
+	from dw_employee b
+	where b.dep_id in(
+		select dep_id from dep where dep_name='销售部'
+	)
+	group by dep_id
+     ) c
+where a.p_num > c.sp_num
+
+```
+
+
 
 
