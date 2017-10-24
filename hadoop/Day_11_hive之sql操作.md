@@ -300,6 +300,15 @@ order by salary desc,status_salary desc
 ```
 
 # 聚合函数
+聚合----多行数据用一个函数制定的规则来进行运算
+Sum：求和
+Count：计数，count字段值为空的不计算,count(1)或count(*)比较推荐使用
+Avg：平均值
+Max：最大值
+Min：最小值
+分组----为聚合创造多行数据来源的条件
+Group by
+分组和聚合一般组合起来使用
 
 
 
