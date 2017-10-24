@@ -226,4 +226,4 @@ from dw_employee
 where status_salary is not null
 ```
 
-
+## 模糊查询like % _
