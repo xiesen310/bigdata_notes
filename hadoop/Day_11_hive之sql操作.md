@@ -182,4 +182,13 @@ from dw_employee
 where year(in_word_date)=2014
 ```
 
+## 薪水不在5000到8000的员工
+
+``` sql
+-- 薪水不在5000到8000的员工
+select * 
+from dw_employee
+where salary not between 5000 and 8000
+```
+
 
