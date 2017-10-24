@@ -176,6 +176,10 @@ where salary between 5000 and 8000
 ## 查询出2016年入职的员工
 
 ``` sql
+-- 查询出2016年入职的员工
+select * 
+from dw_employee
+where year(in_word_date)=2014
 
 ```
 
