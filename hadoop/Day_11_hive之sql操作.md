@@ -578,8 +578,19 @@ select e.emp_name
 from dw_employee e 
 join dep d 
 on e.dep_id = cast(d.dep_id as int)
+```
+
+## 列出所有员工的姓名和他上司的姓名
+
+``` sql
+-- 列出所有员工的姓名和他上司的姓名
+select a.emp_name,b.emp_name
+from dw_employee a
+join dw_employee b
+on a.emp_id = b.leader_id
 
 ```
+
 
 	
 
