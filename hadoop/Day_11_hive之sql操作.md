@@ -106,6 +106,11 @@ from dw_employee
 ```
 ## 复制员工表，表名为emp_copy
 
+``` sql
+-- 复制员工表，表名为emp_copy
+create table emp_copy as
+select * from dw_employee
+```
 
 
 
