@@ -545,6 +545,20 @@ select * from dw_employee where salary = 5000
 ```
 ## 提取平均薪水大于5000或者地址在北京的部门的dep_id
 
+``` sql
+-- 提取平均薪水大于5000或者地址在北京的部门的dep_i  union
+select dep_id
+from employee
+group by dep_id
+having avg(salary) > 5000
+union 
+select dep_id
+from dep
+where dep_address like '%北京%'
+
+```
+
+
 
 
 
