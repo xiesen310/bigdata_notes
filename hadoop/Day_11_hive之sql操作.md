@@ -264,7 +264,6 @@ from dw_employee
 where leader_id is null
 
 select * from dw_employee_leader
-
 ```
 
 
