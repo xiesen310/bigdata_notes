@@ -416,6 +416,28 @@ where salary in (select min(salary) from dw_employee)
 ## 工资高于平均薪水的人的信息
 
 ``` sql
+-- 工资高于平均薪水的人的信息
+-- hive 目前版本不支持非等值的链接查询
+-- 不能使用
+select *
+from dw_employee
+where salary > (
+	select avg(salary) from dw_employee
+)
+-- 不能使用
+select * 
+from dw_employee a
+where exists(
+	select avgsalary from (select avg(salary)avgsalary from dw_employee) b
+	where a.salary > b.avgsalary
+)
+-- 设置不检验笛卡尔乘积
+set hive.strict.checks.cartesian.product=false
+
+select a.*
+	,b.*
+from dw_employee a,(select avg(salary) avgsalary from dw_employee) b 
+where a.salary > b.avgsalary
 
 ```
 
