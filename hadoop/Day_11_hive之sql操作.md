@@ -139,5 +139,13 @@ select *
 from dw_employee
 where salary>6000
 ```
+## 职位是anaylst 的员工
+
+``` sql
+-- 职位是anaylst 的员工
+select *
+from dw_employee
+where status = 'Anaylst'
+```
 
 
