@@ -149,4 +149,14 @@ where status = 'Anaylst'
 ```
 ## 以小写格式展示职位信息(lower())
 
+``` sql
+-- 以小写格式展示职位信息（lower()）
+select emp_id 
+	,emp_name
+	,lower(status)
+	,upper(status)
+from dw_employee
+```
+
+
 
