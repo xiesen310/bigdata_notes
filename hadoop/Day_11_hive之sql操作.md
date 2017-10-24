@@ -60,6 +60,27 @@ select emp_id
 	,salary*12 as year_salary
 from dw_employee
 ```
+## 计算员工的月收入（月薪加奖金）
+
+``` sql
+-- 计算员工的月收入（月薪加奖金）
+select emp_id
+    ,emp_name
+    ,salary + status_salary
+from dw_employee
+
+-- 判断status_salary是否为空
+select emp_id
+	,emp_name
+	,salary + case when status_salary is null then 0 else status_salary end
+from dw_employee
+--简化操作，nvl判断是否为空
+select emp_id
+	,emp_name
+	,salary + nvl(status_salary,0)
+from dw_employee
+
+```
 
 
 
