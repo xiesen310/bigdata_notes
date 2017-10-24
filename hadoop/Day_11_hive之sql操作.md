@@ -378,6 +378,16 @@ group by dep_id
 ## 求出总人数超过2人的部门的最高薪水、最低薪水、平均薪水、总薪水、总人数
 
 ``` sql
+-- 求出总人数超过2人的部门的最高薪水、最低薪水、平均薪水、总薪水、总人数
+select dep_id 
+	,sum(salary)
+	,avg(salary)
+	,max(salary)
+	,min(salary)
+	,count(1)
+from dw_employee
+group by dep_id
+having count(1)>2
 
 ```
 
