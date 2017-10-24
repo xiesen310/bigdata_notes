@@ -602,7 +602,7 @@ left join dep d
 on e.dep_id=cast(d.dep_id as int)
 ```
 
-
+## 全外连接
 	
 
 
