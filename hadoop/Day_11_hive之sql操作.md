@@ -92,8 +92,20 @@ select * from employee_clone
 -- hive对这两个语法的支持需要特殊配置
 delete from employee_clone
 update employee set emp_id='sss'
-
 ```
+
+## 查询员工表如果没有职位，显示‘普通员工’，有职位显示职位、没有入职日期显示入职日期为10-may-15,有入职日期则显示入职日期
+
+``` sql
+-- 查询员工表如果没有职位，显示‘普通员工’，有职位显示职位、没有入职日期显示入职日期为10-may-15,有入职日期则显示入职日期
+select emp_id
+	,emp_name
+	,nvl(status,'普通员工')
+	,nvl(in_word_date,'2015-5-10')
+from dw_employee
+```
+## 复制员工表，表名为emp_copy
+
 
 
 
