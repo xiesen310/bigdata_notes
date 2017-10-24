@@ -166,5 +166,12 @@ from dw_employee
 where upper(status)='ANAYLST'
 ```
 
+## 查询出薪水在5000到8000之间的员工（between and）
 
+``` sql
+select * 
+from dw_employee
+where salary between 5000 and 8000
+```
+## 
 
