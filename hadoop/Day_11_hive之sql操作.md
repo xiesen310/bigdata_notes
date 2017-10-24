@@ -147,5 +147,6 @@ select *
 from dw_employee
 where status = 'Anaylst'
 ```
+## 以小写格式展示职位信息(lower())
 
 
