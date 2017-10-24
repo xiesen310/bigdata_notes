@@ -111,6 +111,7 @@ from dw_employee
 create table emp_copy as
 select * from dw_employee
 ```
+## 机构中有多少种职位（distinct）
 
 
 
