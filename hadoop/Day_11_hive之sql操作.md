@@ -233,5 +233,5 @@ select *
 from dw_employee
 where emp_name like'%妖%'
 ```
-## 
+# DDL数据定义语言
 
