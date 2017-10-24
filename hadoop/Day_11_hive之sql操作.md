@@ -289,7 +289,14 @@ where leader_id is null
 select *
 from dw_employee
 order by salary desc
+```
+二次排序
 
+``` sql
+-- 二次排序
+select * 
+from dw_employee
+order by salary desc,status_salary desc
 ```
 
 
