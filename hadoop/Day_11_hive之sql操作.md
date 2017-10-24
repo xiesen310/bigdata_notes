@@ -254,6 +254,16 @@ where emp_name like'%妖%'
 ## 将查询的结果插入到表中
 
 ``` sql
+-- insert select
+create table dw_employee_leader like dw_employee;
+show tables;
+
+insert into dw_employee_leader
+select * 
+from dw_employee
+where leader_id is null
+
+select * from dw_employee_leader
 
 ```
 
