@@ -440,6 +440,20 @@ from dw_employee a,(select avg(salary) avgsalary from dw_employee) b
 where a.salary > b.avgsalary
 
 ```
+## 研发部有哪些职位
+
+``` sql
+-- 研发部有哪些职位
+select * from dep where dep_name = '研发部'
+
+select distinct status
+from dw_employee a
+where exists(
+	select dep_id from dep where dep_name='研发部'
+	and a.dep_id = dep_id
+)
+
+```
 
 
 
