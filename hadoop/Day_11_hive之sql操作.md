@@ -32,6 +32,13 @@ insert 插入操作
 update 更新操作
 delete 删除操作
 
+# DCL 数据控制语言(基本上不使用)
+Data Control Language
+用语执行权限的授予和收回操作
+GRANT:授予，给用户授权
+Revoke:收回用户已有的权限
+Create user:创建用户
+create user usernamexxx identity by '123456'
 
 # 对于表之间的操作
 
