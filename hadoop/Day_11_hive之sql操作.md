@@ -158,5 +158,13 @@ select emp_id
 from dw_employee
 ```
 
+## 忽略大小写匹配职位等于‘ANAYLST’的记录
+
+``` sql
+select * 
+from dw_employee
+where upper(status)='ANAYLST'
+```
+
 
 
