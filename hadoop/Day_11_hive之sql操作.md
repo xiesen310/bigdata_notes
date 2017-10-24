@@ -213,5 +213,17 @@ where salary > 7000
 	and ( status = 'Manager'
 	or status = 'Anaylst')
 ```
+## 查询出没有岗位工资的员工
+
+``` sql
+-- 查询出没有岗位工资的员工
+select *
+from dw_employee
+where status_salary is null
+查询有岗位工资的员工
+select *
+from dw_employee
+where status_salary is not null
+```
 
 
