@@ -251,7 +251,5 @@ select *
 from dw_employee
 where emp_name like'%妖%'
 ```
-
-
 ## 将查询的结果插入到表中
 
