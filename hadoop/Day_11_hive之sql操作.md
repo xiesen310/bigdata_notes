@@ -452,7 +452,14 @@ where exists(
 	select dep_id from dep where dep_name='研发部'
 	and a.dep_id = dep_id
 )
+```
+## 谁是妖姬的同部门的同事
 
+``` sql
+select * 
+from dw_employee a
+where dep_id in(select dep_id from dw_employee where emp_name='妖姬')
+and a.emp_name<>'妖姬'
 ```
 
 
