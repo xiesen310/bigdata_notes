@@ -15,6 +15,24 @@ grammar_cjkRuby: true
 4. 外部表相对来说更加安全些，数据组织也更加灵活，方便共享源数据。
 
 
+
+# DDL数据定义语言
+
+DDL(Data Definition Language)
+create 数据库对象的创建
+alter 修改数据库对象
+drop 删除数据库对象
+truncate 清空表数据，表级别的操作，删除后数据不可恢复
+truncate和delete之间的区别
+truncate是表级别的操作，delete是行级别的操作；truncate删除数据不能通过日志进行恢复，delete删除之后可以通过日志进行恢复
+
+# DML数据操纵语言
+DML(Data Manipulation Language)
+insert 插入操作
+update 更新操作
+delete 删除操作
+
+
 # 对于表之间的操作
 
 ## 根据已有表创建表
@@ -233,19 +251,7 @@ select *
 from dw_employee
 where emp_name like'%妖%'
 ```
-# DDL数据定义语言
 
-DDL(Data Definition Language)
-create 数据库对象的创建
-alter 修改数据库对象
-drop 删除数据库对象
-truncate 清空表数据，表级别的操作，删除后数据不可恢复
-truncate和delete之间的区别
-truncate是表级别的操作，delete是行级别的操作；truncate删除数据不能通过日志进行恢复，delete删除之后可以通过日志进行恢复
 
-# DML数据操纵语言
-DML(Data Manipulation Language)
-insert 插入操作
-update 更新操作
-delete 删除操作
+## 将查询的结果插入到表中
 
