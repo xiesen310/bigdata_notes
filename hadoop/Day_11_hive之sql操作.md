@@ -310,6 +310,34 @@ Min：最小值
 Group by
 分组和聚合一般组合起来使用
 
+``` sql
+-- Hive的 order by全排序是通过只设置一个reduce节点的方式来实现的
+select *
+from dw_employee
+order by salary desc
+
+-- 二次排序
+select * 
+from dw_employee
+order by salary desc,status_salary desc
+
+-- 查询有多少个员工
+select count(status_salary)
+from dw_employee
+
+-- 设置reduce的个数
+set mapreduce.job.reduces = 2
+-- 查询参数
+set mapreduce.job.reduces
+
+-- count 字段值为空的不计算
+select dep_id
+	,count(*)
+from dw_employee
+group by dep_id
+
+```
+
 
 
 
