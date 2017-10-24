@@ -571,6 +571,13 @@ where dep_address like '%北京%'
 > 可以进行转换，为了提高效率推荐转换，系统默认帮我们转换
 
 ``` sql
+-- 列出员工的姓名和所在的部门的名称和地址
+select e.emp_name
+	,d.dep_name,
+	d.dep_address
+from dw_employee e 
+join dep d 
+on e.dep_id = cast(d.dep_id as int)
 
 ```
 
