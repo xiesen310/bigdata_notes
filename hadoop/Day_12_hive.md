@@ -217,7 +217,9 @@ stored as textfile
 
 ![][6]
 
+Struct取数据
 
+![][7]
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930825204.jpg
@@ -226,3 +228,4 @@ stored as textfile
   [4]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1508930878943]]]"
   [5]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930910082.jpg
   [6]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930983676.jpg
+  [7]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930990369.jpg
