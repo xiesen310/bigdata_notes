@@ -223,6 +223,8 @@ Struct取数据
 
 # 文件的保存格式
 
+> hive 默认支持的文件格式有很多，其中arvo、orc、Parquet、Compressed Data Storage、LZO Compression等等
+
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930825204.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930844609.jpg
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930866200.jpg
