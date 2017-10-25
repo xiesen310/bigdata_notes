@@ -48,5 +48,8 @@ store_sales join time_dim on (ss_sold_time_sk = t_time_sk)
 ```
 
 
+# Order, Sort, Cluster, and Distribute By
+> 对于order,sort,cluster,distribute这几概念，在面试的过程中是很容易被提问到的，下面对于这些概念做简单的介绍
+
 
 
