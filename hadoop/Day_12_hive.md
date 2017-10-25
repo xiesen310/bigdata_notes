@@ -159,3 +159,4 @@ from dw_employee
 cluster by dep_id
 ```
 
+# 数据类型
