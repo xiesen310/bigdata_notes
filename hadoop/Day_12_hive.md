@@ -23,5 +23,6 @@ hive.exec.reducers.bytes.per.reducer=256000000
 hive.exec.reducers.max=1009
 ```
 
-
+# Map端聚合操作
+> 在Map端进行聚合，在一定程度上可以减少数据的传输量，从侧面上提高服务器的性能。
 
