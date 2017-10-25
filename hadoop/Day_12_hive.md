@@ -376,6 +376,7 @@ select * from temp_orders where date_format(to_date(order_date),'yyyyMM')='20130
 
 
 
+
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930825204.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930844609.jpg
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930866200.jpg
