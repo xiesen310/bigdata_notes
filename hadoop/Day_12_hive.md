@@ -262,9 +262,8 @@ create table p_orders(
 partitioned by (date_month string)
 row format delimited
 fields terminated by '|'
-
-
 ```
+
 
 
 
