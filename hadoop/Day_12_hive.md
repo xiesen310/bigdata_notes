@@ -273,11 +273,10 @@ alter table p_orders drop partition(date_month='201709');
 ## 静态导入数据
 
 ``` sql
-
-```
-
-
+load data inpath '/orderdata/orders' overwrite into table p_orders partition(date_month='201709')
+``
 ## 动态导入数据
+
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930825204.jpg
