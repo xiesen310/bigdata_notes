@@ -345,6 +345,34 @@ alter table p_test add partition(date_day='20171026',date_hour='03');
 
 注意：分桶对应的是文件，和分区是不同的。
 
+``` sql
+-- 创建分桶
+create table pb_orders(
+	order_id int
+	,order_date string
+	,customer_id int
+	,order_status string	
+)
+partitioned by (date_month string)
+clustered by(customer_id) sorted by(customer_id) into 2 buckets
+stored as textfile
+
+insert into table pb_orders partition(date_month)
+select order_id
+	,order_date
+	,customer_id
+	,order_status
+	,date_format(to_date(order_date),'yyyyMM') as date_month
+from temp_orders
+
+
+dfs -cat /user/hive/warehouse/db14.db/pb_orders/date_month=201307/000000_0
+dfs -cat /user/hive/warehouse/db14.db/pb_orders/date_month=201307/000001_0
+
+select * from pb_orders where date_month='201307' and customer_id=5125
+select * from temp_orders where date_format(to_date(order_date),'yyyyMM')='201307' and customer_id=5125
+
+```
 
 
 
