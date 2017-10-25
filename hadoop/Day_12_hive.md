@@ -225,6 +225,18 @@ Struct取数据
 
 > hive 默认支持的文件格式有很多，其中arvo、orc、Parquet、Compressed Data Storage、LZO Compression等等，详细介绍请参考[https://cwiki.apache.org/confluence/display/Hive/LanguageManual][8]
 
+``` sql
+-- 创建avro文件格式的表 avro_emploree
+create table avro_emploree
+
+stored as avro
+as
+select * from dw_employee
+select * from avro_emploree
+dfs -cat /user/hive/warehouse/db14.db/avro_emploree/000000_0
+```
+
+
 
 
 
