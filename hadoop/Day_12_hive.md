@@ -161,4 +161,4 @@ cluster by dep_id
 
 # 复杂数据类型
 
-复杂数据类型array、map、union、
+复杂数据类型array、map、union、struct等等，下面我们以一个例子来说明
