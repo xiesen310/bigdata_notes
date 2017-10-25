@@ -274,46 +274,12 @@ alter table p_orders drop partition(date_month='201709');
 
 ``` sql
 load data inpath '/orderdata/orders' overwrite into table p_orders partition(date_month='201709')
-``
+```
+
 ## 动态导入数据
 
 > 当数据使用load静态导入时，hive是不会对数据做任何转换的， 它只是单纯的把数据复制到表分区的目录下而已
 
-
-
-``` sql
--- 动态导入数据到分区
--- 设置参数
-set hive.exec.dynamic.partition=true
-set hive.exec.dynamic.partition.mode=nonstrict
-
--- 使用insert into select语句来完成数据的动态导入
-create TEMPORARY table temp_orders(
-	order_id int
-	,order_date string
-	,customer_id int
-	,order_status string
-)
-row format delimited
-fields terminated by '|'
-stored as textfile
--- 2.把数据加载到临时表
-load  data local inpath '/root/orderdata/orders' overwrite into table temp_orders
--- 3.用insert into select从临时表中取数据转换分区字段到分区表p_orders中
-select * from temp_orders
-
-insert into table p_orders partition(date_month)
-select order_id
-	,order_date
-	,customer_id
-	,order_status
-	,date_format(to_date(order_date),'yyyyMM') as date_month
-from temp_orders 
-
-select * from p_orders where date_month='201310'
-
-show tables
-```
 
 
 
