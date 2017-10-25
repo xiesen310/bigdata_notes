@@ -347,6 +347,7 @@ alter table p_test add partition(date_day='20171026',date_hour='03');
 
 ![分桶原理示意图][9]
 
+
 ``` sql
 -- 创建分桶
 create table pb_orders(
