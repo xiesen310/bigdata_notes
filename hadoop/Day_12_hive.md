@@ -345,6 +345,8 @@ alter table p_test add partition(date_day='20171026',date_hour='03');
 
 注意：分桶对应的是文件，和分区是不同的。
 
+![分桶原理示意图][9]
+
 ``` sql
 -- 创建分桶
 create table pb_orders(
@@ -375,8 +377,6 @@ select * from temp_orders where date_format(to_date(order_date),'yyyyMM')='20130
 ```
 
 
-
-
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930825204.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930844609.jpg
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930866200.jpg
@@ -385,3 +385,4 @@ select * from temp_orders where date_format(to_date(order_date),'yyyyMM')='20130
   [6]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930983676.jpg
   [7]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930990369.jpg
   [8]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual
+  [9]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508931996180.jpg
