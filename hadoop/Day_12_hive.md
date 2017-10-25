@@ -99,6 +99,27 @@ sort by 的数据只能保证在同一reduce中的数据可以按指定字段排
 排序，即可以得到全部结果。
 注意：可以用limit子句大大减少数据量。使用limit n后，传输到reduce端（单机）的数据记录数就减少到n* （map个数）。否则由于数据过大可能出不了结果。
 
+``` sql
+set mapreduce.job.reduces = 2
+create table dep_sort as
+-- 计算每一个部门的人数和薪水支出
+select * from(
+select a.dep_id 
+	,a.dep_name
+	,a.dep_address
+	,count(b.emp_id) p_num
+	,sum(nvl(salary,0)) a_salary
+from dep a
+left join dw_employee b
+on cast(a.dep_id as int) = b.dep_id
+Group by a.dep_id 
+	,a.dep_name
+	,a.dep_address
+)a
+sort by p_num
+```
 
 
-# #Sort by
+## distribute by
+
+
