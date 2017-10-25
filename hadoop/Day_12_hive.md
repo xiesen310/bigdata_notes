@@ -85,5 +85,7 @@ group by idA
 order by num desc limit 10
 ```
 
+这样就可以了。本博主没查源码，估计是因为hive查询的时候起的是mr任务，mr任务里排序的时候，不认得count(*)是什么东东，所以给个别名就好。
+
 
 
