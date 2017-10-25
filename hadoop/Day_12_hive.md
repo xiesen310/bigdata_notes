@@ -193,3 +193,5 @@ lines terminated by '\n'
 NULL DEFINED AS 'NULL'
 stored as textfile
 ```
+> 对于基本类型的操作，相信大家已经熟记于心，下面对于复杂数据类型做简单的描述
+
