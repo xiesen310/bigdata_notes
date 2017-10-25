@@ -378,7 +378,16 @@ select * from temp_orders where date_format(to_date(order_date),'yyyyMM')='20130
 ```
 # hive压缩
 
-> 对于为什么要压缩，以及压缩的格式，在这里就不说了，不明白的请找度娘
+> 对于为什么要压缩，以及压缩的格式，在这里就不说了，不明白的请找度娘，这里直接上代码了
+
+``` sql
+-- 压缩
+set hive.exec.compress.output=true
+create table compress_order as 
+select * from temp_orders
+
+```
+
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930825204.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930844609.jpg
