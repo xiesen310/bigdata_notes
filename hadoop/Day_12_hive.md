@@ -398,9 +398,10 @@ select * from temp_orders
 
 > 在maven的安装目录下，找到setting.xml文件修改为如下
 
-``` sql
+``` xml
 
 ```
+
 
 
 
