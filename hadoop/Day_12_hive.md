@@ -90,7 +90,7 @@ order by num desc limit 10
 hive的底层原理是将order by进行了全排序，在单个节点上可以进行排序的，在多个节点就显的力不从心了。因此，对于大数据order by就无能为力了
 
 
-# Sort by 
+## Sort by 
 > sort by不是全局排序，其在数据进入reducer前完成排序.
 因此，如果用sort by进行排序，并且设置mapred.reduce.tasks>1， 则sort by只保证每个reducer的输出有序，不保证全局有序。
 sort by 不受 hive.mapred.mode 是否为strict ,nostrict 的影响
@@ -99,3 +99,6 @@ sort by 的数据只能保证在同一reduce中的数据可以按指定字段排
 排序，即可以得到全部结果。
 注意：可以用limit子句大大减少数据量。使用limit n后，传输到reduce端（单机）的数据记录数就减少到n* （map个数）。否则由于数据过大可能出不了结果。
 
+
+
+# #Sort by
