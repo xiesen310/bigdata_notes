@@ -153,3 +153,9 @@ Cluster by column_1等价于
 Distribute by column_1 sort by column_1
 
 
+``` sql
+select *
+from dw_employee
+cluster by dep_id
+```
+
