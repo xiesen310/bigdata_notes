@@ -145,7 +145,7 @@ distribute by status sort by status,salary desc
 
 ## Cluster by
 
-Cluster by 不够灵活，因为使用哪个字段进行分区，就要使用哪个字段进行排序
+> Cluster by 不够灵活，因为使用哪个字段进行分区，就要使用哪个字段进行排序
 Cluster by 是distribute by 和sort by 的结合
 只允许升序，不允许升序
 Eg:
