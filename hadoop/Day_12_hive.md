@@ -279,6 +279,8 @@ load data inpath '/orderdata/orders' overwrite into table p_orders partition(dat
 
 > 当数据使用load静态导入时，hive是不会对数据做任何转换的， 它只是单纯的把数据复制到表分区的目录下而已
 
+
+
 ``` sql
 -- 动态导入数据到分区
 -- 设置参数
@@ -312,6 +314,7 @@ select * from p_orders where date_month='201310'
 
 show tables
 ```
+
 
 
 
