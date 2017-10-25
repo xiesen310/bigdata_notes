@@ -396,7 +396,9 @@ select * from temp_orders
 
 # maven 更换国内镜像
 
-> 在maven的安装目录下，找到setting.xml文件添加如下代码
+> 在maven的安装目录下，找到setting.xml文件添加如下代码、
+
+![enter description here][10]
 
 ``` xml
  <mirror>
@@ -408,8 +410,6 @@ select * from temp_orders
 ```
 
 
-
-
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930825204.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930844609.jpg
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930866200.jpg
@@ -419,3 +419,4 @@ select * from temp_orders
   [7]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930990369.jpg
   [8]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual
   [9]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508931996180.jpg
+  [10]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508932700216.jpg
