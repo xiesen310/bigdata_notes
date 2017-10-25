@@ -318,7 +318,22 @@ show tables
 > 二级分区是按照目录结构进行分层操作的
 
 ``` sql
+-- 二级分区
+drop table p_test
+create table p_test(
+ 	test1 string 
+	,test2 string
+)
+partitioned by (date_day string,date_hour string)
 
+show tables;
+
+alter table p_test add partition(date_day='20171025',date_hour='01');
+alter table p_test add partition(date_day='20171025',date_hour='02');
+alter table p_test add partition(date_day='20171025',date_hour='03');
+alter table p_test add partition(date_day='20171026',date_hour='01');
+alter table p_test add partition(date_day='20171026',date_hour='02');
+alter table p_test add partition(date_day='20171026',date_hour='03');
 ```
 
 
