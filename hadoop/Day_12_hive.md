@@ -33,6 +33,19 @@ hive.exec.reducers.max=1009
 -- hive.mapjoin.smalltable.filesize=25000000
 ```
 
+> 我们一般情况下是通过sql语句，想要进行Map端的聚合操作，下面是Map端聚合的示例代码
+
+``` sql
+select /*+MAPJOIN(dep)*/
+	a.*,b.*
+from dw_employee a
+join dep b
+on a.dep_id = b.dep_id
+--或者进行如下设置，新版本比较推荐使用下面的版本
+set hive.auto.convert.join=true;
+select count(*) from
+store_sales join time_dim on (ss_sold_time_sk = t_time_sk)
+```
 
 
 
