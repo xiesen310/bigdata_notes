@@ -53,5 +53,13 @@ store_sales join time_dim on (ss_sold_time_sk = t_time_sk)
 
 ## order by
 
+> order by 会对输入做全局排序，因此只有一个reducer（多个reducer无法保证全局有序）只有一个reducer，会导致当输入规模较大时，需要较长的计算时间。
+
+使用order by需要进行下面的设置
+``` sql
+set hive.mapred.mode=nonstrict; (default value / 默认值)
+set hive.mapred.mode=strict;
+```
+
 
 
