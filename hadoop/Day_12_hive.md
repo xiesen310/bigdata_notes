@@ -89,3 +89,6 @@ order by num desc limit 10
 
 hive的底层原理是将order by进行了全排序，在单个节点上可以进行排序的，在多个节点就显的力不从心了。因此，对于大数据order by就无能为力了
 
+
+# Sort by 
+
