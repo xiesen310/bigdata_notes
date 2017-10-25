@@ -76,5 +76,14 @@ order by count(*) desc limit 10
 ``` sql
 FAILED: SemanticException [Error 10128]: Line 4:9 Not yet supported place for UDAF 'count'
 ```
+怎么样可以呢？将count(*)给一个别名就好：
+
+``` sql
+select cardno,count(*) as num
+from tableA
+group by idA
+order by num desc limit 10
+```
+
 
 
