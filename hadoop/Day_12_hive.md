@@ -385,7 +385,13 @@ select * from temp_orders where date_format(to_date(order_date),'yyyyMM')='20130
 set hive.exec.compress.output=true
 create table compress_order as 
 select * from temp_orders
+```
+设置压缩格式为gzip
 
+``` sql
+set mapreduce.output.fileoutputformat.compress.codec=org.apache.hadoop.io.compress.GzipCodec
+create table compress_order as 
+select * from temp_orders
 ```
 
 
