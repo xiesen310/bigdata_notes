@@ -394,7 +394,7 @@ create table compress_order as
 select * from temp_orders
 ```
 
-
+# maven 更换国内镜像
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930825204.jpg
