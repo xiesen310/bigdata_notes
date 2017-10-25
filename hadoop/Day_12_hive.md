@@ -129,4 +129,19 @@ sort by p_num
  
  
 
+``` sql
+-- distribute by
+create table emp_distribute as
+select * from dw_employee
+distribute by status
+
+dfs -cat /user/hive/warehouse/db14.db/emp_distribute/000000_0
+dfs -cat /user/hive/warehouse/db14.db/emp_distribute/000001_0
+
+select * 
+from dw_employee
+distribute by status sort by status,salary desc
+```
+
+
 
