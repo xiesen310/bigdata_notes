@@ -64,4 +64,12 @@ set hive.mapred.mode=strict;
 > order by和数据库中的操作基本上是一样的，下面对于一些区别简单描述一下
 order by的使用上与mysql最大的不同，请看以下sql语句：
 
+``` sql
+select cardno,count(*)
+from tableA
+group by idA
+order by count(*) desc limit 10
+```
+
+
 
