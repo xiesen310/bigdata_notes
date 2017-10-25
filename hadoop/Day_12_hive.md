@@ -49,3 +49,4 @@ store_sales join time_dim on (ss_sold_time_sk = t_time_sk)
 
 
 
+
