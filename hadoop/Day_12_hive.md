@@ -205,9 +205,11 @@ stored as textfile
 
 ![][3]
 
-> 展平map记录
+- 展平map记录
 
 ![][4]
+
+- 展平array记录
 
 
 
