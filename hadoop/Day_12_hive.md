@@ -143,5 +143,7 @@ from dw_employee
 distribute by status sort by status,salary desc
 ```
 
+## Cluster by
+
 
 
