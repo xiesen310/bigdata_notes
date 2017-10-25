@@ -280,6 +280,9 @@ load data inpath '/orderdata/orders' overwrite into table p_orders partition(dat
 
 > 当数据使用load静态导入时，hive是不会对数据做任何转换的， 它只是单纯的把数据复制到表分区的目录下而已
 
+``` sql
+
+```
 
 
 
