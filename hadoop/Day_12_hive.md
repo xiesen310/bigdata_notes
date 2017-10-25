@@ -122,9 +122,11 @@ sort by p_num
 
 ## distribute by
 
- 按照指定的字段对数据进行划分到不同的输出reduce  / 文件中。
+>  按照指定的字段对数据进行划分到不同的输出reduce  / 文件中。
  insert overwrite local directory '/home/hadoop/out' select * from test order by name distribute by length(name);  
  此方法会根据name的长度划分到不同的reduce中，最终输出到不同的文件中。 
  length 是内建函数，也可以指定其他的函数或这使用自定义函数。
+ 
+ 
 
 
