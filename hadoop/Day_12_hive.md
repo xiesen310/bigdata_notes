@@ -243,6 +243,28 @@ dfs -cat /user/hive/warehouse/db14.db/avro_emploree/000000_0
 当前互联网应用每天都要存储大量的日志文件，几G、几十G甚至更大都是有可能。存储日志，其中必然有个属性是日志产生的日期。在产生分区时，就可以按照日志产生的日期列进行划分。把每一天的日志当作一个分区。 
 将数据组织成分区，主要可以提高数据的查询速度。至于用户存储的每一条记录到底放到哪个分区，由用户决定。即用户在加载数据的时候必须显示的指定该部分数据放到哪个分区。 
 
+> 最常用的分区条件
+1.	时间(年月日)
+2.	行政区划(省，地市区县)
+3.	具体的业务类型(不太常用)
+
+## 创建分区文件
+
+``` sql
+-- 创建分区表
+drop table p_orders
+create table p_orders(
+	order_id int
+	,order_date string
+	,customer_id int
+	,order_status string
+)
+partitioned by (date_month string)
+row format delimited
+fields terminated by '|'
+
+
+```
 
 
 
