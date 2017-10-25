@@ -396,6 +396,8 @@ select * from temp_orders
 
 # maven 更换国内镜像
 
+在maven的安装目录下
+
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930825204.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930844609.jpg
