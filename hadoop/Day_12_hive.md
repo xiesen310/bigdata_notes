@@ -376,6 +376,8 @@ select * from pb_orders where date_month='201307' and customer_id=5125
 select * from temp_orders where date_format(to_date(order_date),'yyyyMM')='201307' and customer_id=5125
 
 ```
+# hive压缩
+
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930825204.jpg
