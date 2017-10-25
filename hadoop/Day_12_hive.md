@@ -163,3 +163,33 @@ cluster by dep_id
 
 复杂数据类型array、map、union、struct等等，下面我们以一个例子来说明
 
+首先，我们创建一个对应数据类型的表，对表进行操作，下面是创建表的sql
+
+``` sql
+drop table test_serializer
+create table test_serializer(
+	string1 string
+	,int1 int
+	,tinnyint1 tinyint
+	,smallint1 smallint
+	,bigint1 bigint
+	,boolean1 boolean
+	,float1 float
+	,double1 double
+	,list1 array<string>
+	,map1 map<string,int>
+	,struct1 struct<sint:int,sboolean:boolean,sstring:string>
+	,union1 uniontype<float,boolean,string>
+	,enum1 string
+	,nullableint int
+	,bytes1 binary
+	,fixed1 binary
+)
+row format delimited
+fields terminated by ','
+collection items terminated by ':'
+MAP KEYS TERMINATED BY '#'
+lines terminated by '\n'
+NULL DEFINED AS 'NULL'
+stored as textfile
+```
