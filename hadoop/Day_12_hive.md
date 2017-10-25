@@ -91,4 +91,7 @@ hive的底层原理是将order by进行了全排序，在单个节点上可以�
 
 
 # Sort by 
+sort by不是全局排序，其在数据进入reducer前完成排序.
+Sort by 是单节点有序
+sort by是局部排序，只确保每个reduce上输出的数据为有序。当然如果只有一个reduce的时候，跟order by是一样的。。。
 
