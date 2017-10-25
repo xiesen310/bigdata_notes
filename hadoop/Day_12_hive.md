@@ -71,5 +71,10 @@ group by idA
 order by count(*) desc limit 10
 ```
 
+这个语句在mysql中查询的时候，肯定是没有问题的，而且我们实际上也经常这么干。但是如果将上述语句提交给hive，会报以下错误：
+
+``` sql
+FAILED: SemanticException [Error 10128]: Line 4:9 Not yet supported place for UDAF 'count'
+```
 
 
