@@ -24,5 +24,15 @@ hive.exec.reducers.max=1009
 ```
 
 # Map端聚合操作
-> 在Map端进行聚合，在一定程度上可以减少数据的传输量，从侧面上提高服务器的性能。
+> 在Map端进行聚合，在一定程度上可以减少数据的传输量，从侧面上提高服务器的性能。对于map端聚合操作，需要在hive上设置一些参数
+
+``` sql
+-- 决定是否自动开启map端的关联
+-- hive.auto.convert.join=true
+-- 决定是否使用map端join，如果关联表有小于这个参数的配置则自动开启map端join
+-- hive.mapjoin.smalltable.filesize=25000000
+```
+
+
+
 
