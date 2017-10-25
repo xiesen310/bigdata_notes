@@ -223,7 +223,8 @@ Struct取数据
 
 # 文件的保存格式
 
-> hive 默认支持的文件格式有很多，其中arvo、orc、Parquet、Compressed Data Storage、LZO Compression等等
+> hive 默认支持的文件格式有很多，其中arvo、orc、Parquet、Compressed Data Storage、LZO Compression等等，详细介绍请参考[https://cwiki.apache.org/confluence/display/Hive/LanguageManual][8]
+
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930825204.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930844609.jpg
@@ -232,3 +233,4 @@ Struct取数据
   [5]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930910082.jpg
   [6]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930983676.jpg
   [7]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930990369.jpg
+  [8]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual
