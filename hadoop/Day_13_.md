@@ -35,3 +35,54 @@ grammar_cjkRuby: true
 </project>
 
 ```
+
+## 编写连接小工具
+
+``` java
+package top.xiesen.utils;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class HiveJdbcUtils {
+
+	public static final String DRIVER_CLASS = "org.apache.hive.jdbc.HiveDriver";
+	public static final String URL = "jdbc:hive2://master:10000/db14";
+	public static final String USERNAME = "root";
+	public static final String PASSWORD = "";
+	private static Connection connection;
+	/**
+	* getConnection 获取连接
+	* @param @return 参数
+	* @return Connection 返回类型
+	* @Exception 异常对象
+	*/
+	public static Connection getConnection(){
+		try {
+			Class.forName(DRIVER_CLASS);
+			connection = DriverManager.getConnection(URL,USERNAME,PASSWORD);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return connection;
+	}
+	
+	/**
+	* close 关闭连接
+	* @param @param connection 参数
+	* @return void 返回类型
+	* @Exception 异常对象
+	*/
+	public static void close(Connection connection) {
+		try {
+			if (connection != null) {
+				connection.close();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+}
+
+```
