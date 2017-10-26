@@ -110,3 +110,9 @@ public static void createTable() throws SQLException {
 
 # Hive 函数
 
+hive 中内置了很多函数，具体使用用法详见官方文档[https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF][1]
+
+
+
+
+  [1]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF
