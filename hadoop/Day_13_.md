@@ -154,6 +154,11 @@ from dw_employee
 ## 数学函数
 > 小数的数据类型 double float decimal numberic，一般我们使用decimal
 
+- 四舍五入，参数1：小数；参数2：小数点后取的位数 `select round(1.222223,2);`
+- 向下取整 `select floor(2.344)`
+- 向上取整 `select ceil(2.344)`
+- 获取随机值 `select rand();`
+- 开平方 `select sqrt(4);`
 
 
 ## 日期类型函数
