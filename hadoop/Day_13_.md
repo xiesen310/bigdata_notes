@@ -408,6 +408,19 @@ list jars;
 3. 将jar包加载到hive上，创建function `create function logdate_convert as 'top.xiesen.udf.LogDateConvert';`
 4. 使用自定义函数
 
+``` sql
+-- 使用函数
+create table hour_pvuv
+stored as orc
+as
+select b.hour 
+	,count(1) pv
+	,count(distinct b.host) uv
+from (select hour(logdate_convert(time)) hour
+	,a.*
+from apachelog a) b
+group by b.hour
+```
 
 
 
