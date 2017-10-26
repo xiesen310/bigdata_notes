@@ -260,6 +260,13 @@ select rtrim(' aaa ');
 	8. 关联页面
 	9. 客户端的浏览器类型
 
+> 对数据进行分析之后，发现使用基本数据类型很难将数据给分隔开来，因此，我们使用特殊的数据类型进行数据存储
+
+## 创建日志对应的表
+
+``` sql
+
+```
 
 
   [1]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF
