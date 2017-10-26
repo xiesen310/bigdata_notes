@@ -396,13 +396,19 @@ public class LogDateConvert extends UDF{
 		System.out.println(logDateConvert.evaluate("[14/Jun/2014:10:30:13 -0400]"));
 	}
 }
-
 ```
 
-
 2. 将编写的代码，打成jar包，上传到linux环境下
-3. 将jar包加载到hive上，创建function
+
+``` sql
+add jar /root/udf.jar;
+list jars;
+```
+
+3. 将jar包加载到hive上，创建function `create function logdate_convert as 'top.xiesen.udf.LogDateConvert';`
 4. 使用自定义函数
+
+
 
 
 
