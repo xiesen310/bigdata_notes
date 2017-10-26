@@ -355,4 +355,6 @@ from tmp_user_sys
 4. 使用自定义函数
 
 
+
+
   [1]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF
