@@ -112,6 +112,28 @@ public static void createTable() throws SQLException {
 
 hive 中内置了很多函数，具体使用用法详见官方文档[https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF][1]
 
+- 查看所有函数 `show functions`
+- 查看函数的具体用法 `describe function last_day` 或者 `describe function extended last_day`
+- 返回当前月的最后一天
+
+``` sql
+-- Returns the last day of the month  
+select last_day(to_date('2017-10-01'))
+select last_day('2017-10-01')
+```
+
+- 字符串拼接
+
+``` sql
+show tables;
+select '姓名:' || emp_name || '\t薪水:'|| salary
+from dw_employee
+
+select concat(emp_name,':',salary)
+from dw_employee
+
+describe function extended concat
+```
 
 
 
