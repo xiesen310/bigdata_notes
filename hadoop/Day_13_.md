@@ -346,7 +346,7 @@ select count(1) p_num
 from tmp_user_sys
 ```
 
-
+# 自定义hive function
 
 
   [1]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF
