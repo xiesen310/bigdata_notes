@@ -151,7 +151,12 @@ select map(emp_name,status)
 from dw_employee
 ```
 
-## 日期类型函数 
+## 数学函数
+
+
+## 日期类型函数
+
+时间戳
 
 
   [1]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF
