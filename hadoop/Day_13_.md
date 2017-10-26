@@ -301,6 +301,16 @@ select count(*) pv
 from apachelog
 ```
 
+## 统计出网站用户访问使用windows系统和使用mac系统的占比和数量
+
+> 这个题目相对比较复杂，我们先将windows，mac，orther用户打上标签，然后，将标记过的数据放到一张临时表中，我们队这个临时表进行统计计算
+
+匹配不同的用户
+
+``` sql
+select * from apachelog where agent rlike 'Windows NT'
+select * from apachelog where agent rlike 'Mac OS'
+```
 
 
   [1]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF
