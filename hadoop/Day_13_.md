@@ -242,6 +242,24 @@ select rtrim(' aaa ');
 - 替换电话号码 `select concat(substr('13134720265',1,3),'xxxx',substr('13134720265',8,4));`
 - 字符串反转 `select reverse('abc');`
 
+# 日志
+
+## 日志信息结构分析
+
+``` xml
+79.133.215.123 - - [14/Jun/2014:10:30:13 -0400] "GET /home HTTP/1.1" 200 1671 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36"
+```
+
+	1. 用户访问的ip地址
+	2. 用户标识
+	3. 用户名
+	4. 访问时间
+	5. 请求信息(请求方法，请求url，协议类型)
+	6. 请求相应状态
+	7. 请求相应流量大小(byte)
+	8. 关联页面
+	9. 客户端的浏览器类型
+
 
 
   [1]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF
