@@ -158,7 +158,20 @@ from dw_employee
 
 ## 日期类型函数
 
-时间戳
+- 获取当前时间戳
 
+``` sql
+select unix_timestamp();
+select unix_timestamp('2017-01-02 00:00:00');
+```
+
+- 把字符串时间转换成时间戳,指定格式 `select unix_timestamp('2017-01-02 00:00:00','yyyy-MM-dd HH:mm:ss')`
+- 时间戳转换成时间 `select from_unixtime(unix_timestamp(),'yyyyMMdd');`
+- 把字符串转换成日期格式 yyyy-MM-dd HH:mm:ss `select to_date('2017-03-20 11:30:01');`
+- 抽取日期的天数 `select extract(day from '2017-8-10')`
+- 计算两个日期相隔天数 `select abs(datediff('2017-08-03','2017-09-02'));`
+- 在一个日期上加天数 求新日期 
+
+## 条件函数
 
   [1]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF
