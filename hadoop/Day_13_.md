@@ -207,5 +207,6 @@ select emp_id
 from dw_employee
 ```
 
+## string函数
 
   [1]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF
