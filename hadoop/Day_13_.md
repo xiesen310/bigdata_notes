@@ -350,6 +350,56 @@ from tmp_user_sys
 > 自定义函数，我们以时间格式转换为例
 
 1. 编写时间转换格式代码
+
+``` java
+package top.xiesen.udf;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
+import org.apache.hadoop.hive.ql.exec.UDF;
+
+/**
+* 项目名称：udftest
+* 类名称：LogDateConvert [14/Jun/2014:10:30:13 -0400] --》 2014-06-14 22:30:13
+* 类描述：自定义udf需要继承UDF类，实现evaluate方法
+* 返回值类型上，可以是java基础类型、writeable子类、string
+* 创建人：Allen
+* @version
+*/
+public class LogDateConvert extends UDF{
+	public static final SimpleDateFormat FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	// 输出数据的日期格式是带有local和时区的，local是英文，可以使用英文格式进行匹配转换
+	public static final SimpleDateFormat SRCFORMAT = new SimpleDateFormat("[dd/MMM/yyyy:HH:mm:ss Z]",Locale.ENGLISH);
+
+	
+	/**
+	* evaluate 将[14/Jun/2014:10:30:13 -0400] 格式转换成  2014-06-14 22:30:13
+	* @param @param datestr [14/Jun/2014:10:30:13 -0400]格式的字符串
+	* @return String 返回类型 ，可以是java基础类型、writeable子类、string
+	* @Exception 异常对象
+	*/
+	public String evaluate(String datestr){
+		try {
+			Date olDate = SRCFORMAT.parse(datestr);
+			return FORMAT.format(olDate);
+		} catch (ParseException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public static void main(String[] args) {
+		LogDateConvert logDateConvert = new LogDateConvert();
+		System.out.println(logDateConvert.evaluate("[14/Jun/2014:10:30:13 -0400]"));
+	}
+}
+
+```
+
+
 2. 将编写的代码，打成jar包，上传到linux环境下
 3. 将jar包加载到hive上，创建function
 4. 使用自定义函数
