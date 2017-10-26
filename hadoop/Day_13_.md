@@ -305,11 +305,32 @@ from apachelog
 
 > 这个题目相对比较复杂，我们先将windows，mac，orther用户打上标签，然后，将标记过的数据放到一张临时表中，我们队这个临时表进行统计计算
 
-匹配不同的用户
+- 匹配不同的用户
 
 ``` sql
 select * from apachelog where agent rlike 'Windows NT'
 select * from apachelog where agent rlike 'Mac OS'
+```
+
+- 创建临时表
+
+``` sql
+create table tmp_user_sys
+stored as orc
+as 
+select host
+	,sys_type
+from (
+select host
+	,case 
+		when agent rlike 'Windows NT' then 'windows'
+		when agent rlike 'Mac OS' then 'mac'
+		else 'other'
+	end sys_type
+from apachelog
+) a
+group by host
+	,sys_type
 ```
 
 
