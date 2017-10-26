@@ -170,7 +170,17 @@ select unix_timestamp('2017-01-02 00:00:00');
 - 把字符串转换成日期格式 yyyy-MM-dd HH:mm:ss `select to_date('2017-03-20 11:30:01');`
 - 抽取日期的天数 `select extract(day from '2017-8-10')`
 - 计算两个日期相隔天数 `select abs(datediff('2017-08-03','2017-09-02'));`
-- 在一个日期上加天数 求新日期 
+- 在一个日期上加天数 求新日期 `select date_add('2017-10-1',10);`
+- 在一个日期上减天数 求新日期 `select date_add('2017-10-11',-10);select data_sub('2017-10-11',10);`
+- 获取当前时间 `select current_date(); select current_timestamp();`
+- 时间格式化
+
+``` sql
+select date_format(current_date(),'yyyy--MM--dd');
+select date_format(current_timestamp(),'yyyy--MM--dd');
+select date-format('2017-10-11','yyyy--MM--dd');
+```
+
 
 ## 条件函数
 
