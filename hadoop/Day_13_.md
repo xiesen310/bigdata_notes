@@ -143,6 +143,15 @@ select * from dw_employee
 where status regexp '(.{4})'
 ```
 
+- 复杂类型构造方法
+
+``` sql
+-- 复杂类型构造方法
+select map(emp_name,status)
+from dw_employee
+```
+
+
 
 
   [1]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF
