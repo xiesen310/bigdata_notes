@@ -197,5 +197,15 @@ select emp_id
 from dw_employee
 ```
 
+- COALESCE 求非空
+
+``` sql
+-- 取出每个人的上级id，如果没有上级部门id返回-1，如果有返回部门id
+select emp_id
+	,emp_name
+	,COALESCE(leader_id,dep_id,-1)
+from dw_employee
+```
+
 
   [1]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF
