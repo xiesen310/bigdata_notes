@@ -107,3 +107,6 @@ public static void createTable() throws SQLException {
 		}
 	}
 ```
+
+# Hive 函数
+
