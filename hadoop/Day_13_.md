@@ -242,4 +242,6 @@ select rtrim(' aaa ');
 - 替换电话号码 `select concat(substr('13134720265',1,3),'xxxx',substr('13134720265',8,4));`
 - 字符串反转 `select reverse('abc');`
 
+
+
   [1]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF
