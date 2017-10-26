@@ -174,4 +174,28 @@ select unix_timestamp('2017-01-02 00:00:00');
 
 ## 条件函数
 
+- if--else
+
+``` sql
+select if(salary > 5000,'中等收入','低收入')
+from dw_employee
+```
+- isnull
+
+``` sql
+select emp_id
+	,emp_name
+	,isnull(status_salary)
+from dw_employee
+```
+- isnotnull
+
+``` sql
+select emp_id
+	,emp_name
+	,isnotnull(status_salary)
+from dw_employee
+```
+
+
   [1]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF
