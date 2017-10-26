@@ -152,6 +152,8 @@ from dw_employee
 ```
 
 ## 数学函数
+> 小数的数据类型 double float decimal numberic，一般我们使用decimal
+
 
 
 ## 日期类型函数
