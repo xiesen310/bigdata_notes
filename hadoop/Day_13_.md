@@ -86,4 +86,24 @@ public class HiveJdbcUtils {
 }
 ```
 
-## 
+## hive的基本操作
+
+### 创建表
+
+``` java
+public static void createTable() throws SQLException {
+		Connection connection = HiveJdbcUtils.getConnection();
+		Statement statement = connection.createStatement();
+		StringBuilder stringBuilder = new StringBuilder();
+		stringBuilder.append("create table table_form_java(");
+		stringBuilder.append("test1 string");
+		stringBuilder.append(",test2 int");
+		stringBuilder.append(",test3 string");
+		stringBuilder.append(")stored as textfile");
+		statement.execute(stringBuilder.toString());
+		ResultSet result = statement.executeQuery("show tables");
+		while(result.next()){
+			System.out.println(result.getString(1));
+		}
+	}
+```
