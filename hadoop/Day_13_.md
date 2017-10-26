@@ -334,4 +334,7 @@ group by host
 ```
 
 
+
+
+
   [1]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF
