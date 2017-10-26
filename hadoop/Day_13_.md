@@ -347,7 +347,11 @@ from tmp_user_sys
 ```
 
 # 自定义hive function
+> 自定义函数，我们以时间格式转换为例
 
+1. 编写时间转换格式代码
+2. 将编写的代码，打成jar包，上传到linux环境下
+3. 将jar包加载到hive上，创建function
 
 
   [1]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF
