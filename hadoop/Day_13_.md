@@ -333,6 +333,18 @@ group by host
 	,sys_type
 ```
 
+- 通过创建的临时表，我们看到同一用户有两台电脑，这里我们把既有mac又有windows的用户看做是两个不同的用户
+
+``` sql
+select count(1) p_num
+	,sum(case when sys_type='mac' then 1 else 0 end) mac_num
+	,sum(case when sys_type='windows' then 1 else 0 end) windows_num
+	,sum(case when sys_type='other' then 1 else 0 end) other_num
+	,sum(case when sys_type='mac' then 1 else 0 end)/count(1) mac_rate
+	,sum(case when sys_type='windows' then 1 else 0 end)/count(1) windows_rate
+	,sum(case when sys_type='other' then 1 else 0 end)/count(1) other_rate
+from tmp_user_sys
+```
 
 
 
