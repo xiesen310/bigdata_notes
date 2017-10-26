@@ -283,6 +283,14 @@ WITH SERDEPROPERTIES (
 STORED AS TEXTFILE;
 ```
 
+## 加载数据
+
+``` sql
+load data inpath '/log' overwrite into table apachelog
+select * from apachelog
+describe formatted apachelog
+```
+
 
 
   [1]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF
