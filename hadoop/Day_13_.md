@@ -209,4 +209,22 @@ from dw_employee
 
 ## string函数
 
+- 获取字符串长度`select character_length('2017')` 或者 `select length('2222');`
+- 字符串转换成二进制 `select binary('你好');`
+- 二进制转换成string,默认编码格式utf-8 `select decode(binary('你好'),'UTF-8'); select decode(binary('你好'),'GBK');`
+- format_number对数字进行格式化，参数2是小数点后保留几位，返回值是字符串 `select format_number(1212.123,2);`
+- lcase等同于lower `select lcase('asRfd');`
+- trim ltrim rtrim 去除首尾空白字符
+
+``` sql
+select trim(' aaa ');
+select ltrim(' aaa ');
+select rtrim(' aaa ');
+```
+
+- 正则表达式抽取 `select regexp_extract('张三:年龄19岁,email:xxx@163.com','.*(\\d+).*(\\w+@163.com)',1)`
+- 正则表达式 `select regexp_replace('13522220064','^\\d{7}',"*******");`
+- 替换电话号码 `select concat(substr('13134720265',1,3),'xxxx',substr('13134720265',8,4));`
+- 字符串反转 `select reverse('abc');`
+
   [1]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF
