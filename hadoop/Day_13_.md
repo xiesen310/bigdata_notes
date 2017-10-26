@@ -291,6 +291,16 @@ select * from apachelog
 describe formatted apachelog
 ```
 
+## 计算当日网站的pv uv
+
+``` sql
+-- 计算当日网站的pv uv
+-- pv 用户的每个请求就是一个pv；uv(一个ip就是uv的数量)
+select count(*) pv
+	,count(distinct host) uv
+from apachelog
+```
+
 
 
   [1]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF
