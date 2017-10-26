@@ -135,6 +135,14 @@ from dw_employee
 describe function extended concat
 ```
 
+- hive支持正则表达式
+
+``` sql
+describe function extended regexp
+select * from dw_employee
+where status regexp '(.{4})'
+```
+
 
 
   [1]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF
