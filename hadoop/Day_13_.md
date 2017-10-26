@@ -1,5 +1,5 @@
 ---
-title: Day_13_ 
+title: Day_13_ hive function 
 tags: hadoop,hive
 grammar_cjkRuby: true
 ---
