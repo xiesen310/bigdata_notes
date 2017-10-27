@@ -66,7 +66,6 @@ from month_finish
 1. 编写hql
 dateday是一个变量名，将日期给抽取出来了，提高代码的复用率
 
-
 ``` sql
 use db14;
 
@@ -116,8 +115,6 @@ from apache_log
 where date_day = '${dateday}';
 
 ```
-
-
 2. 将hql上传到装hive的机器上
 3. 执行 hive -f aa.hql --hivevar dateday=20171027
 
