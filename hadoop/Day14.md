@@ -125,7 +125,19 @@ where date_day = '${dateday}';
 
 # Hive优化
 
+## Group by 优化
 
+Group By 很容易导致数据倾斜问题，因为实际业务中，通常是数据集中在某些点上，这也符合常
+见的2/8 原则，这样会造成对数据分组后，某一些分组上数据量非常大，而其他的分组上数据量
+很小，而在mapreduce 程序中，同一个分组的数据会分配到同一个reduce 操作上去，导致某一
+些reduce 压力很大，其他的reduce 压力很小，这就是数据倾斜，整个job 执行时间取决于那个
+执行最慢的那个reduce。
+解决这个问题的方法是配置一个参数：set hive.groupby.skewindata=true。
+当选项设定为 true，生成的查询计划会有两个 MR Job。第一个 MR Job 中， Map 的输出结果会
+随机分布到 Reduce 中，每个 Reduce 做部分聚合操作，并输出结果，这样处理的结果是相同的
+Group By Key 有可能被分发到不同的 Reduce 中，从而达到负载均衡的目的；第二个 MR Job
+再根据预处理的数据结果按照 Group By Key 分布到 Reduce 中（这个过程可以保证相同的
+GroupBy Key 被分布到同一个 Reduce 中），最后完成最终的聚合操作。
 
 
   [1]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+WindowingAndAnalytics
