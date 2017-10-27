@@ -27,7 +27,22 @@ from order_items
  - 每个部门按照时间计算每个月的年累计完成销量
 
 ``` sql
-
+-- 每个部门按照时间计算每个月的年累计完成销量
+select date_month
+	,dep_name
+	,finish_amount
+	,task_amount
+	-- 每个部门按照时间计算每个月的年累计完成销量
+	,sum(finish_amount) over(partition by dep_name order by to_date(date_month))
+	-- 计算部门一年总的完成量
+	,sum(finish_amount) over(partition by dep_name)
+	-- 计算部门最近三个有的完成量
+	,sum(finish_amount) over(partition by dep_name order by to_date(date_month) rows between 2 preceding  and current row)
+	-- 计算部门当前月前面两个月，在向后一个月的完成量
+	,sum(finish_amount) over(partition by dep_name order by to_date(date_month) rows between 2 preceding  and 1 following)
+	--计算部门累计完成量，向下累计
+	,sum(finish_amount) over(partition by dep_name order by to_date(date_month) rows between current row and unbounded following)
+from month_finish
 ```
 
 
