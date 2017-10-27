@@ -69,7 +69,7 @@ from month_finish
 3. 执行 hive -f aa.hql --hivevar dateday=20171027
 
 
-![enter description here][2]
+
 
 
   [1]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+WindowingAndAnalytics
