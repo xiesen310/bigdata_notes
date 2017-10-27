@@ -120,6 +120,11 @@ where date_day = '${dateday}';
 
 3. 执行 hive -f aa.hql --hivevar dateday=20171027
 
+![][3]
+
+
+
 
   [1]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+WindowingAndAnalytics
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509101669949.jpg
+  [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509101714769.jpg
