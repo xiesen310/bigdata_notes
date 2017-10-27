@@ -65,6 +65,57 @@ from month_finish
 > 原来我们将分析日志，是直接在SQuirrel工具上执行的，没有考虑到sql的固化操作，等等。下面以日志分析为例子，阐述一下sql固化的问题
 1. 编写hql
 
+``` sql
+use db14;
+
+-- create table
+CREATE external TABLE if not exists apache_log (
+  host STRING,
+  identity STRING,
+  username STRING,
+  time STRING,
+  request STRING,
+  status STRING,
+  size STRING,
+  referer STRING,
+  agent STRING)
+  partitioned by (date_day string)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.RegexSerDe'
+WITH SERDEPROPERTIES (
+  "input.regex" = "([^ ]*) ([^ ]*) ([^ ]*) (-|\\[[^\\]]*\\]) ([^ \"]*|\"[^\"]*\") (-|[0-9]*) (-|[0-9]*)(?: ([^ \"]*|\"[^\"]*\") ([^ \"]*|\"[^\"]*\"))?"
+  ,"output.format.string"="%1$s %2$s %3$s %4$s %5$s %6$s %7$s %8$s %9$s"
+)
+STORED AS TEXTFILE;
+
+alter table apache_log drop partition(date_day='${dateday}');
+alter table apache_log add partition(date_day='${dateday}') location '/apachlog/${dateday}';
+set hive.support.concurrency=true;
+set hive.exec.dynamic.partition.mode=nonstrict;
+set hive.txn.manager=org.apache.hadoop.hive.ql.lockmgr.DbTxnManager;
+set hive.compactor.initiator.on=true;
+set hive.compactor.worker.threads=1;
+
+
+create table if not exists day_pv_uv(
+	date_day int
+	,pv int
+	,uv int
+)
+clustered by(date_day) into 2 buckets
+stored as orc
+tblproperties("transactional"="true");
+
+
+
+delete from day_pv_uv where date_day = '${dateday}';
+insert into day_pv_uv
+select  ${dateday}
+	,count(1) pv
+	,count(distinct host) uv
+from apache_log 
+where date_day = '${dateday}';
+
+```
 
 
 2. 将hql上传到装hive的机器上
