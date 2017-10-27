@@ -105,8 +105,6 @@ clustered by(date_day) into 2 buckets
 stored as orc
 tblproperties("transactional"="true");
 
-
-
 delete from day_pv_uv where date_day = '${dateday}';
 insert into day_pv_uv
 select  ${dateday}
