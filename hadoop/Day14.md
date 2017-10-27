@@ -131,6 +131,24 @@ where date_day = '${dateday}';
 > 解决这个问题的方法是配置一个参数：set hive.groupby.skewindata=true。
 当选项设定为 true，生成的查询计划会有两个 MR Job。第一个 MR Job 中， Map 的输出结果会随机分布到 Reduce 中，每个 Reduce 做部分聚合操作，并输出结果，这样处理的结果是相同的Group By Key 有可能被分发到不同的 Reduce 中，从而达到负载均衡的目的；第二个 MR Job再根据预处理的数据结果按照 Group By Key 分布到 Reduce 中（这个过程可以保证相同的GroupBy Key 被分布到同一个 Reduce 中），最后完成最终的聚合操作。
 
+## order by 优化
+
+因为order by 只能是在一个reduce 进程中进行的，所以如果对一个大数据集进行order by,会
+导致一个reduce 进程中处理的数据相当大，造成查询执行超级缓慢。在要有进行order by 全局
+排序的需求时，用以下几个措施优化：
+(1) 在最终结果上进行order by，不要在中间的大数据集上进行排序。如果最终结果较少，可以
+在一个reduce 上进行排序时，那么就在最后的结果集上进行order by。
+(2) 如果需求是取排序后前N 条数据，那么可以使用distribute by 和sort by 在各个reduce 上进行排
+序后取前N 条，然后再对各个reduce 的结果集合并后在一个reduce 中全局排序，再取前N 条，因为参与
+全局排序的Order By 的数据量最多有reduce 个数*N，所以速度很快。
+
+``` sql
+select a.leads_id,a.user_name from
+(
+select leads_id,user_name from dealer_leads
+distribute by length(user_name) sort by length(user_name) desc limit 10
+) a order by length(a.user_name) desc limit 10;
+```
 
 
 
