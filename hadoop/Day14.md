@@ -8,6 +8,20 @@ grammar_cjkRuby: true
 > 我们都知道在sql中有一类函数叫做聚合函数,例如sum()、avg()、max()等等,这类函数可以将多行数据按照规则聚集为一行,一般来讲聚集后的行数是要少于聚集前的行数的.但是有时我们想要既显示聚集前的数据,又要显示聚集后的数据,这时我们便引入了窗口函数.
 > 在SQL处理中，窗口函数都是最后一步执行，而且仅位于Order by字句之前.
 
+``` sql
+create table ntile_order_item
+stored as orc
+as
+select order_iten_id
+	,order_item_order_id
+	,order_item_product_id
+	,order_item_quantity
+	,order_item_subtotal
+	,order_item_product_price
+	,ntile(2) over(order by order_item_product_price) splitno
+from order_items
+```
+
 
 分片[https://cwiki.apache.org/confluence/display/Hive/LanguageManual+WindowingAndAnalytics][1]
 
