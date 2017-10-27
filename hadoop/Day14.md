@@ -133,12 +133,10 @@ where date_day = '${dateday}';
 
 ## order by 优化
 
-因为order by 只能是在一个reduce 进程中进行的，所以如果对一个大数据集进行order by,会
-导致一个reduce 进程中处理的数据相当大，造成查询执行超级缓慢。在要有进行order by 全局
-排序的需求时，用以下几个措施优化：
-(1) 在最终结果上进行order by，不要在中间的大数据集上进行排序。如果最终结果较少，可以
+> 因为order by 只能是在一个reduce 进程中进行的，所以如果对一个大数据集进行order by,会导致一个reduce 进程中处理的数据相当大，造成查询执行超级缓慢。在要有进行order by 全局排序的需求时，用以下几个措施优化：
+1. 在最终结果上进行order by，不要在中间的大数据集上进行排序。如果最终结果较少，可以
 在一个reduce 上进行排序时，那么就在最后的结果集上进行order by。
-(2) 如果需求是取排序后前N 条数据，那么可以使用distribute by 和sort by 在各个reduce 上进行排
+2.  如果需求是取排序后前N 条数据，那么可以使用distribute by 和sort by 在各个reduce 上进行排
 序后取前N 条，然后再对各个reduce 的结果集合并后在一个reduce 中全局排序，再取前N 条，因为参与
 全局排序的Order By 的数据量最多有reduce 个数*N，所以速度很快。
 
