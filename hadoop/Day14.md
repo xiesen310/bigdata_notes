@@ -123,6 +123,8 @@ where date_day = '${dateday}';
 
 ![][3]
 
+# Hive优化
+
 
 
 
