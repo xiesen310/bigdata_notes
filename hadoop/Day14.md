@@ -62,8 +62,8 @@ from month_finish
 
 # 日志分析
 
+> 原来我们将分析日志，是直接在SQuirrel工具上执行的，没有考虑到sql的固化操作，等等
 > 支持删除，需要时orc格式，并且需要分桶
-抽取变量 '${dateday}'
 1. 编写hql
 2. 将hql上传到装hive的机器上
 3. 执行 hive -f aa.hql --hivevar dateday=20171027
