@@ -12,4 +12,8 @@ grammar_cjkRuby: true
 
 > 支持删除，需要时orc格式，并且需要分桶
 
+1. 编写hql
+2. 将hql上传到装hive的机器上
+3. 执行 
+
   [1]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+WindowingAndAnalytics
