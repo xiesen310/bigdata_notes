@@ -64,6 +64,8 @@ from month_finish
 
 > 原来我们将分析日志，是直接在SQuirrel工具上执行的，没有考虑到sql的固化操作，等等。下面以日志分析为例子，阐述一下sql固化的问题
 1. 编写hql
+dateday是一个变量名，将日期给抽取出来了，提高代码的复用率
+
 
 ``` sql
 use db14;
