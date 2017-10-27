@@ -45,6 +45,12 @@ select date_month
 from month_finish
 ```
 
+- 计算每个部门的年任务累计完成率
+
+``` sql
+
+```
+
 
 
 
