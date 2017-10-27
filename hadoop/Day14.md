@@ -118,7 +118,6 @@ where date_day = '${dateday}';
 2. 将hql上传到装hive的机器上
 ![][2]
 
-
 3. 执行 hive -f aa.hql --hivevar dateday=20171027
 
 
