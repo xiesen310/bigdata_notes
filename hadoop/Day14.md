@@ -10,5 +10,6 @@ grammar_cjkRuby: true
 
 # 日志分析
 
+> 支持删除，需要时orc格式，并且需要分桶
 
   [1]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+WindowingAndAnalytics
