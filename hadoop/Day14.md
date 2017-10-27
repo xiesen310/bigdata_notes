@@ -116,14 +116,11 @@ where date_day = '${dateday}';
 
 ```
 2. 将hql上传到装hive的机器上
+![][2]
 
 
 3. 执行 hive -f aa.hql --hivevar dateday=20171027
 
 
-
-
-
-
   [1]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+WindowingAndAnalytics
-  [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509087391253.jpg
+  [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509101669949.jpg
