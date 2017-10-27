@@ -147,7 +147,53 @@ select leads_id,user_name from dealer_leads
 distribute by length(user_name) sort by length(user_name) desc limit 10
 ) a order by length(a.user_name) desc limit 10;
 ```
+## sql语句优化
+1. 尽量在select后面不要用*，需要哪些字段，使用字段名称来获取
+2. 尽量不要使用distinct，用group by的特性来对数据进行排重
+3. 使用exists和not exists代替in和not in
+4. 有些时候or和可以使用union方式代替 
 
+## join 优化
+
+- 优先过滤后再join,最大限度地减少参与Join 的数据量。
+
+``` sql
+select *
+from employee a
+inner join department b
+on a.belong_dep_code=b.dep_code
+where a.gender='女' and b.dep_address like '%北京%'
+ 
+select *
+from (
+select * from employee where gender='女'
+)a
+inner join （
+select * from department where dep_address like '%北京%'
+）b
+on a.belong_dep_code=b.dep_code
+```
+- 表 join 大表原则
+
+> 应该遵守小表join 大表原则，原因是Join 操作的reduce 阶段，位于join 左边的表内容会被加载进内存，将条目少的表放在左边，可以有效减少发生内存溢出的几率。join 中执行顺序是从做到右生成Job，应该保证连续查询中的表的大小从左到右是依次增加的。
+
+-  join on 条件相同的放入一个job
+
+> hive 中，当多个表进行join 时，如果join on 的条件相同，那么他们会合并为一个MapReduce Job，所以利用这个特性，可以将相同的join on 的放入一个job 来节省执行时间。
+
+``` sql
+select pt.page_id,count(t.url) PV
+from rpt_page_type pt
+join
+(
+select url_page_id,url from trackinfo where ds='2016-10-11'
+) t on pt.page_id=t.url_page_id
+join
+(
+select page_id from rpt_page_kpi_new where ds='2016-10-11'
+) r on t.url_page_id=r.page_id
+group by pt.page_id;
+```
 
 
   [1]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+WindowingAndAnalytics
