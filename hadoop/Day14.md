@@ -48,7 +48,16 @@ from month_finish
 - 计算每个部门的年任务累计完成率
 
 ``` sql
-
+-- 计算每个部门的年任务累计完成率
+select *,a.m/a.y from (
+select date_month
+	,dep_name
+	,finish_amount
+	,task_amount
+	,sum(finish_amount) over(partition by dep_name order by to_date(date_month)) m
+	,sum(task_amount) over(partition by dep_name) y
+from month_finish
+) a
 ```
 
 
