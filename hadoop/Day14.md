@@ -71,5 +71,6 @@ from month_finish
 
 
 
+
   [1]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+WindowingAndAnalytics
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509087391253.jpg
