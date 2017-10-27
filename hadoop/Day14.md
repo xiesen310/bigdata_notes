@@ -24,6 +24,12 @@ select order_iten_id
 from order_items
 ```
 
+ - 每个部门按照时间计算每个月的年累计完成销量
+
+``` sql
+
+```
+
 
 
 
