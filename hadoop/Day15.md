@@ -56,6 +56,10 @@ Zookeeper 这种数据结构有如下这些特点：
 
 > Hbase存储是列存储方式，这样做可以增加数据的灵活性，但是冗余比较严重，Hbase最大的特点就是读写熟读比较快
 
+- RowKey：是Byte array，是表中每条记录的“主键”，方便快速查找，Rowkey的设计非常重要。
+- Column Family：列族，拥有一个名称(string)，包含一个或者多个相关列
+
+
 
 phoenix 介绍 [http://phoenix.apache.org/][3]
 # Hbase数据模型
