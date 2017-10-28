@@ -28,7 +28,7 @@ hbase是面向列存储的，在保存数据时，是以表的形式来保存的
 
 Hbase数据保存格式
 
-
+在column Family中存在列名和列值
 
 
  [1]: http://phoenix.apache.org/
