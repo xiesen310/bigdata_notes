@@ -75,16 +75,8 @@ Hbase访问接口方式很多，我们只了解三种方式
 # Hbase数据模型
 hbase是面向列存储的，在保存数据时，是以表的形式来保存的，在表中字段以column Family的形式存储的，每个column Family是一个文件
 
+![Hbase数据模型示意图][5]
 
-Hbase数据保存格式
-
-在column Family中存在列名和列值
-
-hbase在使用的时候是非常灵活的
-
-rowkey:行键
-
-hbase冗余量比较大，占用磁盘空间比较大，但是在大数据上查询效率比较高
 
 # Hbase shell
 - 创建namespace `create_name 'bd14' `
@@ -97,7 +89,7 @@ hbase冗余量比较大，占用磁盘空间比较大，但是在大数据上查
 put指令介绍 ` put 'ns1:t1', 'r1', 'c1', 'value'`
 参数1，表名称；参数二rowkey；参数三 ，列名称；参数四，值
 
-![][5]
+![][6]
 
 
 hbase随机读写是如何实现的
@@ -107,4 +99,5 @@ hbase随机读写是如何实现的
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509187454157.jpg
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509188955133.jpg
   [4]: http://phoenix.apache.org/
-  [5]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509181103193.jpg
+  [5]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509189258950.jpg
+  [6]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509181103193.jpg
