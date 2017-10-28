@@ -28,6 +28,8 @@ Zookeper的作用主要有两点：
 
 > zookeeper是以目录的形式存在的，结构如图所示
 
+![Zookeeper数据结构][2]
+
 
 
 hbase查看地址 master：16010
@@ -41,7 +43,7 @@ Zookeeper 是一个分布式的，开源的分布式应用程序协调服务，�
 
 # Hadoop EcoSystem
 
-phoenix 介绍 [http://phoenix.apache.org/][2]
+phoenix 介绍 [http://phoenix.apache.org/][3]
 
 
 
@@ -70,12 +72,13 @@ hbase冗余量比较大，占用磁盘空间比较大，但是在大数据上查
 put指令介绍 ` put 'ns1:t1', 'r1', 'c1', 'value'`
 参数1，表名称；参数二rowkey；参数三 ，列名称；参数四，值
 
-![][3]
+![][4]
 
 
 hbase随机读写是如何实现的
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509187154239.jpg
-  [2]: http://phoenix.apache.org/
-  [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509181103193.jpg
+  [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509187454157.jpg
+  [3]: http://phoenix.apache.org/
+  [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509181103193.jpg
