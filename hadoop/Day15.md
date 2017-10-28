@@ -42,7 +42,13 @@ hbase冗余量比较大，占用磁盘空间比较大，但是在大数据上查
 - 创建表 `create 'bd14:user','i','c`，指定在哪个namespace以及column Family
 - 列出namespace下的表 `list_namespace_tables 'bd14'`
 - 查看表结构 `describe 'bd14:user'`
+- 插入数据 
+
+put指令介绍 ` put 'ns1:t1', 'r1', 'c1', 'value'`
+参数1，表名称；参数二rowkey；参数三 ，列名称；参数四，值
+
+![][2]
 
 
-
- [1]: http://phoenix.apache.org/
+  [1]: http://phoenix.apache.org/
+  [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509181103193.jpg
