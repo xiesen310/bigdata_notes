@@ -39,13 +39,13 @@ Zookeeper 这种数据结构有如下这些特点：
 6.	znode 可以被监控，包括这个目录节点中存储的数据的修改，子节点目录的变化等，一旦变化可以通知设置监控的客户端，这个是 Zookeeper 的核心特性，Zookeeper 的很多功能都是基于这个特性实现的
 
 
-# Hadoop EcoSystem
-
-phoenix 介绍 [http://phoenix.apache.org/][3]
+# Hbase
 
 > HBase – Hadoop Database，是一个高可靠性、高性能、面向列、可伸缩的分布式存储系统，利用HBase技术可在廉价PC Server上搭建起大规模结构化存储集群。
 
 
+
+phoenix 介绍 [http://phoenix.apache.org/][3]
 # Hbase数据模型
 hbase是面向列存储的，在保存数据时，是以表的形式来保存的，在表中字段以column Family的形式存储的，每个column Family是一个文件
 
