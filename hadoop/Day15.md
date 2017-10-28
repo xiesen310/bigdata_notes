@@ -30,5 +30,7 @@ Hbase数据保存格式
 
 在column Family中存在列名和列值
 
+hbase在使用的时候是非常灵活的
+
 
  [1]: http://phoenix.apache.org/
