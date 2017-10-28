@@ -23,9 +23,12 @@ Zookeper的作用主要有两点：
 
 ![Zookeeper工作流程示意图][1]
 
-> 注意：zookeeper 是以目录的形式存放文件的,zkCli.sh 打开zookeeper的客户端
 
-zookeeper 解决高可用问题
+## Zookeeper数据结构
+
+> zookeeper是以目录的形式存在的，结构如图所示
+
+
 
 hbase查看地址 master：16010
 
