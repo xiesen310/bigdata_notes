@@ -65,8 +65,13 @@ Zookeeper 这种数据结构有如下这些特点：
 ## HBase访问接口
 
 
+Hbase访问接口方式很多，我们只了解三种方式
 
-phoenix 介绍 [http://phoenix.apache.org/][4]
+1. Native Java API，最常规和高效的访问方式，适合Hadoop MapReduce Job并行批处理HBase表数据
+2. HBase Shell，HBase的命令行工具，最简单的接口，适合HBase管理使用
+3. phoenix 访问Hbase，是现在大数据开发过程中最常使用的一种方式。具体介绍参考官方文档 [http://phoenix.apache.org/][4]
+
+
 # Hbase数据模型
 hbase是面向列存储的，在保存数据时，是以表的形式来保存的，在表中字段以column Family的形式存储的，每个column Family是一个文件
 
