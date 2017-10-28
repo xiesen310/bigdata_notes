@@ -36,6 +36,10 @@ rowkey:行键
 
 hbase冗余量比较大，占用磁盘空间比较大，但是在大数据上查询效率比较高
 
+# Hbase shell
+- 创建namespace `create_name 'bd14' `
+- 查询namespace  `list_namespace`
+- 创建表 `create 'bd14:user','i','c`，指定在哪个namespace以及column Family
 
 
 
