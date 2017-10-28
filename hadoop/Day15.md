@@ -13,9 +13,13 @@ Zookeper的作用主要有两点：
 2. 可靠性：具有简单、健壮、良好的性能，如果消息m被到一台服务器接受，那么它将被所有的服务器接受
 
 ## Zookeeper的基本运转流程
-1. 选举Leader
-2. 同步数据
-3. 选举Leader的算法有很多，但是目的都是要达成一致
+1. 选举Leader，选举Leader的算法有很多，但是目的都是要达成一致
+2. 选完Leader以后，zookeeper就进入了同步状态
+	- leader等待server连接；
+	- Follower连接leader，将最大的zxid发送给leader；
+	- Leader根据follower的zxid确定同步点；
+	- 完成同步后通知follower 已经成为uptodate状态；
+	- Follower收到uptodate消息后，又可以重新接受client的请求进行服务了。
 
 zookeeper 解决高可用问题
 
