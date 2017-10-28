@@ -18,7 +18,7 @@ zkCli.sh 打开zookeeper的客户端
 
 # Hadoop EcoSystem
 
-phoenix 介绍[http://phoenix.apache.org/][1]
+phoenix 介绍 [http://phoenix.apache.org/][1]
 
 
 
