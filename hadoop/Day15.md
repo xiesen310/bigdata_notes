@@ -37,4 +37,6 @@ rowkey:行键
 hbase冗余量比较大，占用磁盘空间比较大，但是在大数据上查询效率比较高
 
 
+
+
  [1]: http://phoenix.apache.org/
