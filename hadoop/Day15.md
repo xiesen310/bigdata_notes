@@ -5,6 +5,10 @@ grammar_cjkRuby: true
 ---
 
 # zookeeper
+
+> ZooKeeper是一个分布式的，开放源码的分布式应用程序协调服务，它包含一个简单的原语集，分布式应用程序可以基于它实现同步服务，配置维护和命名服务等
+
+
 zookeeper 解决高可用问题
 
 hbase查看地址 master：16010
