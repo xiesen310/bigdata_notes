@@ -39,17 +39,6 @@ Zookeeper 这种数据结构有如下这些特点：
 6.	znode 可以被监控，包括这个目录节点中存储的数据的修改，子节点目录的变化等，一旦变化可以通知设置监控的客户端，这个是 Zookeeper 的核心特性，Zookeeper 的很多功能都是基于这个特性实现的
 
 
-
-
-hbase查看地址 master：16010
-
-Zookeeper 是一个分布式的，开源的分布式应用程序协调服务，是Google的开源的实现，是Hadoop和Hbase的重要组件
-
-
-
-
-
-
 # Hadoop EcoSystem
 
 phoenix 介绍 [http://phoenix.apache.org/][3]
