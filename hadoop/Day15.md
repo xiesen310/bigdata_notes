@@ -32,5 +32,8 @@ Hbase数据保存格式
 
 hbase在使用的时候是非常灵活的
 
+rowkey:行键
+
+
 
  [1]: http://phoenix.apache.org/
