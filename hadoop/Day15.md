@@ -54,6 +54,7 @@ Zookeeper 这种数据结构有如下这些特点：
 
 
 
+
 phoenix 介绍 [http://phoenix.apache.org/][3]
 # Hbase数据模型
 hbase是面向列存储的，在保存数据时，是以表的形式来保存的，在表中字段以column Family的形式存储的，每个column Family是一个文件
