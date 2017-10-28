@@ -88,8 +88,7 @@ hbase是面向列存储的，在保存数据时，是以表的形式来保存的
 - 查看表中的数据 `get 'bd14:user','1'`
 - 停用表 `disable 'bd14:user'`
 - 删除表 `drop 'bd14:user'`
-
-
+- 查询 `scan 'bd14:user'`
 
 put指令介绍 ` put 'ns1:t1', 'r1', 'c1', 'value'`
 参数1，表名称；参数2：rowkey；参数三3 ：列名称；参数4：值
