@@ -38,7 +38,6 @@ Zookeeper 这种数据结构有如下这些特点：
 5.	znode 的目录名可以自动编号，如 App1 已经存在，再创建的话，将会自动命名为 App2
 6.	znode 可以被监控，包括这个目录节点中存储的数据的修改，子节点目录的变化等，一旦变化可以通知设置监控的客户端，这个是 Zookeeper 的核心特性，Zookeeper 的很多功能都是基于这个特性实现的
 
-
 # Hbase
 
 > HBase – Hadoop Database，是一个高可靠性、高性能、面向列、可伸缩的分布式存储系统，利用HBase技术可在廉价PC Server上搭建起大规模结构化存储集群。HBase是一个构建在HDFS上的分布式列存储系统。
@@ -61,9 +60,13 @@ Zookeeper 这种数据结构有如下这些特点：
 
 在hbase中有很多的column Family，每个column Family中包含column name 和 column value，在数据存储时，column name可以随意定义。不同的column Family组成成RowKey，相当于关系型数据库中的一条记录
 
+![hbase表结构逻辑示意图][3]
 
 
-phoenix 介绍 [http://phoenix.apache.org/][3]
+
+
+
+phoenix 介绍 [http://phoenix.apache.org/][4]
 # Hbase数据模型
 hbase是面向列存储的，在保存数据时，是以表的形式来保存的，在表中字段以column Family的形式存储的，每个column Family是一个文件
 
@@ -89,7 +92,7 @@ hbase冗余量比较大，占用磁盘空间比较大，但是在大数据上查
 put指令介绍 ` put 'ns1:t1', 'r1', 'c1', 'value'`
 参数1，表名称；参数二rowkey；参数三 ，列名称；参数四，值
 
-![][4]
+![][5]
 
 
 hbase随机读写是如何实现的
@@ -97,5 +100,6 @@ hbase随机读写是如何实现的
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509187154239.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509187454157.jpg
-  [3]: http://phoenix.apache.org/
-  [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509181103193.jpg
+  [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509188955133.jpg
+  [4]: http://phoenix.apache.org/
+  [5]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509181103193.jpg
