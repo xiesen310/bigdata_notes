@@ -59,7 +59,7 @@ Zookeeper 这种数据结构有如下这些特点：
 - RowKey：是Byte array，是表中每条记录的“主键”，方便快速查找，Rowkey的设计非常重要。
 - Column Family：列族，拥有一个名称(string)，包含一个或者多个相关列
 
-在hbase中有很多的column Family，每个column Family中包含column name 和 column value
+在hbase中有很多的column Family，每个column Family中包含column name 和 column value，在数据存储时，column name可以随意定义。不同的column Family组成成RowKey
 
 
 
