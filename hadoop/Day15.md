@@ -54,7 +54,7 @@ Zookeeper 这种数据结构有如下这些特点：
 
 ## Hbase表结构模型
 
-> Hbase存储是列存储方式
+> Hbase存储是列存储方式，这样做可以增加数据的灵活性，但是冗余比较严重，Hbase最大的特点就是读写熟读比较快
 
 
 phoenix 介绍 [http://phoenix.apache.org/][3]
