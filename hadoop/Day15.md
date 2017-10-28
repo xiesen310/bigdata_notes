@@ -38,5 +38,4 @@ hbase冗余量比较大，占用磁盘空间比较大，但是在大数据上查
 
 
 
-
  [1]: http://phoenix.apache.org/
