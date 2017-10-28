@@ -50,5 +50,7 @@ put指令介绍 ` put 'ns1:t1', 'r1', 'c1', 'value'`
 ![][2]
 
 
+hbase随机读写是如何实现的
+
   [1]: http://phoenix.apache.org/
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509181103193.jpg
