@@ -5,4 +5,4 @@ grammar_cjkRuby: true
 ---
 
 # zookeeper
-zookeeper 解决高可用
+zookeeper 解决高可用问题
