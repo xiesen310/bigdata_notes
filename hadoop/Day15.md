@@ -1,5 +1,5 @@
 ---
-title: Day15
+title: Day15 Hbase Introduction
 tags: hadoop,hbase
 grammar_cjkRuby: true
 ---
