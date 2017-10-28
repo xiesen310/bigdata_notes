@@ -84,15 +84,19 @@ hbase是面向列存储的，在保存数据时，是以表的形式来保存的
 - 创建表 `create 'bd14:user','i','c`，指定在哪个namespace以及column Family
 - 列出namespace下的表 `list_namespace_tables 'bd14'`
 - 查看表结构 `describe 'bd14:user'`
-- 插入数据 
+- 插入数据 `put 'bd14:user','1','a:pwd','123'`
+- 查看表中的数据 `get 'bd14:user','1'`
+- 停用表 `disable 'bd14:user'`
+- 删除表 `drop 'bd14:user'`
+
+
 
 put指令介绍 ` put 'ns1:t1', 'r1', 'c1', 'value'`
-参数1，表名称；参数二rowkey；参数三 ，列名称；参数四，值
+参数1，表名称；参数2：rowkey；参数三3 ：列名称；参数4：值
 
 ![][6]
 
 
-hbase随机读写是如何实现的
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509187154239.jpg
