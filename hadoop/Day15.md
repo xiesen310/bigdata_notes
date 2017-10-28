@@ -21,7 +21,7 @@ Zookeper的作用主要有两点：
 	- 完成同步后通知follower 已经成为uptodate状态；
 	- Follower收到uptodate消息后，又可以重新接受client的请求进行服务了。
 
-> 注意：zookeeper 是以目录的形式存放文件的
+> 注意：zookeeper 是以目录的形式存放文件的,zkCli.sh 打开zookeeper的客户端
 
 zookeeper 解决高可用问题
 
@@ -31,7 +31,7 @@ Zookeeper 是一个分布式的，开源的分布式应用程序协调服务，�
 
 
 
-zkCli.sh 打开zookeeper的客户端
+
 
 
 # Hadoop EcoSystem
