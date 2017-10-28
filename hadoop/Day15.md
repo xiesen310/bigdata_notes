@@ -95,9 +95,6 @@ put指令介绍 ` put 'ns1:t1', 'r1', 'c1', 'value'`
 
 ![][6]
 
-
-
-
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509187154239.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509187454157.jpg
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509188955133.jpg
