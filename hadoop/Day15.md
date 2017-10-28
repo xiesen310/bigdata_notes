@@ -21,6 +21,8 @@ Zookeper的作用主要有两点：
 	- 完成同步后通知follower 已经成为uptodate状态；
 	- Follower收到uptodate消息后，又可以重新接受client的请求进行服务了。
 
+![Zookeeper工作流程示意图][1]
+
 > 注意：zookeeper 是以目录的形式存放文件的,zkCli.sh 打开zookeeper的客户端
 
 zookeeper 解决高可用问题
@@ -36,7 +38,7 @@ Zookeeper 是一个分布式的，开源的分布式应用程序协调服务，�
 
 # Hadoop EcoSystem
 
-phoenix 介绍 [http://phoenix.apache.org/][1]
+phoenix 介绍 [http://phoenix.apache.org/][2]
 
 
 
@@ -65,10 +67,12 @@ hbase冗余量比较大，占用磁盘空间比较大，但是在大数据上查
 put指令介绍 ` put 'ns1:t1', 'r1', 'c1', 'value'`
 参数1，表名称；参数二rowkey；参数三 ，列名称；参数四，值
 
-![][2]
+![][3]
 
 
 hbase随机读写是如何实现的
 
-  [1]: http://phoenix.apache.org/
-  [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509181103193.jpg
+
+  [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509187154239.jpg
+  [2]: http://phoenix.apache.org/
+  [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509181103193.jpg
