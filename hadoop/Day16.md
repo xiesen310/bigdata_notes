@@ -7,5 +7,8 @@ grammar_cjkRuby: true
 
 Hbase适合一次写入，多次读取的应用场景，例如：订单的查询，交易信息，银行流水,话单信息，日志信息
 
+# Hbase底层实现
 Hbase的底层存储是一个key-value键值对
 column Family冗余量比较大，所以强烈建议使用一个字母表示
+
+
