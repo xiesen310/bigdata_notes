@@ -16,7 +16,7 @@ Row key也是越短越好，但是需要唯一确定
 
 1. 一个hbase表分成不同的region，region运行在hregionServer上
 2. hbase根据row key划分成region，根据row key的大小顺序来划分region
-3. 当region过大时，hbase会帮助我们进行region分裂，一个region分裂成两个
+3. 当region过大时，hbase会帮助我们进行region分裂，一个region分裂成两个，分布在不同的机器上
 
 ## row key的特点
 1. 唯一
