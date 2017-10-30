@@ -4,3 +4,4 @@ tags: hadoop,hbase
 grammar_cjkRuby: true
 ---
 
+Hbase适合一次写入，多次读取的应用场景
