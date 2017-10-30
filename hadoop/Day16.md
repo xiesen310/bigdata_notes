@@ -31,3 +31,7 @@ HregionServer主要响应用户I/O请求
 
 HregionServer = Hregion + HLog
 
+![][1]
+
+
+  [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509332508198.jpg
