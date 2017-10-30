@@ -34,4 +34,6 @@ HregionServer = Hregion + HLog
 ![][1]
 
 
-  [1]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1509332614403]]]"
+
+
+  [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509332614403.jpg
