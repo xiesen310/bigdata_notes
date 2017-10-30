@@ -18,7 +18,7 @@ Row key也是越短越好，但是需要唯一确定
 2. hbase根据row key划分成region，根据row key的大小顺序来划分region
 
 
-row key的特点
+## row key的特点
 1. 唯一
 2. 不宜过长
 3. 最好不易过长
