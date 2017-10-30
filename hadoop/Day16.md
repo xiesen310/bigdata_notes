@@ -24,3 +24,5 @@ Row key也是越短越好，但是需要唯一确定
 3. 最好不易过长
 
 **meta表：**记录存数据的表在那些hregionServer上运行
+meta表时hbase里面的一张表
+**root表: **root记录meta在哪里，root表存储在zookeeper上
