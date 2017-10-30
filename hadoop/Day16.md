@@ -34,6 +34,6 @@ HregionServer = Hregion + HLog
 ![][1]
 
 
-
+hbase 初始化
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509332614403.jpg
