@@ -39,4 +39,7 @@ hbase 初始化
 删除zookeeper中的hbase目录
 删除hdfs上的hbase目录
 
+
+使用mr读写hbase
+
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509332614403.jpg
