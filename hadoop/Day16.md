@@ -12,3 +12,7 @@ Hbase的底层存储是一个key-value键值对
 column Family冗余量比较大，所以强烈建议使用一个字母表示
 Row key也是越短越好，但是需要唯一确定
 
+# Hbase 在分布式上是如何存储的
+
+
+
