@@ -15,4 +15,5 @@ Row key也是越短越好，但是需要唯一确定
 # Hbase 在分布式上是如何存储的
 
 一个hbase表分成不同的region，region运行在hregionServer上
+hbase根据row key划分成region，根据row key的大小顺序来划分region
 
