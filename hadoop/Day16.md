@@ -30,3 +30,4 @@ meta表时hbase里面的一张表
 HregionServer主要响应用户I/O请求
 
 HregionServer = Hregion + HLog
+
