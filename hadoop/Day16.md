@@ -27,3 +27,4 @@ Row key也是越短越好，但是需要唯一确定
 meta表时hbase里面的一张表
 **root表(meta-region-server): **root记录meta在哪里，root表存储在zookeeper上
 
+HregionServer主要响应用户I/O请求
