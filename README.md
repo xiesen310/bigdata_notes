@@ -104,7 +104,23 @@
 	* [读数据库](#读数据库)
 	* [将数据写入到数据库](#将数据写入到数据库)
 ## Day10
+* [Hive](#hive)
+	* [Hive特点](#hive特点)
+	* [Hive架构](#hive架构)
+	* [数据类型](#数据类型)
+* [Beeline](#beeline)
+	* [Beeline基础命令](#beeline基础命令)
+* [SQLuirrel SQL 连接hive](#sqluirrel-sql-连接hive)
+	* [数据库语言的几种变现形式](#数据库语言的几种变现形式)
 ## Day11
+* [Hive](#hive操作数据库)
+	* [Hive特点](#hive操作数据库)
+	* [Hive架构](#hive架构)
+	* [数据类型](#数据类型)
+* [Beeline](#beeline)
+	* [Beeline基础命令](#beeline基础命令)
+* [SQLuirrel SQL 连接hive](#sqluirrel-sql-连接hive)
+	* [数据库语言的几种变现形式](#数据库语言的几种变现形式)
 ## Day12
 ## Day13
 ## Day14
