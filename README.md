@@ -113,7 +113,7 @@
 	* [Beeline基础命令](#beeline基础命令)
 * [SQLuirrel SQL 连接hive](#sqluirrel-sql-连接hive)
 	* [数据库语言的几种变现形式](#数据库语言的几种变现形式)
-## Day11
+## Day11 [hive操作数据量][11] 和 [sql练习][12]
 * [Hive操作数据库](#hive操作数据库)
 	* [Hive操作数据库](#hive操作数据库)
 	* [Hive中hql练习](#Hive中hql练习)
@@ -212,3 +212,5 @@
   [8]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_08_Arvo.md
   [9]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_09_hadoop%E8%AF%BB%E5%86%99%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93.md
   [10]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_10_hive.md
+  [11]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_11_hive%E4%B9%8Bsql%E6%93%8D%E4%BD%9C.md
+  [12]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/sql%E7%BB%83%E4%B9%A0.md
