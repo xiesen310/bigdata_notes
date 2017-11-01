@@ -4,6 +4,25 @@ tags: java,bigdata,linux.hadoop
 grammar_cjkRuby: true
 ---
 
+* [集群中扮演的角色](#集群中扮演的角色)
+	* [hdfs](#hdfs)
+	* [yarn](#yarn)
+* [元数据](#元数据)
+	* [元数据的管理](#元数据的管理)
+		* [元数据的格式](#元数据的格式)
+		* [checkpoint触发机制](#checkpoint触发机制)
+* [HDFS的启动过程](#hdfs的启动过程)
+	* [HDFS启动](#hdfs启动)
+	* [SecondaryNameNode工作流程](#secondarynamenode工作流程)
+* [HDFS读写操作原理](#hdfs读写操作原理)
+	* [写操作](#写操作)
+	* [写操作](#写操作)
+* [HDFS通信协议](#hdfs通信协议)
+* [HDFS文件权限](#hdfs文件权限)
+* [HDFS安全模式](#hdfs安全模式)
+* [HDFS中常用到的命令](#hdfs中常用到的命令)
+* [eclipse 连接hdfs](#eclipse-连接hdfs)
+
 # 集群中扮演的角色
 ## hdfs
 > 主节点 namenode ，hdfs的端口号是50070
@@ -37,7 +56,6 @@ grammar_cjkRuby: true
 ==edits== 文件存放元数据的操作日志：创建一个文件、删除、修改，将操作记录的形式保存早edits里面
 
 ![enter description here][2]
-
 
 ## 元数据的管理
 >元数据存储在namenode中,用于记录数据的block存储到哪个datanode中
