@@ -43,7 +43,7 @@
 	* [迭代文件](#迭代文件)
 	* [查看文件状态](#查看文件状态)
 * [安装hadoop环境](#安装hadoop环境)
-## Day04
+## Day04 [连接][4]
 * [FileSystem补充](#filesystem补充)
 	* [获取FileSystem](#获取filesystem)
 	* [获取用户的家目录](#获取用户的家目录)
@@ -205,3 +205,4 @@
   [1]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_01%20hadoop.md
   [2]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_02_hadoop.md
   [3]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_03_hadoop.md
+  [4]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_04_hadoop.md
