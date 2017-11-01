@@ -85,7 +85,7 @@
 	* [map端关联](#map端关联)
 	* [reduce端关联](#reduce端关联)
 	* [半关联(semijoin)](#半关联semijoin)
-## Day08
+## Day08 [连接][8]
 * [Avro](#avro)
 * [Avro序列化后文件详解](#avro序列化后文件详解)
 * [Avro的代码实现](#avro的代码实现)
@@ -209,3 +209,4 @@
   [5]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_05_mapreduce%E7%9A%84%E6%8E%92%E5%BA%8F.md
   [6]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_06_Combinner%20And%20Reverse%20Index.md
   [7]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_07_MR%E4%B8%B2%E8%81%94%E4%B8%8E%E5%85%B3%E8%81%94.md
+  [8]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_08_Arvo.md
