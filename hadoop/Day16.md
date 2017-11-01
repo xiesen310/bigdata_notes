@@ -3,7 +3,19 @@ title: Day16
 tags: hadoop,hbase
 grammar_cjkRuby: true
 ---
-# Hbase的应用场景
+
+# Hbase
+## 简介
+
+> HBase(Hadoop Database)是一个开源的、面向列（Column-Oriented）、适合存储海量非结构化数据或半结构化数据的、具备高可靠性、高性能、可灵活扩展伸缩的、支持实时数据读写的分布式存储系统。
+
+
+存储在HBase中的表的典型特征：
+- 大表（BigTable）：一个表可以有上亿行，上百万列
+- 面向列：面向列(族)的存储、检索与权限控制
+- 稀疏：表中为空(null)的列不占用存储空间
+
+## Hbase的应用场景
 
 Hbase适合一次写入，多次读取的应用场景，例如：订单的查询，交易信息，银行流水,话单信息，日志信息
 
