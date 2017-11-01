@@ -69,7 +69,7 @@
 	* [二次排序](#二次排序)
 		* [原理过程](#原理过程)
 		* [二次排序代码:](#二次排序代码)
-## Day06
+## Day06 [连接][6]
 * [Mr文件读取的几种方式 的区别](#mr文件读取的几种方式-的区别)
 * [书写MapReducer为什么要使用静态内部类？](#书写mapreducer为什么要使用静态内部类)
 * [书写map时，为什么将变量定义在成员变量位置？](#书写map时为什么将变量定义在成员变量位置)
@@ -207,3 +207,4 @@
   [3]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_03_hadoop.md
   [4]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_04_hadoop.md
   [5]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_05_mapreduce%E7%9A%84%E6%8E%92%E5%BA%8F.md
+  [6]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_06_Combinner%20And%20Reverse%20Index.md
