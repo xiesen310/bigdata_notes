@@ -113,14 +113,10 @@
 * [SQLuirrel SQL 连接hive](#sqluirrel-sql-连接hive)
 	* [数据库语言的几种变现形式](#数据库语言的几种变现形式)
 ## Day11
-* [Hive](#hive操作数据库)
-	* [Hive特点](#hive操作数据库)
-	* [Hive架构](#hive架构)
-	* [数据类型](#数据类型)
-* [Beeline](#beeline)
-	* [Beeline基础命令](#beeline基础命令)
-* [SQLuirrel SQL 连接hive](#sqluirrel-sql-连接hive)
-	* [数据库语言的几种变现形式](#数据库语言的几种变现形式)
+* [Hive操作数据库](#hive操作数据库)
+	* [Hive操作数据库](#hive操作数据库)
+	* [Hive中hql练习](#Hive中hql练习)
+	* [sql练习](#sql练习)
 ## Day12
 ## Day13
 ## Day14
