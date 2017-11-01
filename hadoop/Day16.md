@@ -294,11 +294,25 @@ hbase(main):018:0>get 'member','temp'
 COLUMN                                   CELL                                                                                                               
 0 row(s) in 0.0150seconds
 ```
+9.删除整行
+
+``` css
+hbase(main):001:0>deleteall 'member','xiaofeng'
+0 row(s) in 0.3990seconds
+```
+
+10. 查询表中有多少行：
+
+``` css
+hbase(main):019:0>count 'member'                                        
+2 row(s) in 0.0160seconds
+```
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509516387564.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509516328683.jpg
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509516439458.jpg
+
 
 
 
