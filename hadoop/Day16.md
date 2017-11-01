@@ -328,9 +328,9 @@ Truncating 'member'table (it may take a while):
 - Creating table...
 0 row(s) in 4.3430seconds
 ```
-
-
 可以看出，hbase是先将掉disable掉，然后drop掉后重建表来实现truncate的功能的。
+
+
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509516387564.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509516328683.jpg
