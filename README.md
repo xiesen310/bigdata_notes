@@ -118,7 +118,7 @@
 	* [Hive操作数据库](#hive操作数据库)
 	* [Hive中hql练习](#Hive中hql练习)
 	* [sql练习](#sql练习)
-## Day12
+## Day12 [连接][13]
 * [Hive 优化](#hive-优化)
 * [Map端聚合操作](#map端聚合操作)
 * [Order, Sort, Cluster, and Distribute By](#order-sort-cluster-and-distribute-by)
@@ -214,3 +214,4 @@
   [10]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_10_hive.md
   [11]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_11_hive%E4%B9%8Bsql%E6%93%8D%E4%BD%9C.md
   [12]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/sql%E7%BB%83%E4%B9%A0.md
+  [13]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_12_hive.md
