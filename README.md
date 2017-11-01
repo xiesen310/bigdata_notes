@@ -78,6 +78,12 @@
 * [MR倒排索引](#mr倒排索引)
 * [TopN问题](#topn问题)
 ## Day07
+* [分维度topN问题](#分维度topn问题)
+* [Mr串联](#mr串联)
+* [mr关联](#mr关联)
+	* [map端关联](#map端关联)
+	* [reduce端关联](#reduce端关联)
+	* [半关联(semijoin)](#半关联semijoin)
 ## Day08
 ## Day09
 ## Day10
