@@ -249,12 +249,57 @@ info:age                               timestamp=1321586571843, value=99
 
 ```
 
+6. 通过timestamp来获取两个版本的数据
 
+``` css
+hbase(main):010:0>get 'member','scutshuxue',{COLUMN=>'info:age',TIMESTAMP=>1321586238965}
+COLUMN                                   CELL                                                                                                               
+info:age                               timestamp=1321586238965, value=24                                                                        
+1 row(s) in 0.0140seconds
 
+hbase(main):011:0>get 'member','scutshuxue',{COLUMN=>'info:age',TIMESTAMP=>1321586571843}
+COLUMN                                   CELL                                                                                                               
+info:age                               timestamp=1321586571843, value=99                                                                                  
+1 row(s) in 0.0180seconds
+```
 
+7. 全表扫描：
+
+``` css
+hbase(main):013:0>scan 'member'
+ROW                                     COLUMN+CELL                                                                                                        
+scutshuxue                             column=address:city, timestamp=1321586240244, value=hangzhou                                                       
+scutshuxue                             column=address:contry, timestamp=1321586239126, value=china                                                        
+scutshuxue                             column=address:province, timestamp=1321586239197, value=zhejiang                                                   
+scutshuxue                              column=info:age,timestamp=1321586571843, value=99                                                                 
+scutshuxue                             column=info:birthday, timestamp=1321586239015, value=1987-06-17                                                    
+scutshuxue                             column=info:company, timestamp=1321586239071, value=alibaba                                                        
+temp                                   column=info:age, timestamp=1321589609775, value=59                                                                 
+xiaofeng                               column=address:city, timestamp=1321586248400, value=jieyang                                                        
+xiaofeng                               column=address:contry, timestamp=1321586248316, value=china                                                        
+xiaofeng                               column=address:province, timestamp=1321586248355, value=guangdong                                                  
+xiaofeng                               column=address:town, timestamp=1321586249564, value=xianqiao                                                       
+xiaofeng                               column=info:birthday, timestamp=1321586248202, value=1987-4-17                                                     
+xiaofeng                               column=info:company, timestamp=1321586248277, value=alibaba                                                        
+xiaofeng                               column=info:favorite, timestamp=1321586248241, value=movie 
+3 row(s) in 0.0570seconds
+```
+
+8. 删除id为temp的值的‘info:age’字段
+
+``` css
+hbase(main):016:0>delete 'member','temp','info:age'
+0 row(s) in 0.0150seconds
+hbase(main):018:0>get 'member','temp'
+COLUMN                                   CELL                                                                                                               
+0 row(s) in 0.0150seconds
+```
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509516387564.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509516328683.jpg
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509516439458.jpg
+
+
+
 
