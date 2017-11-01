@@ -176,7 +176,7 @@
 	* [HBase访问接口](#hbase访问接口)
 * [Hbase数据模型](#hbase数据模型)
 * [Hbase shell](#hbase-shell)
-## Day16
+## Day16 [连接][17]
 * [Hbase](#hbase)
 	* [简介](#简介)
 	* [Hbase的应用场景](#hbase的应用场景)
@@ -218,3 +218,4 @@
   [14]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_13_.md
   [15]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day14.md
   [16]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day15.md
+  [17]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day16.md
