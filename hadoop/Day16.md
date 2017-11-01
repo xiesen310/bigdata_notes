@@ -386,7 +386,209 @@ public void cleanUp() throws Exception {
 ```
 ### 列举出数据库下的表
 
+``` java
+/**
+	* listDBTables 列举出数据库下的表
+	* @param @throws Exception 参数
+	* @return void 返回类型
+	* @Exception 异常对象
+	*/
+	public void listDBTables() throws Exception {
+		TableName[] tableNames = admin.listTableNames();
+		for (TableName tableName : tableNames) {
+			System.out.println(tableName);
+		}
+	}
+```
 
+### 获取表的描述信息
+
+``` java
+/**
+	* getTableDesc 获取表的描述信息
+	* @param @param tableName
+	* @param @throws Exception 参数
+	* @return void 返回类型
+	* @Exception 异常对象
+	*/
+	public void getTableDesc(String tableName) throws Exception {
+		TableName tName = TableName.valueOf(tableName);
+		if (admin.tableExists(tName)) {
+			TableDescriptor descriptor = admin.getDescriptor(tName);
+			System.out.println(descriptor.toString());
+		} else {
+			System.out.println(tableName + "no exists");
+		}
+	}
+```
+
+### 删除表
+
+``` java
+/**
+	* dropTable 删除表
+	* @param @param tableName
+	* @param @throws Exception 参数
+	* @return void 返回类型
+	* @Exception 异常对象
+	*/
+	public void dropTable(String tableName) throws Exception {
+		TableName tName = TableName.valueOf(tableName);
+		if (admin.tableExists(tName)) {
+			admin.disableTable(tName);
+			admin.deleteTable(tName);
+			System.out.println("delete " + tableName + " success");
+		}
+	}
+```
+
+### 插入数据
+
+``` java
+/**
+	* putData 插入数据
+	* @param @param tableName 表名称
+	* @param @throws Exception 参数
+	* @return void 返回类型
+	* @Exception 异常对象
+	*/
+	public void putData(String tableName) throws Exception {
+		TableName tName = TableName.valueOf(tableName);
+		Table table = connection.getTable(tName);
+		List<Put> puts = new ArrayList<>();
+		Random random = new Random();
+
+		if (admin.tableExists(tName)) {
+			for (int i = 0; i < 10; i++) {
+				Put put = new Put(("rowKey_" + i).getBytes());
+				put.addColumn("info".getBytes(), "name".getBytes(), ("xiao" + i).getBytes());
+				put.addColumn("info".getBytes(), "age".getBytes(), (random.nextInt(50) + 1 + "").getBytes());
+				put.addColumn("info".getBytes(), "email".getBytes(),
+						((random.nextInt(10000) + 1000) + "@163.com").getBytes());
+				put.addColumn("address".getBytes(), "city".getBytes(), "北京".getBytes());
+				put.addColumn("address".getBytes(), "town".getBytes(), "长安街".getBytes());
+				puts.add(put);
+			}
+			table.put(puts);
+			System.out.println("data insert over");
+		} else {
+			System.out.println(tableName + " no exists");
+		}
+	}
+```
+### 获取表中数据
+
+``` java
+/**
+	* getData 获取表中数据
+	* @param @param tableName 表名称
+	* @param @throws Exception 参数
+	* @return void 返回类型
+	* @Exception 异常对象
+	*/
+	public void getData(String tableName) throws Exception {
+		TableName tName = TableName.valueOf(tableName);
+		Table table = connection.getTable(tName);
+		List<Get> gets = new ArrayList<>();
+
+		for (int i = 0; i < 5; i++) {
+			Get get = new Get(("rowKey_" + i).getBytes());
+			get.addColumn("info".getBytes(), "age".getBytes());
+			get.addColumn("info".getBytes(), "name".getBytes());
+			get.addColumn("info".getBytes(), "email".getBytes());
+			get.addColumn("info".getBytes(), "city".getBytes());
+			gets.add(get);
+		}
+
+		Result[] results = table.get(gets);
+
+		for (Result result : results) {
+			CellScanner cellScanner = result.cellScanner();
+			while (cellScanner.advance()) {
+				Cell cell = cellScanner.current();
+				String family = Bytes.toString(CellUtil.cloneFamily(cell));
+				String quality = new String(CellUtil.cloneQualifier(cell));
+				String rowKey = new String(CellUtil.cloneRow(cell));
+				String value = new String(CellUtil.cloneValue(cell));
+				System.out.println(
+						"rowKey: " + rowKey + " ,family: " + family + " ,quality: " + quality + " ,value: " + value);
+			}
+			
+			/*
+			NavigableMap<byte[], NavigableMap<byte[], NavigableMap<Long, byte[]>>> maps = result.getMap();
+			Set<byte[]> keySet = maps.keySet();
+			for (byte[] cf : keySet) {
+				NavigableMap<byte[], NavigableMap<Long, byte[]>> navigableColumnQualify = maps.get(cf);
+				Set<byte[]> keySet2 = navigableColumnQualify.keySet();
+				for (byte[] columnQualify : keySet2) {
+					NavigableMap<Long, byte[]> navigableMap = navigableColumnQualify.get(columnQualify);
+					for (Long ts : navigableMap.keySet()) {
+						byte[] value = navigableMap.get(ts);
+						System.out.println("rowkey: " + Bytes.toString(result.getRow())+
+								",columnFamliy ： " + Bytes.toString(cf)+ ",columnqualify : " + Bytes.toString(columnQualify)+
+								"timestamp: " + new Date(ts) + "value : " + Bytes.toString(value));
+					}
+				}
+			}
+		*/
+		// 使用字段名称和column Family来获取value的值
+			/*System.out.println("rowkey: " + Bytes.toString(result.getRow()) + ",columnFamily: i,columnquality:username,value: " + 
+					Bytes.toString(result.getValue(Bytes.toBytes("i"), Bytes.toBytes("username")))
+			);
+			System.out.println("rowkey: " + Bytes.toString(result.getRow()) + ",columnFamily: i,columnquality:age,value: " + 
+					Bytes.toString(result.getValue(Bytes.toBytes("i"), Bytes.toBytes("age")))
+					);*/
+		}
+		System.out.println("get data over");
+	}
+```
+
+### 删除数据
+
+``` javas
+/**
+	* deleteData 删除数据
+	* @param @param tableName 表名称
+	* @param @param rowkey 行键
+	* @param @param family 列族
+	* @param @param qualifier 行名称
+	* @param @throws Exception 参数
+	* @return void 返回类型
+	* @Exception 异常对象
+	*/
+	public void deleteData(String tableName, String rowkey, String family, String qualifier) throws Exception {
+		TableName tName = TableName.valueOf(tableName);
+		Table table = connection.getTable(tName);
+		if (admin.tableExists(tName)) {
+			Delete delete = new Delete(rowkey.getBytes());
+			delete.addColumn(family.getBytes(), qualifier.getBytes());
+			table.delete(delete);
+			System.out.println("delete data success");
+		}
+	}
+```
+
+### 删除所有数据
+
+``` java
+/**
+	* deleteAllData 删除所有数据
+	* @param @param tableName 表名称
+	* @param @param rowkey
+	* @param @throws Exception 参数
+	* @return void 返回类型
+	* @Exception 异常对象
+	*/
+	public void deleteAllData(String tableName, String rowkey) throws Exception {
+		TableName tName = TableName.valueOf(tableName);
+		Table table = connection.getTable(tName);
+		if (admin.tableExists(tName)) {
+			Delete delete = new Delete(rowkey.getBytes());
+			table.delete(delete);
+			System.out.println("delete data success");
+		}
+	}
+```
 
 
 
