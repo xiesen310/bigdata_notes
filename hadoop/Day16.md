@@ -545,7 +545,7 @@ public void cleanUp() throws Exception {
 
 ### 删除数据
 
-``` javas
+``` java
 /**
 	* deleteData 删除数据
 	* @param @param tableName 表名称
