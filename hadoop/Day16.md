@@ -227,13 +227,26 @@ info:birthday                          timestamp=1321586239015, value=1987-06-17
 info:company                           timestamp=1321586239071, value=alibaba                                                                             
 3 row(s) in 0.0210seconds
 ```
-获取一个id，一个列族中一个列的所有数据
+4. 获取一个id，一个列族中一个列的所有数据
 
 ``` css
 hbase(main):002:0>get 'member','scutshuxue','info:age' 
 COLUMN                                   CELL                                                                                                               
 info:age                               timestamp=1321586238965, value=24                                                                                  
 1 row(s) in 0.0320seconds
+```
+
+5. 将scutshuxue的年龄改成99
+
+``` css
+hbase(main):004:0>put 'member','scutshuxue','info:age' ,'99'
+0 row(s) in 0.0210seconds
+
+hbase(main):005:0>get 'member','scutshuxue','info:age' 
+COLUMN                                   CELL                                                                                                               
+info:age                               timestamp=1321586571843, value=99                                                                                  
+1 row(s) in 0.0180seconds
+
 ```
 
 
