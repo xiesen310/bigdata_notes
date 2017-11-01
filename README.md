@@ -78,7 +78,7 @@
 	* [如何在map端进行聚合](#如何在map端进行聚合)
 * [MR倒排索引](#mr倒排索引)
 * [TopN问题](#topn问题)
-## Day07
+## Day07 [连接][7]
 * [分维度topN问题](#分维度topn问题)
 * [Mr串联](#mr串联)
 * [mr关联](#mr关联)
@@ -208,3 +208,4 @@
   [4]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_04_hadoop.md
   [5]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_05_mapreduce%E7%9A%84%E6%8E%92%E5%BA%8F.md
   [6]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_06_Combinner%20And%20Reverse%20Index.md
+  [7]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_07_MR%E4%B8%B2%E8%81%94%E4%B8%8E%E5%85%B3%E8%81%94.md
