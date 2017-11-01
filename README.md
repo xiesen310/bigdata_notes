@@ -1,7 +1,7 @@
 # hadoop
 
 
-## Day01
+## Day01 [连接][1]
 * [概论](#概论)
 * [集群](#集群)
 	* [克隆虚拟机](#克隆虚拟机)
@@ -10,7 +10,7 @@
 		* [hadoop](#hadoop)
 	* [异常信息](#异常信息)
 
-## Day02
+## Day02 [连接][2]
 * [集群中扮演的角色](#集群中扮演的角色)
 	* [hdfs](#hdfs)
 	* [yarn](#yarn)
@@ -200,3 +200,7 @@
 		* [获取表中数据](#获取表中数据)
 		* [删除数据](#删除数据)
 		* [删除所有数据](#删除所有数据)
+
+
+  [1]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_01%20hadoop.md
+  [2]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_02_hadoop.md
