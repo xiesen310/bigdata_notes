@@ -1,8 +1,32 @@
 ---
-title: Day16
+title: Day16 Hbase简介
 tags: hadoop,hbase
 grammar_cjkRuby: true
 ---
+
+* [Hbase](#hbase)
+	* [简介](#简介)
+	* [Hbase的应用场景](#hbase的应用场景)
+* [Hbase底层实现](#hbase底层实现)
+	* [HBase集群典型部署组网](#hbase集群典型部署组网)
+	* [HBase 系统架构](#hbase-系统架构)
+	* [HBase数据模型](#hbase数据模型)
+	* [HBase访问接口](#hbase访问接口)
+	* [Hbase shell](#hbase-shell)
+		* [一般操作](#一般操作)
+		* [DDL操作](#ddl操作)
+		* [DML操作](#dml操作)
+	* [javaAPI 操作Hbase](#javaapi-操作hbase)
+	* [初始化构造方法，获取连接](#初始化构造方法获取连接)
+	* [关闭连接](#关闭连接)
+		* [创建表](#创建表)
+		* [列举出数据库下的表](#列举出数据库下的表)
+		* [获取表的描述信息](#获取表的描述信息)
+		* [删除表](#删除表)
+		* [插入数据](#插入数据)
+		* [获取表中数据](#获取表中数据)
+		* [删除数据](#删除数据)
+		* [删除所有数据](#删除所有数据)
 
 # Hbase
 ## 简介
@@ -38,7 +62,7 @@ Row key也是越短越好，但是需要唯一确定
 ![HBase数据模型  ][3]
 
 
-## HBase访问接口
+# HBase访问接口
 
 1. Native Java API，最常规和高效的访问方式，适合Hadoop MapReduce Job并行批处理HBase表数据
 2. HBase Shell，HBase的命令行工具，最简单的接口，适合HBase管理使用
@@ -47,7 +71,7 @@ Row key也是越短越好，但是需要唯一确定
 5. Pig，可以使用Pig Latin流式编程语言来操作HBase中的数据，和Hive类似，本质最终也是编译成MapReduce Job来处理HBase表数据，适合做数据统计
 6. Hive，当前Hive的Release版本尚没有加入对HBase的支持，但在下一个版本Hive 0.7.0中将会支持HBase，可以使用类似SQL语言来访问HBase
 
-## Hbase shell
+# Hbase shell
 
 | 名称    |   命令表达式  |
 | --- | --- |
@@ -330,7 +354,7 @@ Truncating 'member'table (it may take a while):
 ```
 可以看出，hbase是先将掉disable掉，然后drop掉后重建表来实现truncate的功能的。
 
-## javaAPI 操作Hbase
+# javaAPI 操作Hbase
 
 ## 初始化构造方法，获取连接
 
