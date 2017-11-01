@@ -192,7 +192,6 @@ put'member','scutshuxue','address:contry','china'
 put'member','scutshuxue','address:province','zhejiang'
 put'member','scutshuxue','address:city','hangzhou'
 
-
 put'member','xiaofeng','info:birthday','1987-4-17'
 put'member','xiaofeng','info:favorite','movie' 
 put'member','xiaofeng','info:company','alibaba'
