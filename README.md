@@ -29,7 +29,7 @@
 * [HDFS安全模式](#hdfs安全模式)
 * [HDFS中常用到的命令](#hdfs中常用到的命令)
 * [eclipse 连接hdfs](#eclipse-连接hdfs)
-## Day03
+## Day03 [连接][3]
 * [Eclipse基本设置](#eclipse基本设置)
 * [阅读文档的基本步骤](#阅读文档的基本步骤)
 * [创建maven项目注意事项](#创建maven项目注意事项)
@@ -204,3 +204,4 @@
 
   [1]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_01%20hadoop.md
   [2]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_02_hadoop.md
+  [3]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_03_hadoop.md
