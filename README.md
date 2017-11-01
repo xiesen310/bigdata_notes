@@ -104,7 +104,7 @@
 * [Hadoop读写关系型数据库](#hadoop读写关系型数据库)
 	* [读数据库](#读数据库)
 	* [将数据写入到数据库](#将数据写入到数据库)
-## Day10
+## Day10 [连接][10]
 * [Hive](#hive)
 	* [Hive特点](#hive特点)
 	* [Hive架构](#hive架构)
@@ -211,3 +211,4 @@
   [7]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_07_MR%E4%B8%B2%E8%81%94%E4%B8%8E%E5%85%B3%E8%81%94.md
   [8]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_08_Arvo.md
   [9]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_09_hadoop%E8%AF%BB%E5%86%99%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93.md
+  [10]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_10_hive.md
