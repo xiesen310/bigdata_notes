@@ -60,7 +60,7 @@
 		* [创建map类](#创建map类)
 		* [创建reducer](#创建reducer)
 		* [编写job](#编写job)
-## Day05
+## Day05 [连接][5]
 
 * [数据的排序](#数据的排序)
 	* [全排序](#全排序)
@@ -206,3 +206,4 @@
   [2]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_02_hadoop.md
   [3]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_03_hadoop.md
   [4]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_04_hadoop.md
+  [5]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_05_mapreduce%E7%9A%84%E6%8E%92%E5%BA%8F.md
