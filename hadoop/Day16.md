@@ -332,6 +332,61 @@ Truncating 'member'table (it may take a while):
 
 ## javaAPI 操作Hbase
 
+## 初始化构造方法，获取连接
+
+``` java
+private static Connection connection;
+	private static Admin admin;
+	private static Configuration conf = HBaseConfiguration.create();
+
+	public MemberDataTest() {
+		try {
+			connection = ConnectionFactory.createConnection(conf);
+			admin = connection.getAdmin();
+		} catch (IOException e) {
+			System.out.println("连接失败");
+			e.printStackTrace();
+		}
+	}
+```
+## 关闭连接
+
+``` java
+public void cleanUp() throws Exception {
+		connection.close();
+	}
+```
+
+### 创建表
+
+``` java
+/**
+	* createTable 创建表
+	* @param @param tablename 表名
+	* @param @param cf 可变参数，列族(Column Family)
+	* @param @throws Exception 参数
+	* @return void 返回类型
+	* @Exception 异常对象
+	*/
+	public void createTable(String tablename, String... cf) throws Exception {
+		TableName tName = TableName.valueOf(tablename);
+		if (!admin.tableExists(tName)) {
+			TableDescriptorBuilder aBuilder = TableDescriptorBuilder.newBuilder(tName);
+			for (String cf1 : cf) {
+				ColumnFamilyDescriptor familyDescriptor = ColumnFamilyDescriptorBuilder.newBuilder(cf1.getBytes())
+						.build();
+				aBuilder.addColumnFamily(familyDescriptor);
+			}
+			admin.createTable(aBuilder.build());
+			System.out.println("create " + tablename + " success");
+		} else {
+			System.out.println("create " + tablename + "Exception");
+		}
+	}
+```
+### 列举出数据库下的表
+
+
 
 
 
