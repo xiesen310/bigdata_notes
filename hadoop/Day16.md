@@ -330,6 +330,9 @@ Truncating 'member'table (it may take a while):
 ```
 可以看出，hbase是先将掉disable掉，然后drop掉后重建表来实现truncate的功能的。
 
+## javaAPI 操作Hbase
+
+
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509516387564.jpg
