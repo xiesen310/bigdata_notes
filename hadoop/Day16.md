@@ -286,7 +286,6 @@ xiaofeng                               column=info:favorite, timestamp=132158624
 ```
 
 8. 删除id为temp的值的‘info:age’字段
-
 ``` css
 hbase(main):016:0>delete 'member','temp','info:age'
 0 row(s) in 0.0150seconds
@@ -295,7 +294,6 @@ COLUMN                                   CELL
 0 row(s) in 0.0150seconds
 ```
 9.删除整行
-
 ``` css
 hbase(main):001:0>deleteall 'member','xiaofeng'
 0 row(s) in 0.3990seconds
