@@ -158,6 +158,12 @@
 * [自定义hive function](#自定义hive-function)
 * [异常处理](#异常处理)
 ## Day14
-
+* [窗口函数的使用](#窗口函数的使用)
+* [日志分析](#日志分析)
+* [Hive优化](#hive优化)
+	* [Group by 优化](#group-by-优化)
+	* [order by 优化](#order-by-优化)
+	* [sql语句优化](#sql语句优化)
+	* [join 优化](#join-优化)
 ## Day15
 ## Day16
