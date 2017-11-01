@@ -302,7 +302,6 @@ hbase(main):001:0>deleteall 'member','xiaofeng'
 ```
 
 10. 查询表中有多少行：
-
 ``` css
 hbase(main):019:0>count 'member'                                        
 2 row(s) in 0.0160seconds
