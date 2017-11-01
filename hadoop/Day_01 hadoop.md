@@ -5,7 +5,14 @@ grammar_cjkRuby: true
 ---
 
 
-[toc]
+* [概论](#概论)
+* [集群](#集群)
+	* [克隆虚拟机](#克隆虚拟机)
+	* [创建集群](#创建集群)
+		* [ssh](#ssh)
+		* [hadoop](#hadoop)
+	* [异常信息](#异常信息)
+
 # 概论
  1. 起源于nutch项目(是一个搜索引擎)
     基于nutch又研发了其他的搜索引擎和延伸到数据的处理
@@ -49,21 +56,21 @@ grammar_cjkRuby: true
 ## 创建集群
 
  ### ssh
-  (1)  `ssh-keygen -t rsa` 生成ssh(公钥和私钥)(为了解决每次远程操作时都要访问密码)
+  1.  `ssh-keygen -t rsa` 生成ssh(公钥和私钥)(为了解决每次远程操作时都要访问密码)
      公钥:给其他的公钥,其他的就可以有权限来操作,远程操作的时候就可以不用密码了
      私钥:只有自己有
-  (2)  `cp id_rsa.pub authorized_keys`
+  2.   `cp id_rsa.pub authorized_keys`
     生成的公钥和私钥在root的.ssh中(.ssh是个隐藏文件夹),然后把公钥的内容复制到authorized_keys文件中(授权列表,相当于门,而把公钥配置到权限列表中就代表这个公钥可以打开门,如果拿公钥访问的话就会先去授权列表中查看是否有这个公钥,有就直接访问,没有就会要密码)
-  (3) `scp ~/.ssh/id_rsa.pub root@master:~/.ssh/id_rsa_slaver1.pub`
+	3.  `scp ~/.ssh/id_rsa.pub root@master:~/.ssh/id_rsa_slaver1.pub`
      `scp ~/.ssh/id_rsa.pub root@master:~/.ssh/id_rsa_slaver2.pub`
      将两个子节点的公钥拷贝到主节点上，分别在两个子节点上执行,这步就是把子节点的公钥给了主节点
-  (4) `cat id_rsa_slaver1.pub >> authorized_keys`
+4. `cat id_rsa_slaver1.pub >> authorized_keys`
      `cat id_rsa_slaver2.pub >> authorized_keys`
      把公钥配置到授权列表中
-  (5) `scp ~/.ssh/authorized_keys root@slave1:~/.ssh/id_rsa_slaver1.pub`
+5.  `scp ~/.ssh/authorized_keys root@slave1:~/.ssh/id_rsa_slaver1.pub`
      `scp ~/.ssh/authorized_keys root@slave2:~/.ssh/id_rsa_slaver1.pub`
      在master中把权限列表(`authorized_keys`)复制到子节点中
-  (6)在每个节点上都分别执行`ssh slaver1     ssh slaver2    ssh master` 可以正常跳转到两个节点中就成功了.
+6. 在每个节点上都分别执行`ssh slaver1     ssh slaver2    ssh master` 可以正常跳转到两个节点中就成功了.
 
  ### hadoop
   
