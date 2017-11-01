@@ -139,7 +139,7 @@
 * [分桶](#分桶)
 * [hive压缩](#hive压缩)
 * [maven 更换国内镜像](#maven-更换国内镜像)
-## Day13
+## Day13 [连接][14]
 * [java代码操作hive](#java代码操作hive)
 	* [创建maven工程，导入依赖文件](#创建maven工程导入依赖文件)
 	* [编写连接小工具](#编写连接小工具)
@@ -215,3 +215,4 @@
   [11]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_11_hive%E4%B9%8Bsql%E6%93%8D%E4%BD%9C.md
   [12]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/sql%E7%BB%83%E4%B9%A0.md
   [13]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_12_hive.md
+  [14]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_13_.md
