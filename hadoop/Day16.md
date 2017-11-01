@@ -38,6 +38,9 @@ Row key也是越短越好，但是需要唯一确定
 ![HBase数据模型  ][3]
 
 
+## HBase访问接口
+
+
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509516387564.jpg
