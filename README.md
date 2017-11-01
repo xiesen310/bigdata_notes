@@ -98,7 +98,7 @@
 	* [小文件的合并操作](#小文件的合并操作)
 	* [对于小文件合并后的大文件进行词频统计](#对于小文件合并后的大文件进行词频统计)
 
-## Day09
+## Day09 [连接][9]
 * [事实数据和维度数据](#事实数据和维度数据)
 * [设置mysql远程调用](#设置mysql远程调用)
 * [Hadoop读写关系型数据库](#hadoop读写关系型数据库)
@@ -210,3 +210,4 @@
   [6]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_06_Combinner%20And%20Reverse%20Index.md
   [7]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_07_MR%E4%B8%B2%E8%81%94%E4%B8%8E%E5%85%B3%E8%81%94.md
   [8]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_08_Arvo.md
+  [9]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_09_hadoop%E8%AF%BB%E5%86%99%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93.md
