@@ -202,9 +202,7 @@ put'member','xiaofeng','address:city','jieyang'
 put'member','xiaofeng','address:town','xianqiao'
 ```
 
-2.获取一条数据
-获取一个id的所有数据
-
+2.获取一个id的所有数据
 ``` css
 hbase(main):001:0>get 'member','scutshuxue'
 COLUMN                                   CELL                                                                                                               
@@ -218,7 +216,6 @@ info:company                           timestamp=1321586239071, value=alibaba
 ```
 
 3. 获取一个id，一个列族的所有数据
-
 ``` css
 hbase(main):002:0>get 'member','scutshuxue','info'
 COLUMN                                   CELL                                                                                                               
@@ -228,7 +225,6 @@ info:company                           timestamp=1321586239071, value=alibaba
 3 row(s) in 0.0210seconds
 ```
 4. 获取一个id，一个列族中一个列的所有数据
-
 ``` css
 hbase(main):002:0>get 'member','scutshuxue','info:age' 
 COLUMN                                   CELL                                                                                                               
@@ -237,7 +233,6 @@ info:age                               timestamp=1321586238965, value=24
 ```
 
 5. 将scutshuxue的年龄改成99
-
 ``` css
 hbase(main):004:0>put 'member','scutshuxue','info:age' ,'99'
 0 row(s) in 0.0210seconds
@@ -250,7 +245,6 @@ info:age                               timestamp=1321586571843, value=99
 ```
 
 6. 通过timestamp来获取两个版本的数据
-
 ``` css
 hbase(main):010:0>get 'member','scutshuxue',{COLUMN=>'info:age',TIMESTAMP=>1321586238965}
 COLUMN                                   CELL                                                                                                               
@@ -264,7 +258,6 @@ info:age                               timestamp=1321586571843, value=99
 ```
 
 7. 全表扫描：
-
 ``` css
 hbase(main):013:0>scan 'member'
 ROW                                     COLUMN+CELL                                                                                                        
