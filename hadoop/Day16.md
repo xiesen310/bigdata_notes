@@ -307,7 +307,42 @@ hbase(main):001:0>deleteall 'member','xiaofeng'
 hbase(main):019:0>count 'member'                                        
 2 row(s) in 0.0160seconds
 ```
+11. 给‘xiaofeng’这个id增加'info:age'字段，并使用counter实现递增
 
+``` css
+hbase(main):057:0*incr 'member','xiaofeng','info:age'                    
+COUNTER VALUE = 1
+
+hbase(main):058:0>get 'member','xiaofeng','info:age' 
+COLUMN                                   CELL                                                                                                               
+info:age                               timestamp=1321590997648, value=\x00\x00\x00\x00\x00\x00\x00\x01                                                    
+1 row(s) in 0.0140seconds
+
+hbase(main):059:0>incr 'member','xiaofeng','info:age'
+COUNTER VALUE = 2
+
+hbase(main):060:0>get 'member','xiaofeng','info:age' 
+COLUMN                                   CELL                                                                                                               
+info:age                               timestamp=1321591025110, value=\x00\x00\x00\x00\x00\x00\x00\x02                                                    
+1 row(s) in 0.0160seconds
+
+获取当前count的值
+hbase(main):069:0>get_counter 'member','xiaofeng','info:age' 
+COUNTER VALUE = 2
+```
+11. 将整张表清空：
+
+``` css
+hbase(main):035:0>truncate 'member'
+Truncating 'member'table (it may take a while):
+- Disabling table...
+- Dropping table...
+- Creating table...
+0 row(s) in 4.3430seconds
+```
+
+
+可以看出，hbase是先将掉disable掉，然后drop掉后重建表来实现truncate的功能的。
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509516387564.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509516328683.jpg
