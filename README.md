@@ -166,7 +166,7 @@
 	* [order by 优化](#order-by-优化)
 	* [sql语句优化](#sql语句优化)
 	* [join 优化](#join-优化)
-## Day15
+## Day15 [连接][16]
 * [zookeeper](#zookeeper)
 	* [Zookeeper的基本运转流程](#zookeeper的基本运转流程)
 	* [Zookeeper数据结构](#zookeeper数据结构)
@@ -217,3 +217,4 @@
   [13]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_12_hive.md
   [14]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_13_.md
   [15]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day14.md
+  [16]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day15.md
