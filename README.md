@@ -158,7 +158,7 @@
 	* [统计出网站用户访问使用windows系统和使用mac系统的占比和数量](#统计出网站用户访问使用windows系统和使用mac系统的占比和数量)
 * [自定义hive function](#自定义hive-function)
 * [异常处理](#异常处理)
-## Day14
+## Day14 [连接][15]
 * [窗口函数的使用](#窗口函数的使用)
 * [日志分析](#日志分析)
 * [Hive优化](#hive优化)
@@ -216,3 +216,4 @@
   [12]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/sql%E7%BB%83%E4%B9%A0.md
   [13]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_12_hive.md
   [14]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_13_.md
+  [15]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day14.md
