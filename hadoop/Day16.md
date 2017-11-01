@@ -49,7 +49,17 @@ Row key也是越短越好，但是需要唯一确定
 
 ## Hbase shell
 
-
+| 名称    |   命令表达式  |
+| --- | --- |
+|  创建表   |  create '表名称', '列名称1','列名称2','列名称N'   |
+| 添加记录    | put '表名称', '行名称', '列名称:', '值'   |
+| 查看记录    | get '表名称', '行名称'    |
+|  查看表中的记录总数   |  count  '表名称'   |
+|  删除记录   |    delete  '表名' ,'行名称' , '列名称' |
+| 删除一张表    |   先要屏蔽该表，才能对该表进行删除，第一步 disable '表名称' 第二步 drop '表名称'  |
+| 查看所有记录    | scan "表名称"    |
+|  查看某个表某个列中所有数据   |   scan "表名称" , ['列名称:']  |
+| 更新记录    |  就是重写一遍进行覆盖   |
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509516387564.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509516328683.jpg
