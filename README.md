@@ -118,6 +118,26 @@
 	* [Hive中hql练习](#Hive中hql练习)
 	* [sql练习](#sql练习)
 ## Day12
+* [Hive 优化](#hive-优化)
+* [Map端聚合操作](#map端聚合操作)
+* [Order, Sort, Cluster, and Distribute By](#order-sort-cluster-and-distribute-by)
+	* [order by](#order-by)
+	* [Sort by](#sort-by)
+	* [distribute by](#distribute-by)
+	* [Cluster by](#cluster-by)
+* [复杂数据类型](#复杂数据类型)
+	* [array](#array)
+	* [Map](#map)
+	* [Struct](#struct)
+* [文件的保存格式](#文件的保存格式)
+* [hive分区](#hive分区)
+	* [创建分区文件](#创建分区文件)
+	* [静态导入数据](#静态导入数据)
+	* [动态导入数据](#动态导入数据)
+	* [二级分区](#二级分区)
+* [分桶](#分桶)
+* [hive压缩](#hive压缩)
+* [maven 更换国内镜像](#maven-更换国内镜像)
 ## Day13
 ## Day14
 ## Day15
