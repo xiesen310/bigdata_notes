@@ -83,6 +83,7 @@ grammar_cjkRuby: true
   ![enter description here][8]
 
    再`source /etc/profile`加载一下配置文件,可以输入`hadoop`的时候有提示,证明配置Hadoop成功
+   
  3. `hadoop`的配置
     `hadoop-env.sh`:运行环境配置,`jdk`,`jvm`内存配置
     `yarn-env.sh`:yarn的环境配置
@@ -91,6 +92,7 @@ grammar_cjkRuby: true
     `mapred-site.xml`:`mapreduce`的参数配置
     `yarn-site.xml`:`yarn`的参数配置
     `slaves`:子节点的配置,里面写入所有子节点的`hostname`
+	
  4. 配置`Hadoop`的环境
     (1)在`hadoop-env.sh`中把`export JAVA_HOME`的值改为固定的`JDK`的值即`export JAVA_HOME=/opt/Software/Java/jdk1.8.0_141`这样就不会出现找不到程序的环境变量.
 
@@ -99,7 +101,8 @@ grammar_cjkRuby: true
    (2)在`yarn-evn.sh`中把`export JAVA_HOME`的值改为固定的`JDK`的值即`export JAVA_HOME=/opt/Software/Java/jdk1.8.0_141`
     
   ![enter description here][10]
- 5. 在`core-site.xml`中配置
+  
+  5. 在`core-site.xml`中配置
 
   ![enter description here][11]
   
