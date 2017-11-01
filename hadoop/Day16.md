@@ -300,7 +300,6 @@ COLUMN                                   CELL
 hbase(main):001:0>deleteall 'member','xiaofeng'
 0 row(s) in 0.3990seconds
 ```
-
 10. 查询表中有多少行：
 ``` css
 hbase(main):019:0>count 'member'                                        
