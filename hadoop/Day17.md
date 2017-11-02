@@ -12,5 +12,5 @@ grammar_cjkRuby: true
 
 
 
-
+> eclipse 不会下载jar时，在dos中使用mvn install进行下载
 
