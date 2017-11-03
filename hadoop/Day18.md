@@ -356,10 +356,13 @@ public class MrFromHBaseToHBase {
 ![][4]
 
 ![][5]
+3. 解压 `tar -zxvf 安装包名称`
+4. 配置环境变量
+
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509713934019.jpg
   [2]: http://mirror.bit.edu.cn/apache/phoenix/
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509714999899.jpg
   [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509715063192.jpg
-  [5]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1509715071811]]]"
+  [5]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509715071811.jpg
