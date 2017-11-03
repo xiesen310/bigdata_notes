@@ -167,6 +167,95 @@ public class PersonInfo {
 
 ![][1]
 
+``` java
+package top.xiesen.bd14.homework;
+
+import java.io.IOException;
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.hbase.HBaseConfiguration;
+import org.apache.hadoop.hbase.client.Mutation;
+import org.apache.hadoop.hbase.client.Put;
+import org.apache.hadoop.hbase.mapreduce.TableMapReduceUtil;
+import org.apache.hadoop.hbase.mapreduce.TableReducer;
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.NullWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+
+
+
+/**
+* 项目名称：mrhbase
+* 类名称：OrderToHBase
+* 类描述：将订单数据导入导入到 bd14:order
+* @author Allen
+*/
+public class OrderToHBase {
+
+	public static class OrderToHBaseMapper extends Mapper<LongWritable, Text, Text, Text> {
+		private Text outKey = new Text();
+		private Text outValue = new Text();
+		private String[] infos;
+
+		@Override
+		protected void map(LongWritable key, Text value, Mapper<LongWritable, Text, Text, Text>.Context context)
+				throws IOException, InterruptedException {
+			infos = value.toString().split("\\|");
+			outKey.set(infos[0]);
+			outValue.set(infos[1] + "--" + infos[2] + "--" + infos[3]);
+			context.write(outKey, outValue);
+		}
+	}
+
+	public static class OrderToHBaseReducer extends TableReducer<Text, Text, NullWritable> {
+		private NullWritable outputKey = NullWritable.get();
+		private Put outputValue;
+		private String[] infos;
+
+		@Override
+		protected void reduce(Text key, Iterable<Text> values,
+				Reducer<Text, Text, NullWritable, Mutation>.Context context) throws IOException, InterruptedException {
+			if (!key.toString().equals("")) {
+				for (Text value : values) {
+					infos = value.toString().split("--");
+					System.out.println("数据："+infos[0] + "--" + infos[1] + "--" + infos[2]);
+					outputValue = new Put(key.toString().getBytes());
+					outputValue.addColumn("i".getBytes(), "product_id".getBytes(), infos[0].getBytes());
+					outputValue.addColumn("i".getBytes(), "quantity".getBytes(), infos[1].getBytes());
+					outputValue.addColumn("i".getBytes(), "subtotal".getBytes(), infos[2].getBytes());
+					outputValue.addColumn("i".getBytes(), "product_price".getBytes(), infos[3].getBytes());
+					context.write(outputKey, outputValue);
+				}
+			}
+		}
+	}
+
+	public static void main(String[] args) throws Exception {
+		Configuration conf = HBaseConfiguration.create();
+		Job job = Job.getInstance(conf);
+		job.setJarByClass(OrderToHBase.class);
+		job.setJobName("将order的数据写入到hbase");
+
+		job.setMapperClass(OrderToHBaseMapper.class);
+
+		job.setMapOutputKeyClass(Text.class);
+		job.setMapOutputValueClass(Text.class);
+
+		TableMapReduceUtil.initTableReducerJob("bd14:orders", OrderToHBaseReducer.class, job);
+		FileInputFormat.addInputPath(job, new Path("/orderdata/order_items"));
+
+		System.exit(job.waitForCompletion(true) ? 0 : 1);
+
+	}
+}
+
+```
+
+
 历史数据的索引通过mr批量写入索引表
 
 
