@@ -348,7 +348,13 @@ public class MrFromHBaseToHBase {
 
 ### Phoenix安装教程
 
+1. Phoenix需要python进行解析，因此我们需要python的环境设置，使用命令` yum install python-argparse`安装即可。
+2. 官网上下载安装包 [http://mirror.bit.edu.cn/apache/phoenix/][2]
+
+![][3]
 
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509713934019.jpg
+  [2]: http://mirror.bit.edu.cn/apache/phoenix/
+  [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509714999899.jpg
