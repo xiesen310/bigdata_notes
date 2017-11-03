@@ -186,7 +186,6 @@ import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 
 
-
 /**
 * 项目名称：mrhbase
 * 类名称：OrderToHBase
