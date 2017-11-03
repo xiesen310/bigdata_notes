@@ -369,7 +369,6 @@ scp phoenix-4.7.0-HBase-1.1-server.jar root@jokeros2:/usr/tools/hbase-1.2.0/lib/
 scp phoenix-4.7.0-HBase-1.1-server.jar root@jokeros3:/usr/tools/hbase-1.2.0/lib/
 ```
 
-
 重新启动hbase
 stop-hbase.sh
 start-hbase.sh
