@@ -25,3 +25,4 @@ rowkey散列的方法：
 rowkey唯一性原则
 
 rowkey作为索引原则
+rowkey是hbase里面唯一的索引，对于查询频繁的限定条件需要把内容放在rowkwy里面
