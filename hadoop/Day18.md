@@ -21,3 +21,8 @@ rowkey散列的方法：
 2. uuid
 3. MD5,hash等加密算法
 4. 业务有序数据反向(对业务有序数据进行 reverse)
+
+rowkey唯一性原则
+
+rowkey作为索引原则
+rowkey是hbase里面唯一的索引，对于查询频繁的限定条件需要把内容放在rowkwy里面
