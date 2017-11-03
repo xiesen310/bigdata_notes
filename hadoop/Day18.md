@@ -37,3 +37,5 @@ endpoint：存储过程
 observer：触发器
 
 历史数据的索引通过mr批量写入索引表
+
+Phoenix是hbase的sql引擎
