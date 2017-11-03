@@ -160,6 +160,9 @@ public class PersonInfo {
 2. 数据的低冗余(存储所占的数据量)
 3. 数据的一致性
 
+
+
+
 历史数据的索引通过mr批量写入索引表
 
 Phoenix是hbase的sql引擎
