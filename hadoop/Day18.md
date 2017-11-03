@@ -162,12 +162,18 @@ public class PersonInfo {
 
 创建二级索引分为两种，一种是在插入数据的同时，直接创建索引，另一种形式是已经存在历史数据，我们创建索引
 
+当历史数据存在时，如果现在我们的需求是，创建subtotal的二级索引；
+按照rowkey的生成策略，我们将order_item_id,order_id,product_id作为rowkey，将其他的数据读取到columnFamily中，因为hbase天生不支持二级索引，但是hbase支持rowkey索引，因此，我们只能在rowkey上下点功夫了。我们可以这样做，将suntotal作为rowkey，生成一张与oreder_item对应的表，这样就能索引了。我们将subtotal作为索引，必须通过这个索引找到我们需要的信息才可以，我们将刚才说的那张表的rowkey作为这张表的quality保存到这张表中，这样这两张表之间就有关系了，通过查询就能得到我们需要的数据了。
 
-
+![][1]
 
 历史数据的索引通过mr批量写入索引表
+
 
 Phoenix是hbase的sql引擎
 hbase只支持单行的事务
 
 hbase不支持表关联
+
+
+  [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509713934019.jpg
