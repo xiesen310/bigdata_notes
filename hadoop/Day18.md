@@ -167,6 +167,7 @@ public class PersonInfo {
 
 ![][1]
 
+- 创建表一
 ``` java
 package top.xiesen.bd14.homework;
 
@@ -253,6 +254,92 @@ public class OrderToHBase {
 	}
 }
 
+```
+- 创建表二
+
+``` java
+package top.xiesen.bd14.homework;
+
+import java.io.IOException;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.hbase.Cell;
+import org.apache.hadoop.hbase.CellScanner;
+import org.apache.hadoop.hbase.CellUtil;
+import org.apache.hadoop.hbase.HBaseConfiguration;
+import org.apache.hadoop.hbase.client.Mutation;
+import org.apache.hadoop.hbase.client.Put;
+import org.apache.hadoop.hbase.client.Result;
+import org.apache.hadoop.hbase.client.Scan;
+import org.apache.hadoop.hbase.io.ImmutableBytesWritable;
+import org.apache.hadoop.hbase.mapreduce.TableMapReduceUtil;
+import org.apache.hadoop.hbase.mapreduce.TableMapper;
+import org.apache.hadoop.hbase.mapreduce.TableReducer;
+import org.apache.hadoop.hbase.util.Bytes;
+import org.apache.hadoop.io.NullWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.Reducer;
+
+public class MrFromHBaseToHBase {
+
+	public static class MrFromHBaseToHBaseMapper extends TableMapper<Text, Text>{
+		private Text outputKey = new Text();
+		private Text outputValue = new Text();
+		private Cell cell;
+		private String rowkey;
+		private String columnFamily;
+		private String columnQualifier;
+		private String columnValue;
+		@Override
+		protected void map(ImmutableBytesWritable key, Result value,
+				Mapper<ImmutableBytesWritable, Result, Text, Text>.Context context)
+				throws IOException, InterruptedException {
+			CellScanner cellScanner = value.cellScanner();
+			while(cellScanner.advance()){
+				cell = cellScanner.current();
+				rowkey = Bytes.toString(CellUtil.cloneRow(cell));
+				columnFamily = Bytes.toString(CellUtil.cloneFamily(cell));
+				columnQualifier = Bytes.toString(CellUtil.cloneQualifier(cell));
+				columnValue = Bytes.toString(CellUtil.cloneValue(cell));
+				outputKey.set(rowkey);
+				outputValue.set(columnFamily + "--" + columnQualifier + "--" + columnValue);
+				context.write(outputKey, outputValue);
+			}
+		}
+	}
+	public static class MrFromHBaseToHBaseReducer extends TableReducer<Text, Text, NullWritable>{
+		private NullWritable outputKey = NullWritable.get();
+		private Put outputValue;
+		private String[] infos;
+		@Override
+		protected void reduce(Text key, Iterable<Text> values, Reducer<Text, Text, NullWritable, Mutation>.Context context)
+				throws IOException, InterruptedException {
+			for (Text value : values) {
+				 infos = value.toString().split("--");
+				 if(infos[1].equals("subtotal")){
+					outputValue = new Put(infos[2].getBytes());
+					outputValue.addColumn("i".getBytes(), key.toString().getBytes(), "".getBytes());
+					context.write(outputKey, outputValue);
+				 }
+			}
+		}
+	}
+	
+	public static void main(String[] args) throws Exception {
+		Configuration conf = HBaseConfiguration.create();
+		Job job = Job.getInstance(conf);
+		job.setJarByClass(MrFromHBaseToHBase.class);
+		job.setJobName("MrFromHBaseToHBase");
+		
+		Scan scan = new Scan();
+		TableMapReduceUtil.initTableMapperJob("bd14:sample_order_item", scan, MrFromHBaseToHBaseMapper.class, Text.class, Text.class,
+				job);
+		TableMapReduceUtil.initTableReducerJob("bd14:sindex", MrFromHBaseToHBaseReducer.class, job);
+		System.exit(job.waitForCompletion(true) ? 0 : 1);
+	}
+}
 ```
 
 
