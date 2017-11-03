@@ -346,6 +346,8 @@ public class MrFromHBaseToHBase {
 
 在我们开发的过程中对于数据测查询操作，我们是喜欢使用sql来进行查询操作的，但是hbase并不支持sql的查询操作。因此，我们就引入了Phoenix。Phoenix是hbase的sql引擎，它帮我们将sql解析成hbase能够读懂的查询条件，这样我们的就爽了。
 
+### Phoenix安装教程
+
 
 
 
