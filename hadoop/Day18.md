@@ -16,3 +16,8 @@ rowkey长度最大64k，使用时不能超过100个字节，rowkey的长度定�
 
 - rowkey散列原则
 
+rowkey散列的方法：
+1. 随机数
+2. uuid
+3. MD5,hash等加密算法
+4. 业务有序数据反向(对业务有序数据进行 reverse)
