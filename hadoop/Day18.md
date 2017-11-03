@@ -361,6 +361,20 @@ public class MrFromHBaseToHBase {
 
 ![][6]
 
+5. 将/usr/tools/phoenix-4.7.0-HBase-1.1-bin目录下面的phoenix-4.7.0-HBase-1.1-server.jar文件拷贝到每一台HRegionServer的hbase安装目录的lib目录下面去
+
+``` linux
+cp phoenix-4.7.0-HBase-1.1-server.jar /usr/tools/hbase-1.2.0/lib/
+scp phoenix-4.7.0-HBase-1.1-server.jar root@jokeros2:/usr/tools/hbase-1.2.0/lib/
+scp phoenix-4.7.0-HBase-1.1-server.jar root@jokeros3:/usr/tools/hbase-1.2.0/lib/
+```
+
+
+重新启动hbase
+stop-hbase.sh
+start-hbase.sh
+6. 进入phoenix目录的bin目录下面，`sqlline.py jokeros1,jokeros2,jokeros3:2181`
+
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509713934019.jpg
   [2]: http://mirror.bit.edu.cn/apache/phoenix/
