@@ -40,3 +40,5 @@ observer：触发器
 
 Phoenix是hbase的sql引擎
 hbase只支持单行的事务
+
+hbase不支持表关联
