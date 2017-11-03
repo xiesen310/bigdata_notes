@@ -19,7 +19,6 @@ HBASE按单个Rowkey检索的效率是很高的，耗时在1毫秒以下，每�
 3. rowkey是唯一标识
 4. rowkey是表中唯一的索引，不支持其他的索引
 
-
 ### rowkey设计原则
 
 - rowkey长度原则
