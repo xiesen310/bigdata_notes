@@ -357,8 +357,9 @@ public class MrFromHBaseToHBase {
 
 ![][5]
 3. 解压 `tar -zxvf 安装包名称`
-4. 配置环境变量
+4. 配置环境变量 `vim /etc/profile`
 
+![][6]
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509713934019.jpg
@@ -366,3 +367,4 @@ public class MrFromHBaseToHBase {
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509714999899.jpg
   [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509715063192.jpg
   [5]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509715071811.jpg
+  [6]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509715171315.jpg
