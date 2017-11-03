@@ -39,6 +39,117 @@ rowkey唯一性原则
 rowkey作为索引原则
 rowkey是hbase里面唯一的索引，对于查询频繁的限定条件需要把内容放在rowkwy里面
 
+``` java
+package top.xiesen.bd14.rowkey;
+
+import java.io.IOException;
+import java.nio.ByteBuffer;
+
+import org.apache.hadoop.hbase.Cell;
+import org.apache.hadoop.hbase.CellScanner;
+import org.apache.hadoop.hbase.CellUtil;
+import org.apache.hadoop.hbase.CompareOperator;
+import org.apache.hadoop.hbase.HBaseConfiguration;
+import org.apache.hadoop.hbase.TableName;
+import org.apache.hadoop.hbase.client.Connection;
+import org.apache.hadoop.hbase.client.ConnectionFactory;
+import org.apache.hadoop.hbase.client.Get;
+import org.apache.hadoop.hbase.client.Put;
+import org.apache.hadoop.hbase.client.Result;
+import org.apache.hadoop.hbase.client.ResultScanner;
+import org.apache.hadoop.hbase.client.Scan;
+import org.apache.hadoop.hbase.client.Table;
+import org.apache.hadoop.hbase.filter.RegexStringComparator;
+import org.apache.hadoop.hbase.filter.RowFilter;
+import org.apache.hadoop.hbase.util.Bytes;
+
+
+/**
+* 项目名称：mrhbase
+* 类名称：PersonInfo
+* 类描述：以个人信息为例，展示rowkey的生成策略
+* @author Allen
+*/
+public class PersonInfo {
+	/**
+	* getRowKey rowkey生成策略 ,rowkey一般是字符串
+	* 格式为:idcard(18byte) + name(30bytes)
+	* @param @param idCard 身份证号码
+	* @param @param name 姓名
+	* @return byte[] 返回类型
+	* @Exception 异常对象
+	* @author Allen
+	*/
+	public byte[] getRowKey(String idCard,String name){
+		byte[] idCardBytes = Bytes.toBytes(idCard);
+		if(idCardBytes.length!= 18){
+			System.out.println("身份证位数不对!");
+			return null;
+		}
+		byte[] nameBytes = Bytes.toBytes(name);
+		ByteBuffer result = ByteBuffer.allocate(48);
+		result.put(idCardBytes);
+		result.put(nameBytes);
+		
+//		System.out.println(result.position());
+		byte blank = 0x1F;
+		while(result.position() < 48){
+			result.put(blank);
+		}
+//		System.out.println(result.position());
+		return result.array();
+	}
+	public Put generatePersonInfo(){
+		String idCard = "412824199404201234";
+		String name = "张三";
+		Put put = new Put(getRowKey(idCard, name));
+		put.addColumn("i".getBytes(), "gender".getBytes(), "男".getBytes());
+		put.addColumn("i".getBytes(), "age".getBytes(), "28".getBytes());
+		return put;
+	}
+	
+	
+	/**
+	* getDataByName 通过名称获取数据
+	* @param @param table Table对象
+	* @param @param name 姓名
+	* @param @throws IOException 参数
+	* @return void 返回类型
+	* @Exception 异常对象
+	* @author Allen
+	*/
+	public void getDataByName(Table table,String name) throws IOException{
+		RowFilter filter = new RowFilter(CompareOperator.EQUAL, new RegexStringComparator(name));
+		Scan scan = new Scan();
+		scan.setFilter(filter);
+		ResultScanner rs = table.getScanner(scan);
+		Result result = rs.next();
+		while(result != null){
+			byte[] row = result.getRow();
+			String idCard = Bytes.toString(row, 0, 18);
+			String username = Bytes.toString(row, 18, 30);
+			String age = Bytes.toString(result.getValue(Bytes.toBytes("i"), Bytes.toBytes("age")));
+			String gender = Bytes.toString(result.getValue(Bytes.toBytes("i"), Bytes.toBytes("gender")));
+			System.out.println("身份证号:" + idCard + "\t姓名:" + username + "\t年龄:" + age + "\t性别:" + gender);
+			result = rs.next();
+		}
+	}
+	
+	
+	public static void main(String[] args) throws IOException {
+		PersonInfo personInfo = new PersonInfo();
+//		byte[] result = personInfo.getRowKey("412824199404201111", "张三");
+		Connection connection = ConnectionFactory.createConnection(HBaseConfiguration.create());
+		
+		// 创建表: create 'bd14:person','i'
+		Table person = connection.getTable(TableName.valueOf("bd14:person"));
+		
+		person.put(personInfo.generatePersonInfo());
+		
+		personInfo.getDataByName(person, "张三");
+	}
+}
+```
 
 
 1. 当有新的数据进入Order——item时，在程序里面，手动的插入一条索引到二级索引表
