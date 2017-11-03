@@ -35,3 +35,5 @@ rowkey是hbase里面唯一的索引，对于查询频繁的限定条件需要把
 
 endpoint：存储过程
 observer：触发器
+
+历史数据的索引通过mr批量写入索引表
