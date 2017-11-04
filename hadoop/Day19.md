@@ -4,9 +4,16 @@ tags: hadoop,hbase,phoenix
 grammar_cjkRuby: true
 ---
 
+* [数据库中view的作用](#数据库中view的作用)
+* [phoenix sql语句操作HBase](#phoenix-sql语句操作hbase)
+* [java API操作phoenix](#java-api操作phoenix)
+* [HBase协处理器](#hbase协处理器)
+* [AggregationClient](#aggregationclient)
+* [HBase调优](#hbase调优)
+	* [client调优](#client调优)
+	* [服务端调优](#服务端调优)
 
 ## 数据库中view的作用
-
 
 > 在数据库管理系统当中，view是描述数据库中信息的一种方式。若要将数据项按某种特定的序列排列、突出某些数据项，或者只显示特定的数据项，这些都可以通过view(视图)来实现。对于任何数据库来说，可能有一些视图需要定义。与拥有少量数据项的数据库相比，拥有很多数据项的数据库可能有更多的视图。就像虚拟表一样，视图本身并不真正的存储信息，但仅仅只是从一个或多个已经存在的表中将数据取出。虽然很无常，一个视图能通过存储其查询标准，而被重复的访问。
 
