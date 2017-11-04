@@ -297,4 +297,16 @@ public class RowCountAggregation {
 3. 通过scan取完数据后，记得要关闭ResultScanner，否则RegionServer可能会出现问题（对应的Server资源无法释放）
 
 ### 服务端调优
+
+1. hbase.regionserver.handler.count：该设置决定了处理RPC的线程数量，默认值是10，通常可以调大，比如：150，当请求内容很大（上MB，比如大的put、使用缓存的scans）的时候，如果该值设置过大则会占用过多的内存，导致频繁的GC，或者出现OutOfMemory，因此该值不是越大越好。
+
+
+2. hbase.hregion.max.filesize ：配置region大小，0.94.12版本默认是10G，region的大小与集群支持的总数据量有关系，如果总数据量小，则单个region太大，不利于并行的数据处理，如果集群需支持的总数据量比较大，region太小，则会导致region的个数过多，导致region的管理等成本过高，如果一个RS配置的磁盘总量为3T*12=36T数据量，数据复制3份，则一台RS服务器可以存储10T的数据，如果每个region最大为10G，则最多1000个region，如此看，94.12的这个默认配置还是比较合适的，不过如果要自己管理split，则应该调大该值，并且在建表时规划好region数量和rowkey设计，进行region预建，做到一定时间内，每个region的数据大小在一定的数据量之下，当发现有大的region，或者需要对整个表进行region扩充时再进行split操作，一般提供在线服务的hbase集群均会弃用hbase的自动split，转而自己管理split。
+
+
+3. hbase.hregion.majorcompaction：配置major合并的间隔时间，默认为1天，可设置为0，禁止自动的major合并，可手动或者通过脚本定期进行major合并，有两种compact：minor和major，minor通常会把数个小的相邻的storeFile合并成一个大的storeFile，minor不会删除标示为删除的数据和过期的数据，major会删除需删除的数据，major合并之后，一个store只有一个storeFile文件，会对store的所有数据进行重写，有较大的性能消耗。
+
+4. hbase.hstore.compactionThreshold：HStore的storeFile数量>= compactionThreshold配置的值，则可能会进行compact，默认值为3，可以调大，比如设置为6，在定期的major compact中进行剩下文件的合并。
+
+5. hbase.hstore.blockingStoreFiles：HStore的storeFile的文件数大于配置值，则在flush memstore前先进行split或者compact，除非超过hbase.hstore.blockingWaitTime配置的时间，默认为7，可调大，比如：100，避免memstore不及时flush，当写入量大时，触发memstore的block，从而阻塞写操作。
   
