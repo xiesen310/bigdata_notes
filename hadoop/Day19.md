@@ -168,6 +168,20 @@ public class PhoenixJdbcTest {
  
  协处理器提供了两大类Observer、endPoint
  
+ 
+ 1. Observer（观察者）
+     该类是与RDMS中的触发器类似。回调函数在一些特定的事件发生时被调用。
+     事件包括：用户产生的事件或者服务端内部产生的事件。
+     协处理器框架提供的接口如下：
+       a、RegionObserver：用户可以通过这种处理器来处理数据修改事件，它们与表的Region紧密关联。region级的操作。对应的操作是：put/delete/scan/get
+       b、MasterObserver：可以用作管理或DDL类型的操作，是集群级的操作。对应的操作是：创建、删除、修改表。
+       c、WALObserver：提供控制WAL的钩子函数。
+      Observer定义好钩子函数，服务端可以调用。
+	  
+   2. endPoint(终端)
+    该类的功能类似RDMS中的存储过程。将用户的自定义操作添加到服务器端，endPoint可以通过添加远程过程调用来扩展RPC协议。用户可以将自定义完成某项操作代码部署到服务器端。例如：服务器端的计算操作。
+    当二者结合使用可以决定服务器端的状态。
+	
  > 以创建二级索引为例
 
 1. 创建项目，添加hbase依赖，在项目中定义observe类，继承BaseRegionObserver类，重写方法实现监听出发功能
