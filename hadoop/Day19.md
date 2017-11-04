@@ -158,4 +158,74 @@ public class PhoenixJdbcTest {
 
  ## HBase协处理器
  
- 
+ > 以创建二级索引为例
+
+步骤 1. 创建项目，添加hbase依赖，在项目中定义observe类，继承BaseRegionObserver类，重写方法实现监听出发功能
+
+ 步骤 2. 项目发成jar，放到hdfs上
+  步骤 3. 把协处理器添加到表bd14:order_item上，实现监听
+
+``` java
+package top.xiesn.coprocessor;
+
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.hbase.Cell;
+import org.apache.hadoop.hbase.CellUtil;
+import org.apache.hadoop.hbase.TableName;
+import org.apache.hadoop.hbase.client.Connection;
+import org.apache.hadoop.hbase.client.ConnectionFactory;
+import org.apache.hadoop.hbase.client.Durability;
+import org.apache.hadoop.hbase.client.Put;
+import org.apache.hadoop.hbase.client.Table;
+import org.apache.hadoop.hbase.coprocessor.BaseRegionObserver;
+import org.apache.hadoop.hbase.coprocessor.ObserverContext;
+import org.apache.hadoop.hbase.coprocessor.RegionCoprocessorEnvironment;
+import org.apache.hadoop.hbase.regionserver.wal.WALEdit;
+
+
+/**
+* 项目名称：coprocessorTest
+* 类名称：SecondaryIndexAutoUpdate
+* 类描述：使用observe的coprocessor来自动更新order_item二级索引数据
+* create 'bd14:order_item','i'
+* create 'bd14:order_item_subtotal_index','r'
+* 把这个协处理器添加到order_item表上，索引自动更新到order_item_subtotal_index里
+* 
+* @author Allen
+*/
+public class SecondaryIndexAutoUpdate extends BaseRegionObserver{
+	// 在表数据被put之前执行索引表数据的添加
+	// put 待被插入到bd14:order_item表中的put对象
+	
+	@Override
+	public void prePut(ObserverContext<RegionCoprocessorEnvironment> e, Put put, WALEdit edit, Durability durability)
+			throws IOException {
+		// 参数put中就是要保存进bd14:order_item的put对象，从中获取subtotal和rowkey，保存数据到bd14:order_item_subtotal_index
+		List<Cell> subtotalCell = put.get("i".getBytes(), "subtotal".getBytes());
+		if(subtotalCell != null && subtotalCell.size() > 0){
+			RegionCoprocessorEnvironment environment = e.getEnvironment();
+			Configuration conf = environment.getConfiguration();
+			
+			// 通过获取conf建立与hbase之间的链接
+			Connection connection = ConnectionFactory.createConnection(conf);
+			Table table = connection.getTable(TableName.valueOf("bd14:order_item_subtotal_index"));
+			
+			// 构建要保存索引的put对象
+			Put indexPut = new Put(CellUtil.cloneValue(subtotalCell.get(0)));
+			indexPut.addColumn("r".getBytes(), put.getRow(), null);
+			table.put(indexPut);
+			table.close();
+		}
+	}
+
+}
+```
+4. 创建表并为表添加协处理器 `alter 'bd14:order_item','coprocessor'=>'hdfs:///cop.jar|top.xiesn.coprocessor.SecondaryIndexAutoUpdate|1001|'`
+5. 将数据添加到order_item表中 put `'bd14:order_item','wxd','i:subtotal','1002'`
+6. 查询索引表中的数据 `scan 'bd14:order_item_subtotal_index'`
+
+
+
