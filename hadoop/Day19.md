@@ -18,7 +18,7 @@ select * from ad where user_id < 50
 
 `select * from ad_limit` 等同于`select * from (select * from ad where user_id < 50)`
 
-注意：view 不保存数据，保存的是sql
+**注意：view 不保存数据，保存的是sql**
 
 ## phoenix sql语句操作HBase
 
