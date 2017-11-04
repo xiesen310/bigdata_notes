@@ -247,4 +247,6 @@ public class SecondaryIndexAutoUpdate extends BaseRegionObserver{
 6. 查询索引表中的数据 `scan 'bd14:order_item_subtotal_index'`
 
 
+## AggregationClient
+
 
