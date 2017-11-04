@@ -250,3 +250,41 @@ public class SecondaryIndexAutoUpdate extends BaseRegionObserver{
 ## AggregationClient
 > 这个类主要是做聚合操作的，下面以统计表中的行键个数为例来说明这个类的使用方式
 
+``` java
+package top.xiesen.aggregation;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.hbase.HBaseConfiguration;
+import org.apache.hadoop.hbase.TableName;
+import org.apache.hadoop.hbase.client.Scan;
+import org.apache.hadoop.hbase.client.coprocessor.AggregationClient;
+import org.apache.hadoop.hbase.client.coprocessor.LongColumnInterpreter;
+
+/**
+* 项目名称：hbasetest
+* 类名称：RowCountAggregation
+* 类描述：hbase统计行键
+* @author Allen
+*/
+public class RowCountAggregation {
+
+	public static Configuration CONF = HBaseConfiguration.create();
+	public AggregationClient aggregationClient;
+	public RowCountAggregation() {
+		aggregationClient = new AggregationClient(CONF);
+	} 
+	
+	public void getRowCount() throws Throwable{
+		Scan scan = new Scan();
+		scan.addFamily("i".getBytes());
+		long count = aggregationClient.rowCount(TableName.valueOf("bd14:order_item".getBytes()), new LongColumnInterpreter(), scan);
+		System.out.println(count);
+	}
+	
+	public static void main(String[] args) throws Throwable {
+		RowCountAggregation rowCountAggregation = new RowCountAggregation();
+		rowCountAggregation.getRowCount();
+	}
+	
+}
+```
