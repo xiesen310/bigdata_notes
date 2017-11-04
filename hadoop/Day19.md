@@ -18,6 +18,10 @@ select * from ad where user_id < 50
 
 view 不保存数据，保存的是sql
 
+## phoenix sql语句操作HBase
+
+
+
 ## java API操作phoenix
 
 
