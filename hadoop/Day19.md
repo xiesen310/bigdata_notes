@@ -290,4 +290,11 @@ public class RowCountAggregation {
 ```
 ## HBase调优
 
-> 
+### client调优
+
+1. hbase.client.write.buffer：写缓存大小，默认为2M，推荐设置为6M，单位是字节，当然不是越大越好，如果太大，则占用的内存太多；
+2. hbase.client.scanner.caching：scan缓存，默认为1，太小，可根据具体的业务特征进行配置，原则上不可太大，避免占用过多的client和rs的内存，一般最大几百，如果一条数据太大，则应该设置一个较小的值，通常是设置业务需求的一次查询的数据条数，比如：业务特点决定了一次最多100条，则可以设置为100
+3. 通过scan取完数据后，记得要关闭ResultScanner，否则RegionServer可能会出现问题（对应的Server资源无法释放）
+
+### 服务端调优
+  
