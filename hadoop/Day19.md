@@ -166,8 +166,7 @@ public class PhoenixJdbcTest {
 - 提供一个非常灵活的、可用于建立分布式服务的数据模型
 - 能够自动化扩展、负载均衡、应用请求路由
  
- 协处理器提供了两大类Observer、endPoint
- 
+>  协处理器提供了两大类Observer、endPoint
  
  1. Observer（观察者）
      该类是与RDMS中的触发器类似。回调函数在一些特定的事件发生时被调用。
