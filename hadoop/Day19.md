@@ -166,6 +166,7 @@ public class PhoenixJdbcTest {
 - 提供一个非常灵活的、可用于建立分布式服务的数据模型
 - 能够自动化扩展、负载均衡、应用请求路由
  
+ 协处理器提供了两大类Observer、endPoint
  
  > 以创建二级索引为例
 
