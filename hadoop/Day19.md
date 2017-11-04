@@ -47,9 +47,7 @@ upsert inrto phoenix_user(user_id,age) values()
 
 -- 删除数据 年龄大于20的删除1
 delete from phoenix_user where age > 20
-
 ```
-
 
 ## java API操作phoenix
 
@@ -63,7 +61,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Random;
-
 
 /**
 * 项目名称：phoenixTest
@@ -161,12 +158,20 @@ public class PhoenixJdbcTest {
 
  ## HBase协处理器
  
+ 协处理器的作用：hbase创建二级索引比较麻烦，对于排序，求和，计算这些简单的功能实现非常麻烦，为了降低难度提出了协处理器的概念。
+
+  >协处理器的特性
+- 允许用户执行region级的操作，使用类似触发器的功能
+- 允许扩展现有的RPC协议引入自己的调用
+- 提供一个非常灵活的、可用于建立分布式服务的数据模型
+- 能够自动化扩展、负载均衡、应用请求路由
+ 
+ 
  > 以创建二级索引为例
 
-步骤 1. 创建项目，添加hbase依赖，在项目中定义observe类，继承BaseRegionObserver类，重写方法实现监听出发功能
-
- 步骤 2. 项目发成jar，放到hdfs上
-  步骤 3. 把协处理器添加到表bd14:order_item上，实现监听
+1. 创建项目，添加hbase依赖，在项目中定义observe类，继承BaseRegionObserver类，重写方法实现监听出发功能
+2. 项目发成jar，放到hdfs上
+3. 把协处理器添加到表bd14:order_item上，实现监听
 
 ``` java
 package top.xiesn.coprocessor;
