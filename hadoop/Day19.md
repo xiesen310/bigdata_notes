@@ -248,5 +248,5 @@ public class SecondaryIndexAutoUpdate extends BaseRegionObserver{
 
 
 ## AggregationClient
-
+> 这个类主要是做聚合操作的，下面以统计表中的行键个数为例来说明这个类的使用方式
 
