@@ -12,7 +12,6 @@ grammar_cjkRuby: true
 
 view 应用场景：限制数据查看权限，保存复杂的sql
 
-
 ``` sql
 create view ad_limit as 
 select * from ad where user_id < 50
