@@ -153,7 +153,6 @@ public class PhoenixJdbcTest {
 		pTest.cleanUp();
 	}
 }
-
 ```
 
  ## HBase协处理器
