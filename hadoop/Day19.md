@@ -310,3 +310,4 @@ public class RowCountAggregation {
 
 5. hbase.hstore.blockingStoreFiles：HStore的storeFile的文件数大于配置值，则在flush memstore前先进行split或者compact，除非超过hbase.hstore.blockingWaitTime配置的时间，默认为7，可调大，比如：100，避免memstore不及时flush，当写入量大时，触发memstore的block，从而阻塞写操作。
 
+对于调优的方式有很多，我也是从网络上摘录的，如有更多的需要，请自行搜索
