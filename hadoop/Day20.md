@@ -65,6 +65,10 @@ log生成的方式
 	- 按时间滚动
 	- 按文件大小滚动
 
+当有新日志文件产生的时候，把刚写完的日志系统拷贝搭配spoolingdirectory
 
+source ：Spooling Directory Source
+channel：memory
+sink ： hdfs
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509931626942.jpg
