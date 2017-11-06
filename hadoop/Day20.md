@@ -67,9 +67,39 @@ log生成的方式
 
 当有新日志文件产生的时候，把刚写完的日志系统拷贝搭配spoolingdirectory
 
+
+## spooling Source hdfs sink
 source ：Spooling Directory Source
 channel：memory
 sink ： hdfs sink
 
+``` xml
+a1.sources = r1
+a1.sinks=s1
+a1.channels=c1
+
+a1.sources.r1.type = spooldir
+a1.sources.r1.spoolDir = /root/tmp
+a1.sources.r1.fileHeader = true
+
+a1.sinks.s1.type = hdfs
+a1.sinks.s1.hdfs.path = hdfs://master:9000/flumelog/%Y%m%d
+a1.sinks.s1.hdfs.fileSuffix = .log
+a1.sinks.s1.hdfs.rollInterval = 0
+a1.sinks.s1.hdfs.rollSize = 0
+a1.sinks.s1.hdfs.rollCount = 100
+a1.sinks.s1.hdfs.fileType = DataStream
+a1.sinks.s1.hdfs.writeFormat = Text
+a1.sinks.s1.hdfs.useLocalTimeStamp = true
+
+
+a1.channels.c1.type= memory
+a1.channels.c1.capacity = 1000
+a1.channels.c1.transactionCapacity = 100
+
+a1.sources.r1.channels = c1
+a1.sinks.s1.channel = c1
+```
+## avro source avro sink
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509931626942.jpg
