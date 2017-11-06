@@ -103,8 +103,6 @@ a1.sinks.s1.channel = c1
 
 执行操作`flume-ng agent  -c conf -f flume_nc_to_hdfs.conf --name a1 -Dflume.root.logger=INFO.console`
 
-
-
 ## avro source avro sink
 
 
