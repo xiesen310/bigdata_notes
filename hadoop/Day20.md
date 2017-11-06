@@ -357,9 +357,12 @@ public class LoadBalanceClient {
 
 ## 多个节点串行化操作
 
+> 需求分析：我们的需求是客户端以avro的方式将数据发送出去。节点一以avro的方式输出，然后将输出的avro文件发送给第二个节点，第二个节点将数据打印到控制台。当然，你也可以将数据保存到hdfs上或者hive等等
 
+![][3]
 
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509931626942.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509956464555.jpg
+  [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509966504265.jpg
