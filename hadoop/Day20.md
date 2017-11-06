@@ -214,6 +214,12 @@ a1.sinks.s1.channel = c1
 - agent节点故障问题
 - agent接收发送event的能力是有瓶颈的
 
+![enter description here][2]
+
+服务端：
+1. 节点故障问题，启动多个agent节点，由当前运行的，有备用的agent节点
+2. 消息瓶颈问题，启动多个agent节点，分布式的来接受客户端发送的event
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509931626942.jpg
+  [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509956464555.jpg
