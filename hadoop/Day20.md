@@ -355,6 +355,10 @@ public class LoadBalanceClient {
 
 ```
 
+## 多个节点串行化操作
+
+
+
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509931626942.jpg
