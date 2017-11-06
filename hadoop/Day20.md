@@ -28,3 +28,10 @@ flume数据发送来源
 5. 消息队列
 
 flume-ng将采集的过程交给用户开发agent来直接指定
+
+![flume-ng示意图][1]
+
+agent中有三个组件Source、Channel(相当于缓冲区)、sink(目的是从channel中取数据)
+
+
+  [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509931626942.jpg
