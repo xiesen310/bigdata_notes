@@ -6,3 +6,4 @@ grammar_cjkRuby: true
 
 大数据数据来源：
 1. 网络爬虫
+2. 日志数据
