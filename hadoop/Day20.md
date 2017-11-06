@@ -105,6 +105,74 @@ a1.sinks.s1.channel = c1
 
 ## avro source loger sink
 
+## 客户端
+
+``` java
+package top.xiesen.bd14;
+
+import java.nio.charset.Charset;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.flume.Event;
+import org.apache.flume.EventDeliveryException;
+import org.apache.flume.api.RpcClient;
+import org.apache.flume.api.RpcClientFactory;
+import org.apache.flume.event.EventBuilder;
+
+
+// 连接avro的flume source，又发送event到flume agent
+public class FlumeClient {
+	private RpcClient flumeClient;
+	private String hostname;
+	private int port;
+	
+	public FlumeClient() {
+		super();
+	}
+
+	// 初始化连接
+	public FlumeClient(String hostname, int port) {
+		this.hostname = hostname;
+		this.port = port;
+		this.flumeClient = RpcClientFactory.getDefaultInstance(hostname, port); 
+	}
+	
+	// 将event消息发送到avro source
+	public void sendEvent(String msg){
+		// 构建event的header
+		Map<String,String> headers = new HashMap<>();
+		headers.put("timestamp", String.valueOf(new Date().getTime()));
+		// 构建event
+		Event event = EventBuilder.withBody(msg, Charset.forName("UTF-8"), headers);
+		
+		try {
+			flumeClient.append(event);
+		} catch (EventDeliveryException e) {
+			e.printStackTrace();
+			// 单条发送失败重新连接
+			flumeClient.close();
+			flumeClient = null;
+			flumeClient = RpcClientFactory.getDefaultInstance(hostname, port);
+		}
+	}
+	// 挂壁flume连接
+	public void cleanUp(){
+		flumeClient.close();
+	}
+	
+	public static void main(String[] args) {
+		FlumeClient flumeClient = new FlumeClient("master",8888);
+		String bMsg = "fromjava-msg";
+		for(int i = 0; i < 100; i++){
+			flumeClient.sendEvent(bMsg + "_i");
+		}
+		flumeClient.cleanUp();
+	}
+}
+```
+
 
 
 
