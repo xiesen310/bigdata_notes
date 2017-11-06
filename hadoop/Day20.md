@@ -209,6 +209,10 @@ a1.sinks.s1.channel = c1
 >1. 使用failover类型client
 >2. 使用loadbalance类型client
 
+## 节点故障问题
+
+> 节点故障问题，服务端采用多个节点同时运行的方式进行，有当前节点运行，其他节点备用;客户端采用failover类型
+
 
 
 
