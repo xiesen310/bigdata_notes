@@ -177,23 +177,6 @@ public class FlumeClient {
 
 ``` xml
 a1.sources = r1
-a1.sinks = s1 
-a1.channels = c1
-
-a1.sources.r1.type = netcat
-a1.sources.r1.bind = localhost
-a1.sources.r1.port = 44444
-
-a1.sinks.s1.type = logger
-
-a1.channels.c1.type= memory
-a1.channels.c1.capacity = 1000
-a1.channels.c1.transactionCapacity = 100
-
-a1.sources.r1.channels = c1
-a1.sinks.s1.channel = c1
-[root@master flumesrc]# cat flume_nc_avro_to_log.conf 
-a1.sources = r1
 a1.sinks=s1
 a1.channels=c1
 
@@ -211,8 +194,6 @@ a1.sources.r1.channels = c1
 a1.sinks.s1.channel = c1
 ```
 
-- agent节点故障问题
-- agent接收发送event的能力是有瓶颈的
 
 ![enter description here][2]
 
