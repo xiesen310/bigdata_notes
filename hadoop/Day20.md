@@ -223,7 +223,6 @@ a1.sinks.s1.channel = c1
 客户端
 1. 使用failover类型client
 2. 使用loadbalance类型client
-2. 
 
 
 
