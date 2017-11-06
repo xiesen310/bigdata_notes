@@ -211,6 +211,8 @@ a1.sources.r1.channels = c1
 a1.sinks.s1.channel = c1
 ```
 
+- agent节点故障问题
+- agent接收发送event的能力是有瓶颈的
 
 
 
