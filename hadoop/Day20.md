@@ -213,6 +213,80 @@ a1.sinks.s1.channel = c1
 
 > 节点故障问题，服务端采用多个节点同时运行的方式进行，有当前节点运行，其他节点备用;客户端采用failover类型
 
+- 客户端
+
+创建fileover_client.conf文件，这里我们配置了连个节点，master是主节点 ，slaver1是备用节点
+
+``` xml
+client.type = default_failover
+
+hosts = h1 h2
+
+hosts.h1 = master:8888
+hosts.h2 = slaver1:8888
+
+max-attempts = 2
+```
+
+
+
+``` java
+package top.xiesen.bd14;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.nio.charset.Charset;
+import java.util.Properties;
+
+import org.apache.flume.Event;
+import org.apache.flume.EventDeliveryException;
+import org.apache.flume.api.RpcClient;
+import org.apache.flume.api.RpcClientFactory;
+import org.apache.flume.event.EventBuilder;
+
+public class FileoverClient {
+
+	private Properties properties;
+	private RpcClient failoverClient;
+	
+	// 初始化fileover
+	public FileoverClient() throws Exception {
+		this.properties = new Properties();
+		InputStream inputStream = new FileInputStream(new File("src/main/resources/fileover_client.conf"));
+		properties.load(inputStream);
+		this.failoverClient = RpcClientFactory.getInstance(properties);
+	}
+	
+	// 发送消息
+	public void sendEvent(String msg){
+		Event event = EventBuilder.withBody(msg, Charset.forName("UTF-8"));
+		try {
+			failoverClient.append(event);
+		} catch (EventDeliveryException e) {
+			e.printStackTrace();
+		}
+	}
+	public void close(){
+		failoverClient.close();
+	}
+	
+	public static void main(String[] args) throws Exception {
+		FileoverClient fileoverClient = new FileoverClient();
+		String msg = "message_";
+		for(int i = 0; i < 100; i++){
+			fileoverClient.sendEvent(msg+i);
+			Thread.sleep(1000);
+		}
+		fileoverClient.close();
+	}
+}
+
+```
+
+
+- 服务端
+
 
 
 
