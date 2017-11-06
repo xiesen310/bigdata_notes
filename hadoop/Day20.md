@@ -54,6 +54,11 @@ a1.sinks.s1.channel = c1
 ```
 
 netcat:source的一种类型，网络抓取
+bind：资源来源
+
+flume的整个数据采集过程，数据是被封装到Event里面进行传输的
+
+采集日志log文件，把结果存放到hdfs上
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509931626942.jpg
