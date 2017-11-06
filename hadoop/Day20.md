@@ -16,7 +16,7 @@ grammar_cjkRuby: true
 # flume
 > Flume是Cloudera提供的一个高可用的，高可靠的，分布式的海量日志采集、聚合和传输的系统，Flume支持在日志系统中定制各类数据发送方，用于收集数据；同时，Flume提供对数据进行简单处理，并写到各种数据接受方（可定制）的能力。
 
-对于flume的学习和其他的不太一样，我们需要依赖官网上的文档进行开发，官网开发手册
+对于flume的学习和其他的不太一样，我们需要依赖官网上的文档进行开发，官网开发手册[http://flume.apache.org/FlumeUserGuide.html][1]
 flume数据采集的数据来源:
 1. log文件
 2. 网路端口数据
@@ -31,7 +31,7 @@ flume数据发送来源
 
 flume-ng将采集的过程交给用户开发agent来直接指定
 
-![flume-ng示意图][1]
+![flume-ng示意图][2]
 
 agent中有三个组件Source、Channel(相当于缓冲区)、sink(目的是从channel中取数据)
 
@@ -198,7 +198,7 @@ a1.sinks.s1.channel = c1
 
 > flume 节点在运行的时候可能会挂掉，导致我们的数据无法正常的进行采集，在生活中我们是不愿意出现这种现象的。我们采用分布式的方式来解决节点故障问题，同时打开多个节点，如果出县节点挂掉现象，其他的节点随时待命接收数据，处理日志信息。flume在运行的时候也会出现channel中出现了很多的event，但是sink消费的比较缓慢，慢慢的会出现channel溢出的现象，这也不是我们想要看到的现象，对于这个问题我们也采用分布式进行解决。我们可以将event发送到多个节点上，多个节点同时读取数据，这样就不会出现channel溢出的现象。下面以程序的方式说明这两个问题。
 
-![enter description here][2]
+![enter description here][3]
 
 - 简要解决方案
 
@@ -360,7 +360,7 @@ public class LoadBalanceClient {
 
 > 需求分析：我们的需求是客户端以avro的方式将数据发送出去。节点一以avro的方式输出，然后将输出的avro文件发送给第二个节点，第二个节点将数据打印到控制台。当然，你也可以将数据保存到hdfs上或者hive等等
 
-![][3]
+![][4]
 
 1. 书写第一个节点的服务端程序
 
@@ -475,11 +475,7 @@ public class FlumeClient {
 4. 如果在第二个节点上的控制台上看到我们发送的数据，说明我们是成功的
 
 
-
-
-
-
-
-  [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509931626942.jpg
-  [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509956464555.jpg
-  [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509966504265.jpg
+  [1]: http://flume.apache.org/FlumeUserGuide.html
+  [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509931626942.jpg
+  [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509956464555.jpg
+  [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509966504265.jpg
