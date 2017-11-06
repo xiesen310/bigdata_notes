@@ -287,7 +287,26 @@ public class FileoverClient {
 
 ## 消息瓶颈问题
 
-> 消息瓶颈问题，我们可以将接受的event分发到多个节点上面
+> 消息瓶颈问题，服务端启动多个agent节点，分布式的来接受客户端发送的event。客户端使用loadbalance类型
+
+- 客户端程序
+	- 配置文件
+	
+
+``` xml
+client.type = default_loadbalance
+
+hosts = h1 h2
+
+hosts.h1 = master:8888
+hosts.h2 = slaver1:8888
+
+host-selector = random
+```
+
+
+	- 发送程序，我们这里采用随机发送
+
 
 
 
