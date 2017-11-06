@@ -361,6 +361,21 @@ public class LoadBalanceClient {
 
 ![][3]
 
+1. 书写第一个节点的服务端程序
+
+``` xml
+
+```
+
+
+2. 书写第二个服务端程序
+3. 使用代码模拟产生avro文件，将文件发送到第一个节点上
+4. 如果在第二个节点上的控制台上看到我们发送的数据，说明我们是成功的
+
+
+
+
+
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509931626942.jpg
