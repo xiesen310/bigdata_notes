@@ -33,7 +33,6 @@ flume-ng将采集的过程交给用户开发agent来直接指定
 
 agent中有三个组件Source、Channel(相当于缓冲区)、sink(目的是从channel中取数据)
 
-
 ``` xml
 a1.sources = r1
 a1.sinks = s1
