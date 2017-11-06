@@ -69,6 +69,6 @@ log生成的方式
 
 source ：Spooling Directory Source
 channel：memory
-sink ： hdfs
+sink ： hdfs sink
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509931626942.jpg
