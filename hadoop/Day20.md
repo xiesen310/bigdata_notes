@@ -307,6 +307,53 @@ host-selector = random
 - 发送程序，我们这里采用随机发送
 
 ``` java
+package top.xiesen.bd14;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.Charset;
+import java.util.Properties;
+
+import org.apache.flume.Event;
+import org.apache.flume.EventDeliveryException;
+import org.apache.flume.api.RpcClient;
+import org.apache.flume.api.RpcClientFactory;
+import org.apache.flume.event.EventBuilder;
+
+public class LoadBalanceClient {
+	private RpcClient lbClient;
+	private Properties properties;
+	public LoadBalanceClient() throws Exception {
+		this.properties = new Properties();
+		InputStream inputStream = new FileInputStream(new File("src/main/resources/load_balance.conf"));
+		properties.load(inputStream);
+		this.lbClient = RpcClientFactory.getInstance(properties);
+	}
+	
+	public void sendEvent(String msg){
+		Event event = EventBuilder.withBody(msg, Charset.forName("UTF-8"));
+		try {
+			lbClient.append(event);
+		} catch (EventDeliveryException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void close(){
+		lbClient.close();
+	}
+	
+	public static void main(String[] args) throws Exception {
+		LoadBalanceClient loadBalanceClient = new LoadBalanceClient();
+		String msg = "lbmsg_";
+		for(int i = 0; i < 100; i++){
+			loadBalanceClient.sendEvent(msg + i);
+		}
+		loadBalanceClient.close();
+	}
+}
 
 ```
 
