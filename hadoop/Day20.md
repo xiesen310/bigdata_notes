@@ -387,11 +387,93 @@ a1.sinks.s1.channel = c1
 2. 书写第二个服务端程序
 
 ``` xml
+a1.sources = r1
+a1.sinks=s1
+a1.channels=c1
+
+a1.sources.r1.type = avro
+a1.sources.r1.bind = slaver1
+a1.sources.r1.port = 9998
+
+a1.channels.c1.type= memory
+a1.channels.c1.capacity = 1000
+a1.channels.c1.transactionCapacity = 100
+
+a1.sinks.s1.type = logger
+
+a1.sources.r1.channels = c1
+a1.sinks.s1.channel = c1
+```
+
+3. 使用代码模拟产生avro文件，将文件发送到第一个节点上
+
+``` java
+package top.xiesen.bd14;
+
+import java.nio.charset.Charset;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.flume.Event;
+import org.apache.flume.EventDeliveryException;
+import org.apache.flume.api.RpcClient;
+import org.apache.flume.api.RpcClientFactory;
+import org.apache.flume.event.EventBuilder;
+
+// 连接avro的flume source，又发送event到flume agent
+public class FlumeClient {
+	private RpcClient flumeClient;
+	private String hostname;
+	private int port;
+	
+	public FlumeClient() {
+		super();
+	}
+
+	// 初始化连接
+	public FlumeClient(String hostname, int port) {
+		this.hostname = hostname;
+		this.port = port;
+		this.flumeClient = RpcClientFactory.getDefaultInstance(hostname, port); 
+	}
+	
+	// 将event消息发送到avro source
+	public void sendEvent(String msg){
+		// 构建event的header
+		Map<String,String> headers = new HashMap<>();
+		headers.put("timestamp", String.valueOf(new Date().getTime()));
+		// 构建event
+		Event event = EventBuilder.withBody(msg, Charset.forName("UTF-8"), headers);
+		
+		try {
+			flumeClient.append(event);
+		} catch (EventDeliveryException e) {
+			e.printStackTrace();
+			// 单条发送失败重新连接
+			flumeClient.close();
+			flumeClient = null;
+			flumeClient = RpcClientFactory.getDefaultInstance(hostname, port);
+		}
+	}
+	// 发送flume连接
+	public void cleanUp(){
+		flumeClient.close();
+	}
+	
+	public static void main(String[] args) {
+		FlumeClient flumeClient = new FlumeClient("master",9999);
+		String bMsg = "fromjava-msg";
+		for(int i = 0; i < 100; i++){
+			flumeClient.sendEvent(bMsg + i);
+		}
+		flumeClient.cleanUp();
+	}
+}
 
 ```
 
 
-3. 使用代码模拟产生avro文件，将文件发送到第一个节点上
 4. 如果在第二个节点上的控制台上看到我们发送的数据，说明我们是成功的
 
 
