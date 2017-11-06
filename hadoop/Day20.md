@@ -193,7 +193,7 @@ a1.sinks.s1.type = logger
 a1.sources.r1.channels = c1
 a1.sinks.s1.channel = c1
 ```
-
+# flume节点故障和消息瓶颈问题
 
 ![enter description here][2]
 
