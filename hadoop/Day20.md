@@ -285,6 +285,8 @@ public class FileoverClient {
 - 服务端
 服务端运行多个flume程序就可以了
 
+## 消息瓶颈问题
+
 
 
 
