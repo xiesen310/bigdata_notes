@@ -171,14 +171,9 @@ public class FlumeClient {
 		flumeClient.cleanUp();
 	}
 }
-
 ```
 
-
-
-
-
-## 配置文件
+> 下面是avro---> logger的配置文件
 
 ``` xml
 a1.sources = r1
