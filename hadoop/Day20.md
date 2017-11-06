@@ -34,4 +34,26 @@ flume-ng将采集的过程交给用户开发agent来直接指定
 agent中有三个组件Source、Channel(相当于缓冲区)、sink(目的是从channel中取数据)
 
 
+``` xml
+a1.sources = r1
+a1.sinks = s1
+a1.channels = c1
+
+a1.sources.r1.type = netcat
+a1.sources.r1.bind = localhost
+a1.sources.r1.port = 44444
+
+a1.sinks.s1.type = logger
+
+a1.channels.c1.type= memory
+a1.channels.c1.capacity = 1000
+a1.channels.c1.transactionCapacity = 100
+
+a1.sources.r1.channels = c1
+a1.sinks.s1.channel = c1
+```
+
+netcat:source的一种类型，网络抓取
+
+
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509931626942.jpg
