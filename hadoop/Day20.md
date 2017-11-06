@@ -106,7 +106,12 @@ a1.sinks.s1.channel = c1
 ## avro source logger sink
 
 > avro文件作为数据采集的对象，logger作为消费者消费的格式
-> 现在我们模拟出avro文件的格式发送数据到agent中
+> 现在我们模拟出avro文件的格式发送数据到agent中，下面的java程序就是模拟代码
+
+``` java
+enter code here
+```
+
 
 
 
