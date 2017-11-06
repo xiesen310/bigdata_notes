@@ -303,7 +303,6 @@ hosts.h2 = slaver1:8888
 host-selector = random
 ```
 
-
 - 发送程序，我们这里采用随机发送
 
 ``` java
