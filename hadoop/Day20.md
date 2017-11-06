@@ -352,7 +352,6 @@ public class LoadBalanceClient {
 		loadBalanceClient.close();
 	}
 }
-
 ```
 
 ## 多个节点串行化操作
