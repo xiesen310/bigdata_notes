@@ -12,3 +12,10 @@ grammar_cjkRuby: true
 | 日志数据    |   log文件，日志流  |  flume、kafka   |
 |  业务数据   |  关系型数据库   |    sqoop |
 |  传感数据   |  数据流   |  kafka   |
+
+# flume
+
+flume数据采集的数据来源:
+1. log文件
+2. 网路端口数据
+3. 消息队列数据
