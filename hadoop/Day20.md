@@ -364,11 +364,33 @@ public class LoadBalanceClient {
 1. 书写第一个节点的服务端程序
 
 ``` xml
+a1.sources = r1
+a1.sinks=s1
+a1.channels=c1
+
+a1.sources.r1.type = avro
+a1.sources.r1.bind = master
+a1.sources.r1.port = 9999
+
+a1.channels.c1.type= memory
+a1.channels.c1.capacity = 1000
+a1.channels.c1.transactionCapacity = 100
+
+a1.sinks.s1.type = avro
+a1.sinks.s1.hostname = slaver1
+a1.sinks.s1.port = 9998
+
+a1.sources.r1.channels = c1
+a1.sinks.s1.channel = c1
+```
+
+2. 书写第二个服务端程序
+
+``` xml
 
 ```
 
 
-2. 书写第二个服务端程序
 3. 使用代码模拟产生avro文件，将文件发送到第一个节点上
 4. 如果在第二个节点上的控制台上看到我们发送的数据，说明我们是成功的
 
