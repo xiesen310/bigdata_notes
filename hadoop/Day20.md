@@ -470,7 +470,6 @@ public class FlumeClient {
 		flumeClient.cleanUp();
 	}
 }
-
 ```
 
 
