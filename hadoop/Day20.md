@@ -4,6 +4,7 @@ tags: hadoop,flume
 grammar_cjkRuby: true
 ---
 
+
 # 大数据数据采集
 
 | 数据来源形式    |  数据来源格式   |  文件传输   |
