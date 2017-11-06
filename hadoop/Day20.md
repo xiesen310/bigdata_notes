@@ -289,8 +289,7 @@ public class FileoverClient {
 
 > 消息瓶颈问题，服务端启动多个agent节点，分布式的来接受客户端发送的event。客户端使用loadbalance类型
 
-- 客户端程序
-	- 配置文件
+- 配置文件
 	
 
 ``` xml
@@ -305,8 +304,11 @@ host-selector = random
 ```
 
 
-	- 发送程序，我们这里采用随机发送
+- 发送程序，我们这里采用随机发送
 
+``` java
+
+```
 
 
 
