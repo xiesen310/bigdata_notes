@@ -60,5 +60,11 @@ flume的整个数据采集过程，数据是被封装到Event里面进行传输�
 
 采集日志log文件，把结果存放到hdfs上
 
+log生成的方式
+1. 滚动生成
+	- 按时间滚动
+	- 按文件大小滚动
+
+
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509931626942.jpg
