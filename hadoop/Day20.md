@@ -256,7 +256,6 @@ hosts.h2 = slaver1:8888
 max-attempts = 2
 ```
 
-
 ``` java
 package top.xiesen.bd14;
 
