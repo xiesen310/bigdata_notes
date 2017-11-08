@@ -32,7 +32,10 @@ org.apache.sqoop.submission.engine.mapreduce.configuration.directory=/opt/softwa
 
 ``` xml
 # set sqoop enviroment
+
 export SQOOP_HOME=/opt/software/sqoop/sqoop-1.99.7-bin-hadoop200
+# set JDBC drivers to this directory
+export SQOOP_SERVER_EXTRA_LIB=$SQOOP_HOME/extra
 export PATH=$PATH:$SQOOP_HOME/bin
 export LOGDIR=$SQOOP_HOME/logs
 export BASEDIR=$SQOOP_HOME/base
