@@ -159,6 +159,9 @@ show link -n localmysql
 启动任务 `start job -n hdfs2mysqljob`
 出现如下图示，说明成功
 
+![][15]
+
+![][16]
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510114839464.jpg
@@ -175,3 +178,5 @@ show link -n localmysql
   [12]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510125368817.jpg
   [13]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510127071077.jpg
   [14]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510130347452.jpg
+  [15]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510130701508.jpg
+  [16]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510130782952.jpg
