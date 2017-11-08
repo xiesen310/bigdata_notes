@@ -54,7 +54,7 @@ export SQOOP_SERVER_EXTRA_LIB=/var/lib/sqoop2/
 ![][1]
 
 
-sqoop下的object
+# sqoop下的object
 
 - 基本信息
 server
@@ -63,7 +63,11 @@ version
 ![][2]
 
 - 核心对象
+
 connector
+> connector是支持sqoop的存储系统连接配置类型
+> connector Name是sqoop默认支持的数据连接类型
+
 driver
 link
 job
@@ -79,4 +83,4 @@ privilege
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510108602999.jpg
-  [2]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1510108914754]]]"
+  [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510108914754.jpg
