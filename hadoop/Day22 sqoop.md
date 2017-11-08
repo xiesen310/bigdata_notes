@@ -50,3 +50,13 @@ export SQOOP_SERVER_EXTRA_LIB=/var/lib/sqoop2/
 7. 检查是否初始化成功  `sqoop2-tool verify`
 8. 启动sqoop服务 `sqoop2-server start` 关闭sqoop服务 `sqoop2-server stop`
 9. 连接client `sqoop2-shell`
+
+![][1]
+
+
+sqoop下的object
+
+server|version|connector|driver|link|job|submission|option|role|principal|privilege
+
+
+  [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510108602999.jpg
