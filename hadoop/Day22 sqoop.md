@@ -64,15 +64,23 @@ version
 
 - 核心对象
 
-connector 
+connector
 > connector是sqoop当前支持的存储系统连接配置类型
 > connector Name是sqoop默认支持的数据连接类型
 > Supported Direction中`From/to`表示连接方式，From表示数据来源(导入)，To表示数据去向(导出)
 
-driver
-link
+![][3]
+driver ： 驱动配置信息，在此查看
+
+![][4]
+
+link、job数据导入导出配置对象
+link：配置具体的存储连接，他是以connecter作为类型的
+比如摸个jdbc数据库的连接，某个hdfs集群的连接等等
 job
-submission
+
+
+submission ：查看当前已提交的sqoop导入导出任务
 
 - 参数信息
 option|
@@ -85,3 +93,5 @@ privilege
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510108602999.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510108914754.jpg
+  [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510109418562.jpg
+  [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510109468320.jpg
