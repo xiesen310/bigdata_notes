@@ -8,8 +8,7 @@ grammar_cjkRuby: true
 # sqoop安装
 
 1. 解压
-2. 配置环境变量 
-3. 修改hadoop中的core-site.xml
+2. 修改hadoop中的core-site.xml
 
 ``` xml
 <property>
@@ -21,5 +20,16 @@ grammar_cjkRuby: true
   <value>*</value>
 </property>
 ```
+3. 配置环境变量 
 
+``` xml
+# set sqoop enviroment
+export SQOOP_HOME=/opt/software/sqoop/sqoop-1.99.7-bin-hadoop200
+export PATH=$PATH:$SQOOP_HOME/bin
+export LOGDIR=$SQOOP_HOME/logs
+export BASEDIR=$SQOOP_HOME/base
+```
+
+
+4. 
 
