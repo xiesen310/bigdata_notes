@@ -56,7 +56,27 @@ export SQOOP_SERVER_EXTRA_LIB=/var/lib/sqoop2/
 
 sqoop下的object
 
-server|version|connector|driver|link|job|submission|option|role|principal|privilege
+- 基本信息
+server
+version
+
+![][2]
+
+- 核心对象
+connector
+driver
+link
+job
+submission
+
+- 参数信息
+option|
+
+- 权限信息
+role
+principal|
+privilege
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510108602999.jpg
+  [2]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1510108914754]]]"
