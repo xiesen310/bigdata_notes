@@ -76,7 +76,7 @@ driver ： 驱动配置信息，在此查看
 
 link、job数据导入导出配置对象
 link：配置具体的存储连接，他是以connecter作为类型的
-比如摸个jdbc数据库的连接，某个hdfs集群的连接等等
+比如某个jdbc数据库的连接，某个hdfs集群的连接等等
 job
 
 
