@@ -95,16 +95,20 @@ privilege
 
 # 将mysql中的数据导入到hadoop平台
 
-## 创建link
+## 创建mysql link
 
 ![][5]
 
+查看link `show link`
 connection Properties：数据库的配置参数，可以不写
 Identifier enclose：标识符的封装符号，mysql中使用反引号作为标识符 `·`，sqoop中默认的是逗号。
+
+## 创建hdfs link
+
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510108602999.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510108914754.jpg
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510109418562.jpg
   [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510109468320.jpg
-  [5]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1510110814293]]]"
+  [5]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510110814293.jpg
