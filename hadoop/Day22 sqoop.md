@@ -7,7 +7,7 @@ grammar_cjkRuby: true
 
 # sqoop安装
 
-1. 解压
+1. 解压 `tar -zxvf `
 2. 修改hadoop中的core-site.xml
 
 ``` xml
@@ -43,4 +43,5 @@ export BASEDIR=$SQOOP_HOME/base
 export SQOOP_SERVER_EXTRA_LIB=/var/lib/sqoop2/
 ```
 
-
+6. 初始化sqoop `sqoop2-tool upgrade`
+7. 检查是否初始化成功  `sqoop2-tool verify`
