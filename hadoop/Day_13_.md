@@ -29,27 +29,27 @@ grammar_cjkRuby: true
 
 ``` xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.mycom.hive</groupId>
-	<artifactId>hivetest</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<modelVersion>4.0.0</modelVersion>
+<groupId>com.mycom.hive</groupId>
+<artifactId>hivetest</artifactId>
+<version>0.0.1-SNAPSHOT</version>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.apache.hive</groupId>
-			<artifactId>hive-jdbc</artifactId>
-			<version>2.3.0</version>
-		</dependency>
-		<dependency>
-			<groupId>jdk.tools</groupId>
-			<artifactId>jdk.tools</artifactId>
-			<version>1.8</version>
-			<scope>system</scope>
-			<systemPath>${JAVA_HOME}/lib/tools.jar</systemPath>
-		</dependency>
+<dependencies>
+	<dependency>
+		<groupId>org.apache.hive</groupId>
+		<artifactId>hive-jdbc</artifactId>
+		<version>2.3.0</version>
+	</dependency>
+	<dependency>
+		<groupId>jdk.tools</groupId>
+		<artifactId>jdk.tools</artifactId>
+		<version>1.8</version>
+		<scope>system</scope>
+		<systemPath>${JAVA_HOME}/lib/tools.jar</systemPath>
+	</dependency>
 
-	</dependencies>
+</dependencies>
 
 </project>
 
@@ -66,42 +66,42 @@ import java.sql.SQLException;
 
 public class HiveJdbcUtils {
 
-	public static final String DRIVER_CLASS = "org.apache.hive.jdbc.HiveDriver";
-	public static final String URL = "jdbc:hive2://master:10000/db14";
-	public static final String USERNAME = "root";
-	public static final String PASSWORD = "";
-	private static Connection connection;
-	/**
-	* getConnection 获取连接
-	* @param @return 参数
-	* @return Connection 返回类型
-	* @Exception 异常对象
-	*/
-	public static Connection getConnection(){
-		try {
-			Class.forName(DRIVER_CLASS);
-			connection = DriverManager.getConnection(URL,USERNAME,PASSWORD);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return connection;
+public static final String DRIVER_CLASS = "org.apache.hive.jdbc.HiveDriver";
+public static final String URL = "jdbc:hive2://master:10000/db14";
+public static final String USERNAME = "root";
+public static final String PASSWORD = "";
+private static Connection connection;
+/**
+* getConnection 获取连接
+* @param @return 参数
+* @return Connection 返回类型
+* @Exception 异常对象
+*/
+public static Connection getConnection(){
+	try {
+		Class.forName(DRIVER_CLASS);
+		connection = DriverManager.getConnection(URL,USERNAME,PASSWORD);
+	} catch (Exception e) {
+		e.printStackTrace();
 	}
-	
-	/**
-	* close 关闭连接
-	* @param @param connection 参数
-	* @return void 返回类型
-	* @Exception 异常对象
-	*/
-	public static void close(Connection connection) {
-		try {
-			if (connection != null) {
-				connection.close();
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+	return connection;
+}
+
+/**
+* close 关闭连接
+* @param @param connection 参数
+* @return void 返回类型
+* @Exception 异常对象
+*/
+public static void close(Connection connection) {
+	try {
+		if (connection != null) {
+			connection.close();
 		}
+	} catch (SQLException e) {
+		e.printStackTrace();
 	}
+}
 }
 ```
 
