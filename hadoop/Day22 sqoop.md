@@ -129,7 +129,7 @@ derby
 h2
 sqlite
 
-
+查看提交的状态信息，需要用到jobhistory服务，下面是启动过程
 启动jobhistory
 
 ``` xml
@@ -148,6 +148,8 @@ show link -n localmysql
 ![][12]
 
 # 将hdfs上的数据导入到mysql数据库
+
+
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510114839464.jpg
