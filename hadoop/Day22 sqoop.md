@@ -174,9 +174,47 @@ show link -n localmysql
 
 ![][16]
 
-# java API 创建link
+# java API 操作sqoop
 
+## 创建link
+``` java
+// 创建一个link
+	public void createLink() {
+		MLink link = client.createLink("generic-jdbc-connector");
+		link.setName("window_mysql");
+		// link.getConnectorLinkConfig()获取connector的link配置信息
+		MLinkConfig linkConfig = link.getConnectorLinkConfig();
 
+		// 取出所有的配置项
+		/*List<MConfig> list = linkConfig.getConfigs();
+		for (MConfig mConfig : list) {
+			List<MInput<?>> inputs = mConfig.getInputs();
+			for (MInput<?> input : inputs) {
+				System.out.println(input);
+			}
+		}*/
+
+		// MLinkConfig相关配置项名称设置配置项
+		linkConfig.getStringInput("linkConfig.jdbcDriver").setValue("com.mysql.jdbc.Driver");
+		linkConfig.getStringInput("linkConfig.connectionString").setValue("jdbc:mysql://192.168.6.81:3306/test");
+		linkConfig.getStringInput("linkConfig.username").setValue("root");
+		linkConfig.getStringInput("linkConfig.password").setValue("root");
+		linkConfig.getStringInput("dialect.identifierEnclose").setValue(" ");
+
+		Status status = client.saveLink(link);
+		if (status.canProceed()) {
+			System.out.println("创建link " + link.getName() + "成功");
+		} else {
+			System.out.println("创建link " + link.getName() + "失败,请检查配置项");
+		}
+	}
+```
+
+## 创建job
+
+``` java
+
+```
 
 
 
