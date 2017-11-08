@@ -105,6 +105,16 @@ Identifier enclose：标识符的封装符号，mysql中使用反引号作为标
 
 ## 创建hdfs link
 
+![][6]
+
+
+## 创建job
+
+![][7]
+
+查看job `show job`
+
+
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510108602999.jpg
@@ -112,3 +122,5 @@ Identifier enclose：标识符的封装符号，mysql中使用反引号作为标
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510109418562.jpg
   [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510109468320.jpg
   [5]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510110814293.jpg
+  [6]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510111284476.jpg
+  [7]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510112455271.jpg
