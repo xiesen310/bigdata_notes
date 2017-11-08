@@ -106,6 +106,8 @@ privilege
 
 ![][7]
 
+将connection String的值改为jdbc:mysql://master:3306/hive,否则会报错
+
 查看link `show link`
 connection Properties：数据库的配置参数，可以不写
 Identifier enclose：标识符的封装符号，mysql中使用反引号作为标识符 `·`，sqoop中默认的是逗号。
