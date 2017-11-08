@@ -157,6 +157,8 @@ show link -n localmysql
 我们在hdfs上创建文件导入目录文件夹 `hdfs dfs -mkdir /bd14/exptomysql`
 将数据放入到此文件夹内，就可以完成导入操作了，但是到目前为止sqoop只支持csv格式的文件导入导出，因此，我们需要将数据转换成csv格式，再放入到目录下
 启动任务 `start job -n hdfs2mysqljob`
+出现如下图示，说明成功
+
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510114839464.jpg
