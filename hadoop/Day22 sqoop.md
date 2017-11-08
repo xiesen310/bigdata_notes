@@ -136,19 +136,20 @@ show link -n localmysql
 ## 启动sqoop job
 
 启动命令 `start job -n mysql2hdfsjob`
+启动成功界面
+
+![][10]
 
 ## 启动异常
 启动job时，出现链接不上的现象，查看日志，看是否是权限问题
-
-![][10]
 
 ![][11]
 
 ![][12]
 
+![][13]
+
 # 将hdfs上的数据导入到mysql数据库
-
-
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510114839464.jpg
@@ -160,6 +161,7 @@ show link -n localmysql
   [7]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510110814293.jpg
   [8]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510111284476.jpg
   [9]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510112455271.jpg
-  [10]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510125422830.jpg
-  [11]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510125368817.jpg
-  [12]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510127071077.jpg
+  [10]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510127872035.jpg
+  [11]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510125422830.jpg
+  [12]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510125368817.jpg
+  [13]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510127071077.jpg
