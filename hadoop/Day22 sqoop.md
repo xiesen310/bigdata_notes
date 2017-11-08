@@ -213,7 +213,44 @@ show link -n localmysql
 ## 创建job
 
 ``` java
-
+public void createJob(){
+		MJob job = client.createJob("hdfslink", "window_mysql");
+		job.setName("hdfs2_Window");
+		
+		MFromConfig fromjobConfig = job.getFromJobConfig();
+		MToConfig toJobConfig = job.getToJobConfig();
+		
+		// 列举出配置项信息
+		/*List<MConfig> configs = fromjobConfig.getConfigs();
+		for (MConfig mConfig : configs) {
+			List<MInput<?>> inputs = mConfig.getInputs();
+			for (MInput<?> mInput : inputs) {
+				System.out.println(mInput);
+			}
+		}*/
+		
+		fromjobConfig.getStringInput("fromJobConfig.inputDirectory").setValue("/bd14/exptomysql");
+		
+		// 列举出配置项信息
+		/*System.out.println("----------------");
+		List<MConfig> configs2 = toJobConfig.getConfigs();
+		for (MConfig mConfig : configs2) {
+			List<MInput<?>> inputs = mConfig.getInputs();
+			for (MInput<?> mInput : inputs) {
+				System.out.println(mInput);
+			}
+		}*/
+		
+		toJobConfig.getStringInput("toJobConfig.schemaName").setValue("xs");
+		toJobConfig.getStringInput("toJobConfig.tableName").setValue("users");
+		
+		Status status = client.saveJob(job);
+		if(status.canProceed()){
+			System.out.println("创建job " + job.getName() + "成功");
+		}else{
+			System.out.println("创建job " + job.getName() + "失败，请检查配置");
+		}
+	}
 ```
 
 
