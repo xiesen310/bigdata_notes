@@ -136,7 +136,8 @@ mr-jobhistory-daemon.sh start historyserver
 update link -n localmysql
 show link -n localmysql
 
-启动job时，出现链接不上的现象
+## 启动异常
+启动job时，出现链接不上的现象，查看日志，看是否是权限问题
 ![][10]
 
 ![][11]
