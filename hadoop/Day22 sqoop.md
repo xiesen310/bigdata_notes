@@ -55,13 +55,13 @@ export SQOOP_SERVER_EXTRA_LIB=/var/lib/sqoop2/
 
 # sqoop下的object
 
-- 基本信息
+## 基本信息
 server
 version
 
 ![][2]
 
-- 核心对象
+## 核心对象
 
 connector
 > connector是sqoop当前支持的存储系统连接配置类型
@@ -80,13 +80,13 @@ job 配置一次导入导出过程的全部细节信息，它是以link作为输
 导出数据的具体制定在job里面配置
 
 
-
 submission ：查看当前已提交的sqoop导入导出任务
 
-- 参数信息
-option|
+## 参数信息
+option
 
-- 权限信息
+## 权限信息
+
 role
 principal|
 privilege
