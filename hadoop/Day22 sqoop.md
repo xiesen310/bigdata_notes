@@ -20,7 +20,15 @@ grammar_cjkRuby: true
   <value>*</value>
 </property>
 ```
-3. 配置环境变量 
+
+3. 在【/opt/software/sqoop/sqoop-1.99.7-bin-hadoop200/conf】下修改sqoop.properties
+
+``` xml
+# Hadoop configuration directory
+org.apache.sqoop.submission.engine.mapreduce.configuration.directory=/opt/software/hadoop/hadoop
+-2.7.4/etc/hadoop
+```
+4. 配置环境变量 
 
 ``` xml
 # set sqoop enviroment
@@ -29,6 +37,5 @@ export PATH=$PATH:$SQOOP_HOME/bin
 export LOGDIR=$SQOOP_HOME/logs
 export BASEDIR=$SQOOP_HOME/base
 ```
-
-4. 
+ 
 
