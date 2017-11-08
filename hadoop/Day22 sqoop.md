@@ -30,6 +30,5 @@ export LOGDIR=$SQOOP_HOME/logs
 export BASEDIR=$SQOOP_HOME/base
 ```
 
-
 4. 
 
