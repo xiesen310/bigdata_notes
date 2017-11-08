@@ -136,6 +136,14 @@ mr-jobhistory-daemon.sh start historyserver
 update link -n localmysql
 show link -n localmysql
 
+启动job时，出现链接不上的现象
+![][10]
+
+![][11]
+
+![][12]
+
+
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510114839464.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510108602999.jpg
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510108914754.jpg
@@ -145,3 +153,6 @@ show link -n localmysql
   [7]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510110814293.jpg
   [8]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510111284476.jpg
   [9]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510112455271.jpg
+  [10]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510125422830.jpg
+  [11]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510125368817.jpg
+  [12]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510125234092.jpg
