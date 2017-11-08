@@ -4,6 +4,27 @@ tags: hive,hadoop
 grammar_cjkRuby: true
 ---
 
+* [Hive 优化](#hive-优化)
+* [Map端聚合操作](#map端聚合操作)
+* [Order, Sort, Cluster, and Distribute By](#order-sort-cluster-and-distribute-by)
+	* [order by](#order-by)
+	* [Sort by](#sort-by)
+	* [distribute by](#distribute-by)
+	* [Cluster by](#cluster-by)
+* [复杂数据类型](#复杂数据类型)
+	* [array](#array)
+	* [Map](#map)
+	* [Struct](#struct)
+* [文件的保存格式](#文件的保存格式)
+* [hive分区](#hive分区)
+	* [创建分区文件](#创建分区文件)
+	* [静态导入数据](#静态导入数据)
+	* [动态导入数据](#动态导入数据)
+	* [二级分区](#二级分区)
+* [分桶](#分桶)
+* [hive压缩](#hive压缩)
+* [maven 更换国内镜像](#maven-更换国内镜像)
+
 # Hive 优化
 
 > 在我们学习阶段，集群都是搭在虚拟机上，相对于真机而言，是很卡的，下面是一些对于集群优化的操作。
@@ -85,7 +106,7 @@ group by idA
 order by num desc limit 10
 ```
 
-这样就可以了。本博主没查源码，估计是因为hive查询的时候起的是mr任务，mr任务里排序的时候，不认得count(*)是什么东东，所以给个别名就好。
+这样就可以了。我没查源码，估计是因为hive查询的时候起的是mr任务，mr任务里排序的时候，不认得count(*)是什么东东，所以给个别名就好。
 
 hive的底层原理是将order by进行了全排序，在单个节点上可以进行排序的，在多个节点就显的力不从心了。因此，对于大数据order by就无能为力了
 
