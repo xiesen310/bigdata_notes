@@ -93,8 +93,8 @@ submission ：查看当前已提交的sqoop导入导出任务
 ## 参数信息
 option
 
+![][6]
 ## 权限信息
-
 role
 principal|
 privilege
@@ -104,7 +104,7 @@ privilege
 
 ## 创建mysql link
 
-![][6]
+![][7]
 
 查看link `show link`
 connection Properties：数据库的配置参数，可以不写
@@ -112,12 +112,12 @@ Identifier enclose：标识符的封装符号，mysql中使用反引号作为标
 
 ## 创建hdfs link
 
-![][7]
+![][8]
 
 
 ## 创建job
 
-![][8]
+![][9]
 
 查看job `show job`
 
@@ -127,6 +127,7 @@ Identifier enclose：标识符的封装符号，mysql中使用反引号作为标
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510108914754.jpg
   [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510109418562.jpg
   [5]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510109468320.jpg
-  [6]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510110814293.jpg
-  [7]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510111284476.jpg
-  [8]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510112455271.jpg
+  [6]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510115138849.jpg
+  [7]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510110814293.jpg
+  [8]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510111284476.jpg
+  [9]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510112455271.jpg
