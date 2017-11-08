@@ -128,6 +128,13 @@ h2
 sqlite
 
 
+启动jobhistory
+
+``` xml
+mr-jobhistory-daemon.sh start historyserver
+```
+
+
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510114839464.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510108602999.jpg
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510108914754.jpg
