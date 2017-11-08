@@ -45,3 +45,4 @@ export SQOOP_SERVER_EXTRA_LIB=/var/lib/sqoop2/
 
 6. 初始化sqoop `sqoop2-tool upgrade`
 7. 检查是否初始化成功  `sqoop2-tool verify`
+8. 启动sqoop服务 `sqoop2-server start` 关闭sqoop服务 `sqoop2-server stop`
