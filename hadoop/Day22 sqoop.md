@@ -67,6 +67,7 @@ version
 connector
 > connector是支持sqoop的存储系统连接配置类型
 > connector Name是sqoop默认支持的数据连接类型
+> Supported Direction中`From/to`表示连接方式，From表示数据来源(导入)，To表示数据去向(导出)
 
 driver
 link
