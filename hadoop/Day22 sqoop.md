@@ -4,7 +4,6 @@ tags: hadoop,sqoop
 grammar_cjkRuby: true
 ---
 
-
 # sqoop安装
 
 1. 解压 `tar -zxvf  sqoop-1.99.7-bin-hadoop200.tar.gz`
