@@ -4,8 +4,14 @@ tags: hadoop,sqoop
 grammar_cjkRuby: true
 ---
 
+# sqoop
 > sqoop是Apache顶级项目，主要用来在Hadoop和关系数据库中传递数据。通过sqoop，我们可以方便的将数据从关系数据库导入到HDFS，或者将数据从HDFS导出到关系数据库。
 
+sqoop架构
+
+![sqoop架构示意图][1]
+
+Sqoop工具接收到客户端的shell命令或者Java api命令后，通过Sqoop中的任务翻译器(Task Translator)将命令转换为对应的MapReduce任务，而后将关系型数据库和Hadoop中的数据进行相互转移，进而完成数据的拷贝。
 # sqoop安装
 
 1. 解压 `tar -zxvf  sqoop-1.99.7-bin-hadoop200.tar.gz`
@@ -52,7 +58,7 @@ export SQOOP_SERVER_EXTRA_LIB=/var/lib/sqoop2/
 8. 启动sqoop服务 `sqoop2-server start` 关闭sqoop服务 `sqoop2-server stop`
 9. 连接client `sqoop2-shell`
 
-![][1]
+![][2]
 
 
 # sqoop下的object
@@ -61,7 +67,7 @@ export SQOOP_SERVER_EXTRA_LIB=/var/lib/sqoop2/
 server
 version
 
-![][2]
+![][3]
 
 ## 核心对象
 
@@ -70,10 +76,10 @@ connector
 > connector Name是sqoop默认支持的数据连接类型
 > Supported Direction中`From/to`表示连接方式，From表示数据来源(导入)，To表示数据去向(导出)
 
-![][3]
+![][4]
 driver ： 驱动配置信息，在此查看
 
-![][4]
+![][5]
 
 link、job数据导入导出配置对象
 link：配置具体的存储连接，他是以connecter作为类型的
@@ -98,7 +104,7 @@ privilege
 
 ## 创建mysql link
 
-![][5]
+![][6]
 
 查看link `show link`
 connection Properties：数据库的配置参数，可以不写
@@ -106,22 +112,21 @@ Identifier enclose：标识符的封装符号，mysql中使用反引号作为标
 
 ## 创建hdfs link
 
-![][6]
+![][7]
 
 
 ## 创建job
 
-![][7]
+![][8]
 
 查看job `show job`
 
 
-
-
-  [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510108602999.jpg
-  [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510108914754.jpg
-  [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510109418562.jpg
-  [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510109468320.jpg
-  [5]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510110814293.jpg
-  [6]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510111284476.jpg
-  [7]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510112455271.jpg
+  [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510114839464.jpg
+  [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510108602999.jpg
+  [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510108914754.jpg
+  [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510109418562.jpg
+  [5]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510109468320.jpg
+  [6]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510110814293.jpg
+  [7]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510111284476.jpg
+  [8]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510112455271.jpg
