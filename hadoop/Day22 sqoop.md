@@ -77,7 +77,9 @@ driver ： 驱动配置信息，在此查看
 link、job数据导入导出配置对象
 link：配置具体的存储连接，他是以connecter作为类型的
 比如某个jdbc数据库的连接，某个hdfs集群的连接等等
-job
+job 配置一次导入导出过程的全部细节信息，它是以link作为输入输出的，通常用`from link1 to link2` 表示把link1中的数据导入到link2中
+导出数据的具体制定在job里面配置
+
 
 
 submission ：查看当前已提交的sqoop导入导出任务
@@ -89,6 +91,10 @@ option|
 role
 principal|
 privilege
+
+
+# 将mysql中的数据导入到hadoop平台
+
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510108602999.jpg
