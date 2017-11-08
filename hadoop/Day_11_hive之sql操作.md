@@ -19,6 +19,7 @@ grammar_cjkRuby: true
 # DDL数据定义语言
 
 DDL(Data Definition Language)
+
 create 数据库对象的创建
 alter 修改数据库对象
 drop 删除数据库对象
@@ -27,6 +28,7 @@ truncate和delete之间的区别
 truncate是表级别的操作，delete是行级别的操作；truncate删除数据不能通过日志进行恢复，delete删除之后可以通过日志进行恢复
 
 # DML数据操纵语言
+
 DML(Data Manipulation Language)
 insert 插入操作
 update 更新操作
