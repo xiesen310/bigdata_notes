@@ -124,11 +124,6 @@ Identifier enclose：标识符的封装符号，mysql中使用反引号作为标
 查看job `show job`
 
 
-小型数据库
-derby
-h2
-sqlite
-
 查看提交的状态信息，需要用到jobhistory服务，下面是启动过程
 启动jobhistory
 
