@@ -7,7 +7,7 @@ grammar_cjkRuby: true
 # sqoop
 > sqoop是Apache顶级项目，主要用来在Hadoop和关系数据库中传递数据。通过sqoop，我们可以方便的将数据从关系数据库导入到HDFS，或者将数据从HDFS导出到关系数据库。
 
-sqoop架构
+**sqoop架构**
 
 ![sqoop架构示意图][1]
 
