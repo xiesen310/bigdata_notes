@@ -133,7 +133,8 @@ sqlite
 ``` xml
 mr-jobhistory-daemon.sh start historyserver
 ```
-
+update link -n localmysql
+show link -n localmysql
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510114839464.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510108602999.jpg
