@@ -358,6 +358,111 @@ public class SqoopTest {
 
 ```
 
+## windows上mysql写入到集群中的hdfs上
+
+> 注意写入到hdfs上压缩格式和文件输出格式是枚举类型
+
+``` java
+package top.xiesen.sqoopcleint;
+
+import java.util.List;
+
+import org.apache.sqoop.client.SqoopClient;
+import org.apache.sqoop.model.MConfig;
+import org.apache.sqoop.model.MEnumInput;
+import org.apache.sqoop.model.MFromConfig;
+import org.apache.sqoop.model.MInput;
+import org.apache.sqoop.model.MJob;
+import org.apache.sqoop.model.MLink;
+import org.apache.sqoop.model.MLinkConfig;
+import org.apache.sqoop.model.MToConfig;
+import org.apache.sqoop.validation.Status;
+
+
+/**
+* 项目名称：sqoopapi
+* 类名称：SqoopTest1
+* 类描述：将windows上mysql中的数据写入到hdfs上
+* @author Allen
+*/
+public class SqoopTest1 {
+
+	private final String URL = "http://master:12000/sqoop/";
+	private SqoopClient client = new SqoopClient(URL);
+	
+	
+	/**
+	* createLink 创建windows_hdfs link
+	* @param  参数
+	* @return void 返回类型
+	* @Exception 异常对象
+	* @author Allen
+	*/
+	public void createLink() {
+		MLink link = client.createLink("hdfs-connector");
+		link.setName("window_hdfs");
+		MLinkConfig linkConfig = link.getConnectorLinkConfig();
+		
+		linkConfig.getStringInput("linkConfig.uri").setValue("hdfs://master:9000");
+		linkConfig.getStringInput("linkConfig.confDir").setValue("/opt/software/hadoop/hadoop-2.7.4/etc/hadoop");
+		Status status = client.saveLink(link);
+		
+		if (status.canProceed()) {
+			System.out.println("创建link " + link.getName() + "成功");
+		} else {
+			System.out.println("创建link " + link.getName() + "失败,请检查配置项");
+		}
+	}
+	
+	
+	/**
+	* createJob 创建job
+	* @param  参数
+	* @return void 返回类型
+	* @Exception 异常对象
+	* @author Allen
+	*/
+	public void createJob(){
+		MJob job = client.createJob("window_mysql", "window_hdfs");
+		job.setName("windows_job");
+		
+		MFromConfig fromjobConfig = job.getFromJobConfig();
+		MToConfig toJobConfig = job.getToJobConfig();
+		
+		fromjobConfig.getStringInput("fromJobConfig.schemaName").setValue("test");
+		fromjobConfig.getStringInput("fromJobConfig.partitionColumn").setValue("id");
+		fromjobConfig.getStringInput("fromJobConfig.tableName").setValue("users");
+		
+		List<MConfig> configs = toJobConfig.getConfigs();
+		for (MConfig mConfig : configs) {
+			List<MInput<?>> inputs = mConfig.getInputs();
+			for (MInput<?> mInput : inputs) {
+				System.out.println(mInput);
+			}
+		}
+		// 压缩格式和输出格式为枚举类型
+		toJobConfig.getEnumInput("toJobConfig.compression").setValue("NONE");
+		toJobConfig.getEnumInput("toJobConfig.outputFormat").setValue("TEXT_FILE");
+		toJobConfig.getStringInput("toJobConfig.outputDirectory").setValue("/bd14/windows");
+		
+		Status status = client.saveJob(job);
+		if(status.canProceed()){
+			System.out.println("创建job " + job.getName() + "成功");
+		}else{
+			System.out.println("创建job " + job.getName() + "失败，请检查配置");
+		}
+	}
+	
+	public static void main(String[] args) {
+		SqoopTest1 st = new SqoopTest1();
+//		st.createLink();
+//		st.createJob();
+		st.client.startJob("windows_job");
+	}
+}
+
+```
+
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510114839464.jpg
