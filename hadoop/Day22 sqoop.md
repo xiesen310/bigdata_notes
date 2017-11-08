@@ -253,6 +253,111 @@ public void createJob(){
 	}
 ```
 
+## 启动job
+
+``` java
+package top.xiesen.sqoopcleint;
+
+import java.util.List;
+
+import org.apache.sqoop.client.SqoopClient;
+import org.apache.sqoop.model.MConfig;
+import org.apache.sqoop.model.MFromConfig;
+import org.apache.sqoop.model.MInput;
+import org.apache.sqoop.model.MJob;
+import org.apache.sqoop.model.MLink;
+import org.apache.sqoop.model.MLinkConfig;
+import org.apache.sqoop.model.MToConfig;
+import org.apache.sqoop.validation.Status;
+
+public class SqoopTest {
+	// sqoop的服务端url地址
+	private final String URL = "http://master:12000/sqoop/";
+	// 创建客户端对象
+	private SqoopClient client = new SqoopClient(URL);
+
+	// 创建一个link
+	public void createLink() {
+		MLink link = client.createLink("generic-jdbc-connector");
+		link.setName("window_mysql");
+		// link.getConnectorLinkConfig()获取connector的link配置信息
+		MLinkConfig linkConfig = link.getConnectorLinkConfig();
+
+		// 取出所有的配置项
+		/*List<MConfig> list = linkConfig.getConfigs();
+		for (MConfig mConfig : list) {
+			List<MInput<?>> inputs = mConfig.getInputs();
+			for (MInput<?> input : inputs) {
+				System.out.println(input);
+			}
+		}*/
+
+		// MLinkConfig相关配置项名称设置配置项
+		linkConfig.getStringInput("linkConfig.jdbcDriver").setValue("com.mysql.jdbc.Driver");
+		linkConfig.getStringInput("linkConfig.connectionString").setValue("jdbc:mysql://192.168.6.81:3306/test");
+		linkConfig.getStringInput("linkConfig.username").setValue("root");
+		linkConfig.getStringInput("linkConfig.password").setValue("root");
+		linkConfig.getStringInput("dialect.identifierEnclose").setValue(" ");
+
+		Status status = client.saveLink(link);
+		if (status.canProceed()) {
+			System.out.println("创建link " + link.getName() + "成功");
+		} else {
+			System.out.println("创建link " + link.getName() + "失败,请检查配置项");
+		}
+	}
+	
+	
+	public void createJob(){
+		MJob job = client.createJob("hdfslink", "window_mysql");
+		job.setName("hdfs2_Window");
+		
+		MFromConfig fromjobConfig = job.getFromJobConfig();
+		MToConfig toJobConfig = job.getToJobConfig();
+		
+		// 列举出配置项信息
+		/*List<MConfig> configs = fromjobConfig.getConfigs();
+		for (MConfig mConfig : configs) {
+			List<MInput<?>> inputs = mConfig.getInputs();
+			for (MInput<?> mInput : inputs) {
+				System.out.println(mInput);
+			}
+		}*/
+		
+		fromjobConfig.getStringInput("fromJobConfig.inputDirectory").setValue("/bd14/exptomysql");
+		
+		// 列举出配置项信息
+		/*System.out.println("----------------");
+		List<MConfig> configs2 = toJobConfig.getConfigs();
+		for (MConfig mConfig : configs2) {
+			List<MInput<?>> inputs = mConfig.getInputs();
+			for (MInput<?> mInput : inputs) {
+				System.out.println(mInput);
+			}
+		}*/
+		
+		toJobConfig.getStringInput("toJobConfig.schemaName").setValue("xs");
+		toJobConfig.getStringInput("toJobConfig.tableName").setValue("users");
+		
+		Status status = client.saveJob(job);
+		if(status.canProceed()){
+			System.out.println("创建job " + job.getName() + "成功");
+		}else{
+			System.out.println("创建job " + job.getName() + "失败，请检查配置");
+		}
+	}
+
+	public static void main(String[] args) {
+		SqoopTest st = new SqoopTest();
+//		st.createLink();
+//		st.createJob();
+		// 启动job
+		st.client.startJob("hdfs2_Window");
+	}
+}
+
+```
+
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510114839464.jpg
