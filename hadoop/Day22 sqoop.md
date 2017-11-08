@@ -37,5 +37,10 @@ export PATH=$PATH:$SQOOP_HOME/bin
 export LOGDIR=$SQOOP_HOME/logs
 export BASEDIR=$SQOOP_HOME/base
 ```
- 
+ 5. 配置sqoop加载的驱动的文件夹，也可以不配置，因为它默认加载lib下的jar，我们只需要将jar放在lib下面就可以了
+
+``` xml
+export SQOOP_SERVER_EXTRA_LIB=/var/lib/sqoop2/
+```
+
 
