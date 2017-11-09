@@ -59,6 +59,19 @@ export PATH=$PATH:$KAFKA_HOME/bin
 # The id of the broker. This must be set to a unique integer for each broker.
 broker.id=0
 ```
+设置端口号
+
+``` stylus
+############################# Socket Server Settings #############################
+
+# The address the socket server listens on. It will get the value returned from 
+# java.net.InetAddress.getCanonicalHostName() if not configured.
+#   FORMAT:
+#     listeners = security_protocol://host_name:port
+#   EXAMPLE:
+#     listeners = PLAINTEXT://your.host.name:9092
+listeners=PLAINTEXT://:9094
+```
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510194230689.jpg
