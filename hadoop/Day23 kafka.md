@@ -85,8 +85,11 @@ log.dirs=/opt/software/kafka/kafka_2.11-0.10.1.1/kafka-logs
 
 ![][4]
 
+message中分为两个部分,key--value
+
+
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510194230689.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510207524844.jpg
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510208182845.jpg
-  [4]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1510209377879]]]"
+  [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510209377879.jpg
