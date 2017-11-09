@@ -49,11 +49,10 @@ grammar_cjkRuby: true
 
 ``` xml
 # set kafka enviroment
-
 export KAFKA_HOME=/opt/software/kafka/kafka_2.11-0.10.1.1
 export PATH=$PATH:$KAFKA_HOME/bin
 ```
-3. 设置broker.id
+3. 设置broker.id，整个集群中broker.id不能相同
 
 ``` stylus
 # The id of the broker. This must be set to a unique integer for each broker.
