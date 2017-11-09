@@ -34,7 +34,9 @@ grammar_cjkRuby: true
 
 ## kafka架构
 
-broker是专门提供消息的读写操作的，并且能够保存消息
+- **broker** 是专门提供消息的读写操作的，并且能够保存消息
+- **topic** 是对消息进行分类的
+- **partition** 
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510194230689.jpg
