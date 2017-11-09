@@ -72,6 +72,12 @@ broker.id=0
 #     listeners = PLAINTEXT://your.host.name:9092
 listeners=PLAINTEXT://:9094
 ```
+指定日志位置
+
+``` xml
+# A comma seperated list of directories under which to store log files
+log.dirs=/opt/software/kafka/kafka_2.11-0.10.1.1/kafka-logs
+```
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510194230689.jpg
