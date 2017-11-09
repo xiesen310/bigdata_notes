@@ -103,6 +103,8 @@ kafka producer数据为message打分区标识有两种策略：
 2. 使用kafka.producer.Partitions接口来自动分区：常见的hash分区就是这样
 
 
+如何保证数据 xactly once
+
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510194230689.jpg
