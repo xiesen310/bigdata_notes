@@ -78,5 +78,8 @@ listeners=PLAINTEXT://:9094
 log.dirs=/opt/software/kafka/kafka_2.11-0.10.1.1/kafka-logs
 ```
 
+![容错][2]
+
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510194230689.jpg
+  [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510207524844.jpg
