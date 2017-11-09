@@ -29,3 +29,7 @@ grammar_cjkRuby: true
 消息随时产生，实时发出
 
 
+![冗余特点][1]
+
+
+  [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510194230689.jpg
