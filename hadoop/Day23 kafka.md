@@ -26,6 +26,6 @@ grammar_cjkRuby: true
 
 ## 流处理特点
 
-
+消息随时产生，实时发出
 
 
