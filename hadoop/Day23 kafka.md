@@ -69,7 +69,7 @@ broker.id=0
 #     listeners = security_protocol://host_name:port
 #   EXAMPLE:
 #     listeners = PLAINTEXT://your.host.name:9092
-listeners=PLAINTEXT://:9094
+listeners=PLAINTEXT://:9093
 ```
 5. 指定日志位置，如果在同一台机器上指定多个kafka，需要设置日志的另一个输出目录，否则，默认即可
 
