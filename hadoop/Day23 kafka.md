@@ -42,4 +42,17 @@ grammar_cjkRuby: true
 - **consumer Group** 消费者组，确保消费的数据不重复，提升消费效率
 
 
+## kafka安装
+
+1. 解压 `tar -zxvf kafka_2.11-0.10.1.1.tgz`
+2. 配置环境变量
+
+``` xml
+# set kafka enviroment
+
+export KAFKA_HOME=/opt/software/kafka/kafka_2.11-0.10.1.1
+export PATH=$PATH:$KAFKA_HOME/bin
+```
+
+
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510194230689.jpg
