@@ -58,7 +58,7 @@ export PATH=$PATH:$KAFKA_HOME/bin
 # The id of the broker. This must be set to a unique integer for each broker.
 broker.id=0
 ```
-设置端口号
+4. 设置端口号，如果在一台机器上布置多个kafka，需要改端口，否则，默认即可
 
 ``` stylus
 ############################# Socket Server Settings #############################
@@ -71,7 +71,7 @@ broker.id=0
 #     listeners = PLAINTEXT://your.host.name:9092
 listeners=PLAINTEXT://:9094
 ```
-指定日志位置
+5. 指定日志位置，如果在同一台机器上指定多个kafka，需要设置日志的另一个输出目录，否则，默认即可
 
 ``` xml
 # A comma seperated list of directories under which to store log files
