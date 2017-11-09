@@ -53,6 +53,12 @@ grammar_cjkRuby: true
 export KAFKA_HOME=/opt/software/kafka/kafka_2.11-0.10.1.1
 export PATH=$PATH:$KAFKA_HOME/bin
 ```
+3. 设置broker.id
+
+``` stylus
+# The id of the broker. This must be set to a unique integer for each broker.
+broker.id=0
+```
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510194230689.jpg
