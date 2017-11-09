@@ -105,7 +105,7 @@ kafka producer数据为message打分区标识有两种策略：
 
 如何保证数据 Exactly once
 
-
+![][6]
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510194230689.jpg
@@ -113,3 +113,4 @@ kafka producer数据为message打分区标识有两种策略：
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510208182845.jpg
   [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510209377879.jpg
   [5]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510215917383.jpg
+  [6]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1510217060193]]]"
