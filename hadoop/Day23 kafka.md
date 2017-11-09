@@ -37,6 +37,8 @@ grammar_cjkRuby: true
 - **broker** 是专门提供消息的读写操作的，并且能够保存消息
 - **topic** 是对消息进行分类的
 - **partition** 一个partition只能有一个broker负责，但是一个topic可以包含多个partition
+- **preducer** 生产者，发送消息
+- **consumer** 消费者，获取数据
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510194230689.jpg
