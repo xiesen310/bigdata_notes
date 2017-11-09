@@ -78,6 +78,9 @@ listeners=PLAINTEXT://:9093
 log.dirs=/opt/software/kafka/kafka_2.11-0.10.1.1/kafka-logs
 ```
 
+启动kafka `kafka-server-start.sh server.properties &`，&符号是后天启动
+
+
 ![容错][2]
 
 
