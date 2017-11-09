@@ -89,10 +89,24 @@ message中分为两个部分,key--value
 
 
 consumer_group的元数据被保存在kafka数据文件内部
-1. group的名称
+1. group的名称，默认有个default的group
+2. 该group下消费的所有topic已被消费到的offset当前值，比如一个topic下面有2个partition:partition-0，partition-1需要保存该topic partition-0下的offset和partition-1下的offset
+3. 断开之后，再连接可能会发生数据丢失和数据重复消费，主要原因是这个consumergroup的元素局是由kafka内部来维护的，解决这个问题是自己维护元数据
+
+
+![][5]
+
+可以通过num.partitions来指定创建的默认分区数量
+
+kafka producer数据为message打分区标识有两种策略：
+1. 由producer指定分区标识号
+2. 使用kafka.producer.Partitions接口来自动分区：常见的hash分区就是这样
+
+
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510194230689.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510207524844.jpg
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510208182845.jpg
   [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510209377879.jpg
+  [5]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510215917383.jpg
