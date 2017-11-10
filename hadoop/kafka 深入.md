@@ -71,11 +71,41 @@ public void close() {
 4. 指定分区发送数据
 
 ``` java
-
+/**
+* assignPartitionSend 指定分区发送数据
+* @param @param key
+* @param @param value 参数
+* @return void 返回类型
+* @Exception 异常对象
+* @author Allen
+*/
+public void assignPartitionSend(String key, String value) {
+	ProducerRecord<String, String> record = new ProducerRecord<>("from-java", 0, key, value);
+	producer.send(record);
+}
 ```
 
 
 5. 获取topic详细信息
+
+``` java
+/**
+* getTopicPartition 获取topic的详细信息
+* @param @param topic 参数
+* @return void 返回类型
+* @Exception 异常对象
+* @author Allen
+*/
+public void getTopicPartition(String topic) {
+
+	List<PartitionInfo> partitionInfos = producer.partitionsFor(topic);
+	for (PartitionInfo partitionInfo : partitionInfos) {
+		System.out.println(partitionInfo);
+	}
+}
+```
+
+
 6. 获取集群状态信息
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510278579304.jpg
