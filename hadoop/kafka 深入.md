@@ -181,6 +181,28 @@ public ConsumerClient() {
 
 2. 订阅topic方法
 
+``` java
+	/**
+	* subscribeTopic 订阅topic
+	* @param  参数
+	* @return void 返回类型
+	* @Exception 异常对象
+	* @author Allen
+	*/
+	public void subscribeTopic(){
+		consumer.subscribe(Arrays.asList("from-java"));
+		while(true){
+			// 从kafka拉取数据
+			ConsumerRecords<String,String> records = consumer.poll(1000);
+			
+			for (ConsumerRecord<String, String> record : records) {
+				System.out.printf("partition = %d, offset = %d, key = %s, value = %s%n", 
+						record.partition(), record.offset(), record.key(), record.value());
+			}
+		}
+	}
+```
+
 
 
 
