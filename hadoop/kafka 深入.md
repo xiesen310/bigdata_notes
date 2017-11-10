@@ -36,6 +36,23 @@ public ProducerClient() {
 
 
 2. 发送数据
+
+``` java
+/**
+* sendRecorder 发送数据
+* @param @param key
+* @param @param value 参数
+* @return void 返回类型
+* @Exception 异常对象
+* @author Allen
+*/
+public void sendRecorder(String key, String value) {
+	ProducerRecord<String, String> record = new ProducerRecord<>("from-java", key, value);
+	producer.send(record);
+}
+```
+
+
 3. 关闭连接
 4. 指定分区发送数据
 5. 获取topic详细信息
