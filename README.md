@@ -240,7 +240,7 @@
 	* [client调优](#client调优)
 	* [服务端调优](#服务端调优)
 
-## Day20 flume
+## Day20 flume [连接][21]
 
 * [大数据数据采集](#大数据数据采集)
 * [flume](#flume)
@@ -327,3 +327,4 @@
   [18]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day17.md
   [19]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day18.md
   [20]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day19.md
+  [21]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day20.md
