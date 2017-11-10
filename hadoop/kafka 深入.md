@@ -297,6 +297,39 @@ public void consumerAssigned() {
 	}
 }
 ```
+5. 设置offset
+
+``` java
+/**
+* setCommitoffset 设置offset
+* @param  参数
+* @return void 返回类型
+* @Exception 异常对象
+* @author Allen
+*/
+public void setCommitoffset() {
+	Map<TopicPartition, OffsetAndMetadata> offsets = new HashMap<>();
+	offsets.put(new TopicPartition("from-java", 1), new OffsetAndMetadata(830));
+	List<String> topics = new ArrayList<>();
+	topics.add("from-java");
+	consumer.subscribe(topics);
+	// 指定位置提交某个分区的offset的值，这个会在下一次拉取数据之前生效
+
+	while (true) {
+		ConsumerRecords<String, String> records = consumer.poll(1000);
+		for (ConsumerRecord<String, String> record : records) {
+			if(record.partition() == 1){
+				System.out.println("offset = " + record.offset() + " ,partition = " + record.partition() + "  ,key = "
+						+ record.key() + " ,value = " + record.value());
+			}
+			consumer.commitSync(offsets);
+		}
+
+	}
+}
+```
+
+
 
 ## flume 发送数据，kafka消费
 需求：写一个flume客户端，发送数据给avro的flume，然后sink给kafka
