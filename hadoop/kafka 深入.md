@@ -128,6 +128,38 @@ public void getMetrics() {
 
 7. 发送数据返回状态信息---回调函数
 
+``` java
+	/**
+	* sendRecorderWithCallback 回调函数返回发送信息
+	* @param @param key
+	* @param @param value 参数
+	* @return void 返回类型
+	* @Exception 异常对象
+	* @author Allen
+	*/
+	public void sendRecorderWithCallback(String key, String value) {
+
+		Logger logger = LoggerFactory.getLogger(ProducerClient.class);
+		ProducerRecord<String, String> record = new ProducerRecord<>("from-java", key, value);
+		producer.send(record, new Callback() {
+			// 回调方法，在整个方法被调用之后，Record的接收和存储是由服务端来完成
+			// callback是服务端接收服务器存储完了，返回回调的一个函数
+			@Override
+			public void onCompletion(RecordMetadata metadata, Exception exception) {
+				if (exception == null) {
+					logger.info("存储位置:partition:" + metadata.partition() + ",offset:" + metadata.offset()
+							+ ",timestrap:" + metadata.timestamp());
+				} else {
+					logger.warn("服务端出现异常: ");
+					exception.printStackTrace();
+				}
+			}
+		});
+	}
+
+```
+
+
 ## java API 创建Consumer
 
 
