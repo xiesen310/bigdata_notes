@@ -128,6 +128,8 @@ public void getMetrics() {
 
 7. 发送数据返回状态信息---回调函数
 
+## java API 创建Consumer
+
 
 
 
