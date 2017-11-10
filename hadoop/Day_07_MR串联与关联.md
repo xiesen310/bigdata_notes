@@ -4,6 +4,13 @@ tags: bigdata,hadoop,Java,MapReduce
 grammar_cjkRuby: true
 ---
 
+* [分维度topN问题](#分维度topn问题)
+* [Mr串联](#mr串联)
+* [mr关联](#mr关联)
+	* [map端关联](#map端关联)
+	* [reduce端关联](#reduce端关联)
+	* [半关联(semijoin)](#半关联semijoin)
+
 # 分维度topN问题
 
 > 分维度求topN是将数据按照某种需求进行分割之后，求出分割之后的topN的数量。例如计算用户常用最常用的三个ip，这个需求就是讲数据按照用户名进行分类，然后求出每一个用户最常用的三个ip地址。满足这个需求只需要将数据按照用户名进行分类，然后将用后面相同的发送到同一个reduce上即可
