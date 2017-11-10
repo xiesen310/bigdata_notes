@@ -203,12 +203,12 @@ public void subscribeTopic(){
 }
 ```
 ## flume 发送数据，kafka消费
-需求：写一个flume客户端，发送数据给avro的flume
-然后sink给kafka
+需求：写一个flume客户端，发送数据给avro的flume，然后sink给kafka
 写一个kafka的consumer从kafka中消费 flume客户端发送过来的数据
 
 数据流向
-flume客户端java程序发送数据----》flume（flume.conf程序）----》kafka-----》kafkaconsumer的java程序消费
+flume客户端java程序发送数据---->flume（flume.conf程序）---->kafka----->kafkaconsumer的java程序消费
+
 
 
 
