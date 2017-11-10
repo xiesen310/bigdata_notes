@@ -287,7 +287,24 @@
 	* [启动job](#启动job)
 	* [windows上mysql写入到集群中的hdfs上](#windows上mysql写入到集群中的hdfs上)
 
+## Day23 kafka
+* [批量数据和流数据的区别](#批量数据和流数据的区别)
+* [kafka架构](#kafka架构)
+* [为什么使用消息系统](#为什么使用消息系统)
+* [kafka安装](#kafka安装)
+* [kafka容错机制](#kafka容错机制)
+* [kafka命令介绍](#kafka命令介绍)
+* [kafka删除topic](#kafka删除topic)
+* [kafka topic结构](#kafka-topic结构)
+* [Kafka delivery guarantee](#kafka-delivery-guarantee)
 
+## Day24 kafka深入理解
+* [配置sl4j日志](#配置sl4j日志)
+* [java API 创建Producer](#java-api-创建producer)
+* [java API 创建Consumer](#java-api-创建consumer)
+* [同步异步](#同步异步)
+* [消费者手动提交](#消费者手动提交)
+* [flume 发送数据，kafka消费](#flume-发送数据kafka消费)
 
 
 
