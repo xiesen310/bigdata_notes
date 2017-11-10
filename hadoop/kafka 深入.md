@@ -22,4 +22,11 @@ grammar_cjkRuby: true
 
 ## java API 创建Producer
 
+1. 创建连接
+2. 发送数据
+3. 关闭连接
+4. 指定分区发送数据
+5. 获取topic详细信息
+6. 获取集群状态信息
+
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510278579304.jpg
