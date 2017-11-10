@@ -202,7 +202,7 @@
 		* [删除所有数据](#删除所有数据)
 
 
-## Day17
+## Day17 [连接][18]
 
 * [安装配置](#安装配置)
 * [hbase的数据存储结构](#hbase的数据存储结构)
@@ -221,7 +221,7 @@
 	* [HFile](#hfile)
 	* [HLog File](#hlog-file)
 
-## Day18 
+## Day18 [连接][19]
 
 * [rowkey设计](#rowkey设计)
 	* [rowkey设计原则](#rowkey设计原则)
@@ -307,7 +307,6 @@
 * [flume 发送数据，kafka消费](#flume-发送数据kafka消费)
 
 
-
   [1]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_01%20hadoop.md
   [2]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_02_hadoop.md
   [3]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_03_hadoop.md
@@ -325,3 +324,5 @@
   [15]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day14.md
   [16]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day15.md
   [17]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day16.md
+  [18]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day17.md
+  [19]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day18.md
