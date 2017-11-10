@@ -229,7 +229,7 @@
 * [Phoenix](#phoenix)
 	* [Phoenix安装教程](#phoenix安装教程)
 
-## Day19 phoenix
+## Day19 phoenix [连接][20]
 
 * [数据库中view的作用](#数据库中view的作用)
 * [phoenix sql语句操作HBase](#phoenix-sql语句操作hbase)
@@ -326,3 +326,4 @@
   [17]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day16.md
   [18]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day17.md
   [19]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day18.md
+  [20]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day19.md
