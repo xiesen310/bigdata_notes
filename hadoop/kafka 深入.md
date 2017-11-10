@@ -332,6 +332,65 @@ a1.sinks.s1.channel = c1
 - kafkaConsumer消费程序
 
 ``` java
+package top.xiesen.bd14;
+
+import java.util.Arrays;
+import java.util.Properties;
+
+import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.apache.kafka.clients.consumer.ConsumerRecords;
+import org.apache.kafka.clients.consumer.KafkaConsumer;
+
+public class FlumeConsumer {
+
+	private KafkaConsumer<String, String> consumer;
+	private Properties properties;
+	
+	/**
+	* 创建一个新的实例 ConsumerClient.
+	* 构造方法
+	*/
+	public FlumeConsumer() {
+		properties = new Properties();
+		properties.put("bootstrap.servers", "master:9092,slaver1:9092");
+		properties.put("group.id", "java_group");
+		properties.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+		properties.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+		consumer = new KafkaConsumer<>(properties);
+	}
+	
+	
+	/**
+	* subscribeTopicFromFlume 订阅flume topic
+	* @param  参数
+	* @return void 返回类型
+	* @Exception 异常对象
+	* @author Allen
+	*/
+	public void subscribeTopicFromFlume(){
+		consumer.subscribe(Arrays.asList("flume_kafka"));
+		
+		while(true){
+			ConsumerRecords<String,String> records = consumer.poll(1000);
+			for (ConsumerRecord<String, String> record : records) {
+				System.out.println("key = " + record.key() + " ,value = " + record.value());
+			}
+		}
+	}
+	
+	
+	/**
+	* main 测试用例
+	* @param @param args 参数
+	* @return void 返回类型
+	* @Exception 异常对象
+	* @author Allen
+	*/
+	public static void main(String[] args) {
+		FlumeConsumer fc = new FlumeConsumer();
+		fc.subscribeTopicFromFlume();
+	}
+}
 
 ```
 
