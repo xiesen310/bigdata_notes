@@ -211,8 +211,102 @@ flume客户端java程序发送数据---->flume（flume.conf程序）---->kafka--
 
 - flume客户端程序
 
+``` java
+package top.xiesen.flume;
+
+import java.nio.charset.Charset;
+
+import org.apache.flume.Event;
+import org.apache.flume.EventDeliveryException;
+import org.apache.flume.api.RpcClient;
+import org.apache.flume.api.RpcClientFactory;
+import org.apache.flume.event.EventBuilder;
+
+
+/**
+* 项目名称：kafkaclient
+* 类名称：FlumeAvroClient
+* 类描述：发送avro文件到flume source
+* @author Allen
+*/
+public class FlumeAvroClient {
+
+	private RpcClient flumeClient;
+	private String hostname;
+	private int port;
+
+	public FlumeAvroClient() {
+		super();
+	}
+
+	
+	/**
+	* 创建一个新的实例 FlumeAvroClient.
+	* 实例化 flumeClient
+	* @param hostname
+	* @param port
+	*/
+	public FlumeAvroClient(String hostname, int port) {
+		this.hostname = hostname;
+		this.port = port;
+		flumeClient = RpcClientFactory.getDefaultInstance(hostname, port);
+	}
+
+	
+	/**
+	* sendEvent 发送数据
+	* @param @param msg 参数
+	* @return void 返回类型
+	* @Exception 异常对象
+	* @author Allen
+	*/
+	public void sendEvent(String msg) {
+		Event event = EventBuilder.withBody(msg, Charset.forName("UTF-8"));
+		try {
+			flumeClient.append(event);
+		} catch (EventDeliveryException e) {
+			e.printStackTrace();
+			flumeClient.close();
+			flumeClient = null;
+			flumeClient = RpcClientFactory.getDefaultInstance(hostname, port);
+		}
+	}
+	
+	
+	/**
+	* close 关闭连接
+	* @param  参数
+	* @return void 返回类型
+	* @Exception 异常对象
+	* @author Allen
+	*/
+	public void close(){
+		flumeClient.close();
+	}
+	
+	
+	/**
+	* main 测试用例
+	* @param @param args 参数
+	* @return void 返回类型
+	* @Exception 异常对象
+	* @author Allen
+	*/
+	public static void main(String[] args) {
+		FlumeAvroClient fac = new FlumeAvroClient("master",9999);
+		String msg = "flume_avro_kafka_";
+		
+		for(int i = 0; i < 100; i++){
+			fac.sendEvent(msg + i);
+		}
+		
+		fac.close();
+	}
+}
+```
 
 - flume.conf程序
+
 
 
 - kafkaConsumer消费程序
