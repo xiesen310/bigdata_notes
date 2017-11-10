@@ -210,7 +210,12 @@ public void subscribeTopic(){
 ![][2]
 
 
-## 手动提交
+## 消费者手动提交
+
+1. 创建连接
+2. 订阅topic
+
+
 
 ## flume 发送数据，kafka消费
 需求：写一个flume客户端，发送数据给avro的flume，然后sink给kafka
