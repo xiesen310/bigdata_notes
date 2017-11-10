@@ -266,7 +266,7 @@
 * [将telnet的内容写到hive中](#将telnet的内容写到hive中)
 * [将telnet的数据存储到hbase上](#将telnet的数据存储到hbase上)
 
-## Day22 sqoop
+## Day22 sqoop [连接][23]
 * [sqoop](#sqoop)
 * [sqoop安装](#sqoop安装)
 * [sqoop下的object](#sqoop下的object)
@@ -329,3 +329,4 @@
   [20]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day19.md
   [21]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day20.md
   [22]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day21%20%20Flume%E6%B7%B1%E5%85%A5.md
+  [23]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day22%20sqoop.md
