@@ -25,6 +25,10 @@ grammar_cjkRuby: true
 1. 创建连接
 
 ``` java
+/**
+* 创建一个新的实例 ProducerClient.
+* 构造方法
+*/
 public ProducerClient() {
 	properties = new Properties();
 	properties.put("bootstrap.servers", "master:9092,slaver1:9092");
