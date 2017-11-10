@@ -104,8 +104,27 @@ public void getTopicPartition(String topic) {
 	}
 }
 ```
-
-
 6. 获取集群状态信息
+
+``` java
+/**
+* getMetrics 获取集群状态信息
+* @param  参数
+* @return void 返回类型
+* @Exception 异常对象
+* @author Allen
+*/
+public void getMetrics() {
+	Map<MetricName, ? extends Metric> metrics = producer.metrics();
+	for (MetricName name : metrics.keySet()) {
+		System.out.println(name.name() + " : " + metrics.get(name).value());
+	}
+}
+```
+
+
+7. 发送数据返回状态信息
+
+
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510278579304.jpg
