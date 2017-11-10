@@ -23,6 +23,13 @@ grammar_cjkRuby: true
 ## java API 创建Producer
 
 1. 创建连接
+public ProducerClient() {
+		properties = new Properties();
+		properties.put("bootstrap.servers", "master:9092,slaver1:9092");
+		properties.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+		properties.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+		producer = new KafkaProducer<>(properties);
+	}
 2. 发送数据
 3. 关闭连接
 4. 指定分区发送数据
