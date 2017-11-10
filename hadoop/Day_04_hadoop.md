@@ -4,6 +4,23 @@ tags: bigdata,hadoop,Java
 grammar_cjkRuby: true
 ---
 
+* [FileSystem补充](#filesystem补充)
+	* [获取FileSystem](#获取filesystem)
+	* [获取用户的家目录](#获取用户的家目录)
+		* [HDFS和Linux的区别:](#hdfs和linux的区别)
+* [导入项目](#导入项目)
+	* [导入数据库](#导入数据库)
+* [MapReduce](#mapreduce)
+	* [原理](#原理)
+		* [map和reduce的运行原理](#map和reduce的运行原理)
+		* [wordCount的运行过程](#wordcount的运行过程)
+		* [job配置](#job配置)
+		* [map,reduce和shuffel](#mapreduce和shuffel)
+	* [数据处理分析:](#数据处理分析)
+		* [创建map类](#创建map类)
+		* [创建reducer](#创建reducer)
+		* [编写job](#编写job)
+
 # FileSystem补充
 
 ## 获取FileSystem
