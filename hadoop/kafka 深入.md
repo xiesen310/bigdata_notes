@@ -9,10 +9,12 @@ grammar_cjkRuby: true
 1. 导入sl4j依赖
 
 ``` xml
-
+<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.21</version>
+		</dependency>
 ```
-
-
 2. 添加log4j文件
 
 
