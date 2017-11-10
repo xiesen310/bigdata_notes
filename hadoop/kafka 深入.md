@@ -165,14 +165,21 @@ public void getMetrics() {
 1. 创建连接
 
 ``` java
-enter code here
+/**
+* 创建一个新的实例 ConsumerClient.
+* 构造方法
+*/
+public ConsumerClient() {
+	properties = new Properties();
+	properties.put("bootstrap.servers", "master:9092,slaver1:9092");
+	properties.put("group.id", "java_group");
+	properties.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+	properties.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+	consumer = new KafkaConsumer<>(properties);
+}
 ```
 
-
-2. 实例化对象
-
-
-3. 订阅topic方法
+2. 订阅topic方法
 
 
 
