@@ -214,6 +214,8 @@ public void subscribeTopic(){
 
 1. 创建连接
 2. 订阅topic
+3. 获取topic指定分区上的offset
+4. 指定分区消费，指定从offset的值出开始消费
 
 
 
