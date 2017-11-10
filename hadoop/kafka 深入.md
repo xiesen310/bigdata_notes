@@ -307,6 +307,28 @@ public class FlumeAvroClient {
 
 - flume.conf程序
 
+``` xml
+a1.sources = r1
+a1.sinks=s1
+a1.channels=c1
+
+a1.sources.r1.type = avro
+a1.sources.r1.bind = master
+a1.sources.r1.port = 9999
+
+a1.channels.c1.type= memory
+a1.channels.c1.capacity = 1000
+a1.channels.c1.transactionCapacity = 100
+
+a1.sinks.s1.type = org.apache.flume.sink.kafka.KafkaSink
+a1.sinks.s1.kafka.bootstrap.servers=master:9092
+a1.sinks.s1.kafka.topic=flume_kafka
+a1.sinks.s1.kafka.flumeBatchSize = 20
+
+
+a1.sources.r1.channels = c1
+a1.sinks.s1.channel = c1
+```
 
 
 - kafkaConsumer消费程序
