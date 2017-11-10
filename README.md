@@ -287,7 +287,7 @@
 	* [启动job](#启动job)
 	* [windows上mysql写入到集群中的hdfs上](#windows上mysql写入到集群中的hdfs上)
 
-## Day23 kafka
+## Day23 kafka [连接][24]
 * [批量数据和流数据的区别](#批量数据和流数据的区别)
 * [kafka架构](#kafka架构)
 * [为什么使用消息系统](#为什么使用消息系统)
@@ -330,3 +330,4 @@
   [21]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day20.md
   [22]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day21%20%20Flume%E6%B7%B1%E5%85%A5.md
   [23]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day22%20sqoop.md
+  [24]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day23%20kafka.md
