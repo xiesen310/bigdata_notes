@@ -251,7 +251,7 @@
 	* [消息瓶颈问题](#消息瓶颈问题)
 	* [多个节点串行化操作](#多个节点串行化操作)
 
-## Day21 
+## Day21 [连接][22]
 
 * [电商平台的数据采集](#电商平台的数据采集)
 * [使用当地时间存储在hdfs上,并且动态生成文件目录](#使用当地时间存储在hdfs上并且动态生成文件目录)
@@ -328,3 +328,4 @@
   [19]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day18.md
   [20]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day19.md
   [21]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day20.md
+  [22]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day21%20%20Flume%E6%B7%B1%E5%85%A5.md
