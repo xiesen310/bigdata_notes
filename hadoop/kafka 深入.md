@@ -162,7 +162,9 @@ public void getMetrics() {
 
 ## java API 创建Consumer
 
-
+1. 创建连接
+2. 实例化对象
+3. 订阅topic方法
 
 
 
