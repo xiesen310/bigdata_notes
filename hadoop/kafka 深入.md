@@ -202,10 +202,15 @@ public void subscribeTopic(){
 	}
 }
 ```
+
+
 ## 同步异步
 
 
 ![][2]
+
+
+## 手动提交
 
 ## flume 发送数据，kafka消费
 需求：写一个flume客户端，发送数据给avro的flume，然后sink给kafka
@@ -400,4 +405,4 @@ public class FlumeConsumer {
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510278579304.jpg
-  [2]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1510298949132]]]"
+  [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510298949132.jpg
