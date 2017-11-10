@@ -202,6 +202,19 @@
 		* [删除所有数据](#删除所有数据)
 
 
+## Day17
+
+
+
+## Day18 
+
+* [rowkey设计](#rowkey设计)
+	* [rowkey设计原则](#rowkey设计原则)
+* [二级索引](#二级索引)
+* [Phoenix](#phoenix)
+	* [Phoenix安装教程](#phoenix安装教程)
+
+
   [1]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_01%20hadoop.md
   [2]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_02_hadoop.md
   [3]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_03_hadoop.md
