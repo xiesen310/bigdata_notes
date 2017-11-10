@@ -325,11 +325,9 @@ a1.sinks.s1.kafka.bootstrap.servers=master:9092
 a1.sinks.s1.kafka.topic=flume_kafka
 a1.sinks.s1.kafka.flumeBatchSize = 20
 
-
 a1.sources.r1.channels = c1
 a1.sinks.s1.channel = c1
 ```
-
 
 - kafkaConsumer消费程序
 
