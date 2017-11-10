@@ -209,6 +209,14 @@ public void subscribeTopic(){
 数据流向
 flume客户端java程序发送数据---->flume（flume.conf程序）---->kafka----->kafkaconsumer的java程序消费
 
+- flume客户端程序
+
+
+- flume.conf程序
+
+
+- kafkaConsumer消费程序
+
 
 
 
