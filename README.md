@@ -229,7 +229,7 @@
 * [Phoenix](#phoenix)
 	* [Phoenix安装教程](#phoenix安装教程)
 
-## Day19
+## Day19 phoenix
 
 * [数据库中view的作用](#数据库中view的作用)
 * [phoenix sql语句操作HBase](#phoenix-sql语句操作hbase)
