@@ -26,12 +26,12 @@ grammar_cjkRuby: true
 
 ``` java
 public ProducerClient() {
-		properties = new Properties();
-		properties.put("bootstrap.servers", "master:9092,slaver1:9092");
-		properties.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-		properties.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-		producer = new KafkaProducer<>(properties);
-	}
+	properties = new Properties();
+	properties.put("bootstrap.servers", "master:9092,slaver1:9092");
+	properties.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+	properties.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+	producer = new KafkaProducer<>(properties);
+}
 ```
 
 
