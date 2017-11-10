@@ -240,7 +240,16 @@
 	* [client调优](#client调优)
 	* [服务端调优](#服务端调优)
 
+## Day20 flume
 
+* [大数据数据采集](#大数据数据采集)
+* [flume](#flume)
+	* [spooling Source hdfs sink](#spooling-source-hdfs-sink)
+	* [avro source logger sink](#avro-source-logger-sink)
+* [flume节点故障和消息瓶颈问题](#flume节点故障和消息瓶颈问题)
+	* [节点故障问题](#节点故障问题)
+	* [消息瓶颈问题](#消息瓶颈问题)
+	* [多个节点串行化操作](#多个节点串行化操作)
 
 
 
