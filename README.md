@@ -298,7 +298,7 @@
 * [kafka topic结构](#kafka-topic结构)
 * [Kafka delivery guarantee](#kafka-delivery-guarantee)
 
-## Day24 kafka深入理解
+## Day24 kafka深入理解 [连接][25]
 * [配置sl4j日志](#配置sl4j日志)
 * [java API 创建Producer](#java-api-创建producer)
 * [java API 创建Consumer](#java-api-创建consumer)
@@ -331,3 +331,4 @@
   [22]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day21%20%20Flume%E6%B7%B1%E5%85%A5.md
   [23]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day22%20sqoop.md
   [24]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day23%20kafka.md
+  [25]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/kafka%20%E6%B7%B1%E5%85%A5.md
