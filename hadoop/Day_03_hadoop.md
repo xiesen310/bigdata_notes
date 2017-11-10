@@ -4,6 +4,20 @@ tags: bigdata,Java,hadoop
 grammar_cjkRuby: true
 ---
 
+* [Eclipse基本设置](#eclipse基本设置)
+* [阅读文档的基本步骤](#阅读文档的基本步骤)
+* [创建maven项目注意事项](#创建maven项目注意事项)
+* [Java代码操作hdfs](#java代码操作hdfs)
+	* [编写hdfsUtils](#编写hdfsutils)
+	* [在hdfs上创建文件，并写入数据](#在hdfs上创建文件并写入数据)
+	* [读取hdfs上已有的文件](#读取hdfs上已有的文件)
+	* [删除hdfs上已经有的文件或文件夹](#删除hdfs上已经有的文件或文件夹)
+	* [上传文件](#上传文件)
+	* [下载文件](#下载文件)
+	* [迭代文件](#迭代文件)
+	* [查看文件状态](#查看文件状态)
+* [安装hadoop环境](#安装hadoop环境)
+
 hadoop开发之前需要对Eclipse进行基础的设置，否则会出现各种各样的麻烦
 
 # Eclipse基本设置
