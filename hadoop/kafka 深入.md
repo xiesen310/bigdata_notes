@@ -213,9 +213,90 @@ public void subscribeTopic(){
 ## 消费者手动提交
 
 1. 创建连接
+
+``` java
+public ManualCommitConsumer() {
+		properties.setProperty("bootstrap.servers", "master:9092,slaver1:9092");
+		properties.setProperty("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+		properties.setProperty("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+		properties.setProperty("group.id", "java_group");
+		// 取消自动提交
+		properties.setProperty("enable.auto.commit", "false");
+		properties.setProperty("auto.offset.reset", "none");
+		consumer = new KafkaConsumer<>(properties);
+	}
+```
+
+
 2. 订阅topic
+
+``` java
+public void substituteTopic() {
+	List<String> topics = new ArrayList<>();
+	topics.add("from-java");
+	consumer.subscribe(topics);
+	while (true) {
+		ConsumerRecords<String, String> records = consumer.poll(1000);
+		for (ConsumerRecord<String, String> record : records) {
+			System.out.println("partiton = " + record.partition() + " ,offset = " + record.offset() + ",key = "
+					+ record.key() + ",value = " + record.value());
+		}
+		consumer.commitSync();
+	}
+}
+```
+
 3. 获取topic指定分区上的offset
+
+``` java
+/**
+* getOffsets 获取topic指定分区上的offset
+* @param  参数
+* @return void 返回类型
+* @Exception 异常对象
+* @author Allen
+*/
+public void getOffsets() {
+	OffsetAndMetadata offsets = consumer.committed(new TopicPartition("from-java", 1));
+	System.out.println("offsets = " + offsets.offset());
+}
+```
+
 4. 指定分区消费，指定从offset的值出开始消费
+
+``` java
+	/**
+	* consumerAssigned 指定分区消费，指定从offset的值出开始消费
+	* 消费者对topic的消费有两种方式
+	* 1. consumer.subscribe(topics)
+	* 2.consumer.assign(topicPartitions);
+	* 两种方式互斥，任选其一
+	* @param  参数
+	* @return void 返回类型
+	* @Exception 异常对象
+	* @author Allen
+	*/
+	public void consumerAssigned() {
+		/*
+		 * List<String> topics = new ArrayList<>(); topics.add("from-java");
+		 * consumer.subscribe(topics);
+		 */
+		// 指定分区
+		List<TopicPartition> topicPartitions = new ArrayList<TopicPartition>();
+		topicPartitions.add(new TopicPartition("from-java", 1));
+		consumer.assign(topicPartitions);
+		// 指定分区的offset位置
+		TopicPartition partition = new TopicPartition("from-java", 1);
+		consumer.seekToEnd(Arrays.asList(partition));
+		while (true) {
+			ConsumerRecords<String, String> records = consumer.poll(1000);
+			for (ConsumerRecord<String, String> record : records) {
+				System.out.println("partition = " + record.partition() + ",offset = " + record.offset() + ",key = "
+						+ record.key() + ",value = " + record.value());
+			}
+		}
+	}
+```
 
 
 
