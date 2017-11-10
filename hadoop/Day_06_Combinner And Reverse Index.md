@@ -4,6 +4,15 @@ tags: hadoop,bigdata,Java,MapReduce
 grammar_cjkRuby: true
 ---
 
+* [Mr文件读取的几种方式 的区别](#mr文件读取的几种方式-的区别)
+* [书写MapReducer为什么要使用静态内部类？](#书写mapreducer为什么要使用静态内部类)
+* [书写map时，为什么将变量定义在成员变量位置？](#书写map时为什么将变量定义在成员变量位置)
+* [设置分隔符的两种方式](#设置分隔符的两种方式)
+* [程序优化原理分析—combinner](#程序优化原理分析combinner)
+	* [如何在map端进行聚合](#如何在map端进行聚合)
+* [MR倒排索引](#mr倒排索引)
+* [TopN问题](#topn问题)
+
 # Mr文件读取的几种方式 的区别
 TextInputFormat(LongWritable,Text)：文件偏移量 ：整行数据(默认状态)
 KeyValueTextInputFormat(Text,Text)：第一个" "前的数据 ： 后面的整行数据
