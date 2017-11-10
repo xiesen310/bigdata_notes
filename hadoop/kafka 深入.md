@@ -391,7 +391,6 @@ public class FlumeConsumer {
 		fc.subscribeTopicFromFlume();
 	}
 }
-
 ```
 
 
