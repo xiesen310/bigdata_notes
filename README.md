@@ -231,6 +231,15 @@
 
 ## Day19
 
+* [数据库中view的作用](#数据库中view的作用)
+* [phoenix sql语句操作HBase](#phoenix-sql语句操作hbase)
+* [java API操作phoenix](#java-api操作phoenix)
+* [HBase协处理器](#hbase协处理器)
+* [AggregationClient](#aggregationclient)
+* [HBase调优](#hbase调优)
+	* [client调优](#client调优)
+	* [服务端调优](#服务端调优)
+
 
 
 
