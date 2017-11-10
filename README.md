@@ -251,6 +251,20 @@
 	* [消息瓶颈问题](#消息瓶颈问题)
 	* [多个节点串行化操作](#多个节点串行化操作)
 
+## Day21 
+
+* [电商平台的数据采集](#电商平台的数据采集)
+* [使用当地时间存储在hdfs上,并且动态生成文件目录](#使用当地时间存储在hdfs上并且动态生成文件目录)
+* [匹配抓取内容,根据不同内容,分配到不同的channel中(按省份统计数据)(selector)](#匹配抓取内容根据不同内容分配到不同的channel中按省份统计数据selector)
+	* [conf文件的配置](#conf文件的配置)
+	* [javaAPI发送数据以验证](#javaapi发送数据以验证)
+* [给抓取内容中,添加时间戳(interceptor)](#给抓取内容中添加时间戳interceptor)
+* [利用interceptor(拦截器)extractor(提取器),只提取包含邮箱的信息,打印或是存储,不提取其他内容,只要邮箱](#利用interceptor拦截器extractor提取器只提取包含邮箱的信息打印或是存储不提取其他内容只要邮箱)
+* [利用interceptor(拦截器)fileter(过滤器),只打印包含匹配内容的记录](#利用interceptor拦截器fileter过滤器只打印包含匹配内容的记录)
+* [利用interceptor(拦截器)replace(替代器),进行手机号码的脱敏](#利用interceptor拦截器replace替代器进行手机号码的脱敏)
+* [利用interceptor做一些聚合运算,例如wordcount](#利用interceptor做一些聚合运算例如wordcount)
+* [将telnet的内容写到hive中](#将telnet的内容写到hive中)
+* [将telnet的数据存储到hbase上](#将telnet的数据存储到hbase上)
 
 
   [1]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_01%20hadoop.md
