@@ -266,6 +266,28 @@
 * [将telnet的内容写到hive中](#将telnet的内容写到hive中)
 * [将telnet的数据存储到hbase上](#将telnet的数据存储到hbase上)
 
+## Day22 sqoop
+* [sqoop](#sqoop)
+* [sqoop安装](#sqoop安装)
+* [sqoop下的object](#sqoop下的object)
+	* [基本信息](#基本信息)
+	* [核心对象](#核心对象)
+	* [参数信息](#参数信息)
+	* [权限信息](#权限信息)
+* [将mysql中的数据导入到hadoop平台](#将mysql中的数据导入到hadoop平台)
+	* [创建mysql link](#创建mysql-link)
+	* [创建hdfs link](#创建hdfs-link)
+	* [创建job](#创建job)
+	* [启动sqoop job](#启动sqoop-job)
+	* [启动异常](#启动异常)
+* [将hdfs上的数据导入到mysql数据库](#将hdfs上的数据导入到mysql数据库)
+* [java API 操作sqoop](#java-api-操作sqoop)
+	* [创建link](#创建link)
+	* [创建job](#创建job)
+	* [启动job](#启动job)
+	* [windows上mysql写入到集群中的hdfs上](#windows上mysql写入到集群中的hdfs上)
+
+
 
   [1]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_01%20hadoop.md
   [2]: https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_02_hadoop.md
