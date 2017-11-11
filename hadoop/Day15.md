@@ -89,7 +89,7 @@ hbase是面向列存储的，在保存数据时，是以表的形式来保存的
 
 
 # Hbase shell
-- 创建namespace `create_name 'bd14' `
+- 创建namespace `create_namespace 'bd14' `
 - 查询namespace  `list_namespace`
 - 创建表 `create 'bd14:user','i','c`，指定在哪个namespace以及column Family
 - 列出namespace下的表 `list_namespace_tables 'bd14'`
