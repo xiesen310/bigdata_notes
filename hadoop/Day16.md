@@ -615,8 +615,6 @@ public void deleteAllData(String tableName, String rowkey) throws Exception {
 }
 ```
 
-
-
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509516387564.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509516328683.jpg
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1509516439458.jpg
