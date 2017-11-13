@@ -164,6 +164,38 @@ object IfElse {
 
 语句块中是没有返回值的
 
+``` scala
+/**
+  * while 循环
+  */
+object WhileTest {
+
+  def main(args: Array[String]): Unit = {
+    var times = args(0).toInt
+
+    while (times > 0){
+      println(s"第${times}此打印")
+      times = times - 1
+    }
+
+    var times2 = args(0).toInt
+    do{
+      println(s"doWhile第${times2}此打印")
+      times2 -= 1
+    }while(times2 > 0)
+
+    // 构建死循环
+    while (true){
+      // 循环体,轮巡
+    }
+  }
+}
+```
+12. for循环
+
+for也是scala中少数没有返回值的语句块之一
+但是scala提供了一种方式(yield)让其具有返回值的能力
+
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510543129681.jpg
