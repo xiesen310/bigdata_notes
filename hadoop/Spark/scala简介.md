@@ -210,6 +210,58 @@ for(i <- list){}
 
 通过守卫循环遍历
 
+``` scala
+package top.xiesen.bd14
+
+/**
+  * for循环
+  */
+object ForTest {
+
+  def main(args: Array[String]): Unit = {
+    val times = args(0).toInt
+
+    for (i <- 1 to times) {
+      println(s"1print: $i")
+    }
+
+    // 循环守卫通知
+    for (i <- 1 to times if i % 2 == 0) println(s"1print$i")
+    for (i <- 1 to times if i % 2 == 0 && i > 5) println(s"2println$i")
+
+    // 多重循环(嵌套循环)
+      for(i <- 1 to times){
+        for(j <- 1 to times){
+          println(s"i:$i,j:$j")
+        }
+      }
+
+
+    for (i <- 1 to times; j <- 1 to times) {
+      println(s"i:$i,j:$j")
+    }
+
+    // 嵌套限定条件
+    for (i <- 1 to times; j <- 1 to times if i % 2 == 1 && j % 2 == 0) {
+      println(s"i:$i,j:$j")
+    }
+
+    // i代表长，j代表宽，打印面积大于25的
+    for(i <- 1 to times; j <- 1 to times if i * j > 25){
+      println(s"长: $i, 宽: $j, 面积: ${i * j}")
+    }
+
+    // 对于条件复杂的for循环，可以把小括号写成大括号
+    for {
+      i <- 1 to times
+      j <- 1 to times
+      x = i * j
+      if x > 25
+    } println(s"长: $i, 宽: $j, 面积: ${i * j}")
+  }
+}
+
+```
 
 
 
