@@ -258,12 +258,31 @@ object ForTest {
       x = i * j
       if x > 25
     } println(s"长: $i, 宽: $j, 面积: ${i * j}")
+	
+	// 打印乘法口诀表，不能使用var
+    for(i <- 1 to 9){
+      for(j <- 1 to i){
+        print(s"$j * $i = ${i * j}\t")
+      }
+      println()
+    }
+
+    for (i <- 1 to 9; j <- 1 to i) {
+      print(s"$j * $i = ${i * j}\t")
+      if (i == j) println()
+    }
+
+    for(i <- 1 to 9; j <- 1 to i) print(s"$j * $i = ${i * j} ${if(i == j) "\n" else ""}")
+
   }
 }
-
 ```
 
+13. Unit类型
 
+java中无返回值的方法类型是void
+scala中没有void，它使用Unit类型来代替
+Unit的实例就是“()”
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510543129681.jpg
