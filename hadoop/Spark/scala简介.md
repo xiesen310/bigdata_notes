@@ -41,6 +41,7 @@ path= ;%SCALA_HOME%\bin;%SCALA_HOME%\jre\bin
 弱类型语言：定义变量时不用指定变量类型，在程序运行中，可以改变变量的归属类型
 
 
+## scala基本语法
 1. scala变量定义：
 var str = "abcd"
 这种写法不是没有指定str的类型，而是没有显式的指定str的类型，它隐式的从变量值中自动判断
@@ -95,7 +96,7 @@ println(s"""name:$name
 
 ``` scala
 123.toDouble
-“123”.toInt
+"123".toInt
 123.33.toString
 ```
 
@@ -144,9 +145,11 @@ val str2 = {
 println(str3) // 访问不到
 scala中语句块的最后一句，就是该语句的返回值
 ```
+## scala控制结构
+
+### 条件表达式  if...else...
 
 
-10. if...else...
 
 ``` scala
 /**
@@ -326,6 +329,6 @@ Unit的实例就是“()”
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510569504084.jpg
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510569670824.jpg
   [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510569736753.jpg
-  [5]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1510569821884]]]"
+  [5]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510569821884.jpg
   [6]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510543129681.jpg
   [7]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510543347305.jpg
