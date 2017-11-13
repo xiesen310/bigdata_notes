@@ -25,6 +25,9 @@ var str = "abcd"
 显式写法：
 var str:String = "abcd"
 
+声明变量有两种修饰符
+var： 变量可被重新赋值
+val(变量)不可被重新赋值
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510543129681.jpg
