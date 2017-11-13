@@ -28,6 +28,7 @@ var str:String = "abcd"
 声明变量有两种修饰符
 var： 变量可被重新赋值
 val(变量)不可被重新赋值
+在编程中，能使用val的地方不使用var
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510543129681.jpg
