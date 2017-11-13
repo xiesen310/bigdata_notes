@@ -9,8 +9,10 @@ grammar_cjkRuby: true
 > Scala是一门多范式的编程语言，一种类似java的编程语言 ，设计初衷是实现可伸缩的语言  、并集成面向对象编程和函数式编程的各种特性。
 
 ## scala 安装
-1. 下载 [https://www.scala-lang.org/download/2.11.1.html][1]
+1. 下载 [https://www.scala-lang.org/download/2.11.1.html][1]、
+
 ![][2]
+
 2. 安装，直接下一步就可以了
 3. 配置环境变量
 
@@ -21,6 +23,7 @@ path= ;%SCALA_HOME%\bin;%SCALA_HOME%\jre\bin
 
 ## idea安装scala插件
 依次点击[configure/plugins/Install JetBrains plugin]
+
 ![][3]
 
 ![][4]
@@ -149,6 +152,7 @@ scala中语句块的最后一句，就是该语句的返回值
 
 ### 条件表达式  if...else...
 
+> scala的if/else语法结构和java或者c++是一样的。
 ``` scala
 /**
   * 接收分数，判断给出分数的优良中差
@@ -184,7 +188,7 @@ object IfElse {
 }
 ```
 
-11. while循环
+###  while循环
 
 语句块中是没有返回值的
 
@@ -215,7 +219,7 @@ object WhileTest {
   }
 }
 ```
-12. for循环
+### for循环
 
 for也是scala中少数没有返回值的语句块之一
 但是scala提供了一种方式(yield)让其具有返回值的能力
@@ -316,7 +320,7 @@ object ForTest {
 }
 ```
 
-13. Unit类型
+### Unit类型
 
 java中无返回值的方法类型是void
 scala中没有void，它使用Unit类型来代替
