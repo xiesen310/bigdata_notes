@@ -4,6 +4,8 @@ tags: scala,spark
 grammar_cjkRuby: true
 ---
 
+
+
 ## scala之Hello World
 
 ![][1]
