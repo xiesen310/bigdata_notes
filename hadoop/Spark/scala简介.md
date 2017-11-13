@@ -348,9 +348,6 @@ Unit的实例就是“()”
 16.Ctrl＋Alt＋T可以把代码包在一块内，例如try/catch
 17.Alt＋Up and Alt＋Down可在方法间快速移动
 
-
-
-
   [1]: https://www.scala-lang.org/download/2.11.1.html
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510569504084.jpg
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510569670824.jpg
