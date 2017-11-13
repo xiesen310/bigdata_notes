@@ -59,6 +59,8 @@ val(变量)不可被重新赋值
 
 3. 基础数据类型
 
+![][8]
+
 java基础数据类型，它对应的变量，不是对象，不能通过“`.`”运算符来访问对象的方法。
 scala对应的基础数据类型，对应的变量可使用"`.`"操作来访问对象的方法
 
@@ -334,3 +336,4 @@ Unit的实例就是“()”
   [5]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510569821884.jpg
   [6]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510543129681.jpg
   [7]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510543347305.jpg
+  [8]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510570475161.jpg
