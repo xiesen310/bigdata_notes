@@ -14,13 +14,24 @@ grammar_cjkRuby: true
 2. 安装，直接下一步就可以了
 3. 配置环境变量
 
+``` xml
+SCALA_HOME=scala安装路径
+path= ;%SCALA_HOME%\bin;%SCALA_HOME%\jre\bin
+```
 
-
-## scala之Hello World
-
+## idea安装scala插件
+依次点击[configure/plugins/Install JetBrains plugin]
 ![][3]
 
 ![][4]
+
+![][5]
+
+## scala之Hello World
+
+![][6]
+
+![][7]
 
 
 ## 强类型与弱类型的区别
@@ -313,5 +324,8 @@ Unit的实例就是“()”
 
   [1]: https://www.scala-lang.org/download/2.11.1.html
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510569504084.jpg
-  [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510543129681.jpg
-  [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510543347305.jpg
+  [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510569670824.jpg
+  [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510569736753.jpg
+  [5]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1510569821884]]]"
+  [6]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510543129681.jpg
+  [7]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510543347305.jpg
