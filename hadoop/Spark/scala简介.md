@@ -80,11 +80,13 @@ println(s"""name:$name
 scala中运算符不是语法，而是函数(对象)
 `a + b ===> a.+(b)` 前者是后者的简写形式，当一个对象通过点调用其方法的时候，如果该方法只有一个参数，name点号可以省略，对象、方法、参数用空格隔开即可
 
-==运算符
+==运算符(java)
 
-String  a = new String("abc")
-String b = a
-a == b 
+``` java
+enter code here
+```
+
+== 在scala中方法，这个方法等同于equal方法
 
 
 
