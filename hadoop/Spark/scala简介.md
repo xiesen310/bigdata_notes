@@ -88,6 +88,12 @@ enter code here
 
 == 在scala中方法，这个方法等同于equal方法
 
+``` scala
+val a = new String("abc")
+val b = new String("abc")
+a == b
+```
+
 
 
 
