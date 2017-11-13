@@ -35,5 +35,13 @@ val(变量)不可被重新赋值
 java基础数据类型，它对应的变量，不是对象，不能通过“`.`”运算符来访问对象的方法。
 scala对应的基础数据类型，对应的变量可使用"`.`"操作来访问对象的方法
 
+``` scala
+val a = 123
+a.toDouble
+a.toLong
+
+```
+
+
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510543129681.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510543347305.jpg
