@@ -48,6 +48,25 @@ val doubleval = 23.0
 val floatval = 23L
 val str =“aaa”
 ```
+4. string 类型的字面量
+ 
+``` scala
+val s1 = "abcd"
+ val s2 = "ab\"cd"
+ val s3 = """ab".e0.*ed"""
+```
+字符串模板嵌套
+
+``` scala
+println(s"name:$name,age:$age")
+println(s"name:$name",age:${age}aa")
+println(s"""name:$name
+	age:$age
+	over
+	"""
+)
+```
+
 
 
 
