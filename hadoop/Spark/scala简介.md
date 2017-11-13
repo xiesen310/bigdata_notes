@@ -18,18 +18,22 @@ grammar_cjkRuby: true
 弱类型语言：定义变量时不用指定变量类型，在程序运行中，可以改变变量的归属类型
 
 
-scala变量定义：
+1. scala变量定义：
 var str = "abcd"
 这种写法不是没有指定str的类型，而是没有显式的指定str的类型，它隐式的从变量值中自动判断
 
 显式写法：
 var str:String = "abcd"
 
-声明变量有两种修饰符
+2. 声明变量有两种修饰符
 var： 变量可被重新赋值
 val(变量)不可被重新赋值
 在编程中，能使用val的地方不使用var
 
+3. 基础数据类型
+
+java基础数据类型，它对应的变量，不是对象，不能通过“`.`”运算符来访问对象的方法。
+scala对应的基础数据类型，对应的变量可使用"`.`"操作来访问对象的方法
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510543129681.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510543347305.jpg
