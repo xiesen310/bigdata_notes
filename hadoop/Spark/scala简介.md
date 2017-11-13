@@ -111,6 +111,17 @@ scala中大部分的语句块都是有返回值的，而且不需要return
 java中语句块的作用主要来划分作用域
 scala中的语句块除了划分作用域之外还可以带返回值
 
+``` scala
+val str1 = "111"
+val str2 = {
+	val str3 = s"${str1}defg"
+	str3
+}
+println(str3) // 访问不到
+scala中语句块的最后一句，就是该语句的返回值
+```
+
+
 9. if...else...
 
 ``` scala
