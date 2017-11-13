@@ -349,23 +349,6 @@ Unit的实例就是“()”
 17.Alt＋Up and Alt＋Down可在方法间快速移动
 
 
-下面的不是很有用
-18.在一些地方按Alt＋Enter可以得到一些Intention Action，例如将”==”改为”equals()”
-19.Ctrl＋Shift＋Alt＋N可以快速打开符号
-20.Ctrl＋Shift＋Space在很多时候都能够给出Smart提示
-21.Alt＋F3可以快速寻找
-22.Ctrl＋/和Ctrl＋Shift＋/可以注释代码
-23.Ctrl＋Alt＋B可以跳转到抽象方法的实现
-24.Ctrl＋O可以选择父类的方法进行重写
-25.Ctrl＋Q可以看JavaDoc
-26.Ctrl＋Alt＋Space是类名自动完成
-27.快速打开类/文件/符号时，可以使用通配符，也可以使用缩写
-28.Live Templates! Ctrl＋J
-29.Ctrl＋Shift＋F7可以高亮当前元素在当前文件中的使用
-30.Ctrl＋Alt＋Up /Ctrl＋Alt＋Down可以快速跳转搜索结果
-31.Ctrl＋Shift＋J可以整合两行
-32.Alt＋F8是计算变量值
-
   [1]: https://www.scala-lang.org/download/2.11.1.html
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510569504084.jpg
   [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510569670824.jpg
