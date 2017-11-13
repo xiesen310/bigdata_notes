@@ -122,11 +122,43 @@ scala中语句块的最后一句，就是该语句的返回值
 ```
 
 
-9. if...else...
+10. if...else...
 
 ``` scala
+/**
+  * 接收分数，判断给出分数的优良中差
+  */
+object IfElse {
 
+  def main(args: Array[String]): Unit = {
+    val score = args(0).toInt
+    // 类似java语法
+    if(score >= 90){
+      println("优秀")
+    }else if(score >= 80){
+      println("良好")
+    }else if(score >= 60){
+      println("中等")
+    }else{
+      println("差")
+    }
+
+    // java三木运算 String result = score > 60 ? "优秀" : "差"
+    // scala没有三木运算符 if(score > 60) "优秀"else "差"
+    //scala的用法
+    val result = if(score >= 90)
+      "优秀"
+    else if(score >= 80)
+      "良好"
+    else if(score >= 60)
+      "中等"
+    else
+      "差"
+    println(result)
+  }
+}
 ```
+
 
 
 
