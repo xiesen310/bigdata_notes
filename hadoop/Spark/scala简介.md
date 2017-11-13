@@ -273,7 +273,21 @@ object ForTest {
     }
 
     for(i <- 1 to 9; j <- 1 to i) print(s"$j * $i = ${i * j} ${if(i == j) "\n" else ""}")
+	
+	// 把1-10之间的偶数以集合的形式返回，让for循环具备返回值的能力
+    // yield后面的语句块的返回值就是for yield的返回值
+    // yield后面的语句块一定有返回值即使没有返回值，它会以Unit的对象"()"作为返回值
+    val result = for (i <- 1 to 10) yield {
+      if (i % 2 == 0) i
+    }
+    println(result)
 
+    val result2 = for (i <- 1 to 10 if (i % 2 == 0)) yield i
+    println(result2)
+
+    // 构建一个集合对象 1-10，对每个元素都加上5，返回发音新的结果
+    val result3 = for (i <- 1 to 10) yield i + 5
+    println(result3)
   }
 }
 ```
