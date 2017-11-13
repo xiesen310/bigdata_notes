@@ -328,6 +328,9 @@ java中无返回值的方法类型是void
 scala中没有void，它使用Unit类型来代替
 Unit的实例就是“()”
 
+## idea常用快捷键
+
+
 
   [1]: https://www.scala-lang.org/download/2.11.1.html
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510569504084.jpg
