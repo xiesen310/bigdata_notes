@@ -43,8 +43,12 @@ a.toLong
 scala字面量
 
 ``` scala
-
+val intval = 23
+val doubleval = 23.0
+val floatval = 23L
+val str =“aaa”
 ```
+
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510543129681.jpg
