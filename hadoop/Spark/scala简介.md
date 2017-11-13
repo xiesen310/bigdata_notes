@@ -4,9 +4,9 @@ tags: scala,spark
 grammar_cjkRuby: true
 ---
 
-scala介绍
+## scala介绍
 
-Scala是一门多范式的编程语言，一种类似java的编程语言 ，设计初衷是实现可伸缩的语言  、并集成面向对象编程和函数式编程的各种特性。
+> Scala是一门多范式的编程语言，一种类似java的编程语言 ，设计初衷是实现可伸缩的语言  、并集成面向对象编程和函数式编程的各种特性。
 
 ## scala之Hello World
 
