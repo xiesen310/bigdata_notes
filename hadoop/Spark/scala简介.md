@@ -104,7 +104,7 @@ a == b
 8. if...else...
 
 ``` scala
-enter code here
+
 ```
 
 
