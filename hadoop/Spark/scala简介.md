@@ -9,13 +9,18 @@ grammar_cjkRuby: true
 > Scala是一门多范式的编程语言，一种类似java的编程语言 ，设计初衷是实现可伸缩的语言  、并集成面向对象编程和函数式编程的各种特性。
 
 ## scala 安装
+1. 下载 [https://www.scala-lang.org/download/2.11.1.html][1]
+![][2]
+2. 安装，直接下一步就可以了
+3. 配置环境变量
+
 
 
 ## scala之Hello World
 
-![][1]
+![][3]
 
-![][2]
+![][4]
 
 
 ## 强类型与弱类型的区别
@@ -306,5 +311,7 @@ scala中没有void，它使用Unit类型来代替
 Unit的实例就是“()”
 
 
-  [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510543129681.jpg
-  [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510543347305.jpg
+  [1]: https://www.scala-lang.org/download/2.11.1.html
+  [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510569504084.jpg
+  [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510543129681.jpg
+  [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510543347305.jpg
