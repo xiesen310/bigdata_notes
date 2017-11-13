@@ -39,6 +39,10 @@ scala对应的基础数据类型，对应的变量可使用"`.`"操作来访问�
 val a = 123
 a.toDouble
 a.toLong
+```
+scala字面量
+
+``` scala
 
 ```
 
