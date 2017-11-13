@@ -19,6 +19,10 @@ scala变量定义：
 var str = "abcd"
 这种写法不是没有指定str的类型，而是没有显式的指定str的类型，它隐式的从变量值中自动判断
 
+显式写法：
+var str:String = "abcd"
+
+
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510543129681.jpg
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510543347305.jpg
