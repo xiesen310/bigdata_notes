@@ -196,6 +196,18 @@ object WhileTest {
 for也是scala中少数没有返回值的语句块之一
 但是scala提供了一种方式(yield)让其具有返回值的能力
 
+``` java
+for(int i = 0; i < 10; i++){
+	// 循环体
+}
+for(String i : sList){}
+```
+scala中的for循环更像foreach
+
+``` scala
+for(i <- list){}
+```
+
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510543129681.jpg
