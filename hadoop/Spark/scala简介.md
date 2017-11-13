@@ -94,6 +94,8 @@ val b = new String("abc")
 a == b
 ```
 
+7. 标识符 符合java规范
+
 
 
 
