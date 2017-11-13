@@ -66,7 +66,12 @@ println(s"""name:$name
 	"""
 )
 ```
+5. 基础数据类型之间的转换方法
 
+对象.to类型
+123.toDouble
+“123”.toInt
+123.33.toString
 
 
 
