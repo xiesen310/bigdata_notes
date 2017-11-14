@@ -335,6 +335,19 @@ Unit的实例就是“()”
 1. 在scala中没有break，也没有continue，但是我们可以使用scala中提供的特殊类型Breaks
 2. 通过return终止整个函数的方式也可以终止循环
 
+``` scala
+// scala的breaks方法
+// 创建Breaks对象
+val loop = new Breaks
+// 在其方法中写循环即可
+loop.breakable(
+  for(i <- 1 to 10){
+	if(i == 5) loop.break() else println(i)
+  }
+)
+```
+
+
 ## idea常用快捷键
 
 1.Ctrl＋E，可以显示最近编辑的文件列表
