@@ -109,6 +109,8 @@ println(s"""name:$name
 scala中运算符不是语法，而是函数(对象)
 `a + b ===> a.+(b)` 前者是后者的简写形式，当一个对象通过点调用其方法的时候，如果该方法只有一个参数，name点号可以省略，对象、方法、参数用空格隔开即可
 
+> 注意：如果方法有多个参数，那么点号可以省略，但是小括号不能省略
+
 ==运算符(java)
 
 ``` java
@@ -347,6 +349,8 @@ Unit的实例就是“()”
 15.Ctrl＋Alt＋V 可以引入变量。例如把括号内的SQL赋成一个变量
 16.Ctrl＋Alt＋T可以把代码包在一块内，例如try/catch
 17.Alt＋Up and Alt＋Down可在方法间快速移动
+
+
 
   [1]: https://www.scala-lang.org/download/2.11.1.html
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510569504084.jpg
