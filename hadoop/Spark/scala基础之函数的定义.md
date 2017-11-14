@@ -46,6 +46,7 @@ x + y
 
 ``` scala
 val plusIntVal: (Int, Int) => Int = (x, y) => x + y
+val plusIntVal1 = (x:Int,y:Int) => x + y
 ```
 
 
