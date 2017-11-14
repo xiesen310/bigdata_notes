@@ -49,4 +49,7 @@ val plusIntVal: (Int, Int) => Int = (x, y) => x + y
 val plusIntVal1 = (x:Int,y:Int) => x + y
 ```
 
+def 定义的函数不可以被当做函数进行传递
+val 定义的函数可以被当做函数进行传递
+val定义的函数名称，后面不加小括号代表的是对函数的引用，后面加小括号代表的是对函数的调用
 
