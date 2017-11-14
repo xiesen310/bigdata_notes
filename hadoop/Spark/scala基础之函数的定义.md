@@ -373,7 +373,6 @@ object ListTest {
 
     val reducerList = list6.reduce((x1, x2) => x1 + x2)
     println(s"list6的总和 = $reducerList" )
-
   }
 }
 ```
