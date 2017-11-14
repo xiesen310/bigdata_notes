@@ -112,7 +112,6 @@ scala中运算符不是语法，而是函数(对象)
 > 注意：如果方法有多个参数，那么点号可以省略，但是小括号不能省略。“Hello” substring (2,5)
 
 
-
 ==运算符(java)
 
 ``` java
@@ -331,6 +330,10 @@ object ForTest {
 java中无返回值的方法类型是void
 scala中没有void，它使用Unit类型来代替
 Unit的实例就是“()”
+
+
+1. 在scala中没有break，也没有continue，但是我们可以使用scala中提供的特殊类型Breaks
+2. 通过return终止整个函数的方式也可以终止循环
 
 ## idea常用快捷键
 
