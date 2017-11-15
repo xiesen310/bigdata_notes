@@ -152,6 +152,52 @@ println(mSet)
 
 ## Map
 
+### Map声明，字面量
+
+``` scala
+// map声明，字面量，取值
+val map1 = Map(1 -> "a", 2 -> "b", 3 -> "c")
+println(map1)
+val map2 = Map((1,"a"),(2,"b"),(3,"c"))
+println(map2)
+```
+
+### Map取值
+
+``` scala
+// map取值
+println(map1(1))
+println(map1(2))
+
+val map3 = Map("a" -> 1,"b" -> 2, "c" -> 3)
+println(map3("a"))
+```
+
+### Map遍历
+
+``` scala
+// 遍历
+// 方式一
+map3.foreach(
+  x => println(s"key: ${x._1},value:${x._2}")
+)
+println("----------------")
+// 方式二
+for(x <- map3){
+  println(s"key: ${x._1}, value: ${x._2}")
+}
+println("-----------")
+// 方式三
+for((k,v) <- map3){
+  println(s"key: ${k}, value: ${v}")
+}
+println("------------")
+// 方式四
+for(ks <- map3.keySet){
+  println(s"key: ${ks}, value: ${map3(ks)}")
+}
+```
+
 
 
 
