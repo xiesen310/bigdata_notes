@@ -87,6 +87,31 @@ val sumAggrateResult = list6.aggregate(0)(
 println("aggregate实现list6中元素的总和是: " + sumAggrateResult)
 ```
 
+### 常用函数
+
+``` scala
+// 把a b c d 字符构建一个list
+val list7 = "a" :: "b" :: "c" :: "d" :: Nil
+println(list7)
+// 获取list的头部
+println(list7.head)
+// 获取除第一个元素之外的元素列表
+println(list7.tail)
+// 获取list的最后一个元素
+println(list7.last)
+// 获取list除了最后一个元素，其他的元素列表
+println(list7.init)
+
+// 将list6按照奇数偶数分成两组
+val groupResult = list6.groupBy(x => if(x % 2 == 1) "奇数" else "偶数")
+println(s"将list6按照奇数偶数分成两组 : $groupResult")
+
+// 拉链操作,当两个list的元素数量不一样时，在结果集中直接被丢弃
+val list8 = List(1,2,3,4)
+val list9 = List("a","b","c","d")
+println(list8 zip list9)
+```
+
 
 
 
