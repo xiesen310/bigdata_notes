@@ -348,6 +348,19 @@ println(s"Fold计算月支出,计算值: $salaryMonthlyByFold")
 ```
 ### foldLeft,foldRight,aggregate
 
+``` scala
+val map9 = Map("小张" -> 3000, "小李" -> 4500, "小王" -> 5000, "小刘" -> 4000)
+// reduce和fold唯一的不同就是fold需要一个初值，他们的不足是都会受输入类型的限制，迭代计算的输入类型和输出类型一致
+// foldLeft,foldRight,aggragate没有这个限制
+val salaryMonthlyByFoldLeft = map9.foldLeft(0)((c, x) => c + x._2)
+println(s"FoldLeft计算月支出,计算值: $salaryMonthlyByFoldLeft")
+
+val salaryMonthlyByAggregate = map9.aggregate(0)(
+  (c, x) => c + x._2
+  , (c1, c2) => c1 + c2
+)
+println(s"aggregate计算月支出,计算值: $salaryMonthlyByAggregate")
+```
 
 
 
