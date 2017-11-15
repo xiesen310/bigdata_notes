@@ -210,6 +210,11 @@ println(map4.get("zhang"))
 //    println(map4("aaa"))
 println(map4.get("wang"))
 ```
+### Map ++
+
+``` stylus
+enter code here
+```
 
 
 
