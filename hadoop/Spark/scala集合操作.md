@@ -382,6 +382,18 @@ println(mMap1)
 
 ## 元组
 
+### 元组的声明
+
+``` scala
+// 元组的声明，字面量
+val tuple1 = (1,2,"a",3.0,1231,true)
+val person = (1,"小张",23,"15156987410","备注信息")
+val pairTuple = ("a",1) // 等同于("a" -> 1)
+println(tuple1)
+println(person)
+println(pairTuple)
+```
+
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510742262626.jpg
