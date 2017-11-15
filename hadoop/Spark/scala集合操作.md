@@ -393,6 +393,8 @@ println(tuple1)
 println(person)
 println(pairTuple)
 ```
+### 元组的取值
+
 
 
 
