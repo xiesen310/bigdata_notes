@@ -327,5 +327,29 @@ val maxSalary2 = map9.map(x => (x._2,x._1)).max
 println(s"最高工资: $maxSalary2")
 ```
 
+### Reduce
+
+``` scala
+val map9 = Map("小张" -> 3000, "小李" -> 4500, "小王" -> 5000, "小刘" -> 4000)
+// 计算map9月支出,把map9中的所有value加起来
+// reduce需要保持输入输出一致
+val salaryMonthly = map9.reduce((x1,x2) => {
+  ("月支出",x1._2 + x2._2)
+})
+println(salaryMonthly)
+```
+
+### Fold
+
+``` scala
+val map9 = Map("小张" -> 3000, "小李" -> 4500, "小王" -> 5000, "小刘" -> 4000)
+val salaryMonthlyByFold = map9.fold("月支出", 0)((c, x) => (c._1, c._2 + x._2))
+println(s"Fold计算月支出,计算值: $salaryMonthlyByFold")
+```
+### foldLeft,foldRight,aggregate
+
+
+
+
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510742262626.jpg
