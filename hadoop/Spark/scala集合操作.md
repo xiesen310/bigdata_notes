@@ -114,7 +114,45 @@ println(list8 zip list9)
 
 ## Set
 
+> Set是不重复的集合，在集合中是无序的。Set的操作基本上是和List中的函数是相同的
+
+![][1]
+
+### Set的声明和字面量
+
+``` scala
+// set的声明和字面量
+val set1 = Set(1, 2, 3, 4, 5, 4, 5)
+println(set1)
+// set是无序、不重复，因此不能使用index进行取值
+println(set1(0))
+```
+### Set集合遍历
+
+``` scala
+// set遍历
+for (i <- set1) println(i)
+println("----------------------")
+set1.foreach(x => println(x))
+```
+
+### 可变set集合
+
+``` scala
+val mSet = scala.collection.mutable.Set(3,2,4)
+mSet.add(456)
+println(mSet)
+mSet.add(3)
+println(mSet)
+mSet += 1
+println(mSet)
+mSet.remove(3)
+println(mSet)
+```
+
+## Map
 
 
 
 
+  [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510742262626.jpg
