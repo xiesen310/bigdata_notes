@@ -69,4 +69,25 @@ val strFoldResult = list6.foldLeft("")((c,x) => s"${if(c == "") "" else ","}$x")
 println(s"fold实现mkString: $list6")
 ```
 
+### aggregate
+
+> 先进行单个元素之间的迭代，再进行分区之间的聚合
+
+``` scala
+val strAggrateResult = list6.aggregate("")(
+  (c, x) => s"$c${if (c == "") "" else ","}$x"
+  , (c1, c2) => s"$c1,$c2"
+)
+println(s"aggregate实现mkString: $strAggrateResult")
+
+val sumAggrateResult = list6.aggregate(0)(
+  (x1,x2) => x1 + x2
+  ,(c1,c2) => c1 + c2
+)
+println("aggregate实现list6中元素的总和是: " + sumAggrateResult)
+```
+
+
+
+
 
