@@ -213,7 +213,15 @@ println(map4.get("wang"))
 ### Map ++
 
 ``` scala
+// map ++
+println(map3 ++ map4)
+println(map3 ++ Map("c" -> 100))
+```
 
+### Map中判断是否包含key
+
+``` stylus
+enter code here
 ```
 
 
