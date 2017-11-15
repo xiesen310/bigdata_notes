@@ -245,6 +245,17 @@ println(map5.drop(2))
 println(map5.dropRight(2))
 ```
 
+### Map filter
+
+``` scala
+// 过滤掉key长度等于5的kv对
+val filter1 = map5.filterKeys(x => x.length != 5)
+println("使用filterKeys过滤掉key长度等于5的kv对,结果为 : " + filter1)
+
+val filter2 = map5.filter(x => x._1.length != 5)
+println("使用filter过滤掉key长度等于5的kv对,结果为 : " + filter2)
+```
+
 ### 
 
 
