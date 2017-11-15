@@ -220,10 +220,32 @@ println(map3 ++ Map("c" -> 100))
 
 ### Map中判断是否包含key
 
-``` stylus
-enter code here
+``` scala
+// 判断map4中是否包含key: "zhang"
+println(map4.contains("zhang"))
+```
+### Map count
+
+``` scala
+// 计算出value代表key长度(value的值=key的长度)的kv对的数据量
+val map5 = Map("apple" -> 5, "pear" -> 4, "peach" -> 5, "tomato" -> 6, "banana" -> 7)
+val count1 = map5.count(x => x._1.length == x._2)
+println(s"value的值=key的长度 的数量： $count1")
+// 计算出key长度是5的kv对数量
+val count2 = map5.count(x => x._1.length == 5)
+println(s"key长度是5的kv对数量: $count2")
 ```
 
+### Map drop
+
+``` scala
+// drop
+println(map5)
+println(map5.drop(2))
+println(map5.dropRight(2))
+```
+
+### 
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510742262626.jpg
