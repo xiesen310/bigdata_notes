@@ -297,6 +297,11 @@ val last1 = map8.last
 println(last1)
 ```
 
-### 
+### Map方法，对kv对进行映射转换
+
+``` stylus
+enter code here
+```
+
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510742262626.jpg
