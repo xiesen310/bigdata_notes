@@ -299,9 +299,20 @@ println(last1)
 
 ### Map方法，对kv对进行映射转换
 
-``` stylus
-enter code here
+``` scala
+// Map方法，对kv对进行映射转换
+val map9 = Map("小张" -> 3000, "小李" -> 4500, "小王" -> 5000, "小刘" -> 4000)
+// 每个人工资加500
+val upSalary = map9.map(x => (x._1, x._2 + 500))
+println("map实现每个人工资加500，结果为：" + upSalary)
+val upSalary1 = map9.mapValues(x => x + 500)
+println("mapValues实现每个人工资加500，结果为：" + upSalary1)
+
+// 工资大于4000位高收入，否则为低收入，在姓名钱打上高收入或低收入的标签，如[低收入]小张
+val tagResult = map9.map(x => if (x._2 > 4000) ("[高收入]" ++ x._1, x._2) else ("[低收入]" ++ x._1, x._2))
+println(tagResult)
 ```
 
+### 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510742262626.jpg
