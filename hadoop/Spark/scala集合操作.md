@@ -313,6 +313,19 @@ val tagResult = map9.map(x => if (x._2 > 4000) ("[高收入]" ++ x._1, x._2) els
 println(tagResult)
 ```
 
-### 
+### key 最大最小值
+
+``` scala
+val map1 = Map(1 -> "a", 2 -> "b", 3 -> "c")
+// key 最大最小值
+println(s"map1的最大key值: ${map1.max}, 最小key值: ${map1.min}")
+val map9 = Map("小张" -> 3000, "小李" -> 4500, "小王" -> 5000, "小刘" -> 4000)
+// maxby map9根据工资来返回最大值
+val maxSalary1 = map9.maxBy(x => x._2)
+println(s"最高工资: $maxSalary1")
+val maxSalary2 = map9.map(x => (x._2,x._1)).max
+println(s"最高工资: $maxSalary2")
+```
+
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510742262626.jpg
