@@ -395,6 +395,17 @@ println(pairTuple)
 ```
 ### 元组的取值
 
+``` scala
+    // 元组位置是从1开始的
+    println(person._2)
+
+    // 元组也是不可变的，定义之后不能发生改变
+//    person._2 = ""
+    val (one,two,three) = (1,"a",true)
+    println(one)
+    println(two)
+    println(three)
+```
 
 
 
