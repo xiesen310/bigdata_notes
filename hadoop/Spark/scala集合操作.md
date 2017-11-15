@@ -362,6 +362,24 @@ val salaryMonthlyByAggregate = map9.aggregate(0)(
 println(s"aggregate计算月支出,计算值: $salaryMonthlyByAggregate")
 ```
 
+### 可变map的声明
+
+``` scala
+// 可变map的声明
+val mMap1 = scala.collection.mutable.Map(1 -> "a", 2 -> "b", 3 -> "c")
+println(mMap1)
+println(mMap1(1))
+println(mMap1.get(1))
+mMap1.put(4,"d")
+println(mMap1)
+mMap1.remove(3)
+println(mMap1)
+mMap1 += (5 -> "e")
+println(mMap1)
+mMap1.update(1,"修改后的结果")
+println(mMap1)
+```
+
 
 
 
