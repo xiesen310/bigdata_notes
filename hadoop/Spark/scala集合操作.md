@@ -256,7 +256,47 @@ val filter2 = map5.filter(x => x._1.length != 5)
 println("使用filter过滤掉key长度等于5的kv对,结果为 : " + filter2)
 ```
 
-### 
+### flatMap 展平
 
+``` scala
+//flatMap 展平
+val map6 = Map("a" -> List(1, 2, 3), "b" -> List(4, 5, 6))
+println(map6)
+val flatMap1 = map6.flatMap(x => x._2)
+println(flatMap1)
+
+val map7 = Map("zhang" -> List("zhangfei" -> "shu", "zhangliao" -> "wei"), "liu" -> List("liubei" -> "shu", "liuzhang" -> "zhong"))
+println(map7)
+val flatMap2 = map7.flatMap(x => x._2)
+println(flatMap2)
+```
+
+### Map groupby
+
+``` scala
+val map8 = Map("zhang fei" -> "shu", "zhang liao" -> "wei", "liu bei" -> "shu", "liu zhang" -> "zhong")
+// 按照国家分成N组
+val result = map8.groupBy(x => x._2)
+println("按照国家分成N组,结果为："+result)
+// 按照姓氏分组
+val result1 = map8.groupBy(x => x._1.split("\\s")(0))
+println("按照姓氏分组,结果是：" + result1)
+```
+
+### Head tail init last
+
+``` scala
+// head tail init last 在递归操作时使用
+val  head1 = map8.head
+println(head1)
+val tail1 = map8.tail
+println(tail1)
+val init1 = map8.init
+println(init1)
+val last1 = map8.last
+println(last1)
+```
+
+### 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510742262626.jpg
