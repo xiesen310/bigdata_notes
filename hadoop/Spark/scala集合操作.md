@@ -200,8 +200,15 @@ for(ks <- map3.keySet){
 
 ### 通过get获取key的value值
 
-``` stylus
-enter code here
+``` scala
+// get方法，获取指定key的value值
+val map4 = Map("zhang" -> 80, "li" -> 85, "liu" -> 90)
+println(map4("zhang"))
+println(map4.get("zhang"))
+// 小括号获取key的value的值，如果key不存在，程序会抛出 java.util.NoSuchElementException 异常
+// 建议使用get获取key的value的值
+//    println(map4("aaa"))
+println(map4.get("wang"))
 ```
 
 
