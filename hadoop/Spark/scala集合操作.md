@@ -408,7 +408,54 @@ println(three)
 ```
 ### 元组封装返回值
 
+``` scala
+println(tupleTest01("Hello tuple"))
+// tuple封装返回值
+def tupleTest01(a: String) = {
+  val value1 = s"return value1 $a"
+  val value2 = s"return value1 $a"
+  val value3 = s"return value1 $a"
+  (value1,value2,value3)
+}
+```
 
+## OPtion、None、Some类型
+
+> Option类是用来封装其他类型的对象，一般应用在方法的返回值上，以避免方法返回空值带来不必要的麻烦。Option是None和some的父类
+
+### None
+
+> None没有任何返回值
+
+``` scala
+object OptionTest {
+  def main(args: Array[String]): Unit = {
+    val value1 = getValue(1)
+    val value2 = getValue(-1)
+    println(s"$value1 , $value2")
+    println(value1.get)
+
+    val value3 = getValue(5)
+    // getOrElse(0),参数指的是默认值
+    println(value3.getOrElse(0))
+  }
+  def getValue(a: Int): Option[Int] = {
+    if (a > 0) Some(a) else None
+  }
+}
+```
+
+### some
+
+> Some封装了返回值
+
+``` scala
+// some可以封装任意类型，一般用在函数的返回值上
+val some1 = Some("abc")
+val some2 = Some(true)
+println(some1)
+println(some2)
+```
 
 
   [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510742262626.jpg
