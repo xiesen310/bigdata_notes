@@ -40,4 +40,33 @@ object DefTest {
 }
 ```
 
+## List
+
+### reduce
+
+`val reducerList = list6.reduce((x1, x2) => x1 + x2)`Reduce是对list6中的所有元素进行迭代计算的函数，reduce计算结束之后相当于把集合中的每一个元素按照迭代函数，迭代计算聚合起来
+
+``` scala
+val list6 = List(1, 2, 3, 4, 5)
+val reducerList = list6.reduce((x1, x2) => x1 + x2)
+val reduceListMax = list6.reduce((x1,x2)=> if(x1 > x2) x1 else x2)
+println(s"list6的总和 = $reducerList" )
+println(s"list6的最大值 = $reduceListMax" )
+```
+
+### fold 
+
+``` scala
+val foldResult = list6.fold(0)((x1,x2) => x1 + x2)
+println(s"list6中元素的总和是: $foldResult")
+```
+
+### foldLeft
+
+``` scala
+// 把list6中的元素聚合成一个字符串，字符串中包含有每一个元素
+val strFoldResult = list6.foldLeft("")((c,x) => s"${if(c == "") "" else ","}$x")
+println(s"fold实现mkString: $list6")
+```
+
 
