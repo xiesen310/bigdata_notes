@@ -29,5 +29,27 @@ scala maven 骨架连接 [http://docs.scala-lang.org/tutorials/scala-with-maven.
 ```
 
 
+``` xml
+<dependency>// 删除
+      <groupId>org.specs2</groupId>
+      <artifactId>specs2_${scala.tools.version}</artifactId>
+      <version>1.13</version>
+      <scope>test</scope>
+</dependency>
+<dependency>
+      <groupId>org.scalatest</groupId>
+      <artifactId>scalatest_${scala.tools.version}</artifactId>
+      <version>2.0.M6-SNAP8</version>
+      <scope>test</scope>
+ </dependency>
+```
+
+
+``` xml
+<arg>-make:transitive</arg>
+```
+
+
+
   [1]: http://docs.scala-lang.org/tutorials/scala-with-maven.html
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510846163013.jpg
