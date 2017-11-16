@@ -49,7 +49,9 @@ scala maven 骨架连接 [http://docs.scala-lang.org/tutorials/scala-with-maven.
 <arg>-make:transitive</arg>
 ```
 
+![][3]
 
 
   [1]: http://docs.scala-lang.org/tutorials/scala-with-maven.html
   [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510846163013.jpg
+  [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1510847071614.jpg
