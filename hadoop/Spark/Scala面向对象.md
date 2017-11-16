@@ -88,3 +88,24 @@ object ConstructionTestObj {
 ```
 ### 将主构造方法与属性进行合并
 
+``` scala
+package top.xiesen.oo
+class AttributeDefine(var attr1: String, var attr2: Int,val valAttr: String, private var privateAttr: String) {
+  var embobyAttr: String = ""
+}
+
+object AttributeDefineObj {
+  def main(args: Array[String]): Unit = {
+    val ad = new AttributeDefine("aaa",123,"常量","private")
+    println(s"ad.attr1: ${ad.attr1}, ad.attr2: ${ad.attr2},ad.valAttr: ${ad.valAttr}")
+    // 私有变量下不允许访问
+//    println(s"ad.private: ${ad.privateAttr}")
+
+    ad.embobyAttr = "内部声明的变量"
+    println(s"ad.embobyAttr: ${ad.embobyAttr}")
+  }
+}
+```
+
+### 使用默认值定义构造方法
+
