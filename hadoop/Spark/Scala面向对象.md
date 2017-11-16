@@ -109,5 +109,33 @@ object AttributeDefineObj {
 
 ### 使用默认值定义构造方法
 
-构造方法可以使用默认值参数，这样能够大大提高构造方法的灵活性
+> 构造方法可以使用默认值参数，这样能够大大提高构造方法的灵活性
+
+``` scala
+package top.xiesen.oo
+/**
+  * 构造方法可以使用默认值参数，这样能够大大提高构造方法的灵活性
+  */
+class ConstructionWithDefine (var attr1: String, var attr2:String = "defaultAttr2",var attr3: Int = 10){
+
+  override def toString: String = {
+    s"attr1: ${attr1},attr2: ${attr2},attr3: ${attr3}"
+  }
+
+}
+
+object ConstructionWithDefineObj {
+  def main(args: Array[String]): Unit = {
+    val c1 = new ConstructionWithDefine("c1参数")
+    println(c1)
+    val c2 = new ConstructionWithDefine("c1参数","c2参数")
+    println(c2)
+    val c3 = new ConstructionWithDefine("c1参数","c2参数",123)
+    println(c3)
+    val c4 = new ConstructionWithDefine("c1参数",attr3 = 1233)
+    println(c4)
+  }
+}
+```
+
 
