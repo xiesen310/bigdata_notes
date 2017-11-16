@@ -53,3 +53,36 @@ Scala构造方法
 5. 所有的次构造方法在方法体内必须直接或间接的调用主构造方法才能写自己的构造内容
 6. 构造方法不需要返回值，它返回值是Unit类型
 
+### 定义构造方法
+
+``` scala
+package top.xiesen.oo
+class ConstructionTest(pattr1: String, pattr2: String) {
+  // 属性1
+  var attr1 = pattr1
+  // 属性2
+  var attr2 = pattr2
+
+  // 副构造方法
+  def this() = {
+    this("", "") // 直接调用主构造方法
+    println("------执行了副构造方法-------")
+    this.attr2 = "副构造方法内赋值"
+  }
+
+  def this(pattr1: String) = {
+    this() //没有直接调用构造方法，但是间接调用了主构造方法
+    println("----执行了副构造方法二")
+    this.attr1 = pattr1
+  }
+}
+
+object ConstructionTestObj {
+  def main(args: Array[String]): Unit = {
+    val c1 = new ConstructionTest("aaa", "123")
+    println(s"c1.attr1: ${c1.attr1}, c1.attr2: ${c1.attr2}")
+    val c2 = new ConstructionTest()
+    println(s"c2.attr1: ${c2.attr1}, c2.attr2: ${c2.attr2}")
+  }
+}
+```
