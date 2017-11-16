@@ -552,3 +552,44 @@ Traint不能直接进行实例化
 Class ExtendedAndImpClass extends SuperClass with Traint1 with Traint2...
 Traint之间也可以相互继承，接口可以被多继承
 
+``` scala
+trait OperatorPersistentSystem {
+  def saveData()
+
+  def implementMethod() = {
+    println("调用了traint的implementMethod方法")
+  }
+
+  var unInitAttr: String
+  var initedAttr = "trait已初始化的属性"
+}
+
+trait DisplayData {
+  def showData()
+}
+
+// 实现多个接口，第一个接口使用extends，后面的使用with关键字
+class OperatorAndDisplayData extends OperatorPersistentSystem with DisplayData {
+  override def saveData(): Unit = {
+    println("保存数据到本地文件系统中")
+  }
+
+  override var unInitAttr: String = "OperatorAndDisplayData初始化OperatorPersistentSystem的unInitAttr 变量"
+
+  override def showData(): Unit = {
+    println("展示数据到控制台")
+  }
+}
+
+object OperatorPersistentSystemTest {
+  def main(args: Array[String]): Unit = {
+    val odd = new OperatorAndDisplayData
+    odd.saveData()
+    odd.showData()
+  }
+}
+```
+
+## 包和引入
+
+
