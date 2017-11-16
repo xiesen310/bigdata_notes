@@ -527,3 +527,5 @@ object ExtendedClassTest {
   }
 }
 ```
+## 接口
+
