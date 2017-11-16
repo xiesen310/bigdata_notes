@@ -657,5 +657,37 @@ object PackageTest {
 包的定义基本用法和java一致，同时也有更高级的用法
 包的定义可以嵌套，可以和目录不一致
 
+``` scala
+package top.xiesen.oo
+
+/**
+  * 包对象的定义
+  */
+package object packagetest {
+  def sum(x1: Int, x2: Int) = {
+    x1 + x2
+  }
+
+  val packageList = List(1, 2, 3, 4)
+}
+```
+
+> 包对象测试案例
+
+``` scala
+package top.xiesen.oo.packagetest
+
+/**
+  * 包对象测试
+  */
+object PackageObjectTest {
+
+  def main(args: Array[String]): Unit = {
+    println(sum(1,2))
+    println(packageList)
+  }
+}
+```
+
 
 
