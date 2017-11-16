@@ -307,3 +307,52 @@ Scala抽象类：
 抽象类主构造方法上属性定义，子类在继承时必须给抽象类的构造方法传值
 在子类被实例化的时候先调用父类的构造方法，再调用子类的构造方法
 
+``` scala
+package top.xiesen.oo.abstracttest
+
+abstract class Person(var name:String) {
+  println("Person的构造方法被调用")
+  var pType: String
+
+  def printlnMethod() = {
+    println(s"pType: ${pType}, name:$name")
+  }
+
+  def work(): Unit
+}
+
+class Student(name: String) extends Person(name) {
+  println("Student的构造方法被调用")
+  override var pType: String = "学生类型"
+
+  override def work(): Unit = {
+    println("学生的工作是上课")
+  }
+}
+class Teacher(name:String) extends Person (name){
+  println("Teacher的构造方法被调用")
+  override var pType: String = "教师类型"
+
+  override def work(): Unit = {
+    println("教师的工作是授课")
+  }
+}
+
+object PersonTest {
+  def main(args: Array[String]): Unit = {
+    val student = new Student("小张")
+    val teacher = new Teacher("小李")
+    student.printlnMethod()
+    student.work()
+    teacher.printlnMethod()
+    teacher.work()
+  }
+}
+```
+
+### 方法重写
+
+> 方法重写指的是当子类继承父类的时候，从父类继承过来的方法不能满足子类的需要，子类希望有自己的实现，这时需要对父类的方法进行重写，方法重写是实现多态和动态绑定的关键。 
+> scala中的方法重写同java一样，也是利用override关键字标识重写父类的算法。 
+> 子类重写父类方法的时候，如果父类是抽象类，重写的方法是抽象方法override关键词可以省略，否则必须写override
+
