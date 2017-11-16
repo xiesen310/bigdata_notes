@@ -451,3 +451,79 @@ object DynamicActiveFactory {
 	- 缺点：
 		- 操作复杂，会额外写很多代码，比如说接口的定义
 		- 对功能方法的调用需要通过实例对象来进行
+
+继承实例代码：
+
+``` scala
+class DynamicActive {
+
+  def saveData() = {
+    println("保存数据到本地文件系统")
+  }
+
+  def deleteData() = {
+    println("删除本地文件系统数据")
+  }
+}
+
+class HBaseActive extends DynamicActive {
+  override def saveData(): Unit = {
+    println("保存数据到Hbase上")
+  }
+}
+
+class ExtendedClass extends HBaseActive {
+
+  // 通过继承HBaseActive已经具有保存数据的功能
+  def displayData() = {
+    println("展示数据到控制台上")
+  }
+}
+object ExtendedClassTest {
+  def main(args: Array[String]): Unit = {
+    val ec = new ExtendedClass
+    ec.saveData()
+    ec.displayData()
+  }
+}
+```
+
+组合实例代码：
+
+``` scala
+class DynamicActive {
+
+  def saveData() = {
+    println("保存数据到本地文件系统")
+  }
+
+  def deleteData() = {
+    println("删除本地文件系统数据")
+  }
+}
+
+class HBaseActive extends DynamicActive {
+  override def saveData(): Unit = {
+    println("保存数据到Hbase上")
+  }
+}
+class ExtendedClassCompoise {
+  // 通过组合的方式将HBaseActive实例化成一个对象，通过该对象调用HBaseActive上的方法，来保存数据到hbase上
+  val hBaseActive = new HBaseActive
+
+  def displayData() = {
+    println("展示数据到控制台上")
+  }
+
+  def saveDataToHbase() = {
+    hBaseActive.saveData()
+  }
+}
+object ExtendedClassTest {
+  def main(args: Array[String]): Unit = {
+    val ecc = new ExtendedClassCompoise
+    ecc.saveDataToHbase()
+    ecc.displayData()
+  }
+}
+```
