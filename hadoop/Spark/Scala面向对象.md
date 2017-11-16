@@ -86,3 +86,5 @@ object ConstructionTestObj {
   }
 }
 ```
+### 将主构造方法与属性进行合并
+
