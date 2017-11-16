@@ -706,5 +706,112 @@ object ooPackageTest {
 }
 ```
 
+## 权限访问控制和包的关系
+
+Private和protected是scala中仅有的两个权限控制修饰符
+Private后面可以通过添加中括号的方式来更灵活的进行自己的权限控制
+中括号中可以写：
+1. 伴生对象伴生类可以各自访问私有成员变量
+2. 内部类
+
+Private[this] ---- 限制伴生对象访问自己的私有变量
+Private[类名]
+Private[包名] ---- 扩充包下的类，也可以访问自己的私有成员
+
+> Private[this]示例代码：
+
+``` scala
+// 伴生类
+class ActionTest {
+  private var pAttr1 = "private私有成员变量"
+  private[this] var pAttr2 = "private[this]私有成员变量"
+  class InnerClass {
+    def readActionTestPrivate() = {
+      // 可直接访问ActionTest私有成员
+      println(pAttr1)
+      println(pAttr2)
+    }
+  }
+}
+// 伴生对象
+object ActionTest {
+  // 伴生对象访问私有成员变量
+  def readActionTestPrivate() = {
+    val obj = new ActionTest
+    println(obj.pAttr1)
+    // 伴生对象不能访问private[this]修饰的私有成员变量
+    //   println(obj.pAttr2)
+  }
+}
+```
+> Private[包名]示例代码：
+
+``` scala
+package top {
+  package xiesen {
+
+    import top.xiesen.actiontest.ActionTest
+
+    object ActionXiesenTestMain {
+      def readActionTestPrivate() = {
+        val actionTest = new ActionTest
+        println(actionTest.pAttr4)
+      }
+    }
+    package actiontest {
+
+      // 伴生类
+      class ActionTest {
+        private var pAttr1 = "private私有成员变量"
+        private[this] var pAttr2 = "private[this]私有成员变量"
+        //        private[InnerClass] var pAttr3 = "private[InnerClass]私有成员变量"
+        private[xiesen] var pAttr4 = "private[xiesen]私有成员变量"
+
+        class InnerClass {
+          def readActionTestPrivate() = {
+            // 可直接访问ActionTest私有成员
+            println(pAttr1)
+            println(pAttr2)
+            // println(pAttr3)
+          }
+        }
+
+      }
+
+      // 伴生对象
+      object ActionTest {
+        // 伴生对象访问私有成员变量
+        def readActionTestPrivate() = {
+          val obj = new ActionTest
+          println(obj.pAttr1)
+          // 伴生对象不能访问private[this]修饰的私有成员变量
+          //          println(obj.pAttr2)
+
+          //          println(obj.pAttr3)
+        }
+
+      }
+
+      object ActionTestMain {
+        def main(args: Array[String]): Unit = {
+          println("伴生对象的访问")
+          ActionTest.readActionTestPrivate()
+          println("内部类的访问")
+          val actionTest = new ActionTest
+          val innerClass = new actionTest.InnerClass
+          innerClass.readActionTestPrivate()
+          //          val innerClass1 = new actionTest.InnerClass
+
+          println("包下访问")
+          ActionXiesenTestMain.readActionTestPrivate()
+        }
+      }
+
+    }
+
+  }
+}
+```
+
 
 
