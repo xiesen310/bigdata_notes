@@ -204,5 +204,106 @@ object ObjectTest {
 
 ### 伴生类和伴生对象
 
+>如果一个Object和一个class他们的名称相同，那么在编译成class文件的时候，它们会公用一个Student.class文件，这样一个object和class它们互为伴生
+在伴生类通过类名可以调用伴生对象的属性和方法，但是伴生对象不可以调用伴生类的属性和方法
+伴生类和伴生对象可以互相访问私有成员
+但是如果private添加泛型限定符，会额外的限定如private[this]
 
+``` scala
+package top.xiesen.oo
+
+// student的伴生类
+class Student(var studentNo:String,var studentName:String,var studentClass:String,var age:Int){
+  private def classPrivateMethod() = {
+    println("伴生类的私有方法")
+    Student.objectPrivateMethod
+  }
+  def printlnStudent() = {
+    println(s"schoolName: ${Student.schoolName}, studentNo: ${studentNo},studentName: ${studentName},studentClass: ${studentClass},age: ${age}")
+    Student.gotoSchool()
+  }
+
+  private[this] def classPrivateThisMethod() = {
+    println("class的private[this]方法")
+  }
+
+  // 这里要求泛型需要包对象进行封装，即student和studentTest要封装在同一个包对象中
+/*  private[StudentTest] def classPrivateStudentTestMethod() = {
+    println("class的private[StudentTest]方法")
+  }*/
+}
+// student的伴生对象
+object Student {
+  var schoolName:String = ""
+  def gotoSchool() = {
+    println("伴生对象的上学方法")
+  }
+  private def objectPrivateMethod() = {
+    println("伴生对象的私有方法")
+  }
+
+  def classStudentPrivateMethod() = {
+    val s = new Student("002","私有测试","二年级",15)
+    s.classPrivateMethod()
+//    s.classPrivateThisMethod()
+  }
+
+  def apply() = {
+    println("调用了apply方法")
+  }
+  def apply(studentNo:String,studentName:String,studentClass:String,age:Int) = {
+    new Student(studentNo,studentName,studentClass,age)
+  }
+
+}
+
+object StudentTest {
+  def main(args: Array[String]): Unit = {
+    val student = new Student("001","小王","一年级",18)
+    student.printlnStudent()
+    Student.gotoSchool()
+
+    /*Student.classStudentPrivateMethod()
+    student.classPrivateStudentTestMethod*/
+
+    Student.apply()
+    Student()
+
+    val student1 = Student("001","小王","一年级",18)
+  }
+}
+```
+
+### Apply
+
+> Apply方法在scala中是有特殊作用的方法，它可以直接通过Object后面的小括号的形式来调用
+> Student.apply() 等同于 Student()
+
+> Apply方法可以进行重载，我们可以利用这个特征，不使用new就可以创建对象
+
+``` scala
+  def apply(studentNo:String,studentName:String,studentClass:String,age:Int) = {
+    new Student(studentNo,studentName,studentClass,age)
+  }
+ val student1 = Student("001","小王","一年级",18)
+```
+
+## 抽象类
+
+Java抽象类:
+1. 不能被实例化
+2. 可以定义以实现的方法，也可以定义抽象方法
+3. 子类必须实现抽象类中所有的抽象方法
+
+Scala抽象类：
+
+1. 不能被实例化
+2. 可以定义属性，可以定义以实现的方法
+3. 可以定义未被初始化的属性和未被实现的方法
+4. 子类必须实现抽象类中所有的未初始化的属性，必须初始化抽象类中未实现的方法
+5. 在定义未实现的方法上必须指定返回值类型
+
+抽象类也可以定义构造方法，构造方法上也可以通过var、val等修饰符声明属性
+抽象类主构造方法上属性定义，子类在继承时必须给抽象类的构造方法传值
+在子类被实例化的时候先调用父类的构造方法，再调用子类的构造方法
 
