@@ -689,5 +689,22 @@ object PackageObjectTest {
 }
 ```
 
+> 包对象定义的包外的类也可以无引用的使用包对象中的属性和方法，但是需要使用import top.xiesen.oo.packagetest._导入
+
+``` scala
+package top.xiesen
+
+/**
+  * 外部使用包对象
+  */
+object ooPackageTest {
+  def main(args: Array[String]): Unit = {
+    import top.xiesen.oo.packagetest._
+    println(sum(2, 3))
+    println(packageList)
+  }
+}
+```
+
 
 
