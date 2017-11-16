@@ -137,5 +137,35 @@ object ConstructionWithDefineObj {
   }
 }
 ```
+### 主构造方法私有
+
+> 可以通过在主构造方法参数前面添加private的方式来对主构造方法进行私有化
+
+``` scala
+package top.xiesen.oo
+
+/**
+  * 主构造方法私有
+  */
+class ConstructionMainPrivate private(var attr1: String,var attr2: String) {
+
+  override def toString: String = {
+    s"attr1:${attr1},attr2:${attr2}"
+  }
+  def this() = {
+    this("","")
+    println("-----使用公有的辅助构造方法来构建对象-----")
+  }
+}
+object ConstructionMainPrivateObj{
+  def main(args: Array[String]): Unit = {
+    val c1 = new ConstructionMainPrivate()
+    c1.attr1 = "属性1"
+    c1.attr2 = "属性2"
+    println(c1)
+  }
+}
+```
+
 
 
