@@ -356,3 +356,48 @@ object PersonTest {
 > scala中的方法重写同java一样，也是利用override关键字标识重写父类的算法。 
 > 子类重写父类方法的时候，如果父类是抽象类，重写的方法是抽象方法override关键词可以省略，否则必须写override
 
+``` scala
+package top.xiesen.oo.abstracttest
+
+/**
+  * Created by Allen on 2017/11/16.
+  * DynamicActive用来操作存储系统数据
+  */
+class DynamicActive {
+
+  def saveData() = {
+    println("保存数据到本地文件系统")
+  }
+
+  def deleteData() = {
+    println("删除本地文件系统数据")
+  }
+
+}
+
+class HBaseActive extends DynamicActive {
+  override def saveData(): Unit = {
+    println("保存数据到Hbase上")
+  }
+}
+
+class MysqlActive extends DynamicActive {
+  override def saveData(): Unit = {
+    println("保存数据到Mysql上")
+  }
+}
+
+object DynamicActiveFactory {
+  def mkInstance():DynamicActive = {
+//    new HBaseActive
+    new MysqlActive
+  }
+}
+
+object DynamicActiveTest {
+  def main(args: Array[String]): Unit = {
+    val active = DynamicActiveFactory.mkInstance()
+    active.saveData()
+  }
+}
+```
