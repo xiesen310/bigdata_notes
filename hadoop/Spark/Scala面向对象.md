@@ -529,3 +529,26 @@ object ExtendedClassTest {
 ```
 ## 接口
 
+Scala的总父类类型是Any
+AnyVal相当于java的基础数据类型
+AnyRef相当于java中的Object
+Java的接口:interface
+1. 常量
+2. 未实现的方法
+
+Scala的接口:traits
+
+1.  常量
+2.  未实现的方法
+3.  变量 初始化的变量和未初始化的变量
+4.  以实现的方法
+
+
+> 两种语言在定义接口实现类的时候都必须实现全部接口未实现的方法(scala中包含未初始化的变量)
+Traint可以多实现 而抽象类只能继承一个
+Traint不能直接进行实例化
+如果一个类要实现多个接口，第一个接口使用extends关键词，后面的使用with关键词
+如果一个类既要继承另一个类，又要实现接口，那么被继承的类写在extends后面，所有的接口使用with关键词
+Class ExtendedAndImpClass extends SuperClass with Traint1 with Traint2...
+Traint之间也可以相互继承，接口可以被多继承
+
