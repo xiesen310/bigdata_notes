@@ -592,4 +592,70 @@ object OperatorPersistentSystemTest {
 
 ## 包和引入
 
+> Scala中引入包的基本用法和java一致，除了导入包下所有对象的时候，java使用的是*，scala使用的是_
+
+``` scala
+import java.util.Date.*(java)
+import java.util.Date._(scala)
+```
+
+> Scala中可以在引入同一个包的时候在一行代码中引入多个类型
+
+``` scala
+import java.util.{Date, Random}
+```
+
+> Scala中可以在任何地方引入包
+> 在代码块里面import引入包它的作用域就是代码块内
+>如果在scala文件的最上方引入，那么它在整个文件内都生效
+
+```  scala
+package top.xiesen.oo.packagetest
+
+import java.util
+import java.util.{Date, Random}
+
+class PackageTest {
+  val date = new Date()
+  val random = new Random()
+
+  def test() = {
+    import java.util
+    val a = new util.ArrayList[Int]()
+  }
+}
+```
+> Scala引入类型的时候可以给类型起别名
+
+``` scala
+import scala.collection.mutable.{Queue=>MutableQueue}
+object PackageTest {
+  def main(args: Array[String]): Unit = {
+    // 使用别名
+    val queue = new MutableQueue()
+    println(queue)
+  }
+}
+```
+
+> Scala还可以使用import的方式隐藏类型
+import scala.collection.mutable.{HashMap=>_}
+相当于在当前引入的所有mutable下的类型隐藏了HashMap
+
+``` scala
+package top.xiesen.oo.packagetest
+
+import scala.collection.immutable._
+import scala.collection.mutable.{HashMap => _}
+
+object PackageTest {
+  def main(args: Array[String]): Unit = {
+    val map = new HashMap[String, String]()
+  }
+}
+```
+包的定义基本用法和java一致，同时也有更高级的用法
+包的定义可以嵌套，可以和目录不一致
+
+
 
