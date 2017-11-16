@@ -401,3 +401,30 @@ object DynamicActiveTest {
   }
 }
 ```
+
+### 匿名类
+
+> 当我们想要实例化一个类型的对象的时候，如果这个类型是一个抽象类，或者是一个接口，而我们又不想重新定义一个类型来继承抽象类或者接口，这时我们使用匿名类
+可以使用
+
+``` scala
+new abstractType(){
+实现或重写父类的方法
+}
+```
+示例代码
+
+``` scala
+// 本例和抽象类是一个实例，下面是做修改的部分
+object DynamicActiveFactory {
+  def mkInstance():DynamicActive = {
+//    new HBaseActive
+//    new MysqlActive
+    new DynamicActive(){
+      override def saveData(): Unit = {
+        println("保存数据到hive里面")
+      }
+    }
+  }
+}
+```
