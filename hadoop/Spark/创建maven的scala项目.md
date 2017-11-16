@@ -25,7 +25,7 @@ scala maven 骨架连接 [http://docs.scala-lang.org/tutorials/scala-with-maven.
 
 ``` xml
 <scala.tools.version>2.11</scala.tools.version>
-<scala.version>2.11.11</scala.version>
+<scala.version>2.11.11</scala.version>// 改成自己的版本
 ```
 
 
