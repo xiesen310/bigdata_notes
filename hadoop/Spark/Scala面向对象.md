@@ -202,5 +202,7 @@ object ObjectTest {
 }
 ```
 
+### 伴生类和伴生对象
+
 
 
