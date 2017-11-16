@@ -169,5 +169,38 @@ object ConstructionMainPrivateObj{
 
 ### 单例对象
 
+> 单例对象的属性和方法，可以直接通过单例对象的名称来调用，不需要实例化，它本身就是一个对象
+
+``` scala
+package top.xiesen.oo
+
+/**
+  * 单例对象
+  */
+object ObjectTest {
+
+  var varAttr1 = ""
+  private var varAttr2: String = ""
+  val valAttr1 = "常量1"
+  def method1() = {
+    println("执行method1")
+  }
+
+  private def method2() = {
+    println("执行method2")
+  }
+
+  def main(args: Array[String]): Unit = {
+    ObjectTest.varAttr1 = "给单例对象属性赋值"
+    ObjectTest.varAttr2 = "给单例对象私有属性赋值"
+    // 常量本省不能赋值
+//    ObjectTest.valAttr1 = "123"
+    println(s"ObjectTest单例对象---> valAttr1: ${ObjectTest.valAttr1} ,varAttr1: ${ObjectTest.varAttr1}, varAttr2: ${ObjectTest.varAttr2}")
+    ObjectTest.method1()
+    ObjectTest.method2()
+  }
+}
+```
+
 
 
