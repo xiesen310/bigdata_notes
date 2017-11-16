@@ -428,3 +428,6 @@ object DynamicActiveFactory {
   }
 }
 ```
+
+## 组合和继承
+
