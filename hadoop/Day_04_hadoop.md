@@ -168,10 +168,15 @@ yarn:
 reduce节点:(reduce端)
 
 > -  map执行完就会启动reduce
+> 
 > -  不指定就是1
+> 
 > -  reduce到map端找到相应的自己的数据,拿到自己内存中
+> 
 > -  先写入reduce端的磁盘,写时合并和排序
+> 
 > -  再发送到reduce上执行,调用reduce方法,每一个**key**调用一次方法
+> 
 > -  通过outputformat类输出出去(保存数据)
 
 shuffel:洗牌,混洗(整个mr中效率最低的过程)
