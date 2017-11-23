@@ -96,8 +96,11 @@ HDFS优势为廉价
 **reduce**:聚合计算
 
 > 1.由mapreduce引擎随机分配
+> 
 > 2.数量由开发者决定,默认为1
+> 
 > 3.reduce没有本地性
+> 
 > 4.reduce处理key,则只要key相同的都会到同一个reduce节点
 
 
@@ -106,13 +109,21 @@ HDFS优势为廉价
 wordCount:
 
 > 1.在节点上启动Map任务
+> 
 > 2.加载之前也是key,value对,加载解析(解析为一个一个的单词)
+> 
 > 3.以key,value的形式发送,必须保证同一个单词必须在一个reduce中
+> 
 > 4.解析出来的单词作为key,简化计算则设置value为1
+> 
 > 5.分配给reduce一个标号
+> 
 > 6.获取key的Hash值key,hashcode()%reduce_number得到余数,标号分给对应标号的reduce
+> 
 > 7.reduce会对key,value进行排序,分组和合并,都是根据key来操作,根据ascii进行排序分组合并
+> 
 > 8.再聚合:聚合由程序定义(根据key聚合)
+> 
 > 9.保存到HDFS上
 
 ### job配置
