@@ -78,7 +78,6 @@ Create table wc_result as slect word,count(*) as wcount from(select explode(spli
 2.	安装直接下一步就可以了，和普通软件安装一样
 3.	配置连接，需要两个jar包，一个在hadoop【/hadoop-2.7.4/share/hadoop/common】中，一个再hive【/apache-hive-2.0.3-bin/jdbc】中
 
-![][6]
 
 ![][7]
 
