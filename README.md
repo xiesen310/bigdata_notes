@@ -119,6 +119,7 @@
 	* [Hive中hql练习](#Hive中hql练习)
 	* [sql练习](#sql练习)
 ## Day12 [连接][13]
+* [Hive内部表和外部表的区别](#hive内部表和外部表的区别)
 * [Hive 优化](#hive-优化)
 * [Map端聚合操作](#map端聚合操作)
 * [Order, Sort, Cluster, and Distribute By](#order-sort-cluster-and-distribute-by)
@@ -139,6 +140,7 @@
 * [分桶](#分桶)
 * [hive压缩](#hive压缩)
 * [maven 更换国内镜像](#maven-更换国内镜像)
+
 ## Day13 [连接][14]
 * [java代码操作hive](#java代码操作hive)
 	* [创建maven工程，导入依赖文件](#创建maven工程导入依赖文件)
