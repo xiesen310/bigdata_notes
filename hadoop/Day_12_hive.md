@@ -4,6 +4,7 @@ tags: hive,hadoop
 grammar_cjkRuby: true
 ---
 
+* [Hive内部表和外部表的区别](#hive内部表和外部表的区别)
 * [Hive 优化](#hive-优化)
 * [Map端聚合操作](#map端聚合操作)
 * [Order, Sort, Cluster, and Distribute By](#order-sort-cluster-and-distribute-by)
@@ -24,6 +25,13 @@ grammar_cjkRuby: true
 * [分桶](#分桶)
 * [hive压缩](#hive压缩)
 * [maven 更换国内镜像](#maven-更换国内镜像)
+
+
+# Hive内部表和外部表的区别
+
+![][1]
+
+![][2]
 
 # Hive 优化
 
@@ -221,33 +229,33 @@ stored as textfile
 
 ## array
 
-![][1]
+![][3]
 
 ## Map
 
-![][2]
-
-![][3]
-
-- 展平map记录
-
 ![][4]
-
-- 展平array记录
 
 ![][5]
 
-## Struct
+- 展平map记录
 
 ![][6]
 
-Struct取数据
+- 展平array记录
 
 ![][7]
 
+## Struct
+
+![][8]
+
+Struct取数据
+
+![][9]
+
 # 文件的保存格式
 
-> hive 默认支持的文件格式有很多，其中arvo、orc、Parquet、Compressed Data Storage、LZO Compression等等，详细介绍请参考[https://cwiki.apache.org/confluence/display/Hive/LanguageManual][8]
+> hive 默认支持的文件格式有很多，其中arvo、orc、Parquet、Compressed Data Storage、LZO Compression等等，详细介绍请参考[https://cwiki.apache.org/confluence/display/Hive/LanguageManual][10]
 
 ``` sql
 -- 创建avro文件格式的表 avro_emploree
@@ -371,7 +379,7 @@ alter table p_test add partition(date_day='20171026',date_hour='03');
 
 注意：分桶对应的是文件，和分区是不同的。
 
-![分桶原理示意图][9]
+![分桶原理示意图][11]
 
 
 ``` sql
@@ -424,7 +432,7 @@ select * from temp_orders
 
 > 在maven的安装目录下，找到setting.xml文件添加如下代码、
 
-![enter description here][10]
+![enter description here][12]
 
 ``` xml
  <mirror>
@@ -436,13 +444,15 @@ select * from temp_orders
 ```
 
 
-  [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930825204.jpg
-  [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930844609.jpg
-  [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930866200.jpg
-  [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508932405774.jpg
-  [5]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930910082.jpg
-  [6]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930983676.jpg
-  [7]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930990369.jpg
-  [8]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual
-  [9]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508931996180.jpg
-  [10]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508932700216.jpg
+  [1]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1511881201478.jpg
+  [2]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1511881215982.jpg
+  [3]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930825204.jpg
+  [4]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930844609.jpg
+  [5]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930866200.jpg
+  [6]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508932405774.jpg
+  [7]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930910082.jpg
+  [8]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930983676.jpg
+  [9]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508930990369.jpg
+  [10]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual
+  [11]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508931996180.jpg
+  [12]: https://www.github.com/xiesen310/notes_Images/raw/master/images/1508932700216.jpg
