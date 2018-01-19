@@ -200,6 +200,13 @@ chkconfig ntpd on
 
 ![][14]
 
+## 安装JDK
+
+安装之前卸掉centos自带的jdk
+下载地址： [http://www.oracle.com/technetwork/java/javaseproducts/downloads/index.html][15]
+
+
+
 
   [1]: http://archive.cloudera.com/cdh5/parcels/5.8.0/
   [2]: ./images/1516352321214.jpg
@@ -215,3 +222,4 @@ chkconfig ntpd on
   [12]: ./images/1516359098004.jpg
   [13]: ./images/1516359133290.jpg
   [14]: ./images/1516359174365.jpg
+  [15]: http://www.oracle.com/technetwork/java/javaseproducts/downloads/index.html
