@@ -34,6 +34,10 @@ Cloudera企业级数据中心的安装主要分为4个步骤：
 		  CDH-5.8.0-1.cdh5.8.0.p0.42-el6.parcel.sha1
 		  manifest.json
 
+下载的cdh文件要与操作系统版本一致。如：CDH-5.8.0-1.cdh5.8.0.p0.42-el6.parcel中的 el6是指redhat6版本,因为我们本次安装使用redhat内核的CentOS6.6，所以下载el6的文件。
+
+## 下载CM文件
+
 
 
   [1]: http://archive.cloudera.com/cdh5/parcels/5.8.0/
