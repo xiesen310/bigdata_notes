@@ -241,7 +241,7 @@ flush privileges;
 
 ## 主节点解压安装 
 
-cloudera manager的目录默认位置在/opt下
+cloudera manager的目录默认位置在/opt下 '\n'
 解压：`tar -xzvf cloudera-manager*.tar.gz`
 将解压后的cm-5.3.3和cloudera目录放到/opt目录下。 
 为Cloudera Manager 5建立数据库 
