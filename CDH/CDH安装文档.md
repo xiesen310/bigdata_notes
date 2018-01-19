@@ -254,6 +254,7 @@ scp -r /opt/cm-5.3.3 root@n2:/opt/
 ``` shell
 useradd --system --home=/opt/cm-5.3.3/run/cloudera-scm-server/ --no-create-home --shell=/bin/false --comment "Cloudera SCM User" cloudera-scm
 ```
+# 准备Parcels，用以安装CDH5 
 
 
   [1]: http://archive.cloudera.com/cdh5/parcels/5.8.0/
