@@ -40,7 +40,12 @@ Cloudera企业级数据中心的安装主要分为4个步骤：
 
 下载地址[http://archive.cloudera.com/cm5/redhat/6/x86_64/cm/5.8.1/RPMS/x86_64/][3]
 
+![][4]
+
+全部下载
+
 
   [1]: http://archive.cloudera.com/cdh5/parcels/5.8.0/
   [2]: ./images/1516352321214.jpg
   [3]: http://archive.cloudera.com/cm5/redhat/6/x86_64/cm/5.8.1/RPMS/x86_64/
+  [4]: ./images/1516357432901.jpg
