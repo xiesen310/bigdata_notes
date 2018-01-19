@@ -217,6 +217,16 @@ export PATH="/usr/java/jdk1.7.0_67-cloudera/bin:$PATH"。
 
 mysql的安装参考 [https://github.com/xiesen310/personal_notes/blob/master/Linux/Linux%E4%B8%8B%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F.md][16]
 
+> 设置root授权访问以上所有的数据库：
+
+``` shell
+#授权root用户在主节点拥有所有数据库的访问权限
+grant all privileges on *.* to 'root'@'cdh1' identified by 'xxxx' with grant option;
+flush privileges;
+```
+
+
+
 
   [1]: http://archive.cloudera.com/cdh5/parcels/5.8.0/
   [2]: ./images/1516352321214.jpg
