@@ -193,11 +193,12 @@ vim /etc/ntp.conf
 重启所有机器的ntp服务：
 
 ``` shell
-service ntpd start; chkconfig ntpd on
+service ntpd start; 
+chkconfig ntpd on
 ```
+验证始终同步：
 
-	验证始终同步：
-
+![][14]
 
 
   [1]: http://archive.cloudera.com/cdh5/parcels/5.8.0/
@@ -213,3 +214,4 @@ service ntpd start; chkconfig ntpd on
   [11]: ./images/1516359005195.jpg
   [12]: ./images/1516359098004.jpg
   [13]: ./images/1516359133290.jpg
+  [14]: ./images/1516359174365.jpg
