@@ -72,7 +72,7 @@ Cloudera企业级数据中心的安装主要分为4个步骤：
 |   JournalNodes  |hadoop1/hadoop2/hadoop3     |   HDFS HA  |
 
 
-
+# 系统配置
 
 
 
