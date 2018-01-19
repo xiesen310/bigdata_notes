@@ -256,6 +256,27 @@ useradd --system --home=/opt/cm-5.3.3/run/cloudera-scm-server/ --no-create-home 
 ```
 # 准备Parcels，用以安装CDH5 
 
+将CHD5相关的Parcel包放到主节点的/opt/cloudera/parcel-repo/目录中（parcel-repo需要手动创建）。 
+相关的文件如下：
+- CDH-5.3.3-1.cdh5.3.3.p0.5-el6.parcel
+- CDH-5.3.3-1.cdh5.3.3.p0.5-el6.parcel.sha1
+- manifest.json
+
+最后将CDH-5.3.3-1.cdh5.3.3.p0.5-el6.parcel.sha1，重命名为CDH-5.3.3-1.cdh5.3.3.p0.5-el6.parcel.sha，这点必须注意，否则，系统会重新下载CDH-5.3.3-1.cdh5.3.3.p0.5-el6.parcel.sha1文件。
+
+## 相关启动脚本 
+
+- 通过/opt/cm-5.3.3/etc/init.d/cloudera-scm-server start启动服务端。 
+- 通过/opt/cm-5.3.3/etc/init.d/cloudera-scm-agent start启动Agent服务。 
+
+> 我们启动的其实是个service脚本，需要停止服务将以上的start参数改为stop就可以了，重启是restart。 
+
+## CDH5的安装配置 
+Cloudera Manager Server和Agent都启动以后，就可以进行CDH5的安装配置了。 
+这时可以通过浏览器访问主节点的7180端口测试一下了（由于CM Server的启动需要花点时间，这里可能要等待一会才能访问），默认的用户名和密码均为admin
+
+
+
 
   [1]: http://archive.cloudera.com/cdh5/parcels/5.8.0/
   [2]: ./images/1516352321214.jpg
