@@ -215,7 +215,7 @@ export PATH="/usr/java/jdk1.7.0_67-cloudera/bin:$PATH"。
 
 该操作在cloudera manager要运行的机器上安装，本次为hadoop1。
 
-
+mysql的安装参考 [https://github.com/xiesen310/personal_notes/blob/master/Linux/Linux%E4%B8%8B%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F.md][16]
 
 
   [1]: http://archive.cloudera.com/cdh5/parcels/5.8.0/
@@ -233,3 +233,4 @@ export PATH="/usr/java/jdk1.7.0_67-cloudera/bin:$PATH"。
   [13]: ./images/1516359133290.jpg
   [14]: ./images/1516359174365.jpg
   [15]: http://www.oracle.com/technetwork/java/javaseproducts/downloads/index.html
+  [16]: https://github.com/xiesen310/personal_notes/blob/master/Linux/Linux%E4%B8%8B%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F.md
