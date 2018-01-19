@@ -211,6 +211,10 @@ chkconfig ntpd on
 export PATH="/usr/java/jdk1.7.0_67-cloudera/bin:$PATH"。
 保存退出后source /etc/profile并执行java -version验证java版本。
 
+## 安装mysql
+
+该操作在cloudera manager要运行的机器上安装，本次为hadoop1。
+
 
 
 
