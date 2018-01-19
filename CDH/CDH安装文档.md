@@ -226,6 +226,16 @@ flush privileges;
 ```
 
 
+# 安装Cloudera Manager Server 
+
+主节点解压安装 
+cloudera manager的目录默认位置在/opt下
+解压：`tar -xzvf cloudera-manager*.tar.gz`
+将解压后的cm-5.3.3和cloudera目录放到/opt目录下。 
+为Cloudera Manager 5建立数据库 
+首先需要去MySql的官网下载JDBC驱动，[http://dev.mysql.com/downloads/connector/j/][17]
+，解压后，找到mysql-connector-java-5.1.35-bin.jar，放到/opt/cm-5.3.3/share/cmf/lib/中。 
+在主节点初始化CM5的数据库：
 
 
   [1]: http://archive.cloudera.com/cdh5/parcels/5.8.0/
@@ -244,3 +254,4 @@ flush privileges;
   [14]: ./images/1516359174365.jpg
   [15]: http://www.oracle.com/technetwork/java/javaseproducts/downloads/index.html
   [16]: https://github.com/xiesen310/personal_notes/blob/master/Linux/Linux%E4%B8%8B%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F.md
+  [17]: http://dev.mysql.com/downloads/connector/j/
