@@ -97,6 +97,13 @@ service iptables stop  --关闭掉iptables的服务
 
 ![][6]
 
+	chkconfig iptables off  --重启系统后iptables不会启动
+	验证结果：chkconfig | grep iptables ----正常结果都是off
+	该操作每台服务器都要做。
+	
+## 设置ssh免密码登录
+
+
 
 
   [1]: http://archive.cloudera.com/cdh5/parcels/5.8.0/
