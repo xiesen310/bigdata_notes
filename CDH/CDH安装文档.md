@@ -305,3 +305,4 @@ Cloudera Manager Server和Agent都启动以后，就可以进行CDH5的安装配
   [15]: http://www.oracle.com/technetwork/java/javaseproducts/downloads/index.html
   [16]: https://github.com/xiesen310/personal_notes/blob/master/Linux/Linux%E4%B8%8B%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F.md
   [17]: http://dev.mysql.com/downloads/connector/j/
+  
