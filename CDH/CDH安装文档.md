@@ -113,6 +113,7 @@ chkconfig iptables off  --重启系统后iptables不会启动
 ## 设置ssh免密码登录
 
 主机SSH其他机器不需要访问密码，本次设定为hadoop1节点为主机。
+
 1、主机执行：
 ssh-keygen -t rsa -P '' 	---执行该命令，使用空密码
 
