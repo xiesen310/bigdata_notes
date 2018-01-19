@@ -188,7 +188,15 @@ vim /etc/ntp.conf
 vim /etc/ntp.conf
 其中，添加内容如下：
 ```
+![][13]
 
+重启所有机器的ntp服务：
+
+``` shell
+service ntpd start; chkconfig ntpd on
+```
+
+	验证始终同步：
 
 
 
@@ -204,3 +212,4 @@ vim /etc/ntp.conf
   [10]: ./images/1516358788820.jpg
   [11]: ./images/1516359005195.jpg
   [12]: ./images/1516359098004.jpg
+  [13]: ./images/1516359133290.jpg
