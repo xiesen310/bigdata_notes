@@ -206,7 +206,8 @@ chkconfig ntpd on
 下载地址： [http://www.oracle.com/technetwork/java/javaseproducts/downloads/index.html][15]
 
 下载以tar.gz结尾的安装包
-
+解压 `tar -zxvf 文件名`
+配置环境变量
 
 
   [1]: http://archive.cloudera.com/cdh5/parcels/5.8.0/
