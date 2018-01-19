@@ -23,3 +23,18 @@ Cloudera企业级数据中心的安装主要分为4个步骤：
 6.	已经提前下载CDH和CM的安装包
 
 # 安装文件准备
+
+## 下载CDH文件
+
+下载地址: [http://archive.cloudera.com/cdh5/parcels/5.8.0/][1]
+
+![][2]
+
+下载：CDH-5.8.0-1.cdh5.8.0.p0.42-el6.parcel	
+		  CDH-5.8.0-1.cdh5.8.0.p0.42-el6.parcel.sha1
+		  manifest.json
+
+
+
+  [1]: http://archive.cloudera.com/cdh5/parcels/5.8.0/
+  [2]: ./images/1516352321214.jpg
