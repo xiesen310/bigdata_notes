@@ -124,6 +124,30 @@ ssh-keygen -t rsa -P '' 	---执行该命令，使用空密码
 
 ![][9]
 
+##  关闭selinux(强访问控制系统)
+
+ vim /etc/sysconfig/selinux
+将SELINUX= enforcing设置为：SELINUX=disabled
+
+![][10]
+
+> 该操作每台服务器都要做。
+
+## 修改ulimits(打开文件数限制)
+
+ulimit -n 检查是否是65535而不是默认的1024 否则执行如下三步配置：
+- 执行 # ulimit -n 65535 
+- 编辑/etc/security/limits.conf 最后增加如下两行记录：
+
+``` shell
+* soft nofile 65535
+* hard nofile 65535 
+```
+- 编辑/etc/security/limits.d/90-nproc.conf
+	将其中的1024也修改为65535
+
+
+
 
   [1]: http://archive.cloudera.com/cdh5/parcels/5.8.0/
   [2]: ./images/1516352321214.jpg
@@ -134,3 +158,4 @@ ssh-keygen -t rsa -P '' 	---执行该命令，使用空密码
   [7]: ./images/1516358623548.jpg
   [8]: ./images/1516358729628.jpg
   [9]: ./images/1516358747170.jpg
+  [10]: ./images/1516358788820.jpg
