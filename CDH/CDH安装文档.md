@@ -89,9 +89,19 @@ IP地址和主机名通过/etc/hosts配置，主机名/etc/HOSTNAME进行配置�
 
 注意： 通常会在一台服务器上配置后分发到其它各个服务器，保证一致性。
 
+## 关闭禁用防火墙
+
+service iptables stop  --关闭掉iptables的服务
+	验证防火墙是否关闭：
+	service iptables status 
+
+![][6]
+
+
 
   [1]: http://archive.cloudera.com/cdh5/parcels/5.8.0/
   [2]: ./images/1516352321214.jpg
   [3]: http://archive.cloudera.com/cm5/redhat/6/x86_64/cm/5.8.1/RPMS/x86_64/
   [4]: ./images/1516357432901.jpg
   [5]: ./images/1516358498395.jpg
+  [6]: ./images/1516358552805.jpg
