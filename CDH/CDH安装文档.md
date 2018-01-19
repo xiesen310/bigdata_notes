@@ -45,6 +45,21 @@ Cloudera企业级数据中心的安装主要分为4个步骤：
 全部下载
 
 
+# 服务器基本信息
+
+## 配件信息
+
+|   服务器名称  |  服务器ip   |  CPUs & RAM & Storage   | 操作系统    | 数量    |
+| --- | --- | --- | --- | --- |
+|     |     |     |     |     |
+|     |     |     |     |     |
+
+## 服务器角色分布
+
+
+
+
+
   [1]: http://archive.cloudera.com/cdh5/parcels/5.8.0/
   [2]: ./images/1516352321214.jpg
   [3]: http://archive.cloudera.com/cm5/redhat/6/x86_64/cm/5.8.1/RPMS/x86_64/
