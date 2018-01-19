@@ -168,6 +168,21 @@ vim /etc/grub.conf
 > 该操作每台服务器都要做。
 > 完成后重启服务器。
 
+## 配置ntp时间同步
+
+目的：安装cloudera 环境检查时，如果时间不同步会有警告。
+	将172.18.0.71机器作为本地ntp服务器，其他2台机器与其保持同步，配置如下：
+	
+
+``` shell
+172.18.0.71：
+vim /etc/ntp.conf
+```
+
+
+其中，添加内容如下：
+
+
 
 
   [1]: http://archive.cloudera.com/cdh5/parcels/5.8.0/
