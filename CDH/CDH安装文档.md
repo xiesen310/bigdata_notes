@@ -146,6 +146,25 @@ ulimit -n 检查是否是65535而不是默认的1024 否则执行如下三步配
 - 编辑/etc/security/limits.d/90-nproc.conf
 	将其中的1024也修改为65535
 
+## 关闭swap
+
+Swap会对系统的稳定性带来较大影响，一般hadoop生态圈均禁用swap。
+所有节点执行：
+
+``` shell
+swapoff -a
+```
+
+## 修改transparent_hugepage 参数
+
+这一参数默认值会导致CDH 性能下降
+
+``` shell
+vim /etc/grub.conf
+设置：transparent_hugepage=never
+```
+
+
 
 
 
