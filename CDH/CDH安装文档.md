@@ -208,6 +208,10 @@ chkconfig ntpd on
 下载以tar.gz结尾的安装包
 解压 `tar -zxvf 文件名`
 配置环境变量
+export PATH="/usr/java/jdk1.7.0_67-cloudera/bin:$PATH"。
+保存退出后source /etc/profile并执行java -version验证java版本。
+
+
 
 
   [1]: http://archive.cloudera.com/cdh5/parcels/5.8.0/
