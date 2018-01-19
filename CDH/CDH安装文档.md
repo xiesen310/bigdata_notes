@@ -103,7 +103,26 @@ service iptables stop  --关闭掉iptables的服务
 	
 ## 设置ssh免密码登录
 
+主机SSH其他机器不需要访问密码，本次设定为hadoop1节点为主机。
+1、主机执行：
+ssh-keygen -t rsa -P '' 	---执行该命令，使用空密码
 
+![][7]
+
+-  cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+ - chmod 700 ~/.ssh
+ - chmod 600 ~/.ssh/authorized_keys
+ 
+ 2、将主机id_rsa.pub文件添加到各个从机authorized_keys中：
+ 
+ - ssh-copy-id -i ~/.ssh/id_rsa.pub 172.18.0.72
+ - ssh-copy-id -i ~/.ssh/id_rsa.pub 172.18.0.73
+
+![][8]
+
+3、从主机登陆其它节点验证：
+
+![][9]
 
 
   [1]: http://archive.cloudera.com/cdh5/parcels/5.8.0/
@@ -112,3 +131,6 @@ service iptables stop  --关闭掉iptables的服务
   [4]: ./images/1516357432901.jpg
   [5]: ./images/1516358498395.jpg
   [6]: ./images/1516358552805.jpg
+  [7]: ./images/1516358623548.jpg
+  [8]: ./images/1516358729628.jpg
+  [9]: ./images/1516358747170.jpg
