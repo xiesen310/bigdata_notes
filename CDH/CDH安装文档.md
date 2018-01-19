@@ -54,7 +54,24 @@ Cloudera企业级数据中心的安装主要分为4个步骤：
 |  大数据平台   |  192.168.1.91   | E5-2603 v4 @ 1.70GHz    |   CentOS  |  3   |
 |   服务器  |    192.1668.1.93 |  & 256G & 600G SAS*2+2T SATA*6   |  6.6   |     |
 
+
+
 ## 服务器角色分布
+
+
+|   角色名称  |  服务器   |  说明   |
+| --- | --- | --- |
+|   Cloudera Manager  |hadoop1     |  Cloudera平台管理工具   |
+|   HDFS  | hadoop1/hadoop2/hadoop3    |  Hadoop分布式文件系统   |
+|  Hive   |hadoop1/hadoop2/hadoop3     |   Hive数据库  |
+| Hue    |hadoop3     |    图形化数据查询器 |
+|   Oozie  |   hadoop3  |  流程调度   |
+|    Spark |    hadoop1/hadoop2/hadoop3 | 分布式内存计算引擎    |
+| Yarn    |  hadoop1/hadoop2/hadoop3   | 分布式资源调度   |
+|   Zookeeper  |  hadoop1/hadoop2/hadoop3   |  分布式协调管理   |
+|   JournalNodes  |hadoop1/hadoop2/hadoop3     |   HDFS HA  |
+
+
 
 
 
