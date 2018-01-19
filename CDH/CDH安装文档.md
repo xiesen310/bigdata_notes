@@ -96,8 +96,10 @@ IP地址和主机名通过/etc/hosts配置，主机名/etc/HOSTNAME进行配置�
 ## 关闭禁用防火墙
 
 service iptables stop  --关闭掉iptables的服务
-	验证防火墙是否关闭：
-	service iptables status 
+
+验证防火墙是否关闭：
+
+service iptables status 
 
 ![][6]
 
