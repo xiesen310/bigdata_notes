@@ -249,6 +249,11 @@ cloudera manager的目录默认位置在/opt下
 ``` shell
 scp -r /opt/cm-5.3.3 root@n2:/opt/
 ```
+在所有节点创建cloudera-scm用户
+
+``` shell
+useradd --system --home=/opt/cm-5.3.3/run/cloudera-scm-server/ --no-create-home --shell=/bin/false --comment "Cloudera SCM User" cloudera-scm
+```
 
 
   [1]: http://archive.cloudera.com/cdh5/parcels/5.8.0/
