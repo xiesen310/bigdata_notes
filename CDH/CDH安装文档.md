@@ -205,6 +205,7 @@ chkconfig ntpd on
 安装之前卸掉centos自带的jdk
 下载地址： [http://www.oracle.com/technetwork/java/javaseproducts/downloads/index.html][15]
 
+下载以tar.gz结尾的安装包
 
 
 
