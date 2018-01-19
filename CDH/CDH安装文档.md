@@ -163,8 +163,10 @@ swapoff -a
 vim /etc/grub.conf
 设置：transparent_hugepage=never
 ```
+![][11]
 
-
+> 该操作每台服务器都要做。
+> 完成后重启服务器。
 
 
 
@@ -178,3 +180,4 @@ vim /etc/grub.conf
   [8]: ./images/1516358729628.jpg
   [9]: ./images/1516358747170.jpg
   [10]: ./images/1516358788820.jpg
+  [11]: ./images/1516359005195.jpg
