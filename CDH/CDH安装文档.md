@@ -249,7 +249,7 @@ cloudera manager的目录默认位置在/opt下 <br/>
 在主节点初始化CM5的数据库：
 
 ``` shell
-/opt/cm-5.3.3/share/cmf/schema/scm_prepare_database.sh mysql cm -hlocalhost -uroot -pxxxx --scm-host localhost scm scm scm
+/opt/cm-5.3.3/share/cmf/schema/scm_prepare_database.sh mysql cm -hlocalhost -uroot -p --scm-host localhost scm scm scm
 ```
 
 ## Agent配置 
