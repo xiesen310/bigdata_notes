@@ -31,8 +31,6 @@ grammar_cjkRuby: true
 ## 检查是否安装成功
 
 127.0.0.1 是本机 IP ，6379 是 redis 服务端口。现在我们输入 PING 命令。
-
-
 ``` shell
 redis 127.0.0.1:6379> ping
 PONG
