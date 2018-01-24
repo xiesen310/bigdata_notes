@@ -5,3 +5,4 @@ grammar_cjkRuby: true
 ---
 
 
+安装opentsdb的前提是需要jdk和hbase
