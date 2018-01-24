@@ -23,5 +23,9 @@ grammar_cjkRuby: true
 1. `cd src`
 2. `./redis-server redis.conf`
 
-## 启动
+## 启动客户端
+
+1. `cd src`
+2. `./redic-cli`
+
   [1]: http://download.redis.io/releases/redis-3.2.11.tar.gz
