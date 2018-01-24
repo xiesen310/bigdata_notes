@@ -5,8 +5,7 @@ grammar_cjkRuby: true
 ---
 
 
-> 安装opentsdb的前提是需要jdk和hbase，对于jdk和hbase的安装请参考
-
+> 安装opentsdb的前提是需要jdk和hbase
 
 1. 进入opentsdb的官网下载，并解压
 
