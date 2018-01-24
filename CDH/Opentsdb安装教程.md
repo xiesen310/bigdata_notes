@@ -63,7 +63,7 @@ tsd.http.request.max_chunk = 60000
 # 设置存储自动修复
 tsd.storage.fix_duplicates=true
 ```
-启动
+5. 启动
 
 ``` shell
 ./tsdb tsd --config=./src/opentsdb.conf &
