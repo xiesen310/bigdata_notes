@@ -36,5 +36,4 @@ redis 127.0.0.1:6379> ping
 PONG
 ```
 
-
   [1]: http://download.redis.io/releases/redis-3.2.11.tar.gz
