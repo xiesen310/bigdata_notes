@@ -34,6 +34,29 @@ create 'tsdb',{NAME => 't', VERSIONS => 1, COMPRESSION => 'NONE', BLOOMFILTER =>
 create 'tsdb-tree',{NAME => 't', VERSIONS => 1, COMPRESSION => 'NONE', BLOOMFILTER => 'ROW'}
 create 'tsdb-meta',{NAME => 'name', COMPRESSION => 'NONE', BLOOMFILTER => 'ROW'}
 ```
+配置/src/opentsdb.conf
+
+``` shell
+# 接受请求的端口  
+tsd.network.port = 4242  
+
+# 接受请求的网卡  
+tsd.network.bind = 0.0.0.0  
+
+# HTTP客户端的GUI静态页面，这个使用默认值即可。  
+tsd.http.staticroot = ./staticroot  
+
+# cache 路径，最好提前创建好，保证读写权限。  
+tsd.http.cachedir = /home/opentsdb/tsdb_cache  
+
+# 是否能自动创建统计指标  
+tsd.core.auto_create_metrics = true  
+
+# HBase表名称  
+tsd.storage.hbase.data_table = tsdb  
+
+
+```
 
 
 
