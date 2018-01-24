@@ -20,6 +20,4 @@ grammar_cjkRuby: true
 
 ### 方式二
 
-
-
   [1]: http://download.redis.io/releases/redis-3.2.11.tar.gz
