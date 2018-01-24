@@ -16,12 +16,12 @@ grammar_cjkRuby: true
 ### 方式一
 
 1. `cd src`
-2. `./redis-server`
+2. `./redis-server &`
 
 ### 方式二
 在redis.conf中绑定ip地址。例如：`bind 192.168.1.95`，使用这种方式进行启动，可以支持远程访问
 1. `cd src`
-2. `./redis-server redis.conf`
+2. `./src/redis-server redis.conf  &`
 
 ## 启动客户端
 
