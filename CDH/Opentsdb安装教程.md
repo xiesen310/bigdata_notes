@@ -54,7 +54,14 @@ tsd.core.auto_create_metrics = true
 
 # HBase表名称  
 tsd.storage.hbase.data_table = tsdb  
-
+# 配置集群
+tsd.storage.hbase.zk_quorum = 192.168.1.91:2181,192.168.1.92:2181,192.168.93:2181
+# 开启请求语块
+tsd.http.request.enable_chunked = true
+# 设置请求语块最大个数
+tsd.http.request.max_chunk = 60000
+# 设置存储自动修复
+tsd.storage.fix_duplicates=true
 
 ```
 
