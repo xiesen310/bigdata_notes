@@ -15,9 +15,12 @@ grammar_cjkRuby: true
 
 ### 方式一
 
-1. `cd /src`
+1. `cd src`
 2. `./redis-server`
 
 ### 方式二
+
+1. `cd src`
+2. `./redis-server redis.conf`
 
   [1]: http://download.redis.io/releases/redis-3.2.11.tar.gz
