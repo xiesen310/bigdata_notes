@@ -19,7 +19,7 @@ grammar_cjkRuby: true
 2. `./redis-server`
 
 ### 方式二
-
+在redis.conf中绑定ip地址。例如：`bind 192.168.1.95`
 1. `cd src`
 2. `./redis-server redis.conf`
 
