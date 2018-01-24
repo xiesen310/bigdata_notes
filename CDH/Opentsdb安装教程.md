@@ -11,7 +11,7 @@ grammar_cjkRuby: true
 
 下载地址 [https://github.com/OpenTSDB/opentsdb/releases/download/v2.2.0/opentsdb-2.2.0.tar.gz][1]
 
-tar -zxvf opentsdb-2.2.0.tar.gz
+解压命令: `tar -zxvf opentsdb-2.2.0.tar.gz`
 
 2. 设置hbase home
 
