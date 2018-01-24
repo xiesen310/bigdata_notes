@@ -29,6 +29,10 @@ make
 在配置的过程中需要在hbase上创建表，创建表的语句如下
 
 ``` shell
+create 'tsdb-uid',{NAME => 'id', COMPRESSION => 'NONE', BLOOMFILTER => 'ROW'},{NAME => 'name', COMPRESSION => 'NONE', BLOOMFILTER => 'ROW'}
+create 'tsdb',{NAME => 't', VERSIONS => 1, COMPRESSION => 'NONE', BLOOMFILTER => 'ROW'}
+create 'tsdb-tree',{NAME => 't', VERSIONS => 1, COMPRESSION => 'NONE', BLOOMFILTER => 'ROW'}
+create 'tsdb-meta',{NAME => 'name', COMPRESSION => 'NONE', BLOOMFILTER => 'ROW'}
 
 ```
 
