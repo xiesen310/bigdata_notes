@@ -28,6 +28,11 @@ make
 
 在配置的过程中需要在hbase上创建表，创建表的语句如下
 
+``` shell
+
+```
+
+
 
 
   [1]: https://github.com/OpenTSDB/opentsdb/releases/download/v2.2.0/opentsdb-2.2.0.tar.gz
