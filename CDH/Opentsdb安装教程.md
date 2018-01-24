@@ -66,7 +66,7 @@ tsd.storage.fix_duplicates=true
 启动
 
 ``` shell
-]
+./tsdb tsd --config=./src/opentsdb.conf &
 ```
 
 
