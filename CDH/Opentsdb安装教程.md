@@ -14,5 +14,17 @@ grammar_cjkRuby: true
 
 tar -zxvf opentsdb-2.2.0.tar.gz
 
+2. 设置hbase home
+
+在/etc/profie文件末尾添加export HBASE_HOME=/opt/cloudera/parcels/CDH-5.9.1-1.cdh5.9.1.p0.4/lib/hbase
+
+3. 编译源码：
+
+``` shell
+./configure
+make
+```
+
+
 
   [1]: https://github.com/OpenTSDB/opentsdb/releases/download/v2.2.0/opentsdb-2.2.0.tar.gz
