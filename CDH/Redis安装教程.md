@@ -28,4 +28,6 @@ grammar_cjkRuby: true
 1. `cd src`
 2. `./redic-cli`
 
+
+
   [1]: http://download.redis.io/releases/redis-3.2.11.tar.gz
