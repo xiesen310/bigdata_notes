@@ -13,7 +13,8 @@ grammar_cjkRuby: true
 
 ## 启动
 
-
+1. `cd /src`
+2. `./redis-server`
 
 
 
