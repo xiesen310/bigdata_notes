@@ -23,3 +23,13 @@ grammar_cjkRuby: true
 - tasks: spout和bolt执行的过程就是task
 - workers: 工作节点，storm在work之间均衡分布任务。监听job，启动或停止进程
 - stream grouping : 控制tuple如何进行路由，内置4个分组策略
+
+# 组件
+
+- nimbus: master node,在work node间分发数据，指派task给work node，监控故障
+- supervisor: 接受nimbus的指令，有多个work进程，监督work进程，完成task
+- work prcess: 执行相关的task，本身不执行，创建executor(执行线程)，可以有多个执行线程
+- executor: 执行线程，由work进程孵化的一个线程，运行一个或多个task(有bolt/spout)
+- task: 处理数据
+- zk: 维护状态
+
