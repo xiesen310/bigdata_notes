@@ -28,6 +28,37 @@ export PATH=$PATH:$STORM_HOME/bin
 
 
 1. storm.zookeeper.servers
+
+``` shell
+ storm.zookeeper.servers:
+     - "master"
+     - "slave1"
+     - "slave2"
+```
+
 2. storm.local.dir
+
+``` shell
+nimbus.seeds: ["master"]
+```
+
+3. nimbus.seeds
+
+``` shell
+storm.local.dir: "/root/.storm"
+```
+
+4. supervisor.slots.ports
+
+``` shell
+ supervisor.slots.ports:
+     - 6700
+     - 6701
+     - 6702
+     - 6703
+```
+
+
+
 
   [1]: http://www.apache.org/dyn/closer.lua/storm/apache-storm-1.1.1/apache-storm-1.1.1.tar.gz
