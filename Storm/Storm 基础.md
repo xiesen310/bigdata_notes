@@ -21,3 +21,5 @@ grammar_cjkRuby: true
 - bolts: 转接头，逻辑处理单元。spout数据传给bolt，bolt处理后产生新的数据，可以是filter、聚合、分组。
 - topology: 不会停止的，除非手动杀死，MR是会停止的
 - tasks: spout和bolt执行的过程就是task
+- workers: 工作节点，storm在work之间均衡分布任务。监听job，启动或停止进程
+- stream grouping : 控制tuple如何进行路由，内置4个分组策略
