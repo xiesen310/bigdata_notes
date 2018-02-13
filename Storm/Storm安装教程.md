@@ -65,6 +65,11 @@ storm.health.check.dir: "healthchecks"
 storm.health.check.timeout.ms: 5000
 ```
 
+# storm 启动
+
+1. Nimbus  `storm nimbus &`
+2. Supervisor  `storm supervisor &`
+3. UI `storm ui &`
 
 
 
