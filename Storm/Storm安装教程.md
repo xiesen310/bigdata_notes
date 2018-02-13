@@ -60,6 +60,12 @@ storm.local.dir: "/root/.storm"
 ```
 ##  Supervisors健康监控配置(可选)
 
+``` shell
+storm.health.check.dir: "healthchecks"
+storm.health.check.timeout.ms: 5000
+```
+
+
 
 
   [1]: http://www.apache.org/dyn/closer.lua/storm/apache-storm-1.1.1/apache-storm-1.1.1.tar.gz
