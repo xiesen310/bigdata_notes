@@ -26,6 +26,7 @@ export PATH=$PATH:$STORM_HOME/bin
 
 # 配置storm
 
+## 基础配置
 
 1. storm.zookeeper.servers
 
@@ -57,7 +58,7 @@ storm.local.dir: "/root/.storm"
      - 6702
      - 6703
 ```
-
+##  Supervisors健康监控配置(可选)
 
 
 
