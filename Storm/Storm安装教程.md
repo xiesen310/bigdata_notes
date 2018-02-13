@@ -27,6 +27,7 @@ export PATH=$PATH:$STORM_HOME/bin
 # 配置storm
 
 
-
+1. storm.zookeeper.servers
+2. storm.local.dir
 
   [1]: http://www.apache.org/dyn/closer.lua/storm/apache-storm-1.1.1/apache-storm-1.1.1.tar.gz
