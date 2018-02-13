@@ -14,3 +14,10 @@ grammar_cjkRuby: true
 
 
 # 核心概念
+
+- tuple: 元组，数据结构，有序的元素列表。通常是任意类型的数据，使用，号分割，交给storm计算
+- stream: 一系列元组
+- spouts: 水龙头。数据源
+- bolts: 转接头，逻辑处理单元。spout数据传给bolt，bolt处理后产生新的数据，可以是filter、聚合、分组。
+- topology: 不会停止的，除非手动杀死，MR是会停止的
+- tasks: spout和bolt执行的过程就是task
