@@ -33,3 +33,8 @@ grammar_cjkRuby: true
 - task: 处理数据
 - zk: 维护状态
 
+# storm提交作业
+
+``` shell
+storm jar xxx.jar x.x.x.x.x
+```
