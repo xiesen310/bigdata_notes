@@ -125,3 +125,15 @@ public class HttpClientMethod {
     }
 }
 ```
+
+- 测试代码
+
+``` java
+ for (int i = 0, len = record.size(); i < len; i++){
+                JSONObject obj = JSONObject.parseObject(record.get(i).toString());
+                jsonArray.add(obj);
+            }
+            StringEntity entity = new StringEntity(jsonArray.toString(), ENCODING);//解决中文乱码问题
+            jsonArray.clear();
+            httpClientMethod.httpPostData(entity,httpPost,client);
+```
