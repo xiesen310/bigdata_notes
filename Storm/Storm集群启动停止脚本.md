@@ -48,5 +48,4 @@ kill -9 `ps -ef | grep supervisor | awk '{print $2}'| head -n 1`
 ``` shell
 slave1
 slave2
-
 ```
