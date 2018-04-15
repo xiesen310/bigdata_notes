@@ -33,3 +33,13 @@ do
 done
 
 ```
+
+# 启动supervisor脚本
+
+``` shell
+#!/bin/bash
+. /etc/profile
+
+nohup storm supervisor &
+
+```
