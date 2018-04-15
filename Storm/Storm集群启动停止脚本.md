@@ -43,3 +43,10 @@ done
 
 kill -9 `ps -ef | grep supervisor | awk '{print $2}'| head -n 1`
 ```
+# supervisor启动的主机脚本
+
+``` shell
+slave1
+slave2
+
+```
