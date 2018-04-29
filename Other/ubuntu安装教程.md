@@ -69,6 +69,9 @@ sudo vim /etc/default/rcS
 - 安装google浏览器 sudo dpkg –I deb文件
 - 更新安装列表库，并且修复依赖关系Sudo apt –f install
 6. ubuntu安装搜狗输入法
+
+- 下载deb文件
+- 安装搜狗输入法 sudo dpkg -l deb文件
 - 在语言支持中修改键盘输入法系统为fictix
 - sudo dpkg –I sougou文件
 - sudo apt –f install
