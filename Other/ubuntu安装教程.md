@@ -69,5 +69,9 @@ sudo vim /etc/default/rcS
 - 安装google浏览器 sudo dpkg –I deb文件
 - 更新安装列表库，并且修复依赖关系Sudo apt –f install
 6. ubuntu安装搜狗输入法
+- 在语言支持中修改键盘输入法系统为fictix
+- sudo dpkg –I sougou文件
+- sudo apt –f install
+
 7. 设置语言支持
 8. 设置任务栏在底部
