@@ -37,7 +37,22 @@ sudo apt-get upgrade
 # 基础软件安装
 
 1. 卸载jdk
+
+``` shell
+sudo apt-get remove openjdk*
+```
+
 2. 卸载自带的软件
+
+``` shell
+sudo apt-get remove libreoffice-common
+sudo apt-get remove unity-webapps-common
+
+sudo apt-get remove thunderbird totem rhythmbox empathy brasero simple-scan gnome-mahjongg aisleriot gnome-mines cheese transmission-common gnome-orca webbrowser-app gnome-sudoku  landscape-client-ui-install
+sudo apt-get remove onboard deja-dup
+```
+
+
 3. 安装vim
 4. 设置时间为UTC
 5. ubuntu 安装google浏览器
