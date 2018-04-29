@@ -34,3 +34,13 @@ deb http://mirrors.163.com/ubuntu/ precise main universe restricted multiverse
 sudo apt-get update
 sudo apt-get upgrade
 ```
+# 基础软件安装
+
+1. 卸载jdk
+2. 卸载自带的软件
+3. 安装vim
+4. 设置时间为UTC
+5. ubuntu 安装google浏览器
+6. ubuntu安装搜狗输入法
+7. 设置语言支持
+8. 设置任务栏在底部
