@@ -74,4 +74,5 @@ sudo vim /etc/default/rcS
 - sudo apt –f install
 
 7. 设置语言支持
+system setting ---> language support ---> click add and remove language 添加 Chinese (Simple) ---> 将汉语拖拽到顶部 ---> 选择另一个选项卡，设置为中文 --->点击应用到整个系统
 8. 设置任务栏在底部
