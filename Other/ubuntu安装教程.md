@@ -30,8 +30,6 @@ deb http://mirrors.163.com/ubuntu/ precise main universe restricted multiverse
 
 3. 保存文件，并刷新配置信息
 
-
-
 ``` shell
 sudo apt-get update
 sudo apt-get upgrade
