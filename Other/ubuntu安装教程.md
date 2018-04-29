@@ -51,11 +51,23 @@ sudo apt-get remove unity-webapps-common
 sudo apt-get remove thunderbird totem rhythmbox empathy brasero simple-scan gnome-mahjongg aisleriot gnome-mines cheese transmission-common gnome-orca webbrowser-app gnome-sudoku  landscape-client-ui-install
 sudo apt-get remove onboard deja-dup
 ```
-
-
 3. 安装vim
+
+``` shell
+sudo apt-get install vim
+```
 4. 设置时间为UTC
+
+``` shell
+sudo vim /etc/default/rcS
+将UTC=no改为UTC=yes
+```
 5. ubuntu 安装google浏览器
+
+- 下载deb文件
+- 安装google支持 sudo apt install libappdicator1 libdicator7
+- 安装google浏览器 sudo dpkg –I deb文件
+- 更新安装列表库，并且修复依赖关系Sudo apt –f install
 6. ubuntu安装搜狗输入法
 7. 设置语言支持
 8. 设置任务栏在底部
