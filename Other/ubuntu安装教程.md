@@ -10,7 +10,6 @@ grammar_cjkRuby: true
 ``` shell
 sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup
 ```
-
 2. 修改文件内容，将新的软件源写入文件
 
 ``` shell
