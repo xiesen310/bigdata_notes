@@ -74,7 +74,7 @@ sudo vim /etc/default/rcS
 - 安装搜狗输入法 sudo dpkg -l deb文件
 - 在语言支持中修改键盘输入法系统为fictix
 - sudo dpkg –I sougou文件
-- sudo apt –f install
+	- sudo apt –f install
 
 7. 设置语言支持
 system setting ---> language support ---> click add and remove language 添加 Chinese (Simple) ---> 将汉语拖拽到顶部 ---> 选择另一个选项卡，设置为中文 --->点击应用到整个系统
