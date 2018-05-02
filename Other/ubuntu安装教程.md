@@ -83,3 +83,7 @@ system setting ---> language support ---> click add and remove language 添加 C
 ``` shell
 gsettings set com.canonical.Unity.Launcher launcher-position Bottom
 ```
+# 设置屏幕自适应
+1. 安装VMware Tools，一路回车即可
+2. 调整屏幕分辨率，关闭计算机，点击设置-->显示器---> 指定监控
+3. 查看---> 自动调整大小 ---> 自适应客户机
