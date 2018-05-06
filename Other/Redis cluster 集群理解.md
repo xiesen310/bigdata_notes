@@ -49,6 +49,8 @@ grammar_cjkRuby: true
 # redis集群的搭建
  集群中至少应该有奇数个节点，所以至少有三个节点，每个节点至少有一个备份节点，所以下面使用6节点（主节点、备份节点由redis-cluster集群确定）。
 下面使用redis-3.2.0安装，下载地址  
+
+1. 安装redis节点指定端口
 解压redis压缩包，编译安装
 
 ``` shell
@@ -70,3 +72,18 @@ cluster-node-timeout 15000
 appendonly yes
 复制六份，修改对应的端口号
 ```
+![修改配置文件信息](https://www.github.com/xiesen310/notes_Images/raw/master/images/{year}-{month}/1525607705804.jpg)
+
+2. 安装redis-trib所需的 ruby脚本
+复制redis解压文件src下的redis-trib.rb文件到redis-cluster目录
+
+``` shell
+      [root@localhost redis-cluster]# cp /usr/andy/redis/redis-3.2.0/src/redis-trib.rb ./  
+```
+安装ruby环境：
+
+``` shell
+[root@localhost redis-cluster]# yum install ruby  
+[root@localhost redis-cluster]# yum install rubygems  
+```
+安装redis-trib.rb运行依赖的ruby的包redis-3.2.2.gem,[下载地址](https://zm12.sm-tc.cn/?src=l4uLj4zF0NCNip2GmJqSjNGYk5CdnpPRjIyT0ZmejIuThtGRmovQmJqSjNCNmpuWjNLM0c3RzdGYmpI%3D&uid=33d7587b1a43173009b5ca833db6ff6b&restype=1&from=derive&depth=2&wap=false&force=true&bu=web&v=1&link_type=12)
