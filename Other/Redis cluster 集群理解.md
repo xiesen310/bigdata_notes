@@ -57,13 +57,3 @@ grammar_cjkRuby: true
 [root@localhost redis-3.2.0]# make  
 [root@localhost redis01]# make install PREFIX=/usr/andy/redis-cluster
 ```
-  在redis-cluster下 修改bin文件夹为redis01,复制redis.conf配置文件
-  配置redis的配置文件redis.conf
-      
-	  daemonize yes #后台启动
-      port 7001 #修改端口号，从7001到7006
-      cluster-enabled yes #开启cluster，去掉注释
-      cluster-config-file nodes.conf
-      cluster-node-timeout 15000
-      appendonly yes
-      复制六份，修改对应的端口号
