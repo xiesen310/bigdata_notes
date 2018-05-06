@@ -46,3 +46,24 @@ grammar_cjkRuby: true
       B1节点替代了B节点，所以Redis集群将会选择B1节点作为新的主节点，集群将会继续正确地提供服务。 当B重新开启后，它就会变成B1的从节点。
       不过需要注意，如果节点B和B1同时挂了，Redis集群就无法继续正确地提供服务了。
 
+# redis集群的搭建
+ 集群中至少应该有奇数个节点，所以至少有三个节点，每个节点至少有一个备份节点，所以下面使用6节点（主节点、备份节点由redis-cluster集群确定）。
+下面使用redis-3.2.0安装，下载地址  
+解压redis压缩包，编译安装
+
+``` shell
+[root@localhost redis-3.2.0]# tar xzf redis-3.2.0.tar.gz  
+[root@localhost redis-3.2.0]# cd redis-3.2.0  
+[root@localhost redis-3.2.0]# make  
+[root@localhost redis01]# make install PREFIX=/usr/andy/redis-cluster
+```
+  在redis-cluster下 修改bin文件夹为redis01,复制redis.conf配置文件
+  配置redis的配置文件redis.conf
+      
+	  daemonize yes #后台启动
+      port 7001 #修改端口号，从7001到7006
+      cluster-enabled yes #开启cluster，去掉注释
+      cluster-config-file nodes.conf
+      cluster-node-timeout 15000
+      appendonly yes
+      复制六份，修改对应的端口号
