@@ -87,3 +87,7 @@ appendonly yes
 [root@localhost redis-cluster]# yum install rubygems  
 ```
 安装redis-trib.rb运行依赖的ruby的包redis-3.2.2.gem,[下载地址](https://zm12.sm-tc.cn/?src=l4uLj4zF0NCNip2GmJqSjNGYk5CdnpPRjIyT0ZmejIuThtGRmovQmJqSjNCNmpuWjNLM0c3RzdGYmpI%3D&uid=33d7587b1a43173009b5ca833db6ff6b&restype=1&from=derive&depth=2&wap=false&force=true&bu=web&v=1&link_type=12)
+
+``` shell
+gem install redis-3.2.2.gem  
+```
