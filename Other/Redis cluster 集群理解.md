@@ -91,3 +91,37 @@ appendonly yes
 ``` shell
 gem install redis-3.2.2.gem  
 ```
+3. 启动所有的redis节点
+
+  可以写一个命令脚本start-all.sh
+  
+
+``` shell
+cd redis01  
+  ./redis-server redis.conf  
+  cd ..  
+  cd redis02  
+  ./redis-server redis.conf  
+  cd ..  
+  cd redis03  
+  ./redis-server redis.conf  
+  cd ..  
+  cd redis04  
+  ./redis-server redis.conf  
+  cd ..  
+  cd redis05  
+  ./redis-server redis.conf  
+  cd ..  
+  cd redis06  
+  ./redis-server redis.conf  
+  cd ..  
+```
+设置权限启动
+
+``` shell
+[root@localhost redis-cluster]# chmod 777 start-all.sh   
+[root@localhost redis-cluster]# ./start-all.sh   
+```
+
+
+4. 使用redis-trib.rb创建集群
