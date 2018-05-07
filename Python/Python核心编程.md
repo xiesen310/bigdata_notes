@@ -281,6 +281,44 @@ a (0)
 b (1)
 c (2)
 ```
+列表解析
+
+``` python
+>>> aList = range(4)
+>>> print aList
+[0, 1, 2, 3]
+>>> for i in aList:
+...     print i
+... 
+0
+1
+2
+3
+>>> squared = [x ** 2 for x in range(4)]
+>>> print squared
+[0, 1, 4, 9]
+>>> for i in squared:
+...     print i
+... 
+0
+1
+4
+9
+>>> 
+```
+列表解析甚至能做更复杂的事情， 比如挑选出符合要求的值放入列表：
+
+``` python
+>>> sqdEvents = [x ** 2 for x in range(8) if not x % 2]
+>>> for i in sqdEvents:
+...     print i
+... 
+0
+4
+16
+36
+>>> 
+```
 
 
 ## 文件
