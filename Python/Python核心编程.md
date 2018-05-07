@@ -193,6 +193,62 @@ port 80
 ## 缩进
 代码块通过缩进对齐表达代码逻辑而不是使用大括号，因为没有了额外的字符，程序的可读性更高。而且缩进完全能够清楚地表达一个语句属于哪个代码块。当然，代码块也可以只有一个语句组成。
 ## 循环与条件
+### if 判断
+``` python
+>>> x = 1
+>>> if x > 0:
+...     print '"x" must be atleast 0!'
+... 
+"x" must be atleast 0!
+>>> if x > 0:
+...     print '"x > 0"'
+... else :
+...     print 'x <= 0'
+... 
+"x > 0"
+>>> if x > 0:
+...     print 'x > 0'
+... elif x == 0:
+...     print 'x = 0'
+... else:
+...     print 'x < 0'
+... 
+x > 0
+>>> 
+```
+### while 循环
+
+``` python
+>>> counter  = 0
+>>> while counter < 3:
+...     print 'loop #%d' % (counter)
+...     counter += 1
+... 
+loop #0
+loop #1
+loop #2
+```
+### for 循环
+
+``` python
+>>> for item in ['e-mail', 'net-surfing', 'homework', 'chat']:
+...    print item
+... 
+e-mail
+net-surfing
+homework
+chat
+```
+print自带换行，想不让换行，直接在print结尾加`，`即可
+
+``` python
+>>> for item in ['e-mail', 'net-surfing', 'homework', 'chat']:
+...    print item,
+... 
+e-mail net-surfing homework chat
+>>> 
+```
+
 
 ## 文件
 ## 错误
