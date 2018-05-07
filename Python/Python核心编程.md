@@ -174,8 +174,8 @@ TypeError: 'tuple' object does not support item assignment
 值可以是任意类型的Python 对象，字典元素用大括号({ })包裹。
 
 ``` python
->>> aDict = {'host':'earch'}
->>> aDict['port'] = 80
+>>> aDict = {'host':'earch'} # create dict
+>>> aDict['port'] = 80 # add to dict
 >>> aDict
 {'host': 'earch', 'port': 80}
 >>> aDict.keys()
@@ -191,6 +191,7 @@ port 80
 ```
 
 ## 缩进
+
 ## 循环与条件
 ## 文件
 ## 错误
