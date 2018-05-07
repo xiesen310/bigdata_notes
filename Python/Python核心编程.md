@@ -248,6 +248,40 @@ print自带换行，想不让换行，直接在print结尾加`，`即可
 e-mail net-surfing homework chat
 >>> 
 ```
+Python 提供了一个range()内建函数来生成这种列表。它正好能满足我们的需要， 接受一个数值范围， 生成一个列表。
+
+``` python
+>>> for eachNum in range(3):
+...     print eachNum
+... 
+0
+1
+2
+>>> 
+```
+range()函数经常和len()函数一起用于字符串索引。 在这里我们要显示每一个元素及其索引值：
+
+``` python
+>>> foo = 'abc'
+>>> for i in range(len(foo)):
+...     print foo[i], '(%d)' % i
+... 
+a (0)
+b (1)
+c (2)
+>>> 
+```
+不过， 这些循环有一个约束， 你要么循环索引， 要么循环元素。这导致了enumerate()函数的推出。
+
+``` python
+>>> for i, ch in enumerate(foo):
+...     print ch, '(%d)' % i
+... 
+a (0)
+b (1)
+c (2)
+```
+
 
 ## 文件
 ## 错误
