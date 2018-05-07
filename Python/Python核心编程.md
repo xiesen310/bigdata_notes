@@ -19,7 +19,14 @@ Hello World!
 >>> abs(4)
 4
 ```
+print之重定向到文件
 
+``` python
+logfile = open('/tmp/mylog.txt', 'a')
+print >> logfile, 'Fatal error: invalid input!'
+logfile.close()
+```
+注意: 上述实例，当logfile.close执行之后，内容重定向写入mylog.txt文件
 
 ## 输入/输出
 ## 注释
