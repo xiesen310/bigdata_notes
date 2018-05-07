@@ -134,6 +134,62 @@ python
 is cool 
 >>> 
 ```
+
+### 列表和元组
+可以将列表和元组当成普通的“数组”，它能保存任意数量任意类型的Python 对象。和数组一样，通过从0 开始的数字索引访问元素，但是列表和元组可以存储不同类型的对象。列表和元组有几处重要的区别。列表元素用中括号( [ ])包裹，元素的个数及元素的值可以改变。元组元素用小括号(( ))包裹，不可以更改（尽管他们的内容可以）。元组可以看成是只读的列表。通过切片运算( `[ ]` 和 `[ : ]` )可以得到子集，这一点与字符串的使用方法一样。
+
+``` python
+>>> aList = [1,2,3,4]
+>>> aList
+[1, 2, 3, 4]
+>>> aList[0]
+1
+>>> aList[2:]
+[3, 4]
+>>> aList[:3]
+[1, 2, 3]
+>>> aList[1] = 5
+>>> aList
+[1, 5, 3, 4]
+>>> 
+```
+元组也可以进行切片运算，得到的结果也是元组（不能被修改）：
+
+``` python
+>>> aTuple = ('robots',77,93,'try')
+>>> aTuple
+('robots', 77, 93, 'try')
+>>> aTuple[:3]
+('robots', 77, 93)
+>>> aTuple[1]
+77
+>>> aTuple[1] = 5
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'tuple' object does not support item assignment
+>>> 
+```
+### 字典
+字典是python中的映射数据类型，由键-值(key-value)对构成。几乎所有类型的Python 对象都可以用作键，不过一般还是以数字或者字符串最为常用。
+值可以是任意类型的Python 对象，字典元素用大括号({ })包裹。
+
+``` python
+>>> aDict = {'host':'earch'}
+>>> aDict['port'] = 80
+>>> aDict
+{'host': 'earch', 'port': 80}
+>>> aDict.keys()
+['host', 'port']
+>>> aDict['host']
+'earch'
+>>> for key in aDict:
+...   print key, aDict[key]
+... 
+host earch
+port 80
+>>> 
+```
+
 ## 缩进
 ## 循环与条件
 ## 文件
