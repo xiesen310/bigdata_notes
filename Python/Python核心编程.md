@@ -83,7 +83,17 @@ return True
 >>> 
 ```
 ## 变量与赋值
-
+Python 是动态类型语言， 也就是说不需要预先声明变量的类型。 变量的类型和值在赋值那一刻被初始化。变量赋值通过等号来执行。
+``` python
+>>> counter = 0
+>>> miles = 100.0
+>>> name = 'Bob'
+>>> counter = counter + 1
+>>> kilometers = 1.609 * miles
+>>> print '%f miles is the same as %f km' % (miles,kilometers)
+100.000000 miles is the same as 160.900000 km
+>>> 
+```
 ## Python 类型
 ## 缩进
 ## 循环与条件
