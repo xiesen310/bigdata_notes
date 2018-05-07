@@ -95,6 +95,7 @@ Python 是动态类型语言， 也就是说不需要预先声明变量的类型
 >>> 
 ```
 ## Python 类型
+### 数字
 Python 支持五种基本数字类型，其中有三种是整数类型。
 - int (有符号整数)
 - long (长整数)
@@ -102,6 +103,37 @@ Python 支持五种基本数字类型，其中有三种是整数类型。
 - float (浮点值)
 - complex (复数)
 
+### 字符串
+Python 中字符串被定义为引号之间的字符集合。Python 支持使用成对的单引号或双引号，三引号（三个连续的单引号或者双引号）可以用来包含特殊字符。使用索引运算符( `[ ]`)和切片运算符( `[ : ]` )可以得到子字符串。字符串有其特有的索引规则：第一个字符的索引是 0，最后一个字符的索引是 －1，加号( + )用于字符串连接运算，星号( * )则用于字符串重复。
+
+``` python
+>>> pystr = 'Python'
+>>> iscool = 'is cool!'
+>>> pystr[0]
+'P'
+>>> pystr[2:5]
+'tho'
+>>> iscool[3:]
+'cool!'
+>>> iscool[-1]
+'!'
+>>> pystr + iscool
+'Pythonis cool!'
+>>> pystr + ' ' + iscool
+'Python is cool!'
+>>> pystr * 2
+'PythonPython'
+>>> '_' * 20
+'____________________'
+>>> pystr = '''python
+... is cool '''
+>>> pystr
+'python\nis cool '
+>>> print pystr
+python
+is cool 
+>>> 
+```
 ## 缩进
 ## 循环与条件
 ## 文件
