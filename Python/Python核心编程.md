@@ -379,6 +379,19 @@ return x + x
 >>> foo1 = FooClass()
 Created a class instance for John Doe
 ```
+创建一个类实例就像调用一个函数， 它们确实拥有一样的语法。它们都是可调用对象。类实例使用同样的函数运算符调用一个函数或方法。既然我们成功创建了第一个类实例， 那现在来进行一些方法调用:
+
+``` python
+>>> foo1.showname() Your name is John Doe
+My name is __main__.FooClass
+>>>
+>>> foo1.showver()
+0.1
+>>> print foo1.addMe2Me(5)
+10
+>>> print foo1.addMe2Me('xyz')
+xyzxyz
+```
 
 
 ## 模块
