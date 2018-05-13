@@ -395,3 +395,32 @@ xyzxyz
 
 
 ## 模块
+模块是一种组织形式， 它将彼此有关系的Python 代码组织到一个个独立文件当中。
+模块可以包含可执行代码， 函数和类或者这些东西的组合。当你创建了一个 Python 源文件，模块的名字就是不带 .py 后缀的文件名。一个模块创建之后， 你可以从另一个模块中使用 import 语句导入这个模块来使用。
+**如何导入模块**
+
+``` python
+import module_name
+```
+如何访问一个模块函数或访问一个模块变量
+一旦导入完成， 一个模块的属性（函数和变量）可以通过熟悉的 .句点属性标识法访问。
+
+``` python
+module.function()
+module.variable
+```
+
+
+现在我们再次提供 Hello World! 例子， 不过这次使用 sys 模块中的输出函数。
+
+``` python
+>>> import sys
+>>> sys.stdout.write('Hello World!\n')
+Hello World!
+>>> sys.platform
+'win32'
+>>> sys.version
+'2.4.2 (#67, Sep 28 2005, 10:51:12) [MSC v.1310 32 bit(Intel)]'
+```
+
+
