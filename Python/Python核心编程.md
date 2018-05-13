@@ -334,5 +334,51 @@ file_name 变量包含我们希望打开的文件的字符串名字， access_mo
 
 
 ## 函数
+Python 是通过引用调用的。 这意味着函数内对参数的改变会影响到原始对象。不过事实上只有可变对象会受此影响， 对不可变对象来说， 它的行为类似按值调用。
+
+``` python
+>>> def addMe2Me(x):
+...     'apply + operation to argument'
+...     return (x + x)
+... 
+>>> addMe2Me(10)
+20
+>>> addMe2Me(4.15)
+8.3
+>>> addMe2Me('Python')
+'PythonPython'
+>>> addMe2Me([-1, 'abc'])
+[-1, 'abc', -1, 'abc']
+>>> s
+```
+
 ## 类
+python中提供类的概念，但是不像Java一样强制使用类的概念，python中提供这个但是你可以不使用。
+``` python
+class FooClass(object):
+"""my very first class: FooClass"""
+version = 0.1 # class (data) attribute
+def __init__(self, nm='John Doe'):
+"""constructor"""
+self.name = nm # class instance (data) attribute
+print 'Created a class instance for', nm
+def showname(self):
+"""display instance attribute and class name"""
+print 'Your name is', self.name
+print 'My name is', self.__class__.__name__
+def showver(self):
+"""display class(static) attribute"""
+print self.version # references FooClass.version
+def addMe2Me(self, x): # does not use 'self'
+"""apply + operation to argument"""
+return x + x
+```
+创建类的实例对象
+
+``` python
+>>> foo1 = FooClass()
+Created a class instance for John Doe
+```
+
+
 ## 模块
