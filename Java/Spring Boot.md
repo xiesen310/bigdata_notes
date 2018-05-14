@@ -85,8 +85,6 @@ public class RandomProperties {
     private int test2;
 	getter/setter...
 }
-
-
 ```
 
 
