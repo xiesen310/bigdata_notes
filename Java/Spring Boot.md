@@ -32,4 +32,26 @@ public class HelloBookController {
 }
 ```
 
+# spring boot 配置
+读取properties文件
+
+``` java
+demo.book.name=[Spring Boot 2.x Core Action]
+demo.book.writer=BYSocket
+demo.book.description=${demo.book.writer}'s book ${demo.book.name}
+
+@Component
+public class BookProperties {
+
+    @Value("${demo.book.name}")
+    private String name;
+    @Value("${demo.book.writer}")
+    private String writer;
+
+    @Value("${demo.book.description}")
+    private String desc;
+	
+	getter/setter...
+```
+
 
