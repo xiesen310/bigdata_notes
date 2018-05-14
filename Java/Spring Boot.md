@@ -53,5 +53,40 @@ public class BookProperties {
 	
 	getter/setter...
 ```
+产生随机数
+
+``` java
+# 随机字符串
+top.xiesen.value=${random.value}
+# 随机int
+top.xiesen.number=${random.int}
+# 随机long
+top.xiesen.bignumber=${random.long}
+# 10以内的随机数
+top.xiesen.test1=${random.int(10)}
+# 10-20的随机数
+top.xiesen.test2=${random.int[10,20]}
+
+@Component
+public class RandomProperties {
+    @Value("${top.xiesen.value}")
+    private String value;
+
+    @Value("${top.xiesen.number}")
+    private int number;
+
+    @Value("${top.xiesen.bignumber}")
+    private long bignumber;
+
+    @Value("${top.xiesen.test1}")
+    private int test1;
+
+    @Value("${top.xiesen.test2}")
+    private int test2;
+	getter/setter...
+}
+
+
+```
 
 
