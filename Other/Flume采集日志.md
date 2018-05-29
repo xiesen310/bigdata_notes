@@ -43,3 +43,11 @@ a1.sinks.k1.port = 44444
 a1.sources.r1.channels = c1 
 a1.sinks.k1.channel = c1
 ```
+
+配置完成后， 启动Flume Agent，即可对日志文件进行监听：
+
+``` shell
+$ flume-ng agent --conf conf -n a1 -f app/flume/conf/flume-sink-avro.conf >/dev/null 2>&1 &
+```
+
+
