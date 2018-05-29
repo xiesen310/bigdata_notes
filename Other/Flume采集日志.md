@@ -12,7 +12,7 @@ grammar_cjkRuby: true
 > 对于Flume而言，关键在于如何采集数据，并且将其发送到Kafka上，并且由于我们这里了使用Flume集群的方式，Flume集群的配置也是十分关键的。而对于Kafka，关键就是如何接收来自Flume的数据。从整体上讲，逻辑应该是比较简单的，即可以在Kafka中创建一个用于我们实时处理系统的topic，然后Flume将其采集到的数据发送到该topic上即可。
 
 ## Flume集群配置
-
+	
 ![flume 集群配置](https://www.github.com/xiesen310/notes_Images/raw/master/images/{year}-{month}/1527560232287.jpg)
 
 > 在我们的场景中，两个Flume Agent分别部署在两台Web服务器上，用来采集Web服务器上的日志数据，然后其数据的下沉方式都为发送到另外一个Flume Agent上，所以这里我们需要配置三个Flume Agent.
@@ -25,7 +25,8 @@ grammar_cjkRuby: true
 ######################################################### ## 
 ##主要作用是监听文件中的新增数据，采集到数据之后，输出到avro 
 ## 注意：Flume agent的运行，主要就是配置source channel sink 
-## 下面的a1就是agent的代号，source叫r1 channel叫c1 sink叫k1 ######################################################### 
+## 下面的a1就是agent的代号，source叫r1 channel叫c1 sink叫k1 
+######################################################### 
 a1.sources = r1 
 a1.sinks = k1 
 a1.channels = c1 
@@ -59,7 +60,8 @@ $ flume-ng agent --conf conf -n a1 -f app/flume/conf/flume-sink-avro.conf >/dev/
 ######################################################### ##
 ##主要作用是监听文件中的新增数据，采集到数据之后，输出到avro 
 ## 注意：Flume agent的运行，主要就是配置source channel sink 
-## 下面的a1就是agent的代号，source叫r1 channel叫c1 sink叫k1 ######################################################### 
+## 下面的a1就是agent的代号，source叫r1 channel叫c1 sink叫k1 
+######################################################### 
 a1.sources = r1 
 a1.sinks = k1 
 a1.channels = c1 
@@ -96,7 +98,8 @@ flume-ng agent --conf conf -n a1 -f app/flume/conf/flume-sink-avro.conf >/dev/nu
 ######################################################### ## 
 ##主要作用是监听目录中的新增文件，采集到数据之后，输出到kafka 
 ## 注意：Flume agent的运行，主要就是配置source channel sink 
-## 下面的a1就是agent的代号，source叫r1 channel叫c1 sink叫k1 ######################################################### 
+## 下面的a1就是agent的代号，source叫r1 channel叫c1 sink叫k1 
+######################################################### 
 a1.sources = r1 
 a1.sinks = k1
 a1.channels = c1 
