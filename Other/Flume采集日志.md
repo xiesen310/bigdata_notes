@@ -17,6 +17,8 @@ grammar_cjkRuby: true
 
 > 在我们的场景中，两个Flume Agent分别部署在两台Web服务器上，用来采集Web服务器上的日志数据，然后其数据的下沉方式都为发送到另外一个Flume Agent上，所以这里我们需要配置三个Flume Agent.
 
+### Flume Agent01
+
 该Flume Agent部署在一台Web服务器上，用来采集产生的Web日志，然后发送到Flume Consolidation Agent上，创建一个新的配置文件flume-sink-avro.conf，其配置内容如下：
 
 ``` shell
