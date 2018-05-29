@@ -90,4 +90,34 @@ flume-ng agent --conf conf -n a1 -f app/flume/conf/flume-sink-avro.conf >/dev/nu
 
 ![Flume Consolidation Agent](https://www.github.com/xiesen310/notes_Images/raw/master/images/{year}-{month}/1527560601842.jpg)
 
+该Flume Agent用于接收其它两个Agent发送过来的数据，然后将其发送到Kafka上，创建一个新的配置文件flume-source_avro-sink_kafka.conf，配置内容如下：
+
+``` shell
+######################################################### ## 
+##主要作用是监听目录中的新增文件，采集到数据之后，输出到kafka 
+## 注意：Flume agent的运行，主要就是配置source channel sink 
+## 下面的a1就是agent的代号，source叫r1 channel叫c1 sink叫k1 ######################################################### 
+a1.sources = r1 
+a1.sinks = k1
+a1.channels = c1 
+
+#对于source的配置描述 监听avro 
+a1.sources.r1.type = avro 
+a1.sources.r1.bind = 0.0.0.0 
+a1.sources.r1.port = 44444 
+
+#对于sink的配置描述 使用kafka做数据的消费 
+a1.sinks.k1.type = org.apache.flume.sink.kafka.KafkaSink a1.sinks.k1.topic = f-k-s 
+a1.sinks.k1.brokerList = uplooking01:9092,uplooking02:9092,uplooking03:9092 a1.sinks.k1.requiredAcks = 1 
+a1.sinks.k1.batchSize = 20 
+
+#对于channel的配置描述 使用内存缓冲区域做数据的临时缓存 a1.channels.c1.type = memory 
+a1.channels.c1.capacity = 1000 
+a1.channels.c1.transactionCapacity = 100 
+
+#通过channel c1将source r1和sink k1关联起来 
+a1.sources.r1.channels = c1 
+a1.sinks.k1.channel = c1
+```
+
 
