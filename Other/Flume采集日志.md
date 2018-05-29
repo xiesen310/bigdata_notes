@@ -86,4 +86,8 @@ a1.sinks.k1.channel = c1
 flume-ng agent --conf conf -n a1 -f app/flume/conf/flume-sink-avro.conf >/dev/null 2>&1 &
 ```
 
+### Flume Consolidation Agent
+
+![Flume Consolidation Agent](https://www.github.com/xiesen310/notes_Images/raw/master/images/{year}-{month}/1527560601842.jpg)
+
 
