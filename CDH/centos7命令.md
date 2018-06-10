@@ -27,7 +27,7 @@ grammar_cjkRuby: true
 	centos7推荐使用:`systemctl restart network`
 
 修改主机名:
-	hostnamectl set-hostname node-1
+	centos7版本: `hostnamectl set-hostname node-1`
 	vi /etc/hostname
 
 查看防火墙的状态
