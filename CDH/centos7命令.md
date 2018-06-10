@@ -28,7 +28,7 @@ grammar_cjkRuby: true
 
 修改主机名:
 	centos7版本: `hostnamectl set-hostname node-1`
-	vi /etc/hostname
+	通用 版本: `vi /etc/hostname`
 
 查看防火墙的状态
 	systemctl status firewalld
