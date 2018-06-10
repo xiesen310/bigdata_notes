@@ -7,7 +7,7 @@ grammar_cjkRuby: true
 ---
 
 查看ip地址: ip addr
-修改网络:
+**修改网络**
 	vi /etc/sysconfig/network-scripts/ifcfg-ens33
 
 ``` shell
@@ -22,11 +22,11 @@ grammar_cjkRuby: true
 	DNS1=8.8.8.8
 ```
 
-重新启动网络:
+**重新启动网络**
 	通用方式:`service network restart`
 	centos7推荐使用:`systemctl restart network`
 
-修改主机名:
+**修改主机名**
 	centos7版本: `hostnamectl set-hostname node-1`
 	通用版本: `vi /etc/hostname`
 
