@@ -28,11 +28,8 @@ grammar_cjkRuby: true
 
 修改主机名:
 	centos7版本: `hostnamectl set-hostname node-1`
-	通用 版本: `vi /etc/hostname`
+	通用版本: `vi /etc/hostname`
 
-查看防火墙的状态
-	systemctl status firewalld
-关闭防火墙
-	systemctl stop firewalld
-设置防火墙开机不启动
-	systemctl disable firewalld
+查看防火墙的状态: `systemctl status firewalld`
+关闭防火墙:`systemctl stop firewalld`
+设置防火墙开机不启动: `systemctl disable firewalld`
