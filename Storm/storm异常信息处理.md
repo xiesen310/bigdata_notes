@@ -6,7 +6,7 @@ time: 2018-6-12
 grammar_cjkRuby: true
 ---
 
-问题: storm发布程序的时,UI界面上找不到发布的程序
+问题一: storm发布程序的时,UI界面上找不到发布的程序
 
 原因: storm进行程序发布的时候，是我们的代码写的有问题，如果提交代码如下所示,则会出现提交不到UI界面上的现象，这是因为在提交的时候，我们并没有提交到集群中，而是在当前节点上运行了我们的程序，程序本身并没有提交到集群中。
 
@@ -31,7 +31,7 @@ if (args == null || args.length < 1) {
 }
 ```
 
-问题：storm程序接收kafka中的数据，在本机上运行没有问题，但是在集群环境下接收不到kafka中的数据
+问题二：storm程序接收kafka中的数据，在本机上运行没有问题，但是在集群环境下接收不到kafka中的数据
 
 原因: storm程序中有很多的坑，不同版本的storm之间对接kafka的版本是不同的，在接收kafka中的数据时，很有可能是storm的版本和kafka之间的版本不配导致的，下面是测试能够顺利接收到kafka的pom文件，仅供参考。
 
@@ -87,7 +87,7 @@ if (args == null || args.length < 1) {
 </dependency>
 ```
 
-问题: storm程序在集群上跑，但是只在一个节点上运行
+问题三: storm程序在集群上跑，但是只在一个节点上运行
 
 原因: storm默认情况下设置的并行度是1，因此，如果不手动设置的话，storm程序在集群上运行的时候，会选择一个节点运行程序，而不是分布式执行。可通过`config.setNumWorkers(3);`设置worker的数量和`builder.setBolt(CONVERTHOSTNAMEBOLT_ID, new ConvertHostNameBolt(), 2).shuffleGrouping(SPOUT_ID);`设置并行度来进行分布式执行。
 
