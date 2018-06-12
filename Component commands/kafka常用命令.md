@@ -7,9 +7,11 @@ grammar_cjkRuby: true
 ---
 
 // 创建topic
+
 kafka-topics.sh --zookeeper master:2181 --create --partitions 2 --replication-factor 3 --topic test
 
 // 列出所有的topic
+
 kafka-topics.sh --zookeeper master:2181 --list 
 
 // 查看test的详细信息
