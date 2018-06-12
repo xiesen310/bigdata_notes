@@ -87,4 +87,7 @@ if (args == null || args.length < 1) {
 </dependency>
 ```
 
+问题: storm程序在集群上跑，但是只在一个节点上运行
+
+原因: storm默认情况下设置的并行度是1，因此，如果不手动设置的话，storm程序在集群上运行的时候，会选择一个节点运行程序，而不是分布式执行。可通过`config.setNumWorkers(3);`设置worker的数量和`builder.setBolt(CONVERTHOSTNAMEBOLT_ID, new ConvertHostNameBolt(), 2).shuffleGrouping(SPOUT_ID);`设置并行度来进行分布式执行。
 
