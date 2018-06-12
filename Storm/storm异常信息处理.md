@@ -31,4 +31,60 @@ if (args == null || args.length < 1) {
 }
 ```
 
+问题：storm程序接收kafka中的数据，在本机上运行没有问题，但是在集群环境下接收不到kafka中的数据
+
+原因: storm程序中有很多的坑，不同版本的storm之间对接kafka的版本是不同的，在接收kafka中的数据时，很有可能是storm的版本和kafka之间的版本不配导致的，下面是测试能够顺利接收到kafka的pom文件，仅供参考。
+
+``` java
+<!--storm-->
+<dependency>
+	<groupId>org.apache.storm</groupId>
+	<artifactId>storm-core</artifactId>
+	<version>1.2.1</version>
+	<!--本地运行时不需要，打包上传到集群时运行需要，因为在集群运行时已经有storm的依赖-->
+	<scope>provided</scope>
+</dependency>
+
+<!--storm-kafka-->
+<dependency>
+	<groupId>org.apache.storm</groupId>
+	<artifactId>storm-kafka</artifactId>
+	<version>1.2.1</version>
+</dependency>
+
+<!--kafka-->
+<dependency>
+	<groupId>org.apache.kafka</groupId>
+	<artifactId>kafka-clients</artifactId>
+	<version>0.10.0.1</version>
+	<!--需要将zookeeper和log4j的依赖去掉，否则会和storm本身的依赖冲突-->
+	<exclusions>
+		<exclusion>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+		</exclusion>
+		<exclusion>
+			<groupId>org.apache.zookeeper</groupId>
+			<artifactId>zookeeper</artifactId>
+		</exclusion>
+	</exclusions>
+</dependency>
+<dependency>
+	<groupId>org.apache.kafka</groupId>
+	<artifactId>kafka_2.10</artifactId>
+	<version>0.10.0.1</version>
+	<!--需要将zookeeper和log4j的依赖去掉，否则会和storm本身的依赖冲突-->
+	<exclusions>
+		<exclusion>
+			<groupId>org.apache.zookeeper</groupId>
+			<artifactId>zookeeper</artifactId>
+		</exclusion>
+		<exclusion>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+		</exclusion>
+	</exclusions>
+</dependency>
+```
+
 
