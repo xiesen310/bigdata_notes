@@ -34,12 +34,14 @@ Drillbit 服务能够安装在并运行在 Hadoop 集群上。当 Drillbit 运�
 
 # 测试案例
 
+## parquet文件
 支持parquet文件数据查询,nation.parquet文件在sample-data文件夹内。
 
 ``` sql
 select * from dfs.`/root/apache-drill-1.13.0/sample-data/nation.parquet` limit 5;
 ```
 
+## csv文件
 csv格式的文件查询
 
 csv源文件如下:
@@ -56,5 +58,59 @@ csv源文件如下:
 ``` sql
 select columns[0],columns[3] from dfs.`/root/apache-drill-1.13.0/sample-data/test.csv`;
 ```
+## json文件
+
+drill对于json的支持挺好的
+
+下面是json模拟数据:
+
+``` json
+{
+  "ka1": 1,
+  "kb1": 1.1,
+  "kc1": "vc11",
+  "kd1": [
+    {
+      "ka2": 10,
+      "kb2": 10.1,
+      "kc2": "vc1010"
+    }
+  ]
+}
+{
+  "ka1": 2,
+  "kb1": 2.2,
+  "kc1": "vc22",
+  "kd1": [
+    {
+      "ka2": 20,
+      "kb2": 20.2,
+      "kc2": "vc2020"
+    }
+  ]
+}
+{
+  "ka1": 3,
+  "kb1": 3.3,
+  "kc1": "vc33",
+  "kd1": [
+    {
+      "ka2": 30,
+      "kb2": 30.3,
+      "kc2": "vc3030"
+    }
+  ]
+}
+```
+查询语句
+
+``` sql
+select *  from dfs.`/root/apache-drill-1.13.0/sample-data/test.json`;
+
+select sum(ka1),avg(kd1[0].kb2) from dfs.`/root/apache-drill-1.13.0/sample-data/test.json`;
+
+select sum(ka1) as sum_ka1,avg(kd1[0].kb2) as avg_kb2 from dfs.`/root/apache-drill-1.13.0/sample-data/test.json`;
+```
+
 
 
