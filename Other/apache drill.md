@@ -173,5 +173,36 @@ select tb.columns[0] as id,tb.columns[3] as name,tb.columns[4] as age,tb1.column
 
 注意:详细参考文档，请参考[Drill中文文档](https://github.com/xiesen310/apache-drill-cn)
 
+# siddhi集成hive
 
+## 配置hive
+1. hive开启metastore的thrift服务：在hive-site.xml中加入如下配置
+
+``` xml
+<property>
+	<name>hive.metastore.uris</name>
+	<value>thrift://10.170.250.47:9083</value>
+</property>
+```
+
+2. 启动metastore服务`hive-2.3.0-bin/bin/hive --service metastore &`
+
+## 配置siddhi
+
+1. 从drill的web ui上配置hive的plugin：
+ 
+``` json
+{
+  "type": "hive",
+  "enabled": true,
+  "configProps": {
+    "hive.metastore.uris": "thrift://192.168.101.100:9083", // hive的metastore服务地址和端口
+    "javax.jdo.option.ConnectionURL": "jdbc:mysql://192.168.101.100:3306/hive",//hive 元数据库
+    "hive.metastore.warehouse.dir": "/user/hive/warehouse", // hive在hdfs上的warehouse目录
+    "fs.default.name": "hdfs://master:9000", // 文件系统地址
+    "hive.metastore.sasl.enabled": "false"
+  }
+}
+```
+2. 保存退出后，重启drillbit服务 `bin/drillbit.sh restart`
 
