@@ -34,6 +34,9 @@ Drillbit 服务能够安装在并运行在 Hadoop 集群上。当 Drillbit 运�
 
 ## 分布式部署
 
+1. 在 drill-override.conf，使用 Drill 的集群 ID，提供 ZooKeeper 的主机名和端口号。
+编辑 drill-override.conf 在 conf 目录下。
+提供唯一的集群 ID 和 ZooKeeper 的主机名和端口号给 zk.connect。如果你安装的 Drill 是多节点，标记同一个集群 ID 到每一个 Drill 节点，以便让 Drill 节点共享同一个 ID。默认的 ZooKeeper 端口号是 2181。 例如： `bash drill.exec:{ cluster-id: "<mydrillcluster>", zk.connect: "<zkhostname1>:<port>,<zkhostname2>:<port>,<zkhostname3>:<port>" }`
 
 # 测试案例
 
