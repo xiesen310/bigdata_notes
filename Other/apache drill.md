@@ -51,5 +51,10 @@ csv源文件如下:
 1104,NancyBeatty,Nancy,Beatty,16,StoreT
 1105,ClaraMcNight,Clara,McNight,16,Store
 ```
+查询语句,也看可以器别名，语法和标准sql一样。
+
+``` sql
+select columns[0],columns[3] from dfs.`/root/apache-drill-1.13.0/sample-data/test.csv`;
+```
 
 
