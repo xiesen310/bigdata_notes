@@ -28,4 +28,9 @@ Drillbit 服务能够安装在并运行在 Hadoop 集群上。当 Drillbit 运�
 
 ## 本地模式安装
 
+1. 下载文件 [apache-drill-1.13.0](http://www.apache.org/dyn/closer.lua?filename=drill/drill-1.13.0/apache-drill-1.13.0.tar.gz&action=download)
+2. 解压 `tar -zxvf apache-drill-1.13.0`
+3. 启动 `bin/drill-embedded`
+
+# 测试案例
 
