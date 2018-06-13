@@ -171,5 +171,7 @@ select sum(ka1) as sum_ka1,avg(kd1[0].kb2) as avg_kb2 from dfs.`/root/apache-dri
 select tb.columns[0] as id,tb.columns[3] as name,tb.columns[4] as age,tb1.columns[1] as sex from dfs.`/root/apache-drill-1.13.0/sample-data/test.csv` as tb join dfs.`/root/apache-drill-1.13.0/sample-data/test1.csv` as tb1 on tb.columns[0] = tb1.columns[0];
 ```
 
+注意:详细参考文档，请参考[Drill中文文档](https://github.com/xiesen310/apache-drill-cn)
+
 
 
