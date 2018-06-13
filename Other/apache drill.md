@@ -23,3 +23,9 @@ Drill包括分布式执行环境，目的用于大规模数据处理。在 Apach
 Drillbit 服务能够安装在并运行在 Hadoop 集群上。当 Drillbit 运行在集群的每个数据节点上时，能够最大化去执行查询而不需要网络或是节点之间移动数据。Drill 使用 ZooKeeper 来维护集群的健康状态。
 
 虽然 Drill 工作于 Hadoop 集群环境下，但是 Drill 不依赖 Hadoop，并且可以运行在任何分布式集群环境下。唯一的先决条件就是需要 ZooKeeper。
+
+# 安装教程
+
+## 本地模式安装
+
+
