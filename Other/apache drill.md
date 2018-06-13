@@ -32,7 +32,19 @@ Drillbit 服务能够安装在并运行在 Hadoop 集群上。当 Drillbit 运�
 2. 解压 `tar -zxvf apache-drill-1.13.0`
 3. 启动 `bin/drill-embedded`
 
+
+
 # 测试案例
+
+## 查询简介
+
+Drill对于sql语句的支持很好，但是和标准的sql语句还是有区别的，可参考关系型数据库中的sql语句进行编写drill-sql。Drill提供了多种操作方式，其中包含shell操作和web页面操作。其中web查询界面的地址: [web查询地址](http://localhost:8047/)
+
+![命令行操作界面](https://www.github.com/xiesen310/notes_Images/raw/master/images/{year}-{month}/1528860816308.jpg)
+
+![web查询界面](https://www.github.com/xiesen310/notes_Images/raw/master/images/{year}-{month}/1528860866764.jpg)
+
+![web查询结果展示界面](https://www.github.com/xiesen310/notes_Images/raw/master/images/{year}-{month}/1528860980391.jpg)
 
 ## parquet文件
 支持parquet文件数据查询,nation.parquet文件在sample-data文件夹内。
