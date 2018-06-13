@@ -34,3 +34,22 @@ Drillbit 服务能够安装在并运行在 Hadoop 集群上。当 Drillbit 运�
 
 # 测试案例
 
+支持parquet文件数据查询,nation.parquet文件在sample-data文件夹内。
+
+``` sql
+select * from dfs.`/root/apache-drill-1.13.0/sample-data/nation.parquet` limit 5;
+```
+
+csv格式的文件查询
+
+csv源文件如下:
+
+``` java
+1101,SteveEurich,Steve,Eurich,16,StoreT
+1102,MaryPierson,Mary,Pierson,16,StoreT
+1103,LeoJones,Leo,Jones,16,StoreTem
+1104,NancyBeatty,Nancy,Beatty,16,StoreT
+1105,ClaraMcNight,Clara,McNight,16,Store
+```
+
+
