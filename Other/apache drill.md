@@ -32,6 +32,7 @@ Drillbit 服务能够安装在并运行在 Hadoop 集群上。当 Drillbit 运�
 2. 解压 `tar -zxvf apache-drill-1.13.0`
 3. 启动 `bin/drill-embedded`
 
+## 分布式部署
 
 
 # 测试案例
