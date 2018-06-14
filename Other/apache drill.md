@@ -173,7 +173,7 @@ select tb.columns[0] as id,tb.columns[3] as name,tb.columns[4] as age,tb1.column
 
 注意:详细参考文档，请参考[Drill中文文档](https://github.com/xiesen310/apache-drill-cn)
 
-# siddhi集成hive
+# drill集成hive
 
 ## 配置hive
 1. hive开启metastore的thrift服务：在hive-site.xml中加入如下配置
@@ -204,5 +204,7 @@ select tb.columns[0] as id,tb.columns[3] as name,tb.columns[4] as age,tb1.column
   }
 }
 ```
+
+![配置hive插件](https://www.github.com/xiesen310/notes_Images/raw/master/images/{year}-{month}/1528901997139.jpg)
 2. 保存退出后，重启drillbit服务 `bin/drillbit.sh restart`
 
