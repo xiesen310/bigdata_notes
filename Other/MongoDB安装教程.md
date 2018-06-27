@@ -65,10 +65,14 @@ sudo vi /etc/mongod.conf
 ```
 
 
-#注释掉bindIp或者修改成当前机器的某一个ip地址
+## 注释掉bindIp或者修改成当前机器的某一个ip地址
 
-#启动mongo
+## 启动mongo
+
+``` shell
 sudo service mongod start
+```
+
 
 #连接到mongo
 #如果注释掉了bindIp，那么连接时用
