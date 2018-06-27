@@ -64,7 +64,6 @@ sudo yum install -y mongodb-org
 sudo vi /etc/mongod.conf 
 ```
 
-
 ## 注释掉bindIp或者修改成当前机器的某一个ip地址
 
 ## 启动mongo
@@ -72,7 +71,6 @@ sudo vi /etc/mongod.conf
 ``` shell
 sudo service mongod start
 ```
-
 
 ## 连接到mongo
 
@@ -83,20 +81,17 @@ mongo
 mongo --host 192.168.100.101 --port 27017
 ```
 
-
 ## 使用或创建database
 
 ``` shell
 use xiaoniu
 ```
 
-
 ## 创建集合（表）
 
 ``` shell
 db.createCollection("bike")
 ```
-
 
 ## 插入数据
 
@@ -105,13 +100,11 @@ db.bike.insert({"_id": 100001, "status": 1, "desc": "test"})
 db.bike.insert({"_id": 100002, "status": 1, "desc": "test"})
 ```
 
-
 ## 查找数据(所有)
 
 ``` shell
 db.bine.find()
 ```
-
 
 ## 退出
 
@@ -119,20 +112,17 @@ db.bine.find()
 exit
 ```
 
-
 ## 关闭mongo服务
 
 ``` shell
 sudo service mongod stop
 ```
 
-
 ## 设置服务开机启动
 
 ``` shell
 sudo chkconfig mongod on
 ```
-
 
 ## 设置mongo服务开机不启动
 
