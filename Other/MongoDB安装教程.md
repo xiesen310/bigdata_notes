@@ -16,9 +16,14 @@ useradd xiaoniu
 echo 123456 | passwd --stdin xiaoniu
 
 ## 将bigdata添加到sudoers
+
+``` shell
 echo "xiaoniu ALL = (root) NOPASSWD:ALL" | tee /etc/sudoers.d/xiaoniu
 chmod 0440 /etc/sudoers.d/xiaoniu
-#解决sudo: sorry, you must have a tty to run sudo问题，在/etc/sudoer注释掉 Default requiretty 一行
+```
+
+
+> 解决sudo: sorry, you must have a tty to run sudo问题，在/etc/sudoer注释掉 Default requiretty 一行
 sudo sed -i 's/Defaults    requiretty/Defaults:xiaoniu !requiretty/' /etc/sudoers
 
 ## 配置mongo的yum源
