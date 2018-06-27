@@ -8,6 +8,7 @@ grammar_cjkRuby: true
 
 mongdb一个NoSQL数据库，里面存储的是BSON（Binary Serialized Document Format)，支持集群，高可用、可扩展。
 
+# 安装教程
 ## 创建普通用户
 
 创建一个普通用户xiaoniu
@@ -49,5 +50,5 @@ SELINUX=disabled
 ``` shell
 reboot
 ```
-
+# mongo的安装和基本使用
 
