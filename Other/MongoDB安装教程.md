@@ -74,33 +74,68 @@ sudo service mongod start
 ```
 
 
-#连接到mongo
+## 连接到mongo
+
+``` shell
 #如果注释掉了bindIp，那么连接时用
 mongo
 #指定了ip地址
 mongo --host 192.168.100.101 --port 27017
+```
 
-#使用或创建database
+
+## 使用或创建database
+
+``` shell
 use xiaoniu
+```
 
-#创建集合（表）
+
+## 创建集合（表）
+
+``` shell
 db.createCollection("bike")
+```
 
-#插入数据
+
+## 插入数据
+
+``` shell
 db.bike.insert({"_id": 100001, "status": 1, "desc": "test"})
 db.bike.insert({"_id": 100002, "status": 1, "desc": "test"})
+```
 
-#查找数据(所有)
+
+## 查找数据(所有)
+
+``` shell
 db.bine.find()
+```
 
-#退出
+
+## 退出
+
+``` shell
 exit
+```
 
-#关闭mongo服务
-sudu service mongod stop
 
-#设置服务开机启动
+## 关闭mongo服务
+
+``` shell
+sudo service mongod stop
+```
+
+
+## 设置服务开机启动
+
+``` shell
 sudo chkconfig mongod on
+```
 
-#设置mongo服务开机不启动
+
+## 设置mongo服务开机不启动
+
+``` shell
 sudo chkconfig mongod off
+```
