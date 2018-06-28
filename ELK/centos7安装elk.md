@@ -69,3 +69,11 @@ http.port: 9200
 3. 并执行命令：`sysctl -p`
 4. 然后，重新启动elasticsearch，即可启动成功。
 
+异常描述二: 
+
+``` shell
+max file descriptors [4096] for elasticsearch process likely too low, increase to at least [65536]
+max number of threads [1024] for user [lishang] likely too low, increase to at least [2048]
+```
+
+
