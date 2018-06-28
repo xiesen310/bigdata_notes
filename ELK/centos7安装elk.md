@@ -197,3 +197,14 @@ elasticsearch.url: "http://node-1:9200"
 # metrics. Minimum is 100ms. Defaults to 5000.
 #ops.interval: 5000
 ```
+# logstash安装
+
+## 下载
+
+为了运行logstash，第一步安装的是java，ElasticSearch需要Java7或更高的支持，建议使用java8.检查java版本的命令:`java -version`
+这里我使用的是logstash5.2.2，[logstash5.2.2下载地址](https://artifacts.elastic.co/downloads/logstash/logstash-5.2.2.tar.gz)
+
+## 安装
+
+
+## 调试
