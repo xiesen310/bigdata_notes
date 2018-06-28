@@ -88,5 +88,8 @@ vi /etc/security/limits.conf
 ```
 # kibana安装
 
-
-
+kibana是elasticsearch的一个可视化工具，在学习的过程中可以使用kibana来进行api的练习。
+ 
+ ## 安装kibana
+ 
+ 安装kibana的前提是我们必须安装配置了elasticsearch，当下我们已经安装好了elasticsearch，下一步是下载kibana，解压，安装完毕。
