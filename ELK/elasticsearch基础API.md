@@ -23,7 +23,6 @@ IT系统的搜索：OA软件，办公自动化软件，会议管理，日程管�
 
 # 数据库做搜索的优劣
 
-
 做软件开发的话，或者对IT、计算机有一定的了解的话，都知道，数据都是存储在数据库里面的，比如说电商网站的商品信息，招聘网站的职位信息，新闻网站的新闻信息，等等吧。所以说，很自然的一点，如果说从技术的角度去考虑，如何实现如说，电商网站内部的搜索功能的话，就可以考虑，去使用数据库去进行搜索。
 
 1、比方说，每条记录的指定字段的文本，可能会很长，比如说“商品描述”字段的长度，有长达数千个，甚至数万个字符，这个时候，每次都要对每条记录的所有文本进行扫描，懒判断说，你包不包含我指定的这个关键词（比如说“牙膏”）
@@ -31,8 +30,16 @@ IT系统的搜索：OA软件，办公自动化软件，会议管理，日程管�
 
 用数据库来实现搜索，是不太靠谱的。通常来说，性能会很差的。
 
+![](https://www.github.com/xiesen310/notes_Images/raw/master/images/{year}-{month}/如果用数据库做搜索会怎么样.png "数据库做搜索示意图")
+
 # 什么是全文检索和Lucene
 
 （1）全文检索，倒排索引
 （2）lucene，就是一个jar包，里面包含了封装好的各种建立倒排索引，以及进行搜索的代码，包括各种算法。我们就用java开发的时候，引入lucene jar，然后基于lucene的api进行去进行开发就可以了。用lucene，我们就可以去将已有的数据建立索引，lucene会在本地磁盘上面，给我们组织索引的数据结构。另外的话，我们也可以用lucene提供的一些功能和api来针对磁盘上额
+
+![](https://www.github.com/xiesen310/notes_Images/raw/master/images/{year}-{month}/什么是全文检索.png "什么是全文检索")
+
+# 什么是Elasticsearch
+
+![](https://www.github.com/xiesen310/notes_Images/raw/master/images/{year}-{month}/什么是Elasticsearch.png "什么是Elasticsearch")
 
