@@ -58,4 +58,14 @@ http.port: 9200
 #action.destructive_requires_name: true
 ```
 
+## 异常解决方案
+
+异常描述一: `elasticsearch max virtual memory areas vm.max_map_count [65530] is too low, increase to at `
+
+解决方案:
+
+1. 切换到root用户修改配置sysctl.conf `vi /etc/sysctl.conf`
+2. 添加下面配置：`vm.max_map_count=655360`
+3. 并执行命令：`sysctl -p`
+4. 然后，重新启动elasticsearch，即可启动成功。
 
