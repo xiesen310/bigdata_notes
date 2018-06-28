@@ -205,6 +205,23 @@ elasticsearch.url: "http://node-1:9200"
 这里我使用的是logstash5.2.2，[logstash5.2.2下载地址](https://artifacts.elastic.co/downloads/logstash/logstash-5.2.2.tar.gz)
 
 ## 安装
+下载，解压，安装成功
 
+## 配置
+下面的代码是logstash的一个简单测试代码
 
-## 调试
+``` shell
+input {
+stdin{}
+}
+filter {
+}
+output {
+stdout{codec=>"rubydebug"}
+}
+```
+## 启动
+
+``` shell
+bin/logstash -f config test.conf & 
+```
