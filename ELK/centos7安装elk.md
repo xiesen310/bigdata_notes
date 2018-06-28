@@ -60,8 +60,7 @@ http.port: 9200
 
 ## 异常解决方案
 
-异常描述一: `ERROR: bootstrap checks failed
-max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144] `
+异常描述一: `ERROR: bootstrap checks failed,max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144] `
 
 解决方案:
 
