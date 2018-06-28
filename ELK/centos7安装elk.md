@@ -86,5 +86,7 @@ vi /etc/security/limits.conf
 * soft nproc 2048
 * hard nproc 4096
 ```
+# kibana安装
+
 
 
