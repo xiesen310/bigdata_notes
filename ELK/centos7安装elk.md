@@ -75,5 +75,16 @@ http.port: 9200
 max file descriptors [4096] for elasticsearch process likely too low, increase to at least [65536]
 max number of threads [1024] for user [lishang] likely too low, increase to at least [2048]
 ```
+解决方案:
+
+``` shell
+vi /etc/security/limits.conf 
+
+添加如下内容:
+* soft nofile 65536
+* hard nofile 131072
+* soft nproc 2048
+* hard nproc 4096
+```
 
 
