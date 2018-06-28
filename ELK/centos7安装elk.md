@@ -14,4 +14,48 @@ grammar_cjkRuby: true
 
 ## 安装ElasticSearch
 
+当我们设置好java的环境之后，下载ElasticSearch，解压，安装完毕。下载地址:[elasticSearch-5-2-2](https://www.elastic.co/downloads/past-releases/elasticsearch-5-2-2)
+
+## 配置
+
+ElasticSearch配置文件在elasticsearch/config文件夹下，在这个文件夹内有三个文件，一个是elasticsearch配置不同模块的配置文件`elasticsearch.yml`，一个是elasticsearch的日志配置文件`log4j2.properties`，另一个是elasticsearch的jvm配置文件`jvm.options`。
+
+``` yaml
+# 集群名称
+cluster.name: xs-es
+
+# 节点名称
+node.name: node-1
+
+# 节点描述
+#node.attr.rack: r1
+
+# 索引存储位置
+path.data: /home/elk/elk/elasticsearch-5.2.2/data
+
+# 日志存储位置
+path.logs: /home/elk/elk/elasticsearch-5.2.2/logs
+
+# 内存分配模式
+#bootstrap.memory_lock: true
+
+# 绑定的网卡IP
+network.host: 192.168.221.131
+
+# http协议端口
+http.port: 9200
+
+# 开始发现新节点的IP地址
+#discovery.zen.ping.unicast.hosts: ["host1", "host2"]
+
+# 最多发现主节点的个数
+#discovery.zen.minimum_master_nodes: 3
+
+# 当重启集群节点后最少启动N个节点后开始做恢复
+#gateway.recover_after_nodes: 3
+
+# 当删除一个索引的时候，需要制定具体索引的名称
+#action.destructive_requires_name: true
+```
+
 
