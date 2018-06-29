@@ -234,3 +234,26 @@ employee.setLastName("zhang");
 employee.setInfo(info);
 employee.setJoinDate(new Date());
 ```
+
+employee对象：里面包含了Employee类自己的属性，还有一个EmployeeInfo对象
+
+两张表：employee表，employee_info表，将employee对象的数据重新拆开来，变成Employee数据和EmployeeInfo数据
+employee表：email，first_name，last_name，join_date，4个字段
+employee_info表：bio，age，interests，3个字段；此外还有一个外键字段，比如employee_id，关联着employee表
+
+``` json
+{
+    "email":      "zhangsan@sina.com",
+    "first_name": "san",
+    "last_name": "zhang",
+    "info": {
+        "bio":         "curious and modest",
+        "age":         30,
+        "interests": [ "bike", "climb" ]
+    },
+    "join_date": "2017/01/01"
+}
+```
+
+我们就明白了es的document数据格式和数据库的关系型数据格式的区别
+
