@@ -133,3 +133,15 @@ elasticsearch，基于lucene，隐藏复杂性，提供简单易用的restful ap
 
 4. Document&field：文档，es中的最小数据单元，一个document可以是一条客户数据，一条商品分类数据，一条订单数据，通常用JSON数据结构表示，每个index下的type中，都可以去存储多个document。一个document里面有多个field，每个field就是一个数据字段。
 
+``` json
+ product document
+{
+  "product_id": "1",
+  "product_name": "高露洁牙膏",
+  "product_desc": "高效美白",
+  "category_id": "2",
+  "category_name": "日化用品"
+}
+```
+
+
