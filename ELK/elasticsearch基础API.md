@@ -506,9 +506,3 @@ DELETE /ecommerce/product/1
   "found": false
 }
 ```
-
-
-
-
-
-
