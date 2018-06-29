@@ -127,6 +127,8 @@ elasticsearch，基于lucene，隐藏复杂性，提供简单易用的restful ap
 
 1. Near Realtime（NRT）：近实时，两个意思，从写入数据到数据可以被搜索到有一个小延迟（大概1秒）；基于es执行搜索和分析可以达到秒级
 
+![](https://www.github.com/xiesen310/notes_Images/raw/master/images/{year}-{month}/Elasticsearch近实时概念的解释.png "Elasticsearch近实时概念的解释")
+
 2. Cluster：集群，包含多个节点，每个节点属于哪个集群是通过一个配置（集群名称，默认是elasticsearch）来决定的，对于中小型应用来说，刚开始一个集群就一个节点很正常
 
 3. Node：节点，集群中的一个节点，节点也有一个名称（默认是随机分配的），节点名称很重要（在执行运维管理操作的时候），默认节点会去加入一个名称为“elasticsearch”的集群，如果直接启动一堆节点，那么它们会自动组成一个elasticsearch集群，当然一个节点也可以组成一个elasticsearch集群
@@ -188,3 +190,4 @@ type，日化商品type，电器商品type，生鲜商品type
 
 8.replica：任何一个服务器随时可能故障或宕机，此时shard可能就会丢失，因此可以为每个shard创建多个replica副本。replica可以在shard故障时提供备用服务，保证数据不丢失，多个replica还可以提升搜索操作的吞吐量和性能。primary shard（建立索引时一次设置，不能修改，默认5个），replica shard（随时修改数量，默认1个），默认每个索引10个shard，5个primary shard，5个replica shard，最小的高可用配置，是2台服务器。
 
+![](https://www.github.com/xiesen310/notes_Images/raw/master/images/{year}-{month}/shard和replica的解释.png "shard和replica的解释")
