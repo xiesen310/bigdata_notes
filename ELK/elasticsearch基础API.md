@@ -271,3 +271,23 @@ employee_info表：bio，age，interests，3个字段；此外还有一个外键
 
 5. 对数据进行简单的聚合分析
 
+# 简单的集群管理
+
+## 快速检查集群的健康状况
+
+es提供了一套api，叫做cat api，可以查看es中各种各样的数据
+
+``` shell
+GET /_cat/health?v
+```
+输出结果:
+
+``` shell
+epoch      timestamp cluster       status node.total node.data shards pri relo init unassign pending_tasks max_task_wait_time active_shards_percent
+1488006741 15:12:21  elasticsearch yellow          1         1      1   1    0    0        1             0                  -                 50.0%
+
+epoch      timestamp cluster       status node.total node.data shards pri relo init unassign pending_tasks max_task_wait_time active_shards_percent
+1488007113 15:18:33  elasticsearch green           2         2      2   1    0    0        0             0                  -                100.0%
+```
+
+
