@@ -148,3 +148,4 @@ elasticsearch，基于lucene，隐藏复杂性，提供简单易用的restful ap
 
 6. Type：类型，每个索引里都可以有一个或多个type，type是index中的一个逻辑数据分类，一个type下的document，都有相同的field，比如博客系统，有一个索引，可以定义用户数据type，博客数据type，评论数据type。
 
+举例说明index & Type
