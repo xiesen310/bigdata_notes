@@ -148,4 +148,36 @@ elasticsearch，基于lucene，隐藏复杂性，提供简单易用的restful ap
 
 6. Type：类型，每个索引里都可以有一个或多个type，type是index中的一个逻辑数据分类，一个type下的document，都有相同的field，比如博客系统，有一个索引，可以定义用户数据type，博客数据type，评论数据type。
 
-举例说明index & Type
+## 举例说明index & Type
+
+商品index，里面存放了所有的商品数据，商品document
+
+但是商品分很多种类，每个种类的document的field可能不太一样，比如说电器商品，可能还包含一些诸如售后时间范围这样的特殊field；生鲜商品，还包含一些诸如生鲜保质期之类的特殊field
+
+type，日化商品type，电器商品type，生鲜商品type
+
+日化商品type：product_id，product_name，product_desc，category_id，category_name
+电器商品type：product_id，product_name，product_desc，category_id，category_name，service_period
+生鲜商品type：product_id，product_name，product_desc，category_id，category_name，eat_period
+
+每一个type里面，都会包含一堆document
+
+
+{
+  "product_id": "2",
+  "product_name": "长虹电视机",
+  "product_desc": "4k高清",
+  "category_id": "3",
+  "category_name": "电器",
+  "service_period": "1年"
+}
+
+
+{
+  "product_id": "3",
+  "product_name": "基围虾",
+  "product_desc": "纯天然，冰岛产",
+  "category_id": "4",
+  "category_name": "生鲜",
+  "eat_period": "7天"
+}
