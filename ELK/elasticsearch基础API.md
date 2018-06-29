@@ -290,6 +290,10 @@ epoch      timestamp cluster       status node.total node.data shards pri relo i
 1488007113 15:18:33  elasticsearch green           2         2      2   1    0    0        0             0                  -                100.0%
 ```
 
+## 如何快速了解集群的健康状况
 
+green：每个索引的primary shard和replica shard都是active状态的
+yellow：每个索引的primary shard都是active状态的，但是部分replica shard不是active状态，处于不可用的状态
+red：不是所有索引的primary shard都是active状态的，部分索引有数据丢失了
 
 
