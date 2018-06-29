@@ -157,12 +157,14 @@ elasticsearch，基于lucene，隐藏复杂性，提供简单易用的restful ap
 type，日化商品type，电器商品type，生鲜商品type
 
 日化商品type：product_id，product_name，product_desc，category_id，category_name
+
 电器商品type：product_id，product_name，product_desc，category_id，category_name，service_period
+
 生鲜商品type：product_id，product_name，product_desc，category_id，category_name，eat_period
 
 每一个type里面，都会包含一堆document
 
-
+``` json
 {
   "product_id": "2",
   "product_name": "长虹电视机",
@@ -172,7 +174,6 @@ type，日化商品type，电器商品type，生鲜商品type
   "service_period": "1年"
 }
 
-
 {
   "product_id": "3",
   "product_name": "基围虾",
@@ -181,3 +182,4 @@ type，日化商品type，电器商品type，生鲜商品type
   "category_name": "生鲜",
   "eat_period": "7天"
 }
+```
