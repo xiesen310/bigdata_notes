@@ -58,8 +58,11 @@ IT系统的搜索：OA软件，办公自动化软件，会议管理，日程管�
 ## 2. 全文检索，结构化检索，数据分析
 
 全文检索：我想搜索商品名称包含牙膏的商品，`select * from products where product_name like "%牙膏%"`
+
 结构化检索：我想搜索商品分类为日化用品的商品都有哪些，`select * from products where category_id='日化用品'`
+
 部分匹配、自动完成、搜索纠错、搜索推荐
+
 数据分析：我们分析每一个商品分类下有多少个商品，`select category_id,count(*) from products group by category_id`
 
 ## 3.对海量数据进行近实时的处理
