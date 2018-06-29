@@ -191,3 +191,46 @@ type，日化商品type，电器商品type，生鲜商品type
 
 ![](https://www.github.com/xiesen310/notes_Images/raw/master/images/{year}-{month}/shard和replica的解释.png "shard和replica的解释")
 
+# document数据格式
+
+面向文档的搜索分析引擎
+
+1. 应用系统的数据结构都是面向对象的，复杂的
+
+2. 对象数据存储到数据库中，只能拆解开来，变为扁平的多张表，每次查询的时候还得还原回对象格式，相当麻烦
+
+3. ES是面向文档的，文档中存储的数据结构，与面向对象的数据结构是一样的，基于这种文档数据结构，es可以提供复杂的索引，全文检索，分析聚合等功能
+
+4. es的document用json数据格式来表达
+
+``` java
+public class Employee {
+
+  private String email;
+  private String firstName;
+  private String lastName;
+  private EmployeeInfo info;
+  private Date joinDate;
+
+}
+
+private class EmployeeInfo {
+  
+  private String bio; // 性格
+  private Integer age;
+  private String[] interests; // 兴趣爱好
+
+}
+
+EmployeeInfo info = new EmployeeInfo();
+info.setBio("curious and modest");
+info.setAge(30);
+info.setInterests(new String[]{"bike", "climb"});
+
+Employee employee = new Employee();
+employee.setEmail("zhangsan@sina.com");
+employee.setFirstName("san");
+employee.setLastName("zhang");
+employee.setInfo(info);
+employee.setJoinDate(new Date());
+```
