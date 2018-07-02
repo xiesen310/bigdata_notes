@@ -51,4 +51,77 @@ grammar_cjkRuby: true
 
 ```
 
+## log4j2.properties
+
+``` javascript
+appender.console.type = Console
+appender.console.name = console
+appender.console.layout.type = PatternLayout
+
+rootLogger.level = info
+rootLogger.appenderRef.console.ref = console
+```
+
+## 示例代码
+
+``` java
+package top.xiesen.es;
+
+import org.elasticsearch.action.delete.DeleteResponse;
+import org.elasticsearch.action.get.GetResponse;
+import org.elasticsearch.action.index.IndexResponse;
+import org.elasticsearch.client.transport.TransportClient;
+import org.elasticsearch.common.settings.Settings;
+import org.elasticsearch.common.transport.InetSocketTransportAddress;
+import org.elasticsearch.transport.client.PreBuiltTransportClient;
+
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.Date;
+
+import static org.elasticsearch.common.xcontent.XContentFactory.jsonBuilder;
+
+public class EsTestDemo {
+    static String index = "test_index";
+    static String type = "test_type";
+
+    public static void main(String[] args) throws IOException {
+        // 构建client
+        Settings settings = Settings.builder().put("cluster.name", "xs-es").build();
+        TransportClient client = new PreBuiltTransportClient(settings)
+                .addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("node-1"), 9300));
+
+        // 创建document
+        IndexResponse response = client.prepareIndex(index, type, "10")
+                .setSource(jsonBuilder()
+                        .startObject()
+                        .field("user", "kimchy")
+                        .field("postDate", new Date())
+                        .field("message", "trying out Elasticsearch")
+                        .endObject()
+                ).get();
+
+        // 查询
+        GetResponse result = client.prepareGet(index, type, "10").get();
+        // 更新document
+        client.prepareUpdate(index, type, "10")
+                .setDoc(jsonBuilder()
+                        .startObject()
+                        .field("gender", "male")
+                        .endObject())
+                .get();
+
+        // 删除document
+        DeleteResponse deleteResponse = client.prepareDelete(index, type, "10").get();
+        
+        GetResponse resultUpdate = client.prepareGet(index, type, "10").get();
+        System.out.println(result.getSourceAsString());
+        System.out.println(resultUpdate.getSourceAsString());
+        client.close();
+    }
+}
+
+```
+
 
