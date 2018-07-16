@@ -14,8 +14,11 @@ ambari的安装、配置与启动
 
 2. 搭建本地yum源仓库
 
-安装Ambari系统本身是通过Ambari安装HDP发行版中的Hadoop服务器要通过yum的方式进行安装。
-
+安装Ambari系统本身是通过Ambari安装HDP发行版中的Hadoop服务器要通过yum的方式进行安装。并且在企业的内部部署集群环境也是在没有网的环境下进行部署的。HDP的文件多达几个G，通过yum在线安装也是不可能的。
+	1.1 下载离线安装包
+	1.2 安装Apache服务器
+	1.3 创建yum源配置文件
+	
 3. 关闭防火墙和SELinux
 4. 配置主机表
 5. 安装Ambari-Server
