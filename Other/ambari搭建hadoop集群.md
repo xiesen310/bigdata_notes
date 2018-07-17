@@ -180,10 +180,12 @@ HDP-UTILS-1.1.0.21：http://server1.cluster.com/hdp/HDP-UTILS-1.1.0.21/repos/cen
 
 1. 配置主机注册信息
 
-设置免密
-https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_01%20hadoop.md
-设置时间同步
-关闭THP
+|  功能   |  地址   |
+| --- | --- |
+|  设置免密   |    https://github.com/xiesen310/bigdata_notes/blob/hadoop/hadoop/Day_01%20hadoop.md |
+|  设置时间同步   |    https://github.com/xiesen310/bigdata_notes/blob/work/Other/设置CentOS6.5时钟同步.md  |
+|  关闭THP    |   https://github.com/xiesen310/bigdata_notes/blob/work/Other/%E5%85%B3%E9%97%ADTransparent%20HugePages.md  |
+
 
 2. 安装服务器
 选择hadoop的在不同节点上的角色，按着向导一路下一步就可以了。
