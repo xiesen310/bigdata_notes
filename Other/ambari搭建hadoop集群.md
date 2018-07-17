@@ -19,6 +19,10 @@ ambari的安装、配置与启动
 1.1 下载离线安装包
 因为是离线安装，所以我们需要首先下载Ambari和HDP的离线安装包。这里我们使用的是Ambari2.4和HDP2.5，下载地址如下:
 
+|   Ambari-2.4  |wget http://public-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.4.0.1/ambari-2.4.0.1-centos6.tar.gz      |
+| --- | --- |
+|   HDP2.5  | wget http://public-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.5.0.0/HDP-2.5.0.0-centos6-rpm.tar.gz    |
+|  HDP-UTILS   |    wget http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6/HDP-UTILS-1.1.0.21-centos6.tar.gz |
 
 
 1.2 安装Apache服务器
