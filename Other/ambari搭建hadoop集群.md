@@ -6,7 +6,7 @@ time: 2018-7-16
 grammar_cjkRuby: true
 ---
 
-ambari的安装、配置与启动
+# ambari的安装、配置与启动
 
 1. 集群规划
 
@@ -101,7 +101,78 @@ Ambari所管理的各个服务器之间需要使用FQDN来进行访问，所以�
 虽然Ambari系统是由Ambari-server和Ambari-agent两个部分组成。但是手动安装的时候只需要关注Ambari-server就可以了，因为Ambari-Agent程序在通过Ambari系统新建集群的过程中会自动安装。
 我们已将在本地搭建了yum源，在这里安装就比较简单了，执行`yum install ambari-server -y`命令进行安装。之后便会进入到自动安装的步骤。在安装的过程中会出现错误。提示需要postgrepsql-server，且版本需要大于8.1.这是因为Ambari默认通过postgresql数据库来保存它大的元数据信息。所有我们还需要安装postgrepsql数据库，执行`yum install postgrepsql-server`命令安装。
 安装之后重新执行 `yum install ambari-server -y`即可顺利安装
-6. 配置Ambari-Server
 
+ambari安装之后我们只关注4个目录，他们分别是:
+
+配置目录(/etc/ambari-server/conf):Ambari的配置文件会全部放在这个目录下。
+日志目录(/var/log/ambari-server):Ambari自身的服务日志会放到这个目录下。
+Hadoop服务组件目录(/usr/hdp):通过Ambari安装的Hadoop组件会放在这个目录下。
+Ambari服务目录(/usr/lib/ambari-server):Ambari自身的服务会安装到这个目录下。
+6. 配置Ambari-Server
+在安装之后，如果我们立即启动，启动会出现错误，这是因为在启动之前我们必须先完成初始化配置，执行`ambari-server setup`命令开始配置。
+ambari-server会通过python脚本启动交互式的shell程序来引导用户完成配置。
+
+``` shell
+Using python /usr/bin/python
+setup ambari-server
+```
+
+程序配置首先检查是否禁用了SELinux，这项配置之前我们已经做过了，所以这里没有任何问题。
+
+``` shell
+Checking SELinux...
+SELinux status is 'disabled'
+```
+接着配置程序会让我们指定Ambari的用户，这里我们直接使用默认的Ambari用户，按回车继续。
+Customize user account for ambari-server daemon y/n (n)?
+Adjusting ambari-server permissions and ownership...
+然后配置程序开始检查防火墙状态，在之前的步骤，我们已将关闭了防火墙，所以在这里没有什么问题。
+
+``` shell
+Checking firewall status...
+```
+现在轮到检查JDK，这里输入“3”，选择自己安装的JDK。
+
+``` shell
+Checking JDK...
+【1】 oracle JDK 1.8 + java Cryptography Extension (JCE) policy Files 8
+【2】 oracle JDK 1.7 + java Cryptography Extension (JCE) policy Files 7
+【3】custom JDK
+```
+在JAVA_HOME配置项中填写我们JDK的安装地址，例如  /opt/jdk1.8.0_161/
+
+``` shell
+Path to JAVA_HOME： JDK地址(例如 /opt/jdk1.8.0_161/)
+Validating JDK on ambari server ... done.
+```
+最后是数据库的设置，这里我们为了简便，选择使用Ambari内置的postgresql数据库，直接回车即可。
+
+``` shell
+Completing setup...
+Configuring database ...
+中间过程...
+Ambari Server ‘setup’ completed succesfully.
+```
+至此我们便完成了Ambari-server的配置工作，接下来就可以启动了。
 
 7. 启动Ambari-Server
+
+执行 `ambari-server start` 命令启动ambari-server，可以通过jps看到AmbariServer进程。
+打开浏览器，输入`http://服务器ip:8080来访问ambari`。可以看到ambari的登录界面。输入默认用户名:admin,密码:admin完成登录。
+![登录界面](https://www.github.com/xiesen310/notes_Images/raw/master/images/{year}-{month}/1531794122600.jpg)
+
+# 新建集群
+登录系统之后会看到Ambari空空如也的欢迎界面。接下来会介绍如何通过ambari新建Hadoop集群。
+
+## 设置集群名称并配置HDP安装包
+
+1. 单击Launch Install Wizard 按钮进入新建集群向导。
+2. 设置集群名称，这里我们为这个集群取名为my_cluster,然后点击下一步按钮继续。
+3. 首先选择HDP-2.5版本，然后选择User Local Repository 使用本地安装的模式，最后在redhat6操作系统下输入: 
+
+``` shell
+HDP-2.5 ：http://server1.cluster.com/hdp/HDP/centos6
+HDP-UTILS-1.1.0.21：http://server1.cluster.com/hdp/HDP-UTILS-1.1.0.21/repos/centos6
+```
+
+
