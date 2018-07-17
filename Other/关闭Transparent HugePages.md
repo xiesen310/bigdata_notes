@@ -38,8 +38,6 @@ title Oracle Linux Server (2.6.32-300.25.1.el6uek.x86_64)
         initrd /initramfs-2.6.32-300.25.1.el6uek.x86_64.img
 ```
 
-
-
 重启下，
 
 ``` shell
@@ -51,7 +49,6 @@ HugePages_Rsvd:        0
 HugePages_Surp:        0
 Hugepagesize:       2048 kB
 ```
-
 
 
 ``` shell
