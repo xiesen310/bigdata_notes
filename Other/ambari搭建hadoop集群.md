@@ -174,5 +174,20 @@ Ambari Server ‘setup’ completed succesfully.
 HDP-2.5 ：http://server1.cluster.com/hdp/HDP/centos6
 HDP-UTILS-1.1.0.21：http://server1.cluster.com/hdp/HDP-UTILS-1.1.0.21/repos/centos6
 ```
+4. 全部填好之后，单击下一步按钮继续。
+
+## 配置集群
+
+1. 配置主机注册信息
+
+设置免密
+设置时间同步
+关闭THP
+
+2. 安装服务器
+选择hadoop的在不同节点上的角色，按着向导一路下一步就可以了
+
+
+
 
 
