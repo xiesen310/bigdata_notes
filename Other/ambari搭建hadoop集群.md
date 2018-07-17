@@ -73,6 +73,8 @@ path=/
 gpgcheck=0
 enabled=1
 ```
+最后将这两个配置文件复制到所有准备安装hadoop组件的机器上的/etc/yum.repos.d目录下。
+现在可以执行 `yum repolist` 命令检查一下配置是否正确，如果能够看到ambari2.4.0.1 和HDP2.5.0.0两个yum源就表明配置成功了。如果看不到要检查一下/etc/yum.repos.d目录下是否存在ambari.repo和hdp.repo两个配置为文件。
 
 3. 关闭防火墙和SELinux
 
@@ -82,8 +84,24 @@ chkconfig iptables off 检查防火墙是否已经关闭
 打开/etc/selinux/config,修改SELINUX=disabled来禁用SELinux。此项修改需要重启服务器之后才能生效。
 ```
 
-
 4. 配置主机表
+
+Ambari所管理的各个服务器之间需要使用FQDN来进行访问，所以我们为各个服务器配置他们的FQDN。linux系统可以通过主机表来配置它的FQDN，执行 `vi /etc/hosts`
+
+``` shell
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+192.168.10.128  server1.cluster.com server1
+192.168.10.129  server2.cluster.com server2
+192.168.10.130  server3.cluster.com server3
+```
+
 5. 安装Ambari-Server
+
+虽然Ambari系统是由Ambari-server和Ambari-agent两个部分组成。但是手动安装的时候只需要关注Ambari-server就可以了，因为Ambari-Agent程序在通过Ambari系统新建集群的过程中会自动安装。
+我们已将在本地搭建了yum源，在这里安装就比较简单了，执行`yum install ambari-server -y`命令进行安装。之后便会进入到自动安装的步骤。在安装的过程中会出现错误。提示需要postgrepsql-server，且版本需要大于8.1.这是因为Ambari默认通过postgresql数据库来保存它大的元数据信息。所有我们还需要安装postgrepsql数据库，执行`yum install postgrepsql-server`命令安装。
+安装之后重新执行 `yum install ambari-server -y`即可顺利安装
 6. 配置Ambari-Server
+
+
 7. 启动Ambari-Server
