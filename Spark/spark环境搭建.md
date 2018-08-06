@@ -397,7 +397,22 @@ bin/kafka-console-producer.sh --broker-list spark1:9092, spark2:9092, spark3:909
 bin/kafka-console-consumer.sh --zookeeper spark1:2181, spark2:2181, spark3:2181 --topic Test --from-beginning
 ```
 
+# spark集群搭建
 
+## 安装spark包
+
+1. 将spark-1.3.0-bin-hadoop2.4.tgz使用WinSCP上传到/usr/local目录下。
+2. 解压缩spark包：`tar zxvf spark-1.3.0-bin-hadoop2.4.tgz`。
+3. 更改spark目录名：`mv spark-1.3.0-bin-hadoop2.4 spark`
+4. 设置spark环境变量
+
+``` shell
+vi .bashrc
+export SPARK_HOME=/usr/local/spark
+export PATH=$SPARK_HOME/bin
+export CLASSPATH=.:$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib
+source .bashrc
+```
 
 
 
