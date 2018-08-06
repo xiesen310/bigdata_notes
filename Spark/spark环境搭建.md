@@ -36,3 +36,41 @@ GATEWAY=192.168.1.1
 6. 即使更换了ip地址，重启网卡，可能还是联不通网。那么可以先将IPADDR、NETMASK、GATEWAY给删除，将BOOTPROTO改成dhcp。然后用service network restart重启网卡。此时linux会自动给分配一个ip地址，用ifconfig查看分配的ip地址。然后再次按照之前说的，配置网卡，将ip改成自动分配的ip地址。最后再重启一次网卡。
 
 ## centos6.5 防火墙和DNS配置
+
+1. 关闭防火墙
+
+``` shell
+service iptables stop
+chkconfig iptables off
+vi /etc/selinux/config
+SELINUX=disabled
+```
+自己在win7的控制面板中，关闭windows的防火墙！
+
+2. 配置dns服务器
+
+``` shell
+vi /etc/resolv.conf
+nameserver 61.139.2.69
+ping www.baidu.com
+```
+## centos6.5yum配置
+
+1、修改repo
+使用WinSCP（网上很多，自己下一个），将CentOS6-Base-163.repo上传到CentOS中的/usr/local目录下
+
+``` shell
+cd /etc/yum.repos.d/
+rm -rf *
+```
+
+mv 自己的repo文件移动到/etc/yum.repos.d/目录中：`cp /usr/local/CentOS6-Base-163.repo` .
+修改repo文件，把所有gpgcheck属性修改为0
+
+2、配置yum
+
+``` shell
+yum clean all
+yum makecache
+yum install telnet
+```
