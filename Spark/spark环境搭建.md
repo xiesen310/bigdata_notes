@@ -182,6 +182,15 @@ spark3
 2. 要记得对.bashrc文件进行source，以让它生效。
 3. 记得在spark2和spark3的/usr/local目录下创建data目录。
 
+## 启动hdfs集群
+
+1. 格式化namenode：在spark1上执行以下命令，hdfs namenode -format
+2. 启动hdfs集群：start-dfs.sh
+3. 验证启动是否成功：jps、50070端口
+spark1：namenode、datanode、secondarynamenode
+spark2：datanode
+spark3：datanode
+
 
 
 
