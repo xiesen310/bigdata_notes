@@ -155,6 +155,27 @@ source .bashrc
   <value>yarn</value>
 </property>
 ```
+## 修改yarn-site.xml
+
+``` shell
+<property>
+  <name>yarn.resourcemanager.hostname</name>
+  <value>spark1</value>
+</property>
+<property>
+  <name>yarn.nodemanager.aux-services</name>
+  <value>mapreduce_shuffle</value>
+</property>
+```
+
+## 修改slaves
+
+``` shell
+spark1
+spark2
+spark3
+```
+
 
 
 
