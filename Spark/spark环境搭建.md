@@ -13,3 +13,20 @@ grammar_cjkRuby: true
 4. 安装虚拟机中的CentOS 6.5操作系统：选择创建好的虚拟机spark1，点击“开始”按钮，选择安装介质（即本地的CentOS 6.5镜像文件），选择第一项开始安装-Skip-欢迎界面Next-选择默认语言-Baisc Storage Devices-Yes, discard any data-主机名:spark1-选择时区-设置初始密码为hadoop-Replace Existing Linux System-Write changes to disk-CentOS 6.5自己开始安装。
 5. 安装完以后，CentOS会提醒你要重启一下，就是reboot，你就reboot就可以了。
 
+# centos6.5 网络配置
+
+1. 先临时性设置虚拟机ip地址：ifconfig eth0 192.168.1.107，在/etc/hosts文件中配置本地ip（192.168.1.107）到host（spark1）的映射
+2. 配置windows主机上的hosts文件：C:\Windows\System32\drivers\etc\hosts，192.168.1.107 hadoop1
+3. 使用SecureCRT从windows上连接虚拟机，自己可以上网下一个SecureCRT的绿色版，网上很多。
+4. 永久性配置CentOS网络
+vi /etc/sysconfig/network-scripts/ifcfg-eth0
+DEVICE=eth0
+TYPE=Ethernet
+ONBOOT=yes
+BOOTPROTO=static
+IPADDR=192.168.1.107
+NETMASK=255.255.255.0
+GATEWAY=192.168.1.1
+5. 重启网卡
+service network restart
+6. 即使更换了ip地址，重启网卡，可能还是联不通网。那么可以先将IPADDR、NETMASK、GATEWAY给删除，将BOOTPROTO改成dhcp。然后用service network restart重启网卡。此时linux会自动给分配一个ip地址，用ifconfig查看分配的ip地址。然后再次按照之前说的，配置网卡，将ip改成自动分配的ip地址。最后再重启一次网卡。
