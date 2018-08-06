@@ -383,8 +383,20 @@ fi
 # 去掉-XX:+UseCompressedOops即可
 ```
 
-
 3、使用jps检查启动是否成功
+
+## 测试kafka集群
+
+使用基本命令检查kafka是否搭建成功
+
+``` shell
+bin/kafka-topics.sh --zookeeper spark1:2181,spark2:2181,spark3:2181 --topic Test --replication-factor 1 --partitions 1 --create
+
+bin/kafka-console-producer.sh --broker-list spark1:9092, spark2:9092, spark3:9092 --topic Test
+
+bin/kafka-console-consumer.sh --zookeeper spark1:2181, spark2:2181, spark3:2181 --topic Test --from-beginning
+```
+
 
 
 
