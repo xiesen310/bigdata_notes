@@ -147,5 +147,16 @@ source .bashrc
 </property>
 ```
 
+## 修改maperd-site.xml
+
+``` shell
+<property>
+  <name>mapreduce.framework.name</name>
+  <value>yarn</value>
+</property>
+![enter description here](https://markdown.xiaoshujiang.com/img/spinner.gif "[[[1533542295998]]]" )
+```
+
+
 
 
