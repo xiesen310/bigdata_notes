@@ -56,7 +56,7 @@ ping www.baidu.com
 ```
 ## centos6.5yum配置
 
-1、修改repo
+1. 修改repo
 使用WinSCP（网上很多，自己下一个），将CentOS6-Base-163.repo上传到CentOS中的/usr/local目录下
 
 ``` shell
@@ -67,10 +67,26 @@ rm -rf *
 mv 自己的repo文件移动到/etc/yum.repos.d/目录中：`cp /usr/local/CentOS6-Base-163.repo` .
 修改repo文件，把所有gpgcheck属性修改为0
 
-2、配置yum
+2. 配置yum
 
 ``` shell
 yum clean all
 yum makecache
 yum install telnet
 ```
+## jdk1.7安装
+
+1. 将jdk-7u60-linux-i586.rpm通过WinSCP上传到虚拟机中
+2. 安装JDK：rpm -ivh jdk-7u65-linux-i586.rpm
+3. 配置jdk相关的环境变量
+
+``` shell
+vi .bashrc
+export JAVA_HOME=/usr/java/latest
+export PATH=$PATH:$JAVA_HOME/bin
+source .bashrc
+```
+
+
+4. 测试jdk安装是否成功：`java -version`
+5. `rm -f /etc/udev/rules.d/70-persistent-net.rules`
