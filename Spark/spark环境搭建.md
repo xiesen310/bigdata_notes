@@ -187,10 +187,31 @@ spark3
 1. 格式化namenode：在spark1上执行以下命令，hdfs namenode -format
 2. 启动hdfs集群：start-dfs.sh
 3. 验证启动是否成功：jps、50070端口
+
 spark1：namenode、datanode、secondarynamenode
 spark2：datanode
 spark3：datanode
 
+## 启动yarn集群
+
+1. 启动yarn集群：start-yarn.sh
+2. 验证启动是否成功：jps、8088端口
+spark1：resourcemanager、nodemanager
+spark2：nodemanager
+spark3：nodemanager
+
+# 安装hive
+1. 下载apache-hive-0.13.1-bin.tar.gz使用WinSCP上传到spark1的/usr/local目录下。
+2. 解压缩hive安装包：tar -zxvf apache-hive-0.13.1-bin.tar.gz。
+3. 重命名hive目录：mv apache-hive-0.13.1-bin hive
+4. 配置hive相关的环境变量
+
+``` shell
+vi .bashrc
+export HIVE_HOME=/usr/local/hive
+export PATH=$HIVE_HOME/bin
+source .bashrc
+```
 
 
 
