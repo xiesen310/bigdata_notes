@@ -267,6 +267,22 @@ vi hive-site.xml
 </property>
 ```
 
+## 配置hive-site.sh和hive-config.sh
+
+``` shell
+mv hive-env.sh.template hive-env.sh
+
+vi /usr/local/hive/bin/hive-config.sh
+export JAVA_HOME=/usr/java/latest
+export HIVE_HOME=/usr/local/hive
+export HADOOP_HOME=/usr/local/hadoop
+```
+
+## 验证hive是否成功
+直接输入hive命令，可以进入hive命令行
+
+
+
 
 
 
