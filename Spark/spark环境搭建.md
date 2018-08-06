@@ -104,3 +104,17 @@ cp id_rsa.pub authorized_keys
 2. 接着配置三台机器互相之间的ssh免密码登录
 使用ssh-copy-id -i spark命令将本机的公钥拷贝到指定机器的authorized_keys文件中（方便好用）
 
+# 安装hadoop包
+1. 安装hadoop-2.4.1.tar.gz，使用WinSCP上传到CentOS的/usr/local目录下。
+2. 将hadoop包进行解压缩：`tar -zxvf hadoop-2.4.1.tar.gz`
+3. 对hadoop目录进行重命名：`mv hadoop-2.4.1 hadoop`
+4. 配置hadoop相关环境变量
+
+``` shell
+vi .bashrc
+export HADOOP_HOME=/usr/local/hadoop
+export PATH=$HADOOP_HOME/bin:$HADOOP_HOME/sbin
+source .bashrc
+```
+
+
