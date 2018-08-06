@@ -426,6 +426,13 @@ export SPARK_WORKER_MEMORY=1g
 export HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop
 ```
 
+## 修改slaves
+
+``` shell
+spark1
+spark2
+spark3
+```
 
 
 
