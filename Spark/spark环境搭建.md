@@ -325,9 +325,44 @@ vi myid
 ```
 ## 搭建zk集群
 
-1、在另外两个节点上按照上述步骤配置ZooKeeper，使用scp将zk和.bashrc拷贝到spark2和spark3上即可。
-2、唯一的区别是spark2和spark3的标识号分别设置为1和2。
+1. 在另外两个节点上按照上述步骤配置ZooKeeper，使用scp将zk和.bashrc拷贝到spark2和spark3上即可。
+2. 唯一的区别是spark2和spark3的标识号分别设置为1和2。
 
+## 启动zk集群
+
+1. 分别在三台机器上执行：zkServer.sh start。
+2. 检查ZooKeeper状态：zkServer.sh status
+
+# kafka安装
+
+## scala安装
+1. 下载scala-2.11.4.tgz使用WinSCP拷贝到spark1的/usr/local目录下。
+2. scala-2.11.4.tgz进行解压缩：`tar -zxvf scala-2.11.4.tgz`。
+3. 对scala目录进行重命名：`mv scala-2.11.4 scala`
+4. 配置scala相关的环境变量
+
+``` shell
+vi .bashrc
+export SCALA_HOME=/usr/local/scala
+export PATH=$SCALA_HOME/bin
+source .bashrc
+```
+5. 查看scala是否安装成功：`scala -version`
+6. 按照上述步骤在spark2和spark3机器上都安装好scala。使用scp将scala和.bashrc拷贝到spark2和spark3上即可。
+
+## 安装kafka包
+
+1. 下载kafka_2.9.2-0.8.1.tgz使用WinSCP拷贝到spark1的/usr/local目录下。
+2. 对kafka_2.9.2-0.8.1.tgz进行解压缩：tar -zxvf kafka_2.9.2-0.8.1.tgz。
+3. 对kafka目录进行改名：mv kafka_2.9.2-0.8.1 kafka
+4. 配置kafka
+vi /usr/local/kafka/config/server.properties
+broker.id：依次增长的整数，0、1、2、3、4，集群中Broker的唯一id
+zookeeper.connect=192.168.1.107:2181,192.168.1.108:2181,192.168.1.109:2181
+5. 安装slf4j
+将课程提供的slf4j-1.7.6.zip上传到/usr/local目录下
+unzip slf4j-1.7.6.zip
+把slf4j中的slf4j-nop-1.7.6.jar复制到kafka的libs目录下面
 
 
 
