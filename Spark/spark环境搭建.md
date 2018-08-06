@@ -87,6 +87,20 @@ export PATH=$PATH:$JAVA_HOME/bin
 source .bashrc
 ```
 
-
 4. 测试jdk安装是否成功：`java -version`
 5. `rm -f /etc/udev/rules.d/70-persistent-net.rules`
+
+## 配置集群ssh免密
+
+1. 首先在三台机器上配置对本机的ssh免密码登录
+生成本机的公钥，过程中不断敲回车即可，ssh-keygen命令默认会将公钥放在/root/.ssh目录下
+
+``` shell
+ssh-keygen -t rsa
+# 将公钥复制为authorized_keys文件，此时使用ssh连接本机就不需要输入密码了
+cd /root/.ssh
+cp id_rsa.pub authorized_keys
+```
+2. 接着配置三台机器互相之间的ssh免密码登录
+使用ssh-copy-id -i spark命令将本机的公钥拷贝到指定机器的authorized_keys文件中（方便好用）
+
