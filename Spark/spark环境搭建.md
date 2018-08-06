@@ -240,6 +240,32 @@ grant all privileges on hive_metadata.* to 'hive'@'spark1' identified by 'hive';
 flush privileges;
 use hive_metadata;
 ```
+## 配置hive-site.xml
+
+``` shell
+mv hive-default.xml.template hive-site.xml
+vi hive-site.xml
+<property>
+  <name>javax.jdo.option.ConnectionURL</name>
+  <value>jdbc:mysql://spark1:3306/hive_metadata?createDatabaseIfNotExist=true</value>
+</property>
+<property>
+  <name>javax.jdo.option.ConnectionDriverName</name>
+  <value>com.mysql.jdbc.Driver</value>
+</property>
+<property>
+  <name>javax.jdo.option.ConnectionUserName</name>
+  <value>hive</value>
+</property>
+<property>
+  <name>javax.jdo.option.ConnectionPassword</name>
+  <value>hive</value>
+</property>
+<property>
+  <name>hive.metastore.warehouse.dir</name>
+  <value>/user/hive/warehouse</value>
+</property>
+```
 
 
 
