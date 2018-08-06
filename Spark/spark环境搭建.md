@@ -369,6 +369,24 @@ unzip slf4j-1.7.6.zip
 1、按照上述步骤在spark2和spark3分别安装kafka。用scp把kafka拷贝到spark2和spark3行即可。
 2、唯一区别的，就是server.properties中的broker.id，要设置为1和2
 
+## 启动kafka集群
+
+1、在三台机器上分别执行以下命令：`nohup bin/kafka-server-start.sh config/server.properties &`
+
+2、解决kafka Unrecognized VM option 'UseCompressedOops'问题
+
+``` shell
+vi bin/kafka-run-class.sh 
+if [ -z "$KAFKA_JVM_PERFORMANCE_OPTS" ]; then
+  KAFKA_JVM_PERFORMANCE_OPTS="-server  -XX:+UseCompressedOops -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:+CMSScavengeBeforeRemark -XX:+DisableExplicitGC -Djava.awt.headless=true"
+fi
+# 去掉-XX:+UseCompressedOops即可
+```
+
+
+3、使用jps检查启动是否成功
+
+
 
 
 
