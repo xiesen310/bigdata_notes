@@ -433,6 +433,16 @@ spark1
 spark2
 spark3
 ```
+## 安装spark集群
+
+在另外两个节点进行一模一样的配置，使用scp将spark和.bashrc拷贝到spark2和spark3即可
+
+## 启动spark集群
+
+1、在spark目录下的sbin目录
+2、执行./start-all.sh
+3、使用jsp和8080端口可以检查集群是否启动成功
+4、进入spark-shell查看是否正常
 
 
 
