@@ -279,6 +279,7 @@ export HADOOP_HOME=/usr/local/hadoop
 ```
 
 ## 验证hive是否成功
+
 直接输入hive命令，可以进入hive命令行
 
 
