@@ -413,6 +413,19 @@ export PATH=$SPARK_HOME/bin
 export CLASSPATH=.:$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib
 source .bashrc
 ```
+## 修改spark-env.sh
+
+``` shell
+cd /usr/local/spark/conf
+cp spark-env.sh.template spark-env.sh
+vi spark-env.sh
+export JAVA_HOME=/usr/java/latest
+export SCALA_HOME=/usr/local/scala
+export SPARK_MASTER_IP=192.168.1.107
+export SPARK_WORKER_MEMORY=1g
+export HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop
+```
+
 
 
 
