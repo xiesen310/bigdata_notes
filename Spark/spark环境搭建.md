@@ -117,5 +117,13 @@ export HADOOP_HOME=/usr/local/hadoop
 export PATH=$HADOOP_HOME/bin:$HADOOP_HOME/sbin
 source .bashrc
 ```
+## 修改core-site.xml
+
+``` shell
+<property>
+  <name>fs.default.name</name>
+  <value>hdfs://spark1:9000</value>
+</property>
+```
 
 
