@@ -364,7 +364,10 @@ zookeeper.connect=192.168.1.107:2181,192.168.1.108:2181,192.168.1.109:2181
 unzip slf4j-1.7.6.zip
 把slf4j中的slf4j-nop-1.7.6.jar复制到kafka的libs目录下面
 
+## 搭建kafka集群
 
+1、按照上述步骤在spark2和spark3分别安装kafka。用scp把kafka拷贝到spark2和spark3行即可。
+2、唯一区别的，就是server.properties中的broker.id，要设置为1和2
 
 
 
