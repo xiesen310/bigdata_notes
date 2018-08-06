@@ -126,4 +126,26 @@ source .bashrc
 </property>
 ```
 
+## 修改hdfs-site.xml文件
+
+``` shell
+<property>
+  <name>dfs.name.dir</name>
+  <value>/usr/local/data/namenode</value>
+</property>
+<property>
+  <name>dfs.data.dir</name>
+  <value>/usr/local/data/datanode</value>
+</property>
+<property>
+  <name>dfs.tmp.dir</name>
+  <value>/usr/local/data/tmp</value>
+</property>
+<property>
+  <name>dfs.replication</name>
+  <value>3</value>
+</property>
+```
+
+
 
