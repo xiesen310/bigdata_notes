@@ -212,6 +212,35 @@ export HIVE_HOME=/usr/local/hive
 export PATH=$HIVE_HOME/bin
 source .bashrc
 ```
+## 安装mysql
+
+1、在spark1上安装mysql。
+2、使用yum安装mysql server。
+
+``` shell
+yum install -y mysql-server
+service mysqld start
+chkconfig mysqld on
+```
+3、使用yum安装mysql connector
+yum install -y mysql-connector-java
+4、将mysql connector拷贝到hive的lib包中
+
+``` shell
+cp /usr/share/java/mysql-connector-java-5.1.17.jar /usr/local/hive/lib
+```
+
+5、在mysql上创建hive元数据库，并对hive进行授权
+
+``` sql
+create database if not exists hive_metadata;
+grant all privileges on hive_metadata.* to 'hive'@'%' identified by 'hive';
+grant all privileges on hive_metadata.* to 'hive'@'localhost' identified by 'hive';
+grant all privileges on hive_metadata.* to 'hive'@'spark1' identified by 'hive';
+flush privileges;
+use hive_metadata;
+```
+
 
 
 
