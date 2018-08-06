@@ -176,6 +176,12 @@ spark2
 spark3
 ```
 
+## 在另外两台机器上搭建hadoop
+
+1. 使用如上配置在另外两台机器上搭建hadoop，可以使用scp命令将spark1上面的hadoop安装包和.bashrc配置文件都拷贝过去。
+2. 要记得对.bashrc文件进行source，以让它生效。
+3. 记得在spark2和spark3的/usr/local目录下创建data目录。
+
 
 
 
