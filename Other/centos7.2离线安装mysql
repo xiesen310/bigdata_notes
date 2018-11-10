@@ -1,0 +1,81 @@
+---
+title:  centos7.2离线安装mysql 
+tags: centos7,mysql
+author: XieSen
+time: 2018-11-10 
+grammar_cjkRuby: true
+---
+
+
+1. 查看系统是否存在默认数据库Mariadb
+![](https://www.github.com/xiesen310/notes_Images/raw/master/images/{year}-{month}/1.png "1")
+``` shell
+rpm -qa | grep mariadb;
+```
+
+2. 卸载数据库
+![](https://www.github.com/xiesen310/notes_Images/raw/master/images/{year}-{month}/2.png "2")
+``` shell
+rpm -e --nodeps mariadb-libs-5.5.44-2.el7.x86_64;
+rpm -qa | grep mariadb;
+```
+
+
+3. 上传安装包
+将我们准备好的mysql安装包上传到`/zork/dataSoftware/`文件夹下面，然后解压
+
+``` shell
+tar -xvf mysql-5.7.22-1.el7.x86_64.rpm-bundle.tar
+```
+
+4. 安装
+安装顺序 common ---> libs ---> libs-compat ---> client ---> service
+![](https://www.github.com/xiesen310/notes_Images/raw/master/images/{year}-{month}/5.png "5")
+``` shell
+rpm -ivh mysql-community-common-5.7.22-1.el7.x86_64.rpm 
+rpm -ivh mysql-community-libs-5.7.22-1.el7.x86_64.rpm
+rpm -ivh mysql-community-libs-compat-5.7.22-1.el7.x86_64.rpm 
+rpm -ivh mysql-community-client-5.7.22-1.el7.x86_64.rpm
+rpm -ivh mysql-community-server-5.7.22-1.el7.x86_64.rpm 
+```
+检查是否安装成功
+
+``` shell
+rpm -qa | grep mysql;
+```
+启动服务
+
+``` shell
+service mysqld start;
+```
+获取原始密码
+
+``` shell
+grep 'password' /var/log/mysqld.log
+```
+
+进入mysql
+
+``` shell
+mysql -uroot -p
+```
+输入上图所示的密码
+ 
+ 修改密码
+
+``` sql
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'Mysql@123';
+```
+注意: 设置密码一定要复杂，密码包含特殊字符，英文大小写，数字等等
+设置用户权限
+
+``` sql
+grant all privileges on *.* to 'root'@'%' identified by 'Mysql@123' with grant option;
+flush privileges;
+```
+
+先退出，然后使用修改的新密码登录
+ 
+
+
+
